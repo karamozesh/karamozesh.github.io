@@ -1,8 +1,12 @@
-function App() {
+import { Outlet } from 'react-router-dom';
+import Layout from './components/Layout/Layout';
+
+function App({ children }) {
   return (
-    <div>
-      <h1>Hello world</h1>
-    </div>
+    <Layout>
+      {children}
+      <Outlet />
+    </Layout>
   );
 }
 

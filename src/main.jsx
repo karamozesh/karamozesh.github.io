@@ -38,10 +38,14 @@ import './index.css';
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Home />,
-    loader: homeLoader,
-    errorElement: <RootBoundary />,
+    element: <App />,
     children: [
+      {
+        path: '/',
+        element: <Home />,
+        loader: homeLoader,
+        errorElement: <RootBoundary />,
+      },
       {
         path: '/access',
         element: <Access />,
