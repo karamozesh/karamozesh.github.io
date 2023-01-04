@@ -35,9 +35,10 @@ export default function Navbar() {
               </li>
             ))}
             <li>
-              <div className="block w-[170px] py-2 ml-4 text-center rounded-3xl bg-primaryColor text-white">
+              {/* impelement create resume menu */}
+              {/* <div className="block w-[170px] py-2 ml-4 text-center text-sm rounded-3xl bg-primaryColor text-white">
                 ساخت رزومه
-              </div>
+              </div> */}
             </li>
           </ul>
         </nav>
