@@ -4,7 +4,6 @@ import {
 } from '@reduxjs/toolkit';
 import Cookies from 'universal-cookie';
 import { loginByUsernamePass } from '../api/authAPI';
-import { API_LOGIN } from '../api/configAPI';
 
 const cookies = new Cookies();
 const token_id = '1234_qwe_3435_jkier_hello';
@@ -31,12 +30,13 @@ let initialState = {
 
 export const loginHandler = createAsyncThunk(
   'login',
-  async (username, password, thunkAPI) => {
-    const response = await loginByUsernamePass(
+  async ({ username, password }, thunkAPI) => {
+    const data = await loginByUsernamePass(
       username,
       password,
     );
-    return response.data;
+
+    return data;
   },
 );
 
@@ -52,9 +52,15 @@ const authSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(
+      loginHandler.pending,
+      (state, action) => {},
+    );
+    builder.addCase(
       loginHandler.fulfilled,
       (state, action) => {
-        state.user_token = action.payload;
+        console.log(action.payload.token);
+        const user_token = action.payload.token;
+        state.user_token = user_token;
         state.isLoggedIn = true;
         const nextYear = new Date(
           new Date().setFullYear(
@@ -63,7 +69,7 @@ const authSlice = createSlice({
         );
         cookies.set(
           token_id,
-          action.payload.toString(),
+          user_token.toString(),
           {
             path: '/',
             expires: nextYear,

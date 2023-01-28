@@ -5,17 +5,17 @@ export const loginByUsernamePass = async (
   username,
   password,
 ) => {
-  axios
-    .post(
-      API_LOGIN,
-      { username, password },
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+  const response = await axios.post(
+    API_LOGIN,
+    { username, password },
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
       },
-    )
-    .then((res) => res)
-    .catch((err) => err);
+    },
+  );
+  const data = await response.data;
+
+  return data;
 };
