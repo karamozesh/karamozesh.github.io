@@ -3,7 +3,10 @@ import {
   createSlice,
 } from '@reduxjs/toolkit';
 import Cookies from 'universal-cookie';
-import { loginByUsernamePass } from '../api/authAPI';
+import {
+  loginByUsernamePass,
+  registerByUsernamePass,
+} from '../api/authAPI';
 
 const cookies = new Cookies();
 const token_id = '1234_qwe_3435_jkier_hello';
@@ -40,6 +43,18 @@ export const loginHandler = createAsyncThunk(
   },
 );
 
+export const registerHandler = createAsyncThunk(
+  'register',
+  async ({ username, password }) => {
+    const token = await registerByUsernamePass(
+      username,
+      password,
+    );
+
+    return token;
+  },
+);
+
 const authSlice = createSlice({
   name: 'auth',
   initialState,
@@ -58,7 +73,6 @@ const authSlice = createSlice({
     builder.addCase(
       loginHandler.fulfilled,
       (state, action) => {
-        console.log(action.payload.token);
         const user_token = action.payload.token;
         state.user_token = user_token;
         state.isLoggedIn = true;
@@ -75,6 +89,34 @@ const authSlice = createSlice({
             expires: nextYear,
           },
         );
+      },
+    );
+    builder.addCase(
+      registerHandler.pending(),
+      (state, action) => {},
+    );
+    builder.addCase(
+      registerHandler.fulfilled(),
+      (state, action) => {
+        const user_token = action.payload.token;
+        if (user_token === 'error') {
+        } else {
+          state.user_token = user_token;
+          state.isLoggedIn = true;
+          const nextYear = new Date(
+            new Date().setFullYear(
+              new Date().getFullYear() + 1,
+            ),
+          );
+          cookies.set(
+            token_id,
+            user_token.toString(),
+            {
+              path: '/',
+              expires: nextYear,
+            },
+          );
+        }
       },
     );
   },
