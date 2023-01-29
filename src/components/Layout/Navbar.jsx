@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function Navbar() {
@@ -15,6 +16,9 @@ export default function Navbar() {
       href: '/resumeBank',
     },
   ];
+
+  const [showResumeMenu, setShowResumeMenu] =
+    useState(false);
 
   return (
     <header className="h-[100px] flex justify-between items-center px-5">
@@ -36,9 +40,38 @@ export default function Navbar() {
             ))}
             <li>
               {/* impelement create resume menu */}
-              {/* <div className="block w-[170px] py-2 ml-4 text-center text-sm rounded-3xl bg-primaryColor text-white">
+              <div
+                className="relative w-[170px] py-2 ml-4 text-center text-sm rounded-3xl bg-primaryColor text-white cursor-pointer"
+                onClick={() =>
+                  setShowResumeMenu(
+                    (prev) => !prev,
+                  )
+                }
+              >
                 ساخت رزومه
-              </div> */}
+                {showResumeMenu && (
+                  <div className="absolute w-full top-full left-0 shadow-md text-xs bg-white rounded-md text-black-500">
+                    <ul>
+                      <li>
+                        <Link
+                          to="/resume/create"
+                          className="block p-2 hover:bg-primaryColor/25"
+                        >
+                          آموزش رزومه نویسی
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          to="/resume/training"
+                          className="block p-2 hover:bg-primaryColor/25"
+                        >
+                          ساخت رزومه
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
+                )}
+              </div>
             </li>
           </ul>
         </nav>

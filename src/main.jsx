@@ -18,7 +18,7 @@ import ResumeCreating, {
 } from './routes/resume/create';
 import ResumeTraining, {
   resumeTrainingLoader,
-} from './routes/resume/traning';
+} from './routes/resume/training';
 import ResumeBank, {
   resumeBankLoader,
 } from './routes/resumeBank';
@@ -37,6 +37,7 @@ import TalentSurveyTest, {
 import RootBoundary from './components/RootBoundary/RootBoundary';
 
 import './index.css';
+import Resume from './routes/resume';
 
 const router = createBrowserRouter([
   {
@@ -56,7 +57,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/resume',
-        element: <div></div>,
+        element: <Resume />,
         loader: accessLoader,
         children: [
           {
