@@ -8,6 +8,8 @@ export default function CustomDropdown({
 }) {
   const menu = { items };
 
+  console.log(items);
+
   return (
     <Dropdown
       menu={menu}

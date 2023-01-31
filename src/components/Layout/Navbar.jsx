@@ -136,18 +136,29 @@ const MobileNav = () => {
 
 const DesktopNav = () => {
   // desktop
-  const skillMenuItems = [];
+
+  const resumeURL_base = '/resume';
 
   const resumeMenuItems = [
     {
-      label: 'آموزش رزومه نویسی',
-      key: '1',
+      label: (
+        <Link to={`${resumeURL_base}/training`}>
+          آموزش رزومه نویسی
+        </Link>
+      ),
+      key: `${resumeURL_base}/training`,
     },
     {
-      label: 'ساخت رزومه',
-      key: '2',
+      label: (
+        <Link to={`${resumeURL_base}/create`}>
+          ساخت رزومه
+        </Link>
+      ),
+      key: `${resumeURL_base}/create`,
     },
   ];
+
+  const skillMenuItems = [];
 
   return (
     <nav className="desktop hidden lg:block">
