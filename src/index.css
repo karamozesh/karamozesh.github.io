@@ -24,6 +24,27 @@
   .font-inherit {
     font-size: inherit;
   }
+  .main {
+    padding: 2rem 0;
+    width: 90%;
+    margin: auto;
+  }
+
+  h1 {
+    @apply text-2xl;
+  }
+
+  h2 {
+    @apply text-lg;
+  }
+
+  h3 {
+    @apply text-base;
+  }
+
+  p {
+    @apply text-sm;
+  }
 }
 
 * {
