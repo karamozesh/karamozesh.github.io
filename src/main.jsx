@@ -62,12 +62,12 @@ const router = createBrowserRouter([
         loader: accessLoader,
         children: [
           {
-            path: '/login',
+            path: 'login',
             element: <Login />,
             loader: loginLoader,
           },
           {
-            path: '/register',
+            path: 'register',
             element: <Register />,
             loader: registerLoader,
           },
