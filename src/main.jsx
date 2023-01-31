@@ -38,6 +38,12 @@ import RootBoundary from './components/RootBoundary/RootBoundary';
 
 import './index.css';
 import Resume from './routes/resume';
+import Login, {
+  loginLoader,
+} from './routes/access/login';
+import Register, {
+  registerLoader,
+} from './routes/access/register';
 
 const router = createBrowserRouter([
   {
@@ -54,6 +60,18 @@ const router = createBrowserRouter([
         path: '/access',
         element: <Access />,
         loader: accessLoader,
+        children: [
+          {
+            path: '/login',
+            element: <Login />,
+            loader: loginLoader,
+          },
+          {
+            path: '/register',
+            element: <Register />,
+            loader: registerLoader,
+          },
+        ],
       },
       {
         path: '/resume',
