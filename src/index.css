@@ -21,17 +21,48 @@
       format('truetype');
     font-weight: 700;
   }
+  .font-inherit {
+    font-size: inherit;
+  }
 }
 
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  font-family: 'Iran Yekan';
 }
 
 html {
-  font-family: 'Iran Yekan';
   font-weight: 400;
-  font-size: 20px;
+  font-size: 16px;
   overflow-x: hidden;
+}
+
+.ant-drawer-content-wrapper {
+  width: 70% !important;
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+  .ant-drawer-content-wrapper {
+    width: 350px !important;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  html {
+    font-size: 18px;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  html {
+    font-size: 20px;
+  }
 }

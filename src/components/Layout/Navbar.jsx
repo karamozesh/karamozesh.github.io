@@ -1,89 +1,170 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import {
+  Link,
+  useNavigate,
+} from 'react-router-dom';
+import { Drawer, Menu } from 'antd';
+
+import CustomDropdown from '../UI/CustomDropdown';
+
+import './index.css';
+
+import { ReactComponent as BarMenu } from '../../asset/icon/bars-v2.svg';
+
+function getItem(
+  label,
+  key,
+  icon,
+  children,
+  type,
+) {
+  return {
+    key,
+    icon,
+    children,
+    label,
+    type,
+  };
+}
 
 export default function Navbar() {
-  const links = [
-    {
-      name: 'استعداد سنجی',
-      href: '/talentSurvey',
-    },
-    {
-      name: 'مهارت',
-      href: '/skillHome',
-    },
-    {
-      name: 'بانک رزومه',
-      href: '/resumeBank',
-    },
-  ];
-
-  const [showResumeMenu, setShowResumeMenu] =
-    useState(false);
-
   return (
-    <header className="h-[100px] flex justify-between items-center px-5">
+    <header className="h-[75px] flex justify-between items-center px-5 bg-primaryColor text-white">
       <div className="flex items-center">
-        <h1 className="ml-4 text-2xl text-primaryColor">
-          کارآموزش
+        <MobileNav />
+        <h1 className="hidden ml-4 text-xl lg:text-2xl md:block">
+          آموزشیار
         </h1>
-        <nav>
-          <ul className="flex">
-            {links.map((link) => (
-              <li key={link.name}>
-                <Link
-                  to={{ pathname: link.href }}
-                  className="block w-[170px] py-2 ml-4 text-center text-sm rounded-3xl bg-primaryColor text-white"
-                >
-                  {link.name}
-                </Link>
-              </li>
-            ))}
-            <li>
-              {/* impelement create resume menu */}
-              <div
-                className="relative w-[170px] py-2 ml-4 text-center text-sm rounded-3xl bg-primaryColor text-white cursor-pointer"
-                onClick={() =>
-                  setShowResumeMenu(
-                    (prev) => !prev,
-                  )
-                }
-              >
-                ساخت رزومه
-                {showResumeMenu && (
-                  <div className="absolute w-full top-full left-0 shadow-md text-xs bg-white rounded-md text-black-500">
-                    <ul>
-                      <li>
-                        <Link
-                          to="/resume/create"
-                          className="block p-2 hover:bg-primaryColor/25"
-                        >
-                          آموزش رزومه نویسی
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          to="/resume/training"
-                          className="block p-2 hover:bg-primaryColor/25"
-                        >
-                          ساخت رزومه
-                        </Link>
-                      </li>
-                    </ul>
-                  </div>
-                )}
-              </div>
-            </li>
-          </ul>
-        </nav>
+        <DesktopNav />
       </div>
-      <div className="flex justify-between items-center w-[270px] h-[50px] rounded-3xl bg-gray-700 shadow-md">
-        <Link className="flex justify-center items-center w-[100px] h-full text-black-900">
+      <div className="flex justify-between items-center w-[180px] h-[40px] rounded-3xl bg-gray-700 text-base shadow-md lg:w-[235px]">
+        <Link
+          to="/access/login"
+          className="flex justify-center items-center w-[100px] h-full text-black-900"
+        >
           ورود
         </Link>
-        <Link className="flex justify-center items-center w-[170px] h-full bg-primaryColor text-white rounded-3xl">
+        <Link
+          to="/access/register"
+          className="flex justify-center items-center w-[170px] h-full bg-secondaryColor text-black-900 rounded-3xl"
+        >
           عضویت
         </Link>
       </div>
     </header>
   );
 }
+
+const MobileNav = () => {
+  // mobile
+
+  const [open, setOpen] = useState(false);
+  const navigator = useNavigate();
+
+  const drawerCloseHandler = () => {
+    setOpen(false);
+  };
+
+  const drawerToggleHandler = () => {
+    setOpen((prev) => !prev);
+  };
+
+  const items = [
+    getItem(
+      'درخواست مشاوره',
+      '/request-moshavere',
+      null,
+      null,
+    ),
+    getItem('ساخت رزومه', '/resume', null, [
+      getItem(
+        'آموزش رزومه نویسی',
+        '/training',
+        null,
+        null,
+      ),
+      getItem(
+        'ساخت رزومه',
+        '/create',
+        null,
+        null,
+      ),
+    ]),
+    getItem('کسب مهارت', '/skill', null, []),
+    getItem(
+      'بانک رزومه',
+      '/resume-bank',
+      null,
+      null,
+    ),
+  ];
+  const onClick = (e) => {
+    const href = e.keyPath.reverse().join('');
+    navigator(href);
+  };
+
+  return (
+    <nav className="mobile lg:hidden">
+      <div className="flex items-center cursor-pointer ml-8">
+        <div>
+          <BarMenu
+            fill="currentColor"
+            stroke="currentColor"
+            onClick={drawerToggleHandler}
+          />
+        </div>
+      </div>
+      <Drawer
+        title="آموزشیار"
+        placement="right"
+        onClose={drawerCloseHandler}
+        open={open}
+        closeIcon={<BarMenu />}
+      >
+        <Menu
+          onClick={onClick}
+          className="text-base border-l-5"
+          defaultSelectedKeys={['1']}
+          mode="inline"
+          items={items}
+          inlineIndent={24}
+        />
+      </Drawer>
+    </nav>
+  );
+};
+
+const DesktopNav = () => {
+  // desktop
+  const skillMenuItems = [];
+
+  const resumeMenuItems = [
+    {
+      label: 'آموزش رزومه نویسی',
+      key: '1',
+    },
+    {
+      label: 'ساخت رزومه',
+      key: '2',
+    },
+  ];
+
+  return (
+    <nav className="desktop hidden lg:block">
+      <ul className="flex justify-between text-base [&>*]:ml-8">
+        <Link to="/moshavere-request">
+          درخواست مشاوره
+        </Link>
+        <CustomDropdown
+          items={resumeMenuItems}
+          label="ساخت رزومه"
+        />
+        <CustomDropdown
+          items={skillMenuItems}
+          label="کسب مهارت"
+        />
+        <Link to="resume-bank">بانک رزومه</Link>
+      </ul>
+    </nav>
+  );
+};

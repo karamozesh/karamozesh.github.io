@@ -73,29 +73,29 @@ const router = createBrowserRouter([
         ],
       },
       {
-        path: '/resumeBank',
+        path: '/resume-bank',
         element: <ResumeBank />,
         loader: resumeBankLoader,
       },
       {
-        path: '/skillHome',
+        path: '/skill',
         element: <SkillHome />,
         loader: skillHomeLoader,
         children: [
           {
-            path: 'skillTutorial',
+            path: 'tutorial',
             element: <SkillTutorial />,
             loader: skillTutorialLoader,
           },
         ],
       },
       {
-        path: '/talentSurvey',
+        path: '/talent-survey',
         element: <TalentSurvey />,
         loader: talentSurveyLoader,
         children: [
           {
-            path: 'talentSurveyTest',
+            path: 'test',
             element: <TalentSurveyTest />,
             loader: talentSurveyTestLoader,
           },
