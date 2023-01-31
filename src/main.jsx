@@ -9,35 +9,13 @@ import {
   RouterProvider,
 } from 'react-router-dom';
 
+import './index.css';
+
 import Home, { homeLoader } from './routes/home';
+
 import Access, {
   accessLoader,
 } from './routes/access';
-import ResumeCreating, {
-  resumeCretingLoader,
-} from './routes/resume/create';
-import ResumeTraining, {
-  resumeTrainingLoader,
-} from './routes/resume/training';
-import ResumeBank, {
-  resumeBankLoader,
-} from './routes/resumeBank';
-import SkillHome, {
-  skillHomeLoader,
-} from './routes/skill';
-import SkillTutorial, {
-  skillTutorialLoader,
-} from './routes/skill/skillTutorial';
-import TalentSurvey, {
-  talentSurveyLoader,
-} from './routes/TalentSurvey';
-import TalentSurveyTest, {
-  talentSurveyTestLoader,
-} from './routes/talentSurvey/talentSurveyTest';
-import RootBoundary from './components/RootBoundary/RootBoundary';
-
-import './index.css';
-import Resume from './routes/resume';
 import Login, {
   loginLoader,
 } from './routes/access/login';
@@ -45,19 +23,47 @@ import Register, {
   registerLoader,
 } from './routes/access/register';
 
+import Resume from './routes/resume';
+import ResumeCreating, {
+  resumeCretingLoader,
+} from './routes/resume/create';
+import ResumeTraining, {
+  resumeTrainingLoader,
+} from './routes/resume/training';
+
+import ResumeBank, {
+  resumeBankLoader,
+} from './routes/resume-bank';
+
+import SkillHome, {
+  skillHomeLoader,
+} from './routes/skill';
+import SkillTutorial, {
+  skillTutorialLoader,
+} from './routes/skill/tutorial';
+
+import TalentSurvey, {
+  talentSurveyLoader,
+} from './routes/talent-survey';
+import TalentSurveyTest, {
+  talentSurveyTestLoader,
+} from './routes/talent-survey/test';
+
+import RootBoundary from './components/RootBoundary/RootBoundary';
+
 const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
     children: [
       {
-        path: '/',
+        path: '',
         element: <Home />,
         loader: homeLoader,
         errorElement: <RootBoundary />,
       },
       {
-        path: '/access',
+        path: 'access',
         element: <Access />,
         loader: accessLoader,
         children: [
@@ -74,7 +80,12 @@ const router = createBrowserRouter([
         ],
       },
       {
-        path: '/resume',
+        path: 'moshavere-request',
+        element: <></>,
+        loader: null,
+      },
+      {
+        path: 'resume',
         element: <Resume />,
         loader: accessLoader,
         children: [
@@ -91,12 +102,12 @@ const router = createBrowserRouter([
         ],
       },
       {
-        path: '/resume-bank',
+        path: 'resume-bank',
         element: <ResumeBank />,
         loader: resumeBankLoader,
       },
       {
-        path: '/skill',
+        path: 'skill',
         element: <SkillHome />,
         loader: skillHomeLoader,
         children: [
@@ -108,7 +119,7 @@ const router = createBrowserRouter([
         ],
       },
       {
-        path: '/talent-survey',
+        path: 'talent-survey',
         element: <TalentSurvey />,
         loader: talentSurveyLoader,
         children: [
