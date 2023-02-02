@@ -24,9 +24,12 @@ import Register, {
 } from './routes/access/register';
 
 import Resume from './routes/resume';
+import ResumeCreatingHomePage, {
+  resumeCretingHomePageLoader,
+} from './routes/resume/create-homepage';
 import ResumeCreating, {
   resumeCretingLoader,
-} from './routes/resume/create';
+} from './routes/resume/create-homepage/creating';
 import ResumeTraining, {
   resumeTrainingLoader,
 } from './routes/resume/training';
@@ -90,9 +93,16 @@ const router = createBrowserRouter([
         loader: accessLoader,
         children: [
           {
-            path: 'create',
-            element: <ResumeCreating />,
-            loader: resumeCretingLoader,
+            path: 'create-homepage',
+            element: <ResumeCreatingHomePage />,
+            loader: resumeCretingHomePageLoader,
+            children: [
+              {
+                path: 'creating',
+                element: <ResumeCreating />,
+                loader: resumeCretingLoader,
+              },
+            ],
           },
           {
             path: 'training',

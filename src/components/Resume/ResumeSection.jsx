@@ -5,7 +5,7 @@ export default function ResumeSection({
   return (
     <div className="mb-12">
       <h2 className="mb-4">{title}</h2>
-      <p>{text}</p>
+      {text.type ? <>{text}</> : <p>{text}</p>}
     </div>
   );
 }

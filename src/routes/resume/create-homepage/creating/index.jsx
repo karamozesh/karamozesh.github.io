@@ -1,6 +1,5 @@
 export default function ResumeCreating() {
-  console.log('hello');
-  return <div>ResumeCreating Page!</div>;
+  return <div>reusme creating page!</div>;
 }
 
 const resumeCretingLoader = () => {

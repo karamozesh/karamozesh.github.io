@@ -32,9 +32,11 @@ export default function Navbar() {
     <header className="h-[75px] flex justify-between items-center px-5 bg-primaryColor text-white">
       <div className="flex items-center">
         <MobileNav />
-        <h1 className="hidden ml-4 text-xl lg:text-2xl md:block">
-          آموزشیار
-        </h1>
+        <Link to="/">
+          <h1 className="hidden ml-4 text-xl lg:text-2xl md:block">
+            آموزشیار
+          </h1>
+        </Link>
         <DesktopNav />
       </div>
       <div className="flex justify-between items-center w-[180px] h-[40px] rounded-3xl bg-gray-700 text-base shadow-md lg:w-[235px]">
@@ -85,7 +87,7 @@ const MobileNav = () => {
       ),
       getItem(
         'ساخت رزومه',
-        '/create',
+        '/create-homepage',
         null,
         null,
       ),
@@ -150,11 +152,13 @@ const DesktopNav = () => {
     },
     {
       label: (
-        <Link to={`${resumeURL_base}/create`}>
+        <Link
+          to={`${resumeURL_base}/create-homepage`}
+        >
           ساخت رزومه
         </Link>
       ),
-      key: `${resumeURL_base}/create`,
+      key: `${resumeURL_base}/create-homepage`,
     },
   ];
 

@@ -33,5 +33,9 @@ module.exports = {
       },
     },
   },
+  // for confilict with antd
+  // corePlugins: {
+  //   preflight: false, // <== disable this!
+  // },
   plugins: [],
 };
