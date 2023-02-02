@@ -5,6 +5,9 @@ import {
   useParams,
 } from 'react-router-dom';
 
+import BaseInformationContent from '../../../../../components/Resume/CreateSteps/BaseInformationContent';
+import EducationContent from '../../../../../components/Resume/CreateSteps/EducationContent';
+
 const stepObjs = [
   {
     path: 'base-information',
@@ -64,7 +67,9 @@ export default function ResumeStep() {
         ))}
       </div>
       {/* content */}
-      <div className="w-full min-h-[40vh] border  border-gray-600 rounded-b-md shadow-xl"></div>
+
+      {/* <BaseInformationContent /> */}
+      <EducationContent />
     </div>
   );
 }
