@@ -53,6 +53,9 @@ import TalentSurveyTest, {
 } from './routes/talent-survey/test';
 
 import RootBoundary from './components/RootBoundary/RootBoundary';
+import ResumeStep, {
+  resumeStepLoader,
+} from './routes/resume/create-homepage/creating/slug';
 
 const router = createBrowserRouter([
   {
@@ -96,11 +99,16 @@ const router = createBrowserRouter([
             path: 'create-homepage',
             element: <ResumeCreatingHomePage />,
             loader: resumeCretingHomePageLoader,
+          },
+          {
+            path: 'creating',
+            element: <ResumeCreating />,
+            loader: resumeCretingLoader,
             children: [
               {
-                path: 'creating',
-                element: <ResumeCreating />,
-                loader: resumeCretingLoader,
+                path: ':stepPath',
+                element: <ResumeStep />,
+                loader: resumeStepLoader,
               },
             ],
           },

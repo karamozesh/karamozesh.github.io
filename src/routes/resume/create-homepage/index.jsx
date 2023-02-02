@@ -1,6 +1,6 @@
 import { Button, Space } from 'antd';
 import ResumeSection from '../../../components/Resume/ResumeSection';
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 
 export default function ResumeCreating() {
   return (
@@ -32,7 +32,7 @@ export default function ResumeCreating() {
         }
       />
       <Space>
-        <Link to="creating">
+        <Link to="/resume/creating/base-information">
           <button className="text-base py-2 px-8 rounded-2xl shadow-2xl text-white bg-secondaryColor">
             ساخت رزومه
           </button>
