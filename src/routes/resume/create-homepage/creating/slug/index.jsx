@@ -73,9 +73,9 @@ export default function ResumeStep() {
 
       {/* <BaseInformationContent /> */}
       {/* <EducationContent /> */}
-      <WorkExperienceContent />
+      {/* <WorkExperienceContent /> */}
       {/* <SkillsContent /> */}
-      {/* <FurtherInformationContent /> */}
+      <FurtherInformationContent />
     </div>
   );
 }
