@@ -35,6 +35,7 @@ const FurtherInformationContent = () => {
             <ResumeInput
               label="زبان"
               type="text"
+              placeholder="فرانسوی"
             />
             <div className="flex flex-col my-8">
               <Slider min={1} max={5} step={1} />
@@ -45,17 +46,17 @@ const FurtherInformationContent = () => {
             <ButtonAddResume onClick={null} />
           </div>
           <div className="py-4">
-            {/* <ResumeSkillCard
-              nameSkill="برنامه نویسی"
+            <ResumeSkillCard
+              nameSkill="فارسی"
               lvlSkill={4}
               id={1}
               className="mb-4"
             />
             <ResumeSkillCard
-              nameSkill="برنامه نویسی"
+              nameSkill="انگلیسی"
               lvlSkill={4}
               id={1}
-            /> */}
+            />
           </div>
         </div>
       ),

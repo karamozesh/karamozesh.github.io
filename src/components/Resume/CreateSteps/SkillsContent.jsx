@@ -1,6 +1,7 @@
 import ButtonAddResume from '../../UI/ButtonAddResume';
 import ResumeInput from '../ResumeInput';
 import { Slider } from 'antd';
+import ResumeSkillCard from '../ResumeSkillCard';
 
 const SkillsContent = () => {
   return (
@@ -22,6 +23,19 @@ const SkillsContent = () => {
             <span className="self-end">25%</span>
           </div>
           <ButtonAddResume onClick={null} />
+        </div>
+        <div>
+          <ResumeSkillCard
+            id={1}
+            nameSkill="برنامه نویسی"
+            lvlSkill="1"
+            className="mb-4"
+          />
+          <ResumeSkillCard
+            id={1}
+            nameSkill="پنچرگیری تانک"
+            lvlSkill="5"
+          />
         </div>
       </div>
     </div>

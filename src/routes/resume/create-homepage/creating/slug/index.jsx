@@ -45,7 +45,37 @@ export default function ResumeStep() {
     }
   }, []);
 
-  console.log(stepFind.path);
+  let content = <BaseInformationContent />;
+
+  switch (stepPath) {
+    case 'education':
+      content = <EducationContent />;
+      break;
+
+    case 'work-experience':
+      content = <WorkExperienceContent />;
+      break;
+    case 'skills':
+      content = <SkillsContent />;
+      break;
+    case 'further-information':
+      content = <FurtherInformationContent />;
+      break;
+    case 'recommendation':
+      content = (
+        <div className="resume-step-content items-center justify-center">
+          این بخش هنوز طراحی نشده است
+        </div>
+      );
+      break;
+    case 'tests':
+      content = (
+        <div className="resume-step-content items-center justify-center">
+          این بخش هنوز طراحی نشده است
+        </div>
+      );
+      break;
+  }
 
   return (
     <div className="flex flex-col justify-between min-h-[40vh] w-full">
@@ -70,12 +100,7 @@ export default function ResumeStep() {
         ))}
       </div>
       {/* content */}
-
-      {/* <BaseInformationContent /> */}
-      {/* <EducationContent /> */}
-      {/* <WorkExperienceContent /> */}
-      {/* <SkillsContent /> */}
-      <FurtherInformationContent />
+      {content}
     </div>
   );
 }
