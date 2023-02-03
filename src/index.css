@@ -97,6 +97,36 @@ html {
   font-size: 1rem;
 }
 
+/* add margin-bottom for each tab items */
+.ant-tabs-tab {
+  margin-bottom: 1rem !important;
+}
+
+/* hide border-left from tabs  & add margin-right for space with tabs */
+.ant-tabs-content-holder {
+  border-left: 0 !important;
+  margin-right: 3rem !important;
+}
+
+/* --slider section */
+
+.ant-slider-track {
+  background-color: #f5af2b !important;
+}
+
+.ant-slider-handle::after {
+  transform: scale(1.5);
+  background-color: #f5af2b !important;
+  box-shadow: 0 0 0 2px #f5af2b !important;
+}
+
+.ant-tooltip-inner {
+  display: flex;
+  justify-content: center;
+}
+
+/* --slider section */
+
 /*  css change antd styles 
                             --end */
 

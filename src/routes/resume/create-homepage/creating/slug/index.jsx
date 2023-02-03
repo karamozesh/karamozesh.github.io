@@ -7,6 +7,9 @@ import {
 
 import BaseInformationContent from '../../../../../components/Resume/CreateSteps/BaseInformationContent';
 import EducationContent from '../../../../../components/Resume/CreateSteps/EducationContent';
+import WorkExperienceContent from '../../../../../components/Resume/CreateSteps/WorkExperieneContent';
+import SkillsContent from '../../../../../components/Resume/CreateSteps/SkillsContent';
+import FurtherInformationContent from '../../../../../components/Resume/CreateSteps/FurtherInformationContent';
 
 const stepObjs = [
   {
@@ -69,7 +72,10 @@ export default function ResumeStep() {
       {/* content */}
 
       {/* <BaseInformationContent /> */}
-      <EducationContent />
+      {/* <EducationContent /> */}
+      <WorkExperienceContent />
+      {/* <SkillsContent /> */}
+      {/* <FurtherInformationContent /> */}
     </div>
   );
 }
