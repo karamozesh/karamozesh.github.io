@@ -19,21 +19,34 @@ const BaseInformationContent = () => {
     },
   ];
 
-  const vaziatTaahol = [
-    [
-      {
-        value: 'men',
-        label: 'مرد',
-      },
-      {
-        value: 'women',
-        label: 'زن',
-      },
-      {
-        value: 'else',
-        label: 'سایر',
-      },
-    ],
+  const vaziatTaaholOptions = [
+    {
+      value: 'single',
+      label: 'مجرد',
+    },
+    {
+      value: 'married',
+      label: 'متاهل',
+    },
+  ];
+
+  const cityOptions = [
+    { value: 'tehran', label: 'تهران' },
+    { value: 'esfahan', label: 'اصفهان' },
+    { value: 'mashhad', label: 'مشهد' },
+    { value: 'shiraz', label: 'شیراز' },
+    { value: 'kermanshah', label: 'کرمانشاه' },
+    { value: 'ahvaz', label: 'اهواز' },
+    { value: 'tabriz', label: 'تبریز' },
+  ];
+
+  const nezamVazifeOptions = [
+    { value: 'included', label: 'مشمول' },
+    { value: 'exempt', label: 'معافیت دائم' },
+    {
+      value: 'exempt-education',
+      label: 'معافیت تحصیلی',
+    },
   ];
 
   return (
@@ -50,16 +63,18 @@ const BaseInformationContent = () => {
       <div className="mt-4">
         <div className="grid grid-cols-2 gap-28 mb-4">
           <ResumeInput
-            label="نام رزومه(رزومه مهندسی برق)"
+            label="نام رزومه"
             name="name-resume"
             type="text"
             onChange={null}
+            placeholder="فرانت اند"
           />
           <ResumeInput
             label="شماره همراه"
             name="phone-number"
             type="text"
             onChange={null}
+            placeholder="0912345678"
           />
         </div>
         <div className="grid grid-cols-2 gap-28 items-end h-full ">
@@ -68,6 +83,7 @@ const BaseInformationContent = () => {
             name="firstname"
             type="text"
             onChange={null}
+            placeholder="احمد"
           />
           <div className="grid grid-cols-2 gap-4">
             <Select
@@ -76,10 +92,10 @@ const BaseInformationContent = () => {
               options={jensiatOptions}
             />
             <Select
-              defaultValue="جنسیت"
+              defaultValue="وضعیت تاهل"
               dropdownMatchSelectWidth={false}
               placement="bottomRight"
-              options={vaziatTaahol}
+              options={vaziatTaaholOptions}
             />
           </div>
         </div>
@@ -89,18 +105,19 @@ const BaseInformationContent = () => {
             name="lastname"
             type="text"
             onChange={null}
+            placeholder="روشن فکر"
           />
           <div className="grid grid-cols-2 gap-4 items-end">
             <Select
               defaultValue="شهر"
               placement="bottomRight"
-              options={jensiatOptions}
+              options={cityOptions}
             />
             <Select
               defaultValue="نظام وظیفه"
               dropdownMatchSelectWidth={false}
               placement="bottomRight"
-              options={vaziatTaahol}
+              options={nezamVazifeOptions}
             />
           </div>
         </div>
@@ -108,7 +125,7 @@ const BaseInformationContent = () => {
           <ResumeInput
             label="تاریخ تولد"
             name="date-birthday"
-            type="text"
+            type="date"
             onChange={null}
           />
           <ResumeInput
@@ -116,6 +133,7 @@ const BaseInformationContent = () => {
             name="address"
             type="text"
             onChange={null}
+            placeholder="استان تهران، شهر تهران، مهراباد جنوبی، ۱۲ متری شمشیری"
           />
         </div>
       </div>
