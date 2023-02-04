@@ -1,3 +1,4 @@
+import { useSelector } from 'react-redux';
 import profileImage from '../../../asset/images/people-media-profile.svg';
 import ResumeInput from '../ResumeInput';
 import { Select } from 'antd';
