@@ -5,6 +5,7 @@ export default function ResumeInput({
   type,
   className,
   placeholder,
+  innerRef,
   ...props
 }) {
   return (
@@ -17,6 +18,7 @@ export default function ResumeInput({
         className={`mt-2 py-2 px-4 rounded-xl bg-gray-400 focus:outline-none focus:outline-gray-500 placeholder-gray-800 ${className}`}
         onChange={onChange}
         {...props}
+        ref={innerRef}
       />
     </div>
   );

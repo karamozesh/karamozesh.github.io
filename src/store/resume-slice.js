@@ -1,12 +1,25 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+/* 
+interface SelectType {
+  value: String,
+  label: String,
+}
+
+*/
+
 const initialState = {
   baseInformation: {
-    name_resume: '', // String
+    nameResume: '', // String
     phonenumber: '', // String
-    first_name: '', // String
-    last_name: '', // String
-    generic: '', // String
+    firstName: '', // String
+    lastName: '', // String
+    generic: '', // type: SelectType
+    vaziatTaahol: '', // type: SelectType
+    city: '', // type: SelectType
+    nezamVazife: '', // type: SelectType
+    birthdayDate: '', // Date
+    address: '', // String
   },
   education: {
     gradeEducation: '', // String
