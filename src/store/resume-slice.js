@@ -37,7 +37,7 @@ const initialState = {
     endDate: '', // Date
   },
   skill: {
-    skills: [], // String[]
+    skills: [], // {name: String, lvl: number, id: number}[]
   },
   furhterInformation: {
     ALittleAboutMe: '', // String
@@ -52,35 +52,39 @@ const resumeSlice = createSlice({
   name: 'resume',
   initialState,
   reducers: {
-    addBaseInformation(state, action) {
+    setBaseInformation(state, action) {
       state.baseInformation = action.payload;
     },
     changeBaseInformation(state, action) {
       const { prop, value } = action.payload;
       state.baseInformation[prop] = value;
     },
-    addEducation(state, action) {
+    setEducation(state, action) {
       state.education = action.payload;
     },
     changeEducation(state, action) {
       const { prop, value } = action.payload;
       state.education[prop] = value;
     },
-    addWorkExperience(state, action) {
+    setWorkExperience(state, action) {
       state.workExperience = action.payload;
     },
     changeWorkExperience(state, action) {
       const { prop, value } = action.payload;
       state.workExperience[prop] = value;
     },
-    addSkill(state, action) {
+    setSkill(state, action) {
       state.skill = action.payload;
     },
     changeSkill(state, action) {
       const { prop, value } = action.payload;
       state.skill[prop] = value;
     },
-    addFutherInformation(state, action) {
+    addSkill(state, action) {
+      const skill = action.payload;
+      state.skill.skills.push(skill);
+    },
+    setFutherInformation(state, action) {
       state.furhterInformation = action.payload;
     },
     changeFutherInformation(state, action) {
