@@ -35,7 +35,7 @@ const Languages = ({ heightOfChildren }) => {
   };
 
   const addLanguageHandler = () => {
-    let lastLanguage_id = 0;
+    let lastLanguage_id = 1;
 
     if (languages.length > 0) {
       lastLanguage_id =

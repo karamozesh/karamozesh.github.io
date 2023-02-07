@@ -1,7 +1,71 @@
+import { useRef, useState } from 'react';
+import {
+  useDispatch,
+  useSelector,
+} from 'react-redux';
 import ResumeInput from '../../ResumeInput';
 import ResumePeyvast from '../../ResumePeyvast';
+import { resumeActions } from '../../../../store/resume-slice';
 
 const Certification = ({ heightOfChildren }) => {
+  const [certificationInfo, setCertifactionInfo] =
+    useState({
+      title: '',
+      marja: '',
+      dateSodor: '',
+      dateEngheza: '',
+      zamime: '',
+    });
+  const dispatch = useDispatch();
+  // const { furtherInformation } = useSelector(
+  //   (state) => state.resuem,
+  // );
+  // const { certificatesAndCourses } =
+  //   furtherInformation;
+
+  // const titleMadrakRef = useRef(null);
+  // const issuingInstitutionRef = useRef(null);
+
+  const titleMadrakChangeHandler = (e) => {
+    const titleMadrak_value = e.target.value;
+    setCertifactionInfo((prev) => ({
+      ...prev,
+      title: titleMadrak_value,
+    }));
+  };
+
+  const issuingInstitutionChangeHandler = (e) => {
+    const value = e.target.value;
+    setCertifactionInfo((prev) => ({
+      ...prev,
+      marja: value,
+    }));
+  };
+
+  const dateSodorChangeHandler = (e) => {
+    const value = e.target.value;
+    setCertifactionInfo((prev) => ({
+      ...prev,
+      dateSodor: value,
+    }));
+  };
+
+  const dateEnghezaChangeHandler = (e) => {
+    const value = e.target.value;
+    setCertifactionInfo((prev) => ({
+      ...prev,
+      dateEngheza: value,
+    }));
+  };
+
+  const zamimeChangeHandler = (e) => {
+    const value = e.target.value;
+    setCertifactionInfo((prev) => ({
+      ...prev,
+      zamime: value,
+    }));
+  };
+
   return (
     <div
       className={`grid grid-cols-2 gap-20 ${heightOfChildren}`}
@@ -10,33 +74,37 @@ const Certification = ({ heightOfChildren }) => {
         <ResumeInput
           label="عنوان مدرک"
           type="text"
-          onChange={null}
+          onChange={titleMadrakChangeHandler}
           name="title-madrak"
           className="mb-8"
         />
         <ResumeInput
-          label="عنوان مدرک"
+          label="موسسه صادرکننده"
           type="text"
-          onChange={null}
-          name="title-madrak"
+          onChange={
+            issuingInstitutionChangeHandler
+          }
+          name="issuing-institution"
           className="mb-8"
         />
         <div className="grid grid-cols-2 gap-12">
           <ResumeInput
             label="تاریخ صدور"
             name="date-sodor"
-            onChange={null}
+            onChange={dateSodorChangeHandler}
             type="date"
           />
           <ResumeInput
             label="تاریخ انقضا"
             name="date-engheza"
-            onChange={null}
+            onChange={dateEnghezaChangeHandler}
             type="date"
           />
         </div>
       </div>
-      <ResumePeyvast />
+      <ResumePeyvast
+        onChange={zamimeChangeHandler}
+      />
     </div>
   );
 };

@@ -41,9 +41,9 @@ const initialState = {
   },
   furtherInformation: {
     ALittleAboutMe: '', // String
-    languages: [], // String[]
+    languages: [], // {id: number, name: String}[]
     certificatesAndCourses: [], // {title: String, issuingInstitution: String, startDate: Date, endDate: Date}[]
-    favorites: [], //String[]
+    favorites: [], //{id: number, name: String}[]
     contact: [], // {name: String, link: String}[]
   },
 };
@@ -96,6 +96,14 @@ const resumeSlice = createSlice({
       action,
     ) {
       state.furtherInformation.languages.push(
+        action.payload,
+      );
+    },
+    addFavoriteInFurtherInformation(
+      state,
+      action,
+    ) {
+      state.furtherInformation.favorites.push(
         action.payload,
       );
     },
