@@ -39,7 +39,7 @@ const initialState = {
   skill: {
     skills: [], // {name: String, lvl: number, id: number}[]
   },
-  furhterInformation: {
+  furtherInformation: {
     ALittleAboutMe: '', // String
     languages: [], // String[]
     certificatesAndCourses: [], // {title: String, issuingInstitution: String, startDate: Date, endDate: Date}[]
@@ -85,11 +85,19 @@ const resumeSlice = createSlice({
       state.skill.skills.push(skill);
     },
     setFutherInformation(state, action) {
-      state.furhterInformation = action.payload;
+      state.furtherInformation = action.payload;
     },
     changeFutherInformation(state, action) {
       const { prop, value } = action.payload;
-      state.furhterInformation[prop] = value;
+      state.furtherInformation[prop] = value;
+    },
+    addLanguageInFurtherInformation(
+      state,
+      action,
+    ) {
+      state.furtherInformation.languages.push(
+        action.payload,
+      );
     },
   },
 });
