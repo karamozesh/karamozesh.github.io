@@ -56,8 +56,10 @@ import RootBoundary from './components/RootBoundary/RootBoundary';
 import ResumeStep, {
   resumeStepLoader,
 } from './routes/resume/create-homepage/creating/slug';
+import NotFound from './routes/not-found';
 
 const router = createBrowserRouter([
+  { path: '*', element: <NotFound /> },
   {
     path: '/',
     element: <App />,
