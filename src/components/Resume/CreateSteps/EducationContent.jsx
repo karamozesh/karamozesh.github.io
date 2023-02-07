@@ -16,15 +16,15 @@ const EducationContent = () => {
 
   const gradeEducationRef = useRef(null);
   const fieldOfStudyRef = useRef(null);
-  const startDateRef = useRef(null);
-  const endDateRef = useRef(null);
+  // const startDateRef = useRef(null);
+  // const endDateRef = useRef(null);
   const nameUniversityRef = useRef(null);
 
   const {
     gradeEducation,
     fieldOfStudy,
-    startDate,
-    endDate,
+    // startDate,
+    // endDate,
     nameUniversity,
   } = education;
 
@@ -32,8 +32,8 @@ const EducationContent = () => {
     gradeEducationRef.current.value =
       gradeEducation;
     fieldOfStudyRef.current.value = fieldOfStudy;
-    startDateRef.current.value = startDate;
-    endDateRef.current.value = endDate;
+    // startDateRef.current.value = startDate;
+    // endDateRef.current.value = endDate;
     nameUniversityRef.current.value =
       nameUniversity;
   }, []);
@@ -60,9 +60,29 @@ const EducationContent = () => {
     );
   };
 
-  const startDateChangeHandler = (e) => {};
+  const startDateChangeHandler = (
+    date,
+    dateString,
+  ) => {
+    dispatch(
+      resumeActions.changeEducation({
+        prop: 'startDate',
+        value: dateString,
+      }),
+    );
+  };
 
-  const endDateChangeHandler = (e) => {};
+  const endDateChangeHandler = (
+    date,
+    dateString,
+  ) => {
+    dispatch(
+      resumeActions.changeEducation({
+        prop: 'endDate',
+        value: dateString,
+      }),
+    );
+  };
 
   const nameUniversityChangeHandler = (e) => {
     const nameUniversity_value = e.target.value;
@@ -103,14 +123,14 @@ const EducationContent = () => {
             name="start-date"
             placeholder="زمان شروع"
             onChange={startDateChangeHandler}
-            innerRef={startDateRef}
+            // innerRef={startDateRef}
           />
           <ResumeInput
             label="تاریخ پایان"
             type="date"
             name="end-date"
             onChange={endDateChangeHandler}
-            innerRef={endDateRef}
+            // innerRef={endDateRef}
           />
         </div>
         <ResumeInput

@@ -42,16 +42,22 @@ const Certifications = ({ heightOfChildren }) => {
     }));
   };
 
-  const dateSodorChangeHandler = (e) => {
-    const value = e.target.value;
+  const dateSodorChangeHandler = (
+    date,
+    dateString,
+  ) => {
+    const value = dateString;
     setCertifactionInfo((prev) => ({
       ...prev,
       dateSodor: value,
     }));
   };
 
-  const dateEnghezaChangeHandler = (e) => {
-    const value = e.target.value;
+  const dateEnghezaChangeHandler = (
+    date,
+    dateString,
+  ) => {
+    const value = dateString;
     setCertifactionInfo((prev) => ({
       ...prev,
       dateEngheza: value,

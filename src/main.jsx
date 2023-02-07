@@ -58,6 +58,13 @@ import ResumeStep, {
 } from './routes/resume/create-homepage/creating/slug';
 import NotFound from './routes/not-found';
 
+// replace console.* for disable log on production
+if (process.env.NODE_ENV === 'production') {
+  console.log = () => {};
+  console.error = () => {};
+  console.debug = () => {};
+}
+
 const router = createBrowserRouter([
   { path: '*', element: <NotFound /> },
   {

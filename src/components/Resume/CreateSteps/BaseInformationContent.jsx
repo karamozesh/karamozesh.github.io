@@ -80,7 +80,7 @@ const BaseInformationContent = () => {
   const phoneNumberRef = useRef(null);
   const firstNameRef = useRef(null);
   const lastNameRef = useRef(null);
-  const birthdayDateRef = useRef(null);
+  // const birthdayDateRef = useRef(null);
   const addressRef = useRef(null);
 
   const nameResumeChangeHandler = (e) => {
@@ -123,8 +123,16 @@ const BaseInformationContent = () => {
     );
   };
 
-  const birthdayChangeHandler = (e) => {
-    // const birthday_value = e.target.value;
+  const birthdayChangeHandler = (
+    date,
+    dateString,
+  ) => {
+    dispatch(
+      resumeActions.changeBaseInformation({
+        prop: 'birthdayDate',
+        value: dateString,
+      }),
+    );
   };
 
   const genericChangeHandler = (_, option) => {
@@ -189,7 +197,6 @@ const BaseInformationContent = () => {
     phoneNumberRef.current.value = phonenumber;
     firstNameRef.current.value = firstName;
     lastNameRef.current.value = lastName;
-    birthdayDateRef.current.value = birthdayDate;
     addressRef.current.value = address;
   }, []);
 
@@ -297,8 +304,8 @@ const BaseInformationContent = () => {
             name="date-birthday"
             type="date"
             onChange={birthdayChangeHandler}
-            innerRef={birthdayDateRef}
           />
+
           <ResumeInput
             label="آدرس"
             name="address"
