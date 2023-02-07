@@ -1,5 +1,10 @@
+import Register from '/src/routes/access/register/index.jsx';
+import Login from '/src/routes/access/login/index.jsx';
+import React from 'react';
+import { Outlet } from 'react-router-dom';
+
 export default function Access() {
-  return <div>This is login/register page!</div>;
+  return <Outlet />;
 }
 
 const accessLoader = () => {
