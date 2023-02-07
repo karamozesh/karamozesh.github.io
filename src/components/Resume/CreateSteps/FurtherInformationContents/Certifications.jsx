@@ -7,7 +7,7 @@ import ResumeInput from '../../ResumeInput';
 import ResumePeyvast from '../../ResumePeyvast';
 import { resumeActions } from '../../../../store/resume-slice';
 
-const Certification = ({ heightOfChildren }) => {
+const Certifications = ({ heightOfChildren }) => {
   const [certificationInfo, setCertifactionInfo] =
     useState({
       title: '',
@@ -109,4 +109,4 @@ const Certification = ({ heightOfChildren }) => {
   );
 };
 
-export default Certification;
+export default Certifications;

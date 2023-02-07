@@ -11,7 +11,7 @@ import { useRef } from 'react';
 import { resumeActions } from '../../../store/resume-slice';
 import ALittleAboutMe from './FurtherInformationContents/ALittleAboutMe';
 import Languages from './FurtherInformationContents/Languages';
-import Certification from './FurtherInformationContents/certifications';
+import Certifications from './FurtherInformationContents/certifications';
 import Favorites from './FurtherInformationContents/Favorites';
 import ContactWays from './FurtherInformationContents/ContactWays';
 
@@ -41,7 +41,7 @@ const FurtherInformationContent = () => {
       key: 3,
       label: 'گواهینامه و دوره ها',
       children: (
-        <Certification
+        <Certifications
           heightOfChildren={heightOfChildren}
         />
       ),
