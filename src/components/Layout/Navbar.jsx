@@ -73,6 +73,12 @@ const MobileNav = () => {
 
   const items = [
     getItem(
+      'خودشناسی',
+      '/self-knowledge',
+      null,
+      null,
+    ),
+    getItem(
       'درخواست مشاوره',
       '/request-moshavere',
       null,
@@ -92,13 +98,13 @@ const MobileNav = () => {
         null,
       ),
     ]),
-    getItem('کسب مهارت', '/skill', null, []),
-    getItem(
-      'بانک رزومه',
-      '/resume-bank',
-      null,
-      null,
-    ),
+    // getItem('کسب مهارت', '/skill', null, []),
+    // getItem(
+    //   'بانک رزومه',
+    //   '/resume-bank',
+    //   null,
+    //   null,
+    // ),
   ];
   const onClick = (e) => {
     const href = e.keyPath.reverse().join('');
@@ -167,6 +173,7 @@ const DesktopNav = () => {
   return (
     <nav className="desktop hidden lg:block">
       <ul className="flex justify-between text-base [&>*]:ml-8">
+        <Link to="/self-knowledge">خودشناسی</Link>
         <Link to="/moshavere-request">
           درخواست مشاوره
         </Link>
@@ -174,11 +181,11 @@ const DesktopNav = () => {
           items={resumeMenuItems}
           label="ساخت رزومه"
         />
-        <CustomDropdown
+        {/* <CustomDropdown
           items={skillMenuItems}
           label="کسب مهارت"
-        />
-        <Link to="resume-bank">بانک رزومه</Link>
+        /> */}
+        {/* <Link to="resume-bank">بانک رزومه</Link> */}
       </ul>
     </nav>
   );

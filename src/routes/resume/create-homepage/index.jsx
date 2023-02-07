@@ -4,7 +4,7 @@ import { Link, Outlet } from 'react-router-dom';
 
 export default function ResumeCreating() {
   return (
-    <div className="main min-h-[calc(100vh_-_(75px_+_100px))]">
+    <div className="main root-page">
       <h1 className="inline-block pb-2 mb-4 border-b-2">
         ساختن رزومه
       </h1>

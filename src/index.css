@@ -31,6 +31,10 @@
     margin: auto;
   }
 
+  .root-page {
+    @apply min-h-[calc(100vh_-_(75px_+_100px))];
+  }
+
   .resume-step-content {
     @apply flex flex-col w-full min-h-[40vh] px-8 pt-4 pb-8  border border-gray-600 rounded-b-md shadow-xl;
   }
