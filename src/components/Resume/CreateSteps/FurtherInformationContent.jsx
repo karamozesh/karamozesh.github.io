@@ -2,7 +2,7 @@ import { Tabs } from 'antd';
 
 import ALittleAboutMe from './FurtherInformationContents/ALittleAboutMe';
 import Languages from './FurtherInformationContents/Languages';
-import Certifications from './FurtherInformationContents/certifications';
+import Certifications from './FurtherInformationContents/Certifications';
 import Favorites from './FurtherInformationContents/Favorites';
 import ContactWays from './FurtherInformationContents/ContactWays';
 
