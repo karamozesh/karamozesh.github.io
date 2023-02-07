@@ -107,6 +107,14 @@ const resumeSlice = createSlice({
         action.payload,
       );
     },
+    addContactInFurtherInformation(
+      state,
+      action,
+    ) {
+      state.furtherInformation.contact.push(
+        action.payload,
+      );
+    },
   },
 });
 
