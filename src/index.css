@@ -2,10 +2,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-<<<<<<< HEAD
-
-=======
->>>>>>> 4cd674438ea6701863f2220feac92a15a5641a79
 @layer base {
     @font-face {
         font-family: 'Iran Yekan';
