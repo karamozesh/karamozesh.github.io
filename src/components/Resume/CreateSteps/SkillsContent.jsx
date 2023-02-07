@@ -24,16 +24,18 @@ const SkillsContent = () => {
 
   const skillRef = useRef(null);
 
-  const skillChangeHandler = (e) => {};
+  const resetFields = () => {
+    setLvlSkill(1);
+    skillRef.current.value = '';
+  };
 
   const skillAddHandler = () => {
     // simple validation for skill item
     const skill_name = skillRef.current.value;
-    console.log(skill_name);
     if (skill_name.trim().length < 4) return;
 
     const skill_lvl = lvlSkill;
-    let skill_id = 0;
+    let skill_id = 1;
     if (skills.length > 0) {
       skill_id = skills[skills.length - 1].id + 1;
     }
@@ -43,7 +45,7 @@ const SkillsContent = () => {
       lvl: skill_lvl,
     };
     dispatch(resumeActions.addSkill(skill_obj));
-    skillRef.current.value = '';
+    resetFields();
   };
 
   const skillLvlChangeHandler = (lvl) => {
@@ -70,6 +72,7 @@ const SkillsContent = () => {
               min={1}
               max={5}
               step={1}
+              value={lvlSkill}
               onChange={skillLvlChangeHandler}
             />
             <span className="self-end">
