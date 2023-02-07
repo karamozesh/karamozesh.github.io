@@ -3,167 +3,153 @@
 @tailwind components;
 @tailwind utilities;
 @layer base {
-    @font-face {
-        font-family: 'Iran Yekan';
-        src: url('./asset/fonts/IranYekan/iranyekanweblight.woff') format('truetype');
-        font-weight: 300;
-    }
-    @font-face {
-        font-family: 'Iran Yekan';
-        src: url('./asset/fonts/IranYekan/iranyekanregular.woff') format('truetype');
-        font-weight: 400;
-    }
-    @font-face {
-        font-family: 'Iran Yekan';
-        src: url('./asset/fonts/IranYekan/iranyekanwebbold.woff') format('truetype');
-        font-weight: 700;
-    }
-    .font-inherit {
-        font-size: inherit;
-    }
-    .main {
-        padding: 2rem 0;
-        width: 90%;
-        margin: auto;
-    }
-    .resume-step-content {
-        @apply flex flex-col w-full min-h-[40vh] px-8 pt-4 pb-8 border border-gray-600 rounded-b-md shadow-xl;
-    }
-    h1 {
-        @apply text-2xl;
-    }
-    h2 {
-        @apply text-lg;
-    }
-    h3 {
-        @apply text-base;
-    }
-    p {
-        @apply text-sm;
-    }
+  @font-face {
+    font-family: 'Iran Yekan';
+    src: url('./asset/fonts/IranYekan/iranyekanweblight.woff')
+      format('truetype');
+    font-weight: 300;
+  }
+  @font-face {
+    font-family: 'Iran Yekan';
+    src: url('./asset/fonts/IranYekan/iranyekanregular.woff')
+      format('truetype');
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: 'Iran Yekan';
+    src: url('./asset/fonts/IranYekan/iranyekanwebbold.woff')
+      format('truetype');
+    font-weight: 700;
+  }
+  .font-inherit {
+    font-size: inherit;
+  }
+  .main {
+    padding: 2rem 0;
+    width: 90%;
+    margin: auto;
+  }
+  .resume-step-content {
+    @apply flex flex-col w-full min-h-[40vh] px-8 pt-4 pb-8 border border-gray-600 rounded-b-md shadow-xl;
+  }
+  h1 {
+    @apply text-2xl;
+  }
+  h2 {
+    @apply text-lg;
+  }
+  h3 {
+    @apply text-base;
+  }
+  p {
+    @apply text-sm;
+  }
 }
 
 * {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    font-family: 'Iran Yekan';
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'Iran Yekan';
 }
 
 html {
-    font-weight: 400;
-    font-size: 16px;
-    overflow-x: hidden;
+  font-weight: 400;
+  font-size: 16px;
+  overflow-x: hidden;
 }
-
 
 /* --start 
             css change antd styles */
 
 .ant-drawer-content-wrapper {
-    width: 70% !important;
+  width: 70% !important;
 }
 
 .ant-select-selector {
-    background-color: #f2f2f2 !important;
-    border: none !important;
-    padding: 0.5rem 1rem !important;
-    height: fit-content !important;
-    border-radius: 1.5rem !important;
+  background-color: #f2f2f2 !important;
+  border: none !important;
+  padding: 0.5rem 1rem !important;
+  height: fit-content !important;
+  border-radius: 1.5rem !important;
 }
 
 .ant-select-selector:focus {
-    outline: none !important;
-    outline-color: #f2f2f2 !important;
+  outline: none !important;
+  outline-color: #f2f2f2 !important;
 }
 
 .ant-select-arrow {
-    position: absolute !important;
-    top: 60% !important;
-    left: 20px !important;
-    transform: translateY(-50%) !important;
+  position: absolute !important;
+  top: 60% !important;
+  left: 20px !important;
+  transform: translateY(-50%) !important;
 }
-
 
 /* text for select */
 
 .ant-select-selection-item {
-    font-size: 1rem;
+  font-size: 1rem;
 }
-
 
 /* add margin-bottom for each tab items */
 
 .ant-tabs-tab {
-    margin-bottom: 1rem !important;
+  margin-bottom: 1rem !important;
 }
-
 
 /* hide border-left from tabs  & add margin-right for space with tabs */
 
 .ant-tabs-content-holder {
-    border-left: 0 !important;
-    margin-right: 3rem !important;
+  border-left: 0 !important;
+  margin-right: 3rem !important;
 }
-
 
 /* --slider section */
 
 .ant-slider-track {
-    background-color: #f5af2b !important;
+  background-color: #f5af2b !important;
 }
 
 .ant-slider-handle::after {
-    transform: scale(1.5);
-    background-color: #f5af2b !important;
-    box-shadow: 0 0 0 2px #f5af2b !important;
+  transform: scale(1.5);
+  background-color: #f5af2b !important;
+  box-shadow: 0 0 0 2px #f5af2b !important;
 }
 
 .ant-tooltip-inner {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
-
 /* --slider section */
-
 
 /*  css change antd styles 
                             --end */
 
-
 /* Medium devices (landscape tablets, 768px and up) */
 
 @media only screen and (min-width: 768px) {
-    html {
-        font-size: 16px;
-    }
-    .ant-drawer-content-wrapper {
-        width: 350px !important;
-    }
+  html {
+    font-size: 16px;
+  }
+  .ant-drawer-content-wrapper {
+    width: 350px !important;
+  }
 }
-
 
 /* Large devices (laptops/desktops, 992px and up) */
 
 @media only screen and (min-width: 992px) {
-    html {
-        font-size: 18px;
-    }
+  html {
+    font-size: 18px;
+  }
 }
-
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 
 @media only screen and (min-width: 1200px) {
-<<<<<<< HEAD
   html {
     font-size: 20px;
   }
 }
-=======
-    html {
-        font-size: 20px;
-    }
-}
->>>>>>> 4cd674438ea6701863f2220feac92a15a5641a79
