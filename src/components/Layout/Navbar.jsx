@@ -1,13 +1,12 @@
 import { useState } from 'react';
 import {
   Link,
+  useLocation,
   useNavigate,
 } from 'react-router-dom';
 import { Drawer, Menu } from 'antd';
 
 import CustomDropdown from '../UI/CustomDropdown';
-
-import './index.css';
 
 import { ReactComponent as BarMenu } from '../../asset/icon/bars-v2.svg';
 
@@ -28,15 +27,25 @@ function getItem(
 }
 
 export default function Navbar() {
+  const { pathname } = useLocation();
+
   return (
-    <header className="h-[75px] flex justify-between items-center px-5 bg-primaryColor text-white">
-      <div className="flex items-center">
+    <header
+      className={`h-[75px] flex justify-between items-center px-5 text-white ${
+        pathname === '/'
+          ? 'bg-white'
+          : 'bg-primaryColor'
+      }`}
+    >
+      <div className="flex items-center w-full">
         <MobileNav />
-        <Link to="/">
-          <h1 className="hidden ml-4 text-xl lg:text-2xl md:block">
-            آموزشیار
-          </h1>
-        </Link>
+        {pathname !== '/' && (
+          <Link to="/">
+            <h1 className="hidden ml-4 text-xl lg:text-2xl md:block">
+              آموزشیار
+            </h1>
+          </Link>
+        )}
         <DesktopNav />
       </div>
       <div className="flex justify-between items-center w-[180px] h-[40px] rounded-3xl bg-gray-700 text-base shadow-md lg:w-[235px]">
@@ -48,7 +57,11 @@ export default function Navbar() {
         </Link>
         <Link
           to="/access/register"
-          className="flex justify-center items-center w-[170px] h-full bg-secondaryColor text-black-900 rounded-3xl"
+          className={`flex justify-center items-center w-[170px] h-full ${
+            pathname === '/'
+              ? 'bg-primaryColor text-white'
+              : 'bg-secondaryColor text-black-900'
+          } rounded-3xl`}
         >
           عضویت
         </Link>
@@ -145,6 +158,8 @@ const MobileNav = () => {
 const DesktopNav = () => {
   // desktop
 
+  const { pathname } = useLocation();
+
   const resumeURL_base = '/resume';
 
   const resumeMenuItems = [
@@ -170,22 +185,43 @@ const DesktopNav = () => {
 
   const skillMenuItems = [];
 
+  const linkClassName =
+    pathname === '/'
+      ? 'px-4 bg-primaryColor rounded-2xl'
+      : null;
+
   return (
-    <nav className="desktop hidden lg:block">
-      <ul className="flex justify-between text-base [&>*]:ml-8">
-        <Link to="/self-knowledge">خودشناسی</Link>
-        <Link to="/moshavere-request">
+    <nav className="desktop hidden w-full lg:block">
+      <ul className="flex w-full text-base [&>*]:ml-4">
+        <Link
+          to="/self-knowledge"
+          className={linkClassName}
+        >
+          خودشناسی
+        </Link>
+        <Link
+          to="/moshavere-request"
+          className={linkClassName}
+        >
           درخواست مشاوره
         </Link>
         <CustomDropdown
           items={resumeMenuItems}
           label="ساخت رزومه"
+          className={linkClassName}
         />
-        {/* <CustomDropdown
+        {/*  for next term */}
+        <CustomDropdown
           items={skillMenuItems}
           label="کسب مهارت"
-        /> */}
-        {/* <Link to="resume-bank">بانک رزومه</Link> */}
+          className={linkClassName}
+        />
+        <Link
+          to="resume-bank"
+          className={linkClassName}
+        >
+          بانک رزومه
+        </Link>
       </ul>
     </nav>
   );
