@@ -75,6 +75,10 @@ html {
   overflow-x: hidden;
 }
 
+img {
+  user-select: none;
+}
+
 /* --start 
             css change antd styles */
 

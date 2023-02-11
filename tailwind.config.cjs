@@ -14,6 +14,8 @@ module.exports = {
         '4xl': ['2.5rem', '3rem'],
         '5xl': ['3rem', '3.25rem'],
         '6xl': ['4rem', '3.5rem'],
+        '8xl': ['7rem', '8rem'],
+        '9xl': ['9rem', '3rem'],
       },
       colors: {
         primaryColor: '#576BF0',
@@ -35,6 +37,9 @@ module.exports = {
           900: '#A7A7A7',
         },
       },
+    },
+    fontFamily: {
+      zohor: ['zohor'],
     },
   },
   // for confilict with antd
