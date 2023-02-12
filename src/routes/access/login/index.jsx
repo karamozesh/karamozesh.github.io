@@ -18,7 +18,7 @@ export default function Login() {
             status && 'translate-x-full'
           }`}
         >
-          <figure className="h-full border">
+          <figure className="h-full ">
             <img
               src={LoginBanner}
               alt=""

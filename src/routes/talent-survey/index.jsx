@@ -1,5 +1,11 @@
+import { Outlet } from 'react-router-dom';
+
 export default function TalentSurvey() {
-  return <div>TalentSurvey Page!</div>;
+  return (
+    <>
+      <Outlet />
+    </>
+  );
 }
 
 const talentSurveyLoader = () => {

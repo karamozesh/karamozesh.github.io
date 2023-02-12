@@ -73,6 +73,12 @@ const MobileNav = () => {
 
   const items = [
     getItem(
+      'خودشناسی',
+      '/talent-survey',
+      null,
+      null,
+    ),
+    getItem(
       'درخواست مشاوره',
       '/request-moshavere',
       null,
@@ -167,6 +173,9 @@ const DesktopNav = () => {
   return (
     <nav className="desktop hidden lg:block">
       <ul className="flex justify-between text-base [&>*]:ml-8">
+        <Link to="/talent-survey/test">
+          خودشناسی
+        </Link>
         <Link to="/moshavere-request">
           درخواست مشاوره
         </Link>
