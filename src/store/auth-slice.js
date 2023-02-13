@@ -45,10 +45,17 @@ export const loginHandler = createAsyncThunk(
 
 export const registerHandler = createAsyncThunk(
   'register',
-  async ({ username, password }) => {
+  async ({
+    username,
+    email,
+    password,
+    password_confirm,
+  }) => {
     const token = await registerByUsernamePass(
       username,
+      email,
       password,
+      password_confirm,
     );
 
     return token;
