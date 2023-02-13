@@ -5,15 +5,14 @@ import caretDownIcon from '../../asset/icon/caret-down_icon.svg';
 export default function CustomDropdown({
   label,
   items,
+  className,
 }) {
   const menu = { items };
-
-  console.log(items);
 
   return (
     <Dropdown
       menu={menu}
-      className="cursor-pointer [&>*]:bg-primaryColor font-inherit"
+      className={`cursor-pointer [&>*]:bg-primaryColor font-inherit ${className}`}
       placement="bottomRight"
     >
       <Space>

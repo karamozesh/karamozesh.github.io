@@ -1,3 +1,5 @@
+import logoSite from '../../asset/images/logo-site.png';
+
 export default function Footer() {
   return (
     <footer
@@ -5,9 +7,9 @@ export default function Footer() {
       style={{ direction: 'ltr' }}
     >
       <img
-        src=""
+        src={logoSite}
         alt=""
-        className="w-[75px] h-[75px] mr-4 bg-white rounded-3xl"
+        className="w-[75px] h-[75px] mr-4 bg-white rounded-full"
       />
       <div className="flex flex-col justify-center w-full h-full">
         <div className="flex">
@@ -15,7 +17,9 @@ export default function Footer() {
           <p>تماس با ما</p>
         </div>
         <div className="w-[90%] h-[0.5px] my-2 bg-black-900"></div>
-        <p>Reserved For KARAMOZESH</p>
+        <p>
+          تمامی حقوق برای سایت کارآموزش محفوظ است
+        </p>
       </div>
     </footer>
   );

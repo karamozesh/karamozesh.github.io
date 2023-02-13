@@ -28,16 +28,16 @@ const WorkExperienceContent = () => {
   const employmentTitleRef = useRef(null);
   const occupationalGroupRef = useRef(null);
   const companyNameRef = useRef(null);
-  const startDateRef = useRef(null);
-  const endDateRef = useRef(null);
+  // const startDateRef = useRef(null);
+  // const endDateRef = useRef(null);
 
   useEffect(() => {
     employmentStatusRef.current.value =
       employmentStatus;
     employmentTitleRef.current.value =
       employmentTitle;
-    startDateRef.current.value = startDate;
-    endDateRef.current.value = endDate;
+    // startDateRef.current.value = startDate;
+    // endDateRef.current.value = endDate;
     occupationalGroupRef.current.value =
       occupationalGroup;
     companyNameRef.current.value = companyName;
@@ -89,9 +89,29 @@ const WorkExperienceContent = () => {
     );
   };
 
-  const startDateChangeHandler = (e) => {};
+  const startDateChangeHandler = (
+    date,
+    dateString,
+  ) => {
+    dispatch(
+      resumeActions.changeEducation({
+        prop: 'startDate',
+        value: dateString,
+      }),
+    );
+  };
 
-  const endDateChangeHandler = (e) => {};
+  const endDateChangeHandler = (
+    date,
+    dateString,
+  ) => {
+    dispatch(
+      resumeActions.changeEducation({
+        prop: 'endDate',
+        value: dateString,
+      }),
+    );
+  };
 
   return (
     <div className="resume-step-content">
@@ -140,14 +160,14 @@ const WorkExperienceContent = () => {
             type="date"
             name="start-date-work"
             onChange={startDateChangeHandler}
-            innerRef={startDateRef}
+            // innerRef={startDateRef}
           />
           <ResumeInput
             label="تاریخ پایان"
             type="date"
             name="end-date-work"
             onChange={endDateChangeHandler}
-            innerRef={endDateRef}
+            // innerRef={endDateRef}
           />
         </div>
       </div>

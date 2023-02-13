@@ -21,6 +21,12 @@
       format('truetype');
     font-weight: 700;
   }
+  @font-face {
+    font-family: 'zohoor';
+    src: url('./asset/fonts/zohoor.ttf')
+      format('truetype');
+    font-weight: 400;
+  }
   .font-inherit {
     font-size: inherit;
   }
@@ -29,6 +35,14 @@
     width: 90%;
     margin: auto;
   }
+<<<<<<< HEAD
+=======
+
+  .root-page {
+    @apply min-h-[calc(100vh_-_(75px_+_100px))];
+  }
+
+>>>>>>> main
   .resume-step-content {
     @apply flex flex-col w-full min-h-[40vh] px-8 pt-4 pb-8 border border-gray-600 rounded-b-md shadow-xl;
   }
@@ -59,6 +73,7 @@ html {
   overflow-x: hidden;
 }
 
+<<<<<<< HEAD
 .test-sec {
   shape-outside: circle(50%);
   width: 200px;
@@ -66,6 +81,10 @@ html {
   float: right;
   /* border: 2px solid red; */
   margin: 20px;
+=======
+img {
+  user-select: none;
+>>>>>>> main
 }
 
 /* --start 
@@ -132,6 +151,28 @@ html {
 }
 
 /* --slider section */
+
+.ant-picker:focus,
+.ant-picker:active {
+  outline: 2px solid #9e9e9e !important;
+  border-inline-end-width: none !important;
+}
+
+.ant-picker:hover {
+  transition: none !important;
+  border: none;
+  border-inline-end-width: none !important;
+}
+
+.ant-picker-focused {
+  outline: 2px solid #9e9e9e !important;
+  box-shadow: none !important;
+  border-inline-end-width: none !important;
+}
+
+.ant-picker {
+  transition: none !important;
+}
 
 /*  css change antd styles 
                             --end */

@@ -1,17 +1,8 @@
-import { Slider, Table, Tabs } from 'antd';
-import ResumeInput from '../ResumeInput';
-import ButtonAddResume from '../../UI/ButtonAddResume';
-import ResumeSkillCard from '../ResumeSkillCard';
-import ResumePeyvast from '../ResumePeyvast';
-import {
-  useDispatch,
-  useSelector,
-} from 'react-redux';
-import { useRef } from 'react';
-import { resumeActions } from '../../../store/resume-slice';
+import { Tabs } from 'antd';
+
 import ALittleAboutMe from './FurtherInformationContents/ALittleAboutMe';
 import Languages from './FurtherInformationContents/Languages';
-import Certifications from './FurtherInformationContents/certifications';
+import Certifications from './FurtherInformationContents/Certifications';
 import Favorites from './FurtherInformationContents/Favorites';
 import ContactWays from './FurtherInformationContents/ContactWays';
 
