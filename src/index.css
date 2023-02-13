@@ -2,7 +2,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 @layer base {
   @font-face {
     font-family: 'Iran Yekan';
@@ -36,27 +35,22 @@
     width: 90%;
     margin: auto;
   }
-
   .root-page {
     @apply min-h-[calc(100vh_-_(75px_+_100px))];
   }
 
   .resume-step-content {
-    @apply flex flex-col w-full min-h-[40vh] px-8 pt-4 pb-8  border border-gray-600 rounded-b-md shadow-xl;
+    @apply flex flex-col w-full min-h-[40vh] px-8 pt-4 pb-8 border border-gray-600 rounded-b-md shadow-xl;
   }
-
   h1 {
     @apply text-2xl;
   }
-
   h2 {
     @apply text-lg;
   }
-
   h3 {
     @apply text-base;
   }
-
   p {
     @apply text-sm;
   }
@@ -75,6 +69,14 @@ html {
   overflow-x: hidden;
 }
 
+.test-sec {
+  shape-outside: circle(50%);
+  width: 200px;
+  height: 250px;
+  float: right;
+  /* border: 2px solid red; */
+  margin: 20px;
+}
 img {
   user-select: none;
 }
@@ -107,16 +109,19 @@ img {
 }
 
 /* text for select */
+
 .ant-select-selection-item {
   font-size: 1rem;
 }
 
 /* add margin-bottom for each tab items */
+
 .ant-tabs-tab {
   margin-bottom: 1rem !important;
 }
 
 /* hide border-left from tabs  & add margin-right for space with tabs */
+
 .ant-tabs-content-holder {
   border-left: 0 !important;
   margin-right: 3rem !important;
@@ -167,6 +172,7 @@ img {
                             --end */
 
 /* Medium devices (landscape tablets, 768px and up) */
+
 @media only screen and (min-width: 768px) {
   html {
     font-size: 16px;
@@ -177,6 +183,7 @@ img {
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
+
 @media only screen and (min-width: 992px) {
   html {
     font-size: 18px;
@@ -184,6 +191,7 @@ img {
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
+
 @media only screen and (min-width: 1200px) {
   html {
     font-size: 20px;

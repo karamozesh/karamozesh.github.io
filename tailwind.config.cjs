@@ -34,12 +34,13 @@ module.exports = {
           600: '#D9D9D9',
           700: '#ECEBEB',
           800: '#9E9E9E',
-          900: '#A7A7A7',
+          900: '*A7A7A7',
         },
       },
-    },
-    fontFamily: {
-      zohor: ['zohor'],
+
+      fontFamily: {
+        zohor: ['zohor'],
+      },
     },
   },
   // for confilict with antd

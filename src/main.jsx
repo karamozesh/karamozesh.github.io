@@ -51,6 +51,9 @@ import TalentSurvey, {
 import TalentSurveyTest, {
   talentSurveyTestLoader,
 } from './routes/talent-survey/test';
+import Haland from './components/TalentSurvey/Haland';
+import MBTI from './components/TalentSurvey/MBTI';
+import Disk from './components/TalentSurvey/Disk';
 
 import RootBoundary from './components/RootBoundary/RootBoundary';
 import ResumeStep, {
@@ -154,6 +157,18 @@ const router = createBrowserRouter([
             path: 'test',
             element: <TalentSurveyTest />,
             loader: talentSurveyTestLoader,
+          },
+          {
+            path: 'haland',
+            element: <Haland />,
+          },
+          {
+            path: 'mbti',
+            element: <MBTI />,
+          },
+          {
+            path: 'disk',
+            element: <Disk />,
           },
         ],
       },

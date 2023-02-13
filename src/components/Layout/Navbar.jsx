@@ -87,7 +87,7 @@ const MobileNav = () => {
   const items = [
     getItem(
       'خودشناسی',
-      '/self-knowledge',
+      '/talent-survey',
       null,
       null,
     ),
@@ -194,7 +194,7 @@ const DesktopNav = () => {
     <nav className="desktop hidden w-full lg:block">
       <ul className="flex w-full text-base [&>*]:ml-4">
         <Link
-          to="/self-knowledge"
+          to="/talent-survey/test"
           className={linkClassName}
         >
           خودشناسی

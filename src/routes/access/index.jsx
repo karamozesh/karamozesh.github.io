@@ -1,5 +1,8 @@
+import React from 'react';
+import { Outlet } from 'react-router-dom';
+
 export default function Access() {
-  return <div>This is login/register page!</div>;
+  return <Outlet />;
 }
 
 const accessLoader = () => {
