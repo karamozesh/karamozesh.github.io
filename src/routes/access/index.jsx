@@ -1,5 +1,3 @@
-import Register from '/src/routes/access/register/index.jsx';
-import Login from '/src/routes/access/login/index.jsx';
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 

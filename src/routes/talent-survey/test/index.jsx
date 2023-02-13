@@ -1,5 +1,14 @@
+import QuestionSurvey from '../../../components/TalentSurvey/QuestionSurvey';
+import TestCard from '../../../components/TalentSurvey/TestCard';
 export default function TalentSurveyTest() {
-  return <div>TalentSurveyTest</div>;
+  return (
+    <>
+      <div>
+        <QuestionSurvey />
+        <TestCard />
+      </div>
+    </>
+  );
 }
 
 const talentSurveyTestLoader = () => {

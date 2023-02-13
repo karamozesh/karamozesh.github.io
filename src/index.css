@@ -59,6 +59,15 @@ html {
   overflow-x: hidden;
 }
 
+.test-sec {
+  shape-outside: circle(50%);
+  width: 200px;
+  height: 250px;
+  float: right;
+  /* border: 2px solid red; */
+  margin: 20px;
+}
+
 /* --start 
             css change antd styles */
 
