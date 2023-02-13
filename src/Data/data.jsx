@@ -1,6 +1,6 @@
 export const data = [
   {
-    question: ' 1. گذراندن دوره تعمیر خودرو',
+    question: 'گذراندن دوره تعمیر خودرو',
 
     answer1: {
       label: 'خیلی بدم میاد',
@@ -8,7 +8,7 @@ export const data = [
     },
 
     answer2: {
-      label: ' بدم میاد',
+      label: 'بدم میاد',
       point: 4,
     },
 

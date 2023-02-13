@@ -87,11 +87,7 @@ const MobileNav = () => {
   const items = [
     getItem(
       'خودشناسی',
-<<<<<<< HEAD
       '/talent-survey',
-=======
-      '/self-knowledge',
->>>>>>> main
       null,
       null,
     ),
@@ -195,18 +191,10 @@ const DesktopNav = () => {
       : null;
 
   return (
-<<<<<<< HEAD
-    <nav className="desktop hidden lg:block">
-      <ul className="flex justify-between text-base [&>*]:ml-8">
-        <Link to="/talent-survey/test">
-          خودشناسی
-        </Link>
-        <Link to="/moshavere-request">
-=======
     <nav className="desktop hidden w-full lg:block">
       <ul className="flex w-full text-base [&>*]:ml-4">
         <Link
-          to="/self-knowledge"
+          to="/talent-survey/test"
           className={linkClassName}
         >
           خودشناسی
@@ -215,7 +203,6 @@ const DesktopNav = () => {
           to="/moshavere-request"
           className={linkClassName}
         >
->>>>>>> main
           درخواست مشاوره
         </Link>
         <CustomDropdown
