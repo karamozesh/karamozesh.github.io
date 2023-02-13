@@ -11,7 +11,6 @@ export default function Input({
       dir="auto"
       onChange={onChange}
       className="bg-gray-700 rounded-3xl px-4 py-8"
-      {...props}
     />
   );
 }

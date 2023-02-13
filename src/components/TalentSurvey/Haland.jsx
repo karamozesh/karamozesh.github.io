@@ -74,7 +74,7 @@ function Haland() {
           )}
           {isLastPage && (
             <button className="py-3 px-6 text-white bg-primaryColor rounded-3xl">
-              <Link to="result">
+              <Link to="/talent-survey/result">
                 دیدن نتیجه تست
               </Link>
             </button>

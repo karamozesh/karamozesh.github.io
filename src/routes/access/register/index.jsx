@@ -71,7 +71,7 @@ export default function Register() {
                   نام کاربری{' '}
                 </label>
                 <input
-                  className="bg-[#ECEBEB] rounded-full px-2 p-2 text-[12px] text-right "
+                  className="bg-[#ECEBEB]  placeholder-gray-800 rounded-full px-2 p-2 text-[12px] text-right "
                   type="text"
                   placeholder="نام کاربری"
                 />{' '}
@@ -84,7 +84,7 @@ export default function Register() {
                   شماره موبایل
                 </label>
                 <input
-                  className="bg-[#ECEBEB] rounded-full px-2 p-2 text-[12px] text-right "
+                  className="bg-[#ECEBEB] rounded-full  placeholder-gray-800 px-2 p-2 text-[12px] text-right "
                   type="text"
                   placeholder="شماره موبایل"
                 />
@@ -98,7 +98,7 @@ export default function Register() {
                 پست الکترونیک
               </label>
               <input
-                className="bg-[#ECEBEB] rounded-full text-[12px] p-1 text-sm"
+                className="bg-[#ECEBEB] rounded-full  placeholder-gray-800 text-[12px] px-2 text-left p-2"
                 type="text"
                 placeholder="
 Info@example.com"
@@ -112,7 +112,7 @@ Info@example.com"
                 گذرواژه{' '}
               </label>
               <input
-                className="bg-[#ECEBEB] rounded-full  p-1 text-sm"
+                className="bg-[#ECEBEB]  placeholder-gray-800 rounded-full  text-[12px] px-2 text-left p-2"
                 type="password"
                 placeholder="********"
               />
@@ -148,7 +148,7 @@ Info@example.com"
                 پست الکترونیک
               </label>
               <input
-                className="bg-[#ECEBEB] rounded-full p-1 text-sm"
+                className="bg-[#ECEBEB]  placeholder-gray-800 rounded-full text-[12px] px-2 text-left p-2"
                 type="text"
                 placeholder="
 Info@example.com"
@@ -162,7 +162,7 @@ Info@example.com"
                 گذرواژه{' '}
               </label>
               <input
-                className="bg-[#ECEBEB] rounded-full  p-1 text-sm"
+                className="bg-[#ECEBEB]  placeholder-gray-800 rounded-full text-[12px] px-2 text-left p-2"
                 type="password"
                 placeholder="********"
               />
@@ -213,7 +213,7 @@ Info@example.com"
             <div className="p-10 flex flex-col gap-5 ">
               <input
                 type="text"
-                className="p-2 rounded-full bg-slate-200"
+                className="p-2 rounded-full  placeholder-gray-800 bg-slate-200"
                 placeholder="پست الکترونیک "
               />
               <button className="bg-[#F5AF2B] p-2 rounded-full  text-sm">

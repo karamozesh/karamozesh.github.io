@@ -59,7 +59,7 @@ export default function Login() {
           </p>
           <div className="flex flex-col gap-3 p-5 px-14 ">
             <div className="flex justify-between gap-1 ">
-              <div className=" flex flex-col gap-2 w-1/2">
+              <div className=" flex flex-col gap-2 w-1/2 ">
                 <label
                   htmlFor=""
                   className="text-bold text-xs"
@@ -67,7 +67,7 @@ export default function Login() {
                   نام کاربری{' '}
                 </label>
                 <input
-                  className="bg-[#ECEBEB] rounded-full px-2 p-2  text-[12px] text-right "
+                  className="bg-[#ECEBEB] placeholder-gray-800 rounded-full px-2 p-2  text-[12px] text-right "
                   type="text"
                   placeholder="نام کاربری"
                 />{' '}
@@ -80,7 +80,7 @@ export default function Login() {
                   شماره موبایل
                 </label>
                 <input
-                  className="bg-[#ECEBEB] rounded-full px-2 p-2  text-[12px] text-right "
+                  className="bg-[#ECEBEB] rounded-full px-2 p-2  placeholder-gray-800 text-[12px] text-right "
                   type="text"
                   placeholder="شماره موبایل"
                 />
@@ -94,7 +94,7 @@ export default function Login() {
                 پست الکترونیک
               </label>
               <input
-                className="bg-[#ECEBEB] rounded-full text-[12px] p-1 text-sm"
+                className="bg-[#ECEBEB]  placeholder-gray-800 rounded-full text-[12px] px-2 text-left p-2 "
                 type="text"
                 placeholder="
      Info@example.com"
@@ -108,7 +108,7 @@ export default function Login() {
                 گذرواژه{' '}
               </label>
               <input
-                className="bg-[#ECEBEB] rounded-full p-1 text-sm"
+                className="bg-[#ECEBEB]  placeholder-gray-800 rounded-full text-[12px] px-2 text-left p-2"
                 type="password"
                 placeholder="********"
               />
@@ -144,7 +144,7 @@ export default function Login() {
                 پست الکترونیک
               </label>
               <input
-                className="bg-[#ECEBEB] rounded-full p-1 text-sm"
+                className="bg-[#ECEBEB]  placeholder-gray-800 rounded-full text-[12px] px-2 text-left p-2"
                 type="text"
                 placeholder="
 Info@example.com"
@@ -158,7 +158,7 @@ Info@example.com"
                 گذرواژه{' '}
               </label>
               <input
-                className="bg-[#ECEBEB] rounded-full  p-1 text-sm"
+                className="bg-[#ECEBEB]  placeholder-gray-800 rounded-full  text-[12px] px-2 text-left p-2"
                 type="password"
                 placeholder="********"
               />
@@ -206,7 +206,7 @@ Info@example.com"
             <div className="p-10 flex flex-col gap-5 ">
               <input
                 type="text"
-                className="p-2 rounded-full bg-slate-200"
+                className="p-2 rounded-full bg-slate-200  placeholder-gray-800"
                 placeholder="پست الکترونیک "
               />
               <button className="bg-[#F5AF2B] p-2 rounded-full  text-sm">

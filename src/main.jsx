@@ -55,6 +55,8 @@ import Haland from './components/TalentSurvey/Haland';
 import MBTI from './components/TalentSurvey/MBTI';
 import Disk from './components/TalentSurvey/Disk';
 
+import Result from './components/TalentResult/Result';
+
 import RootBoundary from './components/RootBoundary/RootBoundary';
 import ResumeStep, {
   resumeStepLoader,
@@ -161,6 +163,10 @@ const router = createBrowserRouter([
           {
             path: 'haland',
             element: <Haland />,
+          },
+          {
+            path: 'result',
+            element: <Result />,
           },
           {
             path: 'mbti',
