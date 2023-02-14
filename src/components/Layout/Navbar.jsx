@@ -131,13 +131,13 @@ const MobileNav = () => {
         null,
       ),
     ]),
-    // getItem('کسب مهارت', '/skill', null, []),
-    // getItem(
-    //   'بانک رزومه',
-    //   '/resume-bank',
-    //   null,
-    //   null,
-    // ),
+    getItem('کسب مهارت', '/skill', null, []),
+    getItem(
+      'بانک رزومه',
+      '/resume-bank',
+      null,
+      null,
+    ),
   ];
   const onClick = (e) => {
     const href = e.keyPath.reverse().join('');
@@ -219,19 +219,19 @@ const DesktopNav = () => {
         >
           خودشناسی
         </Link>
-        {/* <Link
+        <Link
           to="/moshavere-request"
           className={linkClassName}
         >
           درخواست مشاوره
-        </Link> */}
+        </Link>
         <CustomDropdown
           items={resumeMenuItems}
           label="ساخت رزومه"
           className={linkClassName}
         />
         {/*  for next term */}
-        {/* <CustomDropdown
+        <CustomDropdown
           items={skillMenuItems}
           label="کسب مهارت"
           className={linkClassName}
@@ -241,7 +241,7 @@ const DesktopNav = () => {
           className={linkClassName}
         >
           بانک رزومه
-        </Link> */}
+        </Link>
       </ul>
     </nav>
   );
