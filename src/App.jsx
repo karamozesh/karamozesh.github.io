@@ -1,4 +1,8 @@
-import { Route, Routes } from 'react-router-dom';
+import {
+  Route,
+  Routes,
+  createBrowserRouter,
+} from 'react-router-dom';
 import 'antd/dist/reset.css';
 import './index.css';
 
@@ -17,6 +21,7 @@ import NotFound from './routes/not-found';
 
 import Layout from './components/Layout/Layout';
 import { useSelector } from 'react-redux';
+import TalentSurveyTest from './routes/talent-survey/test';
 
 function App() {
   const { isLoggedIn } = useSelector(
@@ -26,7 +31,7 @@ function App() {
   return (
     <Layout>
       {/* not loggin users */}
-      {isLoggedIn && (
+      {!isLoggedIn && (
         <Routes>
           <Route path="/" element={<Home />} />
           <Route
@@ -60,6 +65,12 @@ function App() {
                 element={<ResumeStep />}
               />
             </Route>
+          </Route>
+          <Route path="talent-survey">
+            <Route
+              path="test"
+              element={<TalentSurveyTest />}
+            />
           </Route>
           <Route
             path="*"
