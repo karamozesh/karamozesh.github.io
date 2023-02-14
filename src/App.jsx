@@ -2,6 +2,7 @@ import {
   Route,
   Routes,
   createBrowserRouter,
+  useNavigate,
 } from 'react-router-dom';
 import 'antd/dist/reset.css';
 import './index.css';
@@ -22,11 +23,19 @@ import NotFound from './routes/not-found';
 import Layout from './components/Layout/Layout';
 import { useSelector } from 'react-redux';
 import TalentSurveyTest from './routes/talent-survey/test';
+import Profile from './routes/profile';
+import { useEffect } from 'react';
 
 function App() {
   const { isLoggedIn } = useSelector(
     (state) => state.auth,
   );
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    navigate('/');
+  }, [isLoggedIn]);
 
   return (
     <Layout>
@@ -45,31 +54,6 @@ function App() {
             <Route
               path="login"
               element={<Login />}
-            />
-          </Route>
-          <Route path="/resume">
-            <Route
-              path="training"
-              element={<ResumeTraining />}
-            />
-            <Route
-              path="create-homepage"
-              element={<ResumeCreatingHomePage />}
-            />
-            <Route
-              path="creating"
-              element={<ResumeCreating />}
-            >
-              <Route
-                path=":stepPath"
-                element={<ResumeStep />}
-              />
-            </Route>
-          </Route>
-          <Route path="talent-survey">
-            <Route
-              path="test"
-              element={<TalentSurveyTest />}
             />
           </Route>
           <Route
@@ -94,6 +78,29 @@ function App() {
               path="login"
               element={<Login />}
             />
+          </Route>
+          <Route
+            path="/profile"
+            element={<Profile />}
+          />
+          <Route path="/resume">
+            <Route
+              path="training"
+              element={<ResumeTraining />}
+            />
+            <Route
+              path="create-homepage"
+              element={<ResumeCreatingHomePage />}
+            />
+            <Route
+              path="creating"
+              element={<ResumeCreating />}
+            >
+              <Route
+                path=":stepPath"
+                element={<ResumeStep />}
+              />
+            </Route>
           </Route>
           <Route
             path="*"

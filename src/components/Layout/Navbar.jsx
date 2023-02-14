@@ -54,18 +54,20 @@ export default function Navbar() {
         <DesktopNav />
       </div>
       {isLoggedIn ? (
-        pathname === '/' ? (
-          <div className="flex  w-[50px] h-[50px] bg-primaryColor rounded-full">
-            <Link
-              to="/profile"
-              className="flex justify-center items-center w-full h-full"
-            >
-              <UserProfile className="w-1/2 fill-white cursor-pointer" />
-            </Link>
-          </div>
-        ) : (
-          <></>
-        )
+        <div
+          className={`flex w-[50px] h-[50px] ${
+            pathname === '/'
+              ? 'bg-primaryColor'
+              : 'bg-white'
+          } rounded-full`}
+        >
+          <Link
+            to="/profile"
+            className="flex justify-center items-center w-full h-full"
+          >
+            <UserProfile className="w-1/2 fill-white cursor-pointer" />
+          </Link>
+        </div>
       ) : (
         <div className="flex justify-between items-center w-[180px] h-[40px] rounded-3xl bg-gray-700 text-base shadow-md lg:w-[235px]">
           <Link
