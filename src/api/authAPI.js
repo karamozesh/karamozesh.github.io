@@ -3,24 +3,33 @@ import {
   API_LOGIN,
   API_REGISTER,
 } from './configAPI';
+import { authActions } from '../store/auth-slice';
 
-export const loginByUsernamePass = async (
-  username,
+export const loginByEmailPass = (
+  email,
   password,
 ) => {
-  const response = await axios.post(
-    API_LOGIN,
-    { username, password },
-    {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    },
-  );
-  const data = await response.data;
-
-  return data;
+  return async (dispatch) => {
+    await axios
+      .post(
+        API_LOGIN,
+        { email, password },
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        },
+      )
+      .then((res) => res.data)
+      .then((data) => {
+        console.log(data);
+        dispatch(
+          authActions.loginHandler(data.token),
+        );
+      })
+      .catch((err) => console.log(err));
+  };
 };
 
 export const registerByUsernamePass = (

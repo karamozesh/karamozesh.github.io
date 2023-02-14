@@ -1,12 +1,5 @@
-import {
-  createAsyncThunk,
-  createSlice,
-} from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import Cookies from 'universal-cookie';
-import {
-  loginByUsernamePass,
-  registerByUsernamePass,
-} from '../api/authAPI';
 
 const cookies = new Cookies();
 const token_id = '1234_qwe_3435_jkier_hello';
@@ -52,8 +45,8 @@ const authSlice = createSlice({
       state.user_token = null;
       cookies.remove(token_id);
     },
-    registerHandler(state, action) {
-      const user_token = action.payload.token;
+    loginHandler(state, action) {
+      const user_token = action.payload;
       state.user_token = user_token;
       state.isLoggedIn = true;
       const nextYear = new Date(

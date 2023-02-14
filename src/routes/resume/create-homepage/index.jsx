@@ -2,7 +2,7 @@ import { Space } from 'antd';
 import ResumeSection from '../../../components/Resume/ResumeSection';
 import { Link } from 'react-router-dom';
 
-export default function ResumeCreating() {
+export default function ResumeCreatingHomePage() {
   return (
     <div className="main">
       <h1 className="inline-block pb-2 mb-4 border-b-2">

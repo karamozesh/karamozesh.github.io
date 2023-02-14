@@ -91,12 +91,12 @@ const MobileNav = () => {
       null,
       null,
     ),
-    getItem(
-      'درخواست مشاوره',
-      '/request-moshavere',
-      null,
-      null,
-    ),
+    // getItem(
+    //   'درخواست مشاوره',
+    //   '/request-moshavere',
+    //   null,
+    //   null,
+    // ),
     getItem('ساخت رزومه', '/resume', null, [
       getItem(
         'آموزش رزومه نویسی',
@@ -199,19 +199,19 @@ const DesktopNav = () => {
         >
           خودشناسی
         </Link>
-        <Link
+        {/* <Link
           to="/moshavere-request"
           className={linkClassName}
         >
           درخواست مشاوره
-        </Link>
+        </Link> */}
         <CustomDropdown
           items={resumeMenuItems}
           label="ساخت رزومه"
           className={linkClassName}
         />
         {/*  for next term */}
-        <CustomDropdown
+        {/* <CustomDropdown
           items={skillMenuItems}
           label="کسب مهارت"
           className={linkClassName}
@@ -221,7 +221,7 @@ const DesktopNav = () => {
           className={linkClassName}
         >
           بانک رزومه
-        </Link>
+        </Link> */}
       </ul>
     </nav>
   );

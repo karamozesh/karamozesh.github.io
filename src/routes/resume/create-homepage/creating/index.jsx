@@ -24,8 +24,13 @@ export default function ResumeCreating() {
       <Outlet />
       <div className="flex self-end">
         {slug !== 'base-information' && (
-          <button className="max-w-[200px] ml-4 px-8 py-2 mt-6 rounded-xl shadow-xl bg-secondaryColor">
-            <Link to={backLink}>بازگشت</Link>
+          <button className="max-w-[200px] ml-4 mt-6 rounded-xl shadow-xl bg-secondaryColor">
+            <Link
+              to={backLink}
+              className="w-full h-full px-8 py-2"
+            >
+              بازگشت
+            </Link>
           </button>
         )}
 
