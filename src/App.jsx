@@ -12,12 +12,19 @@ import Home from './routes/home';
 import Access from './routes/access';
 import Register from './routes/access/register';
 import Login from './routes/access/login';
-
+// import Resume from './routes/access/resume';
 import ResumeCreatingHomePage from './routes/resume/create-homepage';
 import ResumeCreating from './routes/resume/create-homepage/creating';
 import ResumeStep from './routes/resume/create-homepage/creating/slug';
 import ResumeTraining from './routes/resume/training';
+import TalentSurvey from './routes/talent-survey';
+import Haland from './components/TalentSurvey/Haland';
+import MBTI from './components/TalentSurvey/MBTI';
+import Disk from './components/TalentSurvey/Disk';
+import Result from './components/TalentResult/Result';
+import TalentSurveyTest from './routes/talent-survey/test';
 
+// import Resume from './routes/talent-survey/resume';
 import NotFound from './routes/not-found';
 
 import Layout from './components/Layout/Layout';
@@ -108,6 +115,34 @@ function App() {
           />
         </Routes>
       )}
+      <Routes>
+        <Route
+          path="talent-survey"
+          element={<TalentSurvey />}
+        >
+          <Route
+            path="test"
+            element={<TalentSurveyTest />}
+          />
+          <Route
+            path="haland"
+            element={<Haland />}
+          />
+          <Route path="mbti" element={<MBTI />} />
+          <Route path="disk" element={<Disk />} />
+          <Route
+            path="result"
+            element={<Result />}
+          />
+        </Route>
+      </Routes>
+
+      <Routes>
+        <Route
+          path="moshavere-request"
+          element={<></>}
+        />
+      </Routes>
     </Layout>
   );
   // const router = createBrowserRouter([
