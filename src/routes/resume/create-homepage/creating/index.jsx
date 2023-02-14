@@ -34,7 +34,7 @@ export default function ResumeCreating() {
           </button>
         )}
 
-        <button className="max-w-[200px]  px-8 py-2 mt-6 rounded-xl shadow-xl bg-secondaryColor">
+        <button className="max-w-[200px] px-8 py-2 mt-6 rounded-xl shadow-xl bg-secondaryColor">
           ذخیره و ادامه
         </button>
       </div>

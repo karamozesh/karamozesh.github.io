@@ -61,7 +61,7 @@ const Access = () => {
             status
               ? 'left-full -translate-x-[calc(100%-10px)]'
               : '-left-[15px]'
-          } w-[100px] text-center px-4 py-2 transition-all ease duration-1000 shadow-lg rounded-2xl bg-secondaryColor`}
+          } w-[100px] top-4 text-center px-4 py-2 transition-all ease duration-1000 shadow-lg rounded-2xl bg-secondaryColor`}
         >
           <p
             className="cursor-pointer"

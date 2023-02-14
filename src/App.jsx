@@ -1,10 +1,10 @@
 import { Route, Routes } from 'react-router-dom';
 import 'antd/dist/reset.css';
+import './index.css';
 
-import Layout from './components/Layout/Layout';
 import Home from './routes/home';
 
-import NotFound from './routes/not-found';
+import Access from './routes/access';
 import Register from './routes/access/register';
 import Login from './routes/access/login';
 
@@ -13,7 +13,9 @@ import ResumeCreating from './routes/resume/create-homepage/creating';
 import ResumeStep from './routes/resume/create-homepage/creating/slug';
 import ResumeTraining from './routes/resume/training';
 
-import './index.css';
+import NotFound from './routes/not-found';
+
+import Layout from './components/Layout/Layout';
 
 function App() {
   return (
@@ -22,19 +24,23 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
-          path="/access/login"
-          element={<Access />}
-        />
-        <Route
           path="/access"
           element={<Access />}
         >
           <Route
-            path="/register"
-            element="register"
+            path="register"
+            element={<Register />}
+          />
+          <Route
+            path="login"
+            element={<Login />}
           />
         </Route>
         <Route path="/resume">
+          <Route
+            path="training"
+            element={<ResumeTraining />}
+          />
           <Route
             path="create-homepage"
             element={<ResumeCreatingHomePage />}
