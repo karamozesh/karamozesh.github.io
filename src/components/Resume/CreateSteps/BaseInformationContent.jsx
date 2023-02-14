@@ -203,11 +203,12 @@ const BaseInformationContent = () => {
   return (
     <div className="resume-step-content">
       <div className="flex items-center">
-        <img
+        {/* <img
           src={profileImage}
           alt=""
           className="ml-4"
-        />
+        /> */}
+        <input type="image" src={profileImage} />
         {/* <input type="file" /> */}
         بارگذاری تصاویر
       </div>

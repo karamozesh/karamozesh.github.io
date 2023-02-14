@@ -23,31 +23,44 @@ export const loginByUsernamePass = async (
   return data;
 };
 
-export const registerByUsernamePass = async (
+export const registerByUsernamePass = (
   username,
+  phonenumber,
   email,
   password,
   password_confirm,
 ) => {
-  try {
-    const response = await axios.post(
-      API_REGISTER,
-      {
-        username,
-        email,
-        password,
-        password_confirm,
-      },
-      {
-        headers: {
-          'Content-Type': 'application/json',
+  console.log(email);
+  return async (dispatch) => {
+    axios
+      .post(
+        API_REGISTER,
+        {
+          username,
+          phonenumber,
+          email,
+          password,
+          password2: password_confirm,
         },
-      },
-    );
-
-    const data = await response.data;
-    return data;
-  } catch (error) {
-    return 'error';
-  }
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        },
+      )
+      .then((res) => {
+        const data = res.data;
+        console.log(data);
+      })
+      .catch((error) => {
+        const { status } = error.response;
+        let message = '';
+        // console.log(status);
+        // if (status >= 400 && status < 500)
+        //   message = ERROR_LOGIN_MESSAGE;
+        // else if (status >= 500)
+        //   message = ERROR_500_MESSAGE;
+      });
+  };
 };

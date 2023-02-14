@@ -23,8 +23,8 @@ const stepObjs = [
     path: 'further-information',
     name: 'اطلاعات تکمیلی',
   },
-  { path: 'recommendation', name: 'توصیه نامه' },
-  { path: 'tests', name: 'تست ها' },
+  // { path: 'recommendation', name: 'توصیه نامه' },
+  // { path: 'tests', name: 'تست ها' },
 ];
 
 const baseURL = '/resume/creating/';
@@ -85,7 +85,7 @@ export default function ResumeStep() {
           <Link
             to={baseURL + stepObj.path}
             kye={stepObj.path}
-            className={`flex items-center justify-center w-[calc(100%/7-1px)] h-[50px] py-4 px-2 text-center bg-gray-600 rounded-t-2xl shadow-lg`}
+            className={`flex items-center justify-center w-[calc(100%/5-2px)] h-[50px] py-4 px-2 text-center bg-gray-600 rounded-t-2xl shadow-lg`}
             style={
               stepObj.path === stepFind.path
                 ? {
