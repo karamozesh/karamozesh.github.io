@@ -1,8 +1,13 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import {
+  useDispatch,
+  useSelector,
+} from 'react-redux';
 import LoginBanner from '/src/images/Rectangle 504.png';
 import '/src/index.css';
 import React from 'react';
+import { registerByUsernamePass } from '../../../api/authAPI';
 
 export default function Register() {
   const [status, setStatus] = useState(false);
@@ -12,9 +17,49 @@ export default function Register() {
   };
   const navigate = useNavigate();
 
+  const dispatch = useDispatch();
+
+  const usernameRef = useRef(null);
+  const phonenumberRef = useRef(null);
+  const emailRef = useRef(null);
+  const passwordRef = useRef(null);
+  const password_confirmRef = useRef(null);
+
+  const registerClickHandler = () => {
+    const username_value =
+      usernameRef.current.value;
+    const phonenumber_value =
+      phonenumberRef.current.value;
+    const email_value = emailRef.current.value;
+    const password_value =
+      passwordRef.current.value;
+    const passwordConfirm_value =
+      password_confirmRef.current.value;
+
+    // simple validation
+    if (
+      username_value.length < 0 ||
+      phonenumber_value.length < 0 ||
+      email_value.length < 0 ||
+      password_value.length < 0 ||
+      passwordConfirm_value.length < 0
+    )
+      return;
+
+    dispatch(
+      registerByUsernamePass(
+        username_value,
+        phonenumber_value,
+        email_value,
+        password_value,
+        passwordConfirm_value,
+      ),
+    );
+  };
+
   return (
     <>
-      <section className="mx-auto border max-w-[44rem] lg:px-0 px-10  container flex relative flex-row-reverse  mt-12 mb-12">
+      <section className="mx-auto border max-w-[44rem] lg:px-0 px-10  container flex relative flex-row-reverse mt-12 mb-12">
         <div
           className={`w-1/2 hidden lg:flex h-full right-0  overflow-hidden transition-all ease-in-out duration-1000 shadow-lg absolute top-0 ${
             status && '-translate-x-full'
@@ -74,6 +119,7 @@ export default function Register() {
                   className="bg-[#ECEBEB]  placeholder-gray-800 rounded-full px-2 p-2 text-[12px] text-right "
                   type="text"
                   placeholder="نام کاربری"
+                  ref={usernameRef}
                 />{' '}
               </div>
               <div className=" flex flex-col gap-2 w-1/2">
@@ -87,6 +133,7 @@ export default function Register() {
                   className="bg-[#ECEBEB] rounded-full  placeholder-gray-800 px-2 p-2 text-[12px] text-right "
                   type="text"
                   placeholder="شماره موبایل"
+                  ref={phonenumberRef}
                 />
               </div>
             </div>
@@ -102,6 +149,7 @@ export default function Register() {
                 type="text"
                 placeholder="
 Info@example.com"
+                ref={emailRef}
               />
             </div>
             <div className="flex flex-col gap-2 justify-end">
@@ -115,10 +163,28 @@ Info@example.com"
                 className="bg-[#ECEBEB]  placeholder-gray-800 rounded-full  text-[12px] px-2 text-left p-2"
                 type="password"
                 placeholder="********"
+                ref={passwordRef}
+              />
+            </div>
+            <div className="flex flex-col gap-2 justify-end">
+              <label
+                htmlFor=""
+                className="text-bold text-xs"
+              >
+                تکرار گذرواژه
+              </label>
+              <input
+                className="bg-[#ECEBEB] rounded-full  p-1 text-sm"
+                type="password"
+                placeholder="********"
+                ref={password_confirmRef}
               />
             </div>
             <div className="flex flex-col gap-3 pt-3">
-              <button className="bg-[#F5AF2B] p-1 text-sm rounded-full">
+              <button
+                className="bg-[#F5AF2B] p-1 text-sm rounded-full"
+                onClick={registerClickHandler}
+              >
                 <a href="">عضویت</a>
               </button>
               <span className="flex  ">

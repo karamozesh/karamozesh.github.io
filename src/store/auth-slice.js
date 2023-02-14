@@ -31,29 +31,17 @@ let initialState = {
   isLoggedIn: !!initialToken,
 };
 
-export const loginHandler = createAsyncThunk(
-  'login',
-  async ({ username, password }, thunkAPI) => {
-    const data = await loginByUsernamePass(
-      username,
-      password,
-    );
+// export const loginHandler = createAsyncThunk(
+//   'login',
+//   async ({ username, password }, thunkAPI) => {
+//     const data = await loginByUsernamePass(
+//       username,
+//       password,
+//     );
 
-    return data;
-  },
-);
-
-export const registerHandler = createAsyncThunk(
-  'register',
-  async ({ username, password }) => {
-    const token = await registerByUsernamePass(
-      username,
-      password,
-    );
-
-    return token;
-  },
-);
+//     return data;
+//   },
+// );
 
 const authSlice = createSlice({
   name: 'auth',
@@ -64,61 +52,24 @@ const authSlice = createSlice({
       state.user_token = null;
       cookies.remove(token_id);
     },
-  },
-  extraReducers: (builder) => {
-    builder.addCase(
-      loginHandler.pending,
-      (state, action) => {},
-    );
-    builder.addCase(
-      loginHandler.fulfilled,
-      (state, action) => {
-        const user_token = action.payload.token;
-        state.user_token = user_token;
-        state.isLoggedIn = true;
-        const nextYear = new Date(
-          new Date().setFullYear(
-            new Date().getFullYear() + 1,
-          ),
-        );
-        cookies.set(
-          token_id,
-          user_token.toString(),
-          {
-            path: '/',
-            expires: nextYear,
-          },
-        );
-      },
-    );
-    builder.addCase(
-      registerHandler.pending(),
-      (state, action) => {},
-    );
-    builder.addCase(
-      registerHandler.fulfilled(),
-      (state, action) => {
-        const user_token = action.payload.token;
-        if (user_token === 'error') {
-        } else {
-          state.user_token = user_token;
-          state.isLoggedIn = true;
-          const nextYear = new Date(
-            new Date().setFullYear(
-              new Date().getFullYear() + 1,
-            ),
-          );
-          cookies.set(
-            token_id,
-            user_token.toString(),
-            {
-              path: '/',
-              expires: nextYear,
-            },
-          );
-        }
-      },
-    );
+    registerHandler(state, action) {
+      const user_token = action.payload.token;
+      state.user_token = user_token;
+      state.isLoggedIn = true;
+      const nextYear = new Date(
+        new Date().setFullYear(
+          new Date().getFullYear() + 1,
+        ),
+      );
+      cookies.set(
+        token_id,
+        user_token.toString(),
+        {
+          path: '/',
+          expires: nextYear,
+        },
+      );
+    },
   },
 });
 
