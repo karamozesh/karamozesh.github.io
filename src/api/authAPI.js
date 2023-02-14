@@ -23,7 +23,6 @@ export const loginByEmailPass = (
       )
       .then((res) => res.data)
       .then((data) => {
-        console.log(data);
         dispatch(
           authActions.loginHandler(data.token),
         );

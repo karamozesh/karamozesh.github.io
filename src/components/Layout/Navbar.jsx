@@ -9,6 +9,8 @@ import { Drawer, Menu } from 'antd';
 import CustomDropdown from '../UI/CustomDropdown';
 
 import { ReactComponent as BarMenu } from '../../asset/icon/bars-v2.svg';
+import { useSelector } from 'react-redux';
+import { ReactComponent as UserProfile } from '../../asset/icon/user-profile_icon.svg';
 
 function getItem(
   label,
@@ -28,6 +30,9 @@ function getItem(
 
 export default function Navbar() {
   const { pathname } = useLocation();
+  const { isLoggedIn } = useSelector(
+    (state) => state.auth,
+  );
 
   return (
     <header
@@ -48,24 +53,39 @@ export default function Navbar() {
         )}
         <DesktopNav />
       </div>
-      <div className="flex justify-between items-center w-[180px] h-[40px] rounded-3xl bg-gray-700 text-base shadow-md lg:w-[235px]">
-        <Link
-          to="/access/login"
-          className="flex justify-center items-center w-[100px] h-full text-black-900"
-        >
-          ورود
-        </Link>
-        <Link
-          to="/access/register"
-          className={`flex justify-center items-center w-[170px] h-full ${
-            pathname === '/'
-              ? 'bg-primaryColor text-white'
-              : 'bg-secondaryColor text-black-900'
-          } rounded-3xl`}
-        >
-          عضویت
-        </Link>
-      </div>
+      {isLoggedIn ? (
+        pathname === '/' ? (
+          <div className="flex  w-[50px] h-[50px] bg-primaryColor rounded-full">
+            <Link
+              to="/profile"
+              className="flex justify-center items-center w-full h-full"
+            >
+              <UserProfile className="w-1/2 fill-white cursor-pointer" />
+            </Link>
+          </div>
+        ) : (
+          <></>
+        )
+      ) : (
+        <div className="flex justify-between items-center w-[180px] h-[40px] rounded-3xl bg-gray-700 text-base shadow-md lg:w-[235px]">
+          <Link
+            to="/access/login"
+            className="flex justify-center items-center w-[100px] h-full text-black-900"
+          >
+            ورود
+          </Link>
+          <Link
+            to="/access/register"
+            className={`flex justify-center items-center w-[170px] h-full ${
+              pathname === '/'
+                ? 'bg-primaryColor text-white'
+                : 'bg-secondaryColor text-black-900'
+            } rounded-3xl`}
+          >
+            عضویت
+          </Link>
+        </div>
+      )}
     </header>
   );
 }

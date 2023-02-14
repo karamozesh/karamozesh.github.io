@@ -16,62 +16,80 @@ import ResumeTraining from './routes/resume/training';
 import NotFound from './routes/not-found';
 
 import Layout from './components/Layout/Layout';
+import { useSelector } from 'react-redux';
 
 function App() {
+  const { isLoggedIn } = useSelector(
+    (state) => state.auth,
+  );
+
   return (
     <Layout>
       {/* not loggin users */}
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route
-          path="/access"
-          element={<Access />}
-        >
+      {isLoggedIn && (
+        <Routes>
+          <Route path="/" element={<Home />} />
           <Route
-            path="register"
-            element={<Register />}
-          />
-          <Route
-            path="login"
-            element={<Login />}
-          />
-        </Route>
-        <Route path="/resume">
-          <Route
-            path="training"
-            element={<ResumeTraining />}
-          />
-          <Route
-            path="create-homepage"
-            element={<ResumeCreatingHomePage />}
-          />
-          <Route
-            path="creating"
-            element={<ResumeCreating />}
+            path="/access"
+            element={<Access />}
           >
             <Route
-              path=":stepPath"
-              element={<ResumeStep />}
+              path="register"
+              element={<Register />}
+            />
+            <Route
+              path="login"
+              element={<Login />}
             />
           </Route>
-        </Route>
-        {/* <Route
-          path="*"
-          element={
-            <Navigate to="/" replace={true} />
-          }
-        /> */}
-      </Routes>
+          <Route path="/resume">
+            <Route
+              path="training"
+              element={<ResumeTraining />}
+            />
+            <Route
+              path="create-homepage"
+              element={<ResumeCreatingHomePage />}
+            />
+            <Route
+              path="creating"
+              element={<ResumeCreating />}
+            >
+              <Route
+                path=":stepPath"
+                element={<ResumeStep />}
+              />
+            </Route>
+          </Route>
+          <Route
+            path="*"
+            element={<NotFound />}
+          />
+        </Routes>
+      )}
       {/* loggin users */}
-      {/* <Routes>
-        <Route path="/" element={<Home />} />
-        <Route
-          path="*"
-          element={
-            <Navigate to="/" replace={true} />
-          }
-        />
-      </Routes> */}
+      {isLoggedIn && (
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route
+            path="/access"
+            element={<Access />}
+          >
+            <Route
+              path="register"
+              element={<Register />}
+            />
+            <Route
+              path="login"
+              element={<Login />}
+            />
+          </Route>
+          <Route
+            path="*"
+            element={<NotFound />}
+          />
+        </Routes>
+      )}
     </Layout>
   );
   // const router = createBrowserRouter([
