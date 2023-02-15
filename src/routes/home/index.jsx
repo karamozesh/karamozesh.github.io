@@ -26,7 +26,7 @@ export default function Home() {
             با دیگران :)
           </p>
           <Button className="inline w-fit px-8 shadow-lg">
-            <Link to="/talent-survey">
+            <Link to="/talent-survey/test">
               خودشناسی
             </Link>
           </Button>
