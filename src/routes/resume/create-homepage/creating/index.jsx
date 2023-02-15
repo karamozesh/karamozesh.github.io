@@ -110,9 +110,14 @@ export default function ResumeCreating() {
       //   )
       //   .then((res) => console.log(res));
       navigate('education');
-    }
-    if (slug === 'education') {
-      // const
+    } else if (slug === 'education') {
+      navigate('work-experience');
+    } else if (slug === 'work-experience') {
+      navigate('skills');
+    } else if (slug === 'skills') {
+      navigate('further-information');
+    } else {
+      navigate('/profile');
     }
   };
 
