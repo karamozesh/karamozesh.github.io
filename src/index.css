@@ -171,6 +171,23 @@ img {
 /*  css change antd styles 
                             --end */
 
+@keyframes textAnimation {
+  0% {
+    transform: translateX(-100px);
+  }
+  40% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100px);
+  }
+}
+
+.animation-text {
+  animation: textAnimation 5s linear infinite
+    alternate-reverse;
+}
+
 /* Medium devices (landscape tablets, 768px and up) */
 
 @media only screen and (min-width: 768px) {

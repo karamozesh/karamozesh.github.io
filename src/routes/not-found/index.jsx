@@ -8,6 +8,8 @@ export default function NotFound() {
   const needLoginLinksArray = [
     'resume',
     'talent-survey',
+    'moshavere-request',
+    'resume-bank',
   ];
 
   const { pathname } = useLocation();

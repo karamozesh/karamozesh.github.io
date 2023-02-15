@@ -133,7 +133,7 @@ const MobileNav = () => {
         null,
       ),
     ]),
-    getItem('کسب مهارت', '/skill', null, []),
+    // getItem('کسب مهارت', '/skill', null, []),
     getItem(
       'بانک رزومه',
       '/resume-bank',
@@ -233,11 +233,11 @@ const DesktopNav = () => {
           className={linkClassName}
         />
         {/*  for next term */}
-        <CustomDropdown
+        {/* <CustomDropdown
           items={skillMenuItems}
           label="کسب مهارت"
           className={linkClassName}
-        />
+        /> */}
         <Link
           to="resume-bank"
           className={linkClassName}

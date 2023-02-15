@@ -31,6 +31,8 @@ import NotFound from './routes/not-found';
 
 import Layout from './components/Layout/Layout';
 import Profile from './routes/profile';
+import MoshavereRequest from './routes/moshavere-request/MoshavereRequest';
+import ResumeBank from './routes/resumeBank';
 
 function App() {
   const { isLoggedIn } = useSelector(
@@ -108,6 +110,14 @@ function App() {
               />
             </Route>
           </Route>
+          <Route
+            path="/moshavere-request"
+            element={<MoshavereRequest />}
+          />
+          <Route
+            path="/resume-bank"
+            element={<ResumeBank />}
+          />
 
           <Route
             path="/talent-survey"

@@ -1,16 +1,65 @@
 import { useRef } from 'react';
 import { useDispatch } from 'react-redux';
-import { registerByUsernamePass } from '../../api/authAPI';
 import InputLabel from '../UI/InputLabel';
+import {
+  Link,
+  useNavigate,
+} from 'react-router-dom';
+import axios from 'axios';
+import { API_REGISTER } from '../../api/configAPI';
 
 const RegisterComponent = ({}) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const usernameRef = useRef(null);
   const phonenumberRef = useRef(null);
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
   const password_confirmRef = useRef(null);
+  const registerByUsernamePass = (
+    username,
+    phonenumber,
+    email,
+    password,
+    password_confirm,
+  ) => {
+    console.log(email);
+    return async (dispatch) => {
+      axios
+        .post(
+          API_REGISTER,
+          {
+            username,
+            phonenumber,
+            email,
+            password,
+            password2: password_confirm,
+          },
+          {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          },
+        )
+        .then((res) => {
+          const data = res.data;
+          if (data) {
+            navigate('/access/login');
+          }
+        })
+        .catch((error) => {
+          const { status } = error.response;
+          let message = '';
+          // console.log(status);
+          // if (status >= 400 && status < 500)
+          //   message = ERROR_LOGIN_MESSAGE;
+          // else if (status >= 500)
+          //   message = ERROR_500_MESSAGE;
+        });
+    };
+  };
 
   const registerClickHandler = () => {
     const username_value =
@@ -97,16 +146,21 @@ const RegisterComponent = ({}) => {
           >
             عضویت
           </button>
-          <span className="flex">
+          <span className="flex items-center">
             <p className="text-[13px]">
               حساب کاربری دارید؟
             </p>
-            <p
+
+            <p className="text-[13px]">
+              بر روی لینک بالا کلیک کنید
+            </p>
+            {/* <Link
               className="mr-2 text-primaryColor font-bold cursor-pointer text-[13px]"
               onClick={() => setStatus(true)}
+              to="/access/login"
             >
               ورود به حساب کاربری
-            </p>
+            </Link> */}
           </span>
         </div>
       </div>

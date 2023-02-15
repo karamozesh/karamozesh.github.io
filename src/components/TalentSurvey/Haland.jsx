@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { questions_holland } from '../../Data/data';
 import { useState } from 'react';
 import QuestionCard from './QuestionCard';
@@ -19,25 +19,32 @@ function Haland() {
 
   const dispatch = useDispatch();
 
-  // if (isLoggedIn) {
-  //   axios
-  //     .get(API_TALENT, {
-  //       method: 'GET',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //         Authorization: `Token ${user_token}`,
-  //       },
-  //     })
-  //     .then((res) => {
-  //       const data = res.data;
-  //       if (data) {
-  //         const resultObj = JSON.parse(data);
-  //         dispatch(
-  //           halandActions.setAns(resultObj),
-  //         );
-  //       }
-  //     });
-  // }
+  useEffect(() => {
+    if (isLoggedIn) {
+      // axios
+      //   .get(API_TALENT, {
+      //     method: 'GET',
+      //     headers: {
+      //       'Content-Type': 'application/json',
+      //       Authorization: `Token ${user_token}`,
+      //     },
+      //   })
+      //   .then((res) => {
+      //     const data = res.data;
+      //     if (data) {
+      //       const resultObj = JSON.parse(data);
+      //       dispatch(
+      //         halandActions.setAns(resultObj),
+      //       );
+      //     }
+      //   });
+      const talentObj = JSON.parse(
+        localStorage.getItem('talent-survey'),
+      );
+      if (talentObj)
+        dispatch(halandActions.setAns(talentObj));
+    }
+  }, []);
 
   const { totalQuestions, ansArray } =
     useSelector((state) => state.haland);
@@ -50,9 +57,8 @@ function Haland() {
 
   const endIndex = currentPage * numQuestions;
 
-  const currentQuestions = questions_holland
-    .slice(0, 6)
-    .slice(startIndex, endIndex);
+  const currentQuestions =
+    questions_holland.slice(startIndex, endIndex);
 
   const backHandler = () => {
     setCurrentPage((prev) => prev - 1);
@@ -69,19 +75,23 @@ function Haland() {
   const seeTheResultHandler = () => {
     const result_string =
       JSON.stringify(ansArray);
-    axios
-      .post(
-        API_TALENT,
-        { result: result_string },
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: user_token,
-          },
-        },
-      )
-      .catch((err) => console.log(err));
+    localStorage.setItem(
+      'talent-survey',
+      result_string,
+    );
+    // axios
+    //   .post(
+    //     API_TALENT,
+    //     { result: result_string },
+    //     {
+    //       method: 'POST',
+    //       headers: {
+    //         'Content-Type': 'application/json',
+    //         Authorization: user_token,
+    //       },
+    //     },
+    //   )
+    //   .catch((err) => console.log(err));
   };
 
   return ansArray.length === totalQuestions ? (

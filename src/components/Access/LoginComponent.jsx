@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import InputLabel from '../UI/InputLabel';
 import { useDispatch } from 'react-redux';
 import { loginByEmailPass } from '../../api/authAPI';
+import { Navigate } from 'react-router-dom';
 
 const LoginComponent = ({
   toggleModeHandler,
@@ -31,6 +32,10 @@ const LoginComponent = ({
     );
   };
 
+  const gotoRegister = () => {
+    Navigate('/access/login');
+  };
+
   return (
     <div className="shadow-lg lg:w-1/2  lg:flex-col  hidden lg:flex w-full  flex-col text-right ">
       <p className="bg-primaryColor text-white p-5 text-center text-lg font-bold">
@@ -50,13 +55,13 @@ const LoginComponent = ({
           innerRef={passwordRef}
           autoComplete="off"
         />
-        <p
+        {/* <p
           href=""
-          className="font-bold text-blue-600 text-[13px]"
-          onClick={toggleModeHandler}
+          className="font-bold text-gray-600 text-[13px] cursor-not-allowed"
+          // onClick={toggleModeHandler}
         >
           رمز عبور خود را فراموش کرده اید؟
-        </p>
+        </p> */}
 
         <div className="flex flex-col gap-3  justify-between">
           <button
@@ -70,10 +75,14 @@ const LoginComponent = ({
               حساب کاربری ندارید؟
             </p>
             <p
-              className="mr-2 text-primaryColor  text-[13px] font-bold cursor-pointer"
-              onClick={() => setStatus(false)}
+              className="mr-2 text-[13px] font-bold cursor-pointer"
+              onClick={() => {
+                gotoRegister();
+                setStatus(false);
+              }}
             >
-              عضویت در اموزشیار .
+              بر روی عضویت بالا کلیک کنید
+              {/* عضویت در اموزشیار . */}
             </p>
           </span>
         </div>
