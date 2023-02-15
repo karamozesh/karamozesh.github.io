@@ -6,7 +6,7 @@ export const questions_holland = [
       { text: 'خیلی بدم می آید', point: 1 },
       { text: 'بدم می آید', point: 2 },
       {
-        text: 'نه دوست دارم نه دوست ندارم',
+        text: 'متوسط',
         point: 3,
       },
       { text: 'دوست دارم', point: 4 },
@@ -19,7 +19,7 @@ export const questions_holland = [
       { text: 'خیلی بدم می آید', point: 1 },
       { text: 'بدم می آید', point: 2 },
       {
-        text: 'نه دوست دارم نه دوست ندارم',
+        text: 'متوسط',
         point: 3,
       },
       { text: 'دوست دارم', point: 4 },
@@ -32,7 +32,7 @@ export const questions_holland = [
       { text: 'خیلی بدم می آید', point: 1 },
       { text: 'بدم می آید', point: 2 },
       {
-        text: 'نه دوست دارم نه دوست ندارم',
+        text: 'متوسط',
         point: 3,
       },
       { text: 'دوست دارم', point: 4 },
@@ -45,7 +45,7 @@ export const questions_holland = [
       { text: 'خیلی بدم می آید', point: 1 },
       { text: 'بدم می آید', point: 2 },
       {
-        text: 'نه دوست دارم نه دوست ندارم',
+        text: 'متوسط',
         point: 3,
       },
       { text: 'دوست دارم', point: 4 },
@@ -58,7 +58,7 @@ export const questions_holland = [
       { text: 'خیلی بدم می آید', point: 1 },
       { text: 'بدم می آید', point: 2 },
       {
-        text: 'نه دوست دارم نه دوست ندارم',
+        text: 'متوسط',
         point: 3,
       },
       { text: 'دوست دارم', point: 4 },
@@ -72,7 +72,7 @@ export const questions_holland = [
       { text: 'خیلی بدم می آید', point: 1 },
       { text: 'بدم می آید', point: 2 },
       {
-        text: 'نه دوست دارم نه دوست ندارم',
+        text: 'متوسط',
         point: 3,
       },
       { text: 'دوست دارم', point: 4 },
@@ -85,7 +85,7 @@ export const questions_holland = [
       { text: 'خیلی بدم می آید', point: 1 },
       { text: 'بدم می آید', point: 2 },
       {
-        text: 'نه دوست دارم نه دوست ندارم',
+        text: 'متوسط',
         point: 3,
       },
       { text: 'دوست دارم', point: 4 },
@@ -98,7 +98,7 @@ export const questions_holland = [
       { text: 'خیلی بدم می آید', point: 1 },
       { text: 'بدم می آید', point: 2 },
       {
-        text: 'نه دوست دارم نه دوست ندارم',
+        text: 'متوسط',
         point: 3,
       },
       { text: 'دوست دارم', point: 4 },
@@ -111,7 +111,7 @@ export const questions_holland = [
       { text: 'خیلی بدم می آید', point: 1 },
       { text: 'بدم می آید', point: 2 },
       {
-        text: 'نه دوست دارم نه دوست ندارم',
+        text: 'متوسط',
         point: 3,
       },
       { text: 'دوست دارم', point: 4 },
@@ -125,7 +125,7 @@ export const questions_holland = [
       { text: 'خیلی بدم می آید', point: 1 },
       { text: 'بدم می آید', point: 2 },
       {
-        text: 'نه دوست دارم نه دوست ندارم',
+        text: 'متوسط',
         point: 3,
       },
       { text: 'دوست دارم', point: 4 },
@@ -138,7 +138,7 @@ export const questions_holland = [
       { text: 'خیلی بدم می آید', point: 1 },
       { text: 'بدم می آید', point: 2 },
       {
-        text: 'نه دوست دارم نه دوست ندارم',
+        text: 'متوسط',
         point: 3,
       },
       { text: 'دوست دارم', point: 4 },
@@ -152,7 +152,7 @@ export const questions_holland = [
       { text: 'خیلی بدم می آید', point: 1 },
       { text: 'بدم می آید', point: 2 },
       {
-        text: 'نه دوست دارم نه دوست ندارم',
+        text: 'متوسط',
         point: 3,
       },
       { text: 'دوست دارم', point: 4 },
@@ -165,7 +165,7 @@ export const questions_holland = [
       { text: 'خیلی بدم می آید', point: 1 },
       { text: 'بدم می آید', point: 2 },
       {
-        text: 'نه دوست دارم نه دوست ندارم',
+        text: 'متوسط',
         point: 3,
       },
       { text: 'دوست دارم', point: 4 },
@@ -179,7 +179,7 @@ export const questions_holland = [
       { text: 'خیلی بدم می آید', point: 1 },
       { text: 'بدم می آید', point: 2 },
       {
-        text: 'نه دوست دارم نه دوست ندارم',
+        text: 'متوسط',
         point: 3,
       },
       { text: 'دوست دارم', point: 4 },
@@ -192,7 +192,7 @@ export const questions_holland = [
       { text: 'خیلی بدم می آید', point: 1 },
       { text: 'بدم می آید', point: 2 },
       {
-        text: 'نه دوست دارم نه دوست ندارم',
+        text: 'متوسط',
         point: 3,
       },
       { text: 'دوست دارم', point: 4 },
@@ -206,7 +206,7 @@ export const questions_holland = [
       { text: 'خیلی بدم می آید', point: 1 },
       { text: 'بدم می آید', point: 2 },
       {
-        text: 'نه دوست دارم نه دوست ندارم',
+        text: 'متوسط',
         point: 3,
       },
       { text: 'دوست دارم', point: 4 },
@@ -219,7 +219,7 @@ export const questions_holland = [
       { text: 'خیلی بدم می آید', point: 1 },
       { text: 'بدم می آید', point: 2 },
       {
-        text: 'نه دوست دارم نه دوست ندارم',
+        text: 'متوسط',
         point: 3,
       },
       { text: 'دوست دارم', point: 4 },
@@ -233,7 +233,7 @@ export const questions_holland = [
       { text: 'خیلی بدم می آید', point: 1 },
       { text: 'بدم می آید', point: 2 },
       {
-        text: 'نه دوست دارم نه دوست ندارم',
+        text: 'متوسط',
         point: 3,
       },
       { text: 'دوست دارم', point: 4 },
@@ -246,7 +246,7 @@ export const questions_holland = [
       { text: 'خیلی بدم می آید', point: 1 },
       { text: 'بدم می آید', point: 2 },
       {
-        text: 'نه دوست دارم نه دوست ندارم',
+        text: 'متوسط',
         point: 3,
       },
       { text: 'دوست دارم', point: 4 },
@@ -259,7 +259,7 @@ export const questions_holland = [
       { text: 'خیلی بدم می آید', point: 1 },
       { text: 'بدم می آید', point: 2 },
       {
-        text: 'نه دوست دارم نه دوست ندارم',
+        text: 'متوسط',
         point: 3,
       },
       { text: 'دوست دارم', point: 4 },
@@ -272,7 +272,7 @@ export const questions_holland = [
       { text: 'خیلی بدم می آید', point: 1 },
       { text: 'بدم می آید', point: 2 },
       {
-        text: 'نه دوست دارم نه دوست ندارم',
+        text: 'متوسط',
         point: 3,
       },
       { text: 'دوست دارم', point: 4 },
@@ -285,7 +285,7 @@ export const questions_holland = [
       { text: 'خیلی بدم می آید', point: 1 },
       { text: 'بدم می آید', point: 2 },
       {
-        text: 'نه دوست دارم نه دوست ندارم',
+        text: 'متوسط',
         point: 3,
       },
       { text: 'دوست دارم', point: 4 },
@@ -298,7 +298,7 @@ export const questions_holland = [
       { text: 'خیلی بدم می آید', point: 1 },
       { text: 'بدم می آید', point: 2 },
       {
-        text: 'نه دوست دارم نه دوست ندارم',
+        text: 'متوسط',
         point: 3,
       },
       { text: 'دوست دارم', point: 4 },
@@ -312,7 +312,7 @@ export const questions_holland = [
       { text: 'خیلی بدم می آید', point: 1 },
       { text: 'بدم می آید', point: 2 },
       {
-        text: 'نه دوست دارم نه دوست ندارم',
+        text: 'متوسط',
         point: 3,
       },
       { text: 'دوست دارم', point: 4 },
@@ -326,7 +326,7 @@ export const questions_holland = [
       { text: 'خیلی بدم می آید', point: 1 },
       { text: 'بدم می آید', point: 2 },
       {
-        text: 'نه دوست دارم نه دوست ندارم',
+        text: 'متوسط',
         point: 3,
       },
       { text: 'دوست دارم', point: 4 },
@@ -339,7 +339,7 @@ export const questions_holland = [
       { text: 'خیلی بدم می آید', point: 1 },
       { text: 'بدم می آید', point: 2 },
       {
-        text: 'نه دوست دارم نه دوست ندارم',
+        text: 'متوسط',
         point: 3,
       },
       { text: 'دوست دارم', point: 4 },
@@ -352,7 +352,7 @@ export const questions_holland = [
       { text: 'خیلی بدم می آید', point: 1 },
       { text: 'بدم می آید', point: 2 },
       {
-        text: 'نه دوست دارم نه دوست ندارم',
+        text: 'متوسط',
         point: 3,
       },
       { text: 'دوست دارم', point: 4 },
@@ -366,7 +366,7 @@ export const questions_holland = [
       { text: 'خیلی بدم می آید', point: 1 },
       { text: 'بدم می آید', point: 2 },
       {
-        text: 'نه دوست دارم نه دوست ندارم',
+        text: 'متوسط',
         point: 3,
       },
       { text: 'دوست دارم', point: 4 },
@@ -379,7 +379,7 @@ export const questions_holland = [
       { text: 'خیلی بدم می آید', point: 1 },
       { text: 'بدم می آید', point: 2 },
       {
-        text: 'نه دوست دارم نه دوست ندارم',
+        text: 'متوسط',
         point: 3,
       },
       { text: 'دوست دارم', point: 4 },
@@ -393,7 +393,7 @@ export const questions_holland = [
       { text: 'خیلی بدم می آید', point: 1 },
       { text: 'بدم می آید', point: 2 },
       {
-        text: 'نه دوست دارم نه دوست ندارم',
+        text: 'متوسط',
         point: 3,
       },
       { text: 'دوست دارم', point: 4 },
@@ -406,7 +406,7 @@ export const questions_holland = [
       { text: 'خیلی بدم می آید', point: 1 },
       { text: 'بدم می آید', point: 2 },
       {
-        text: 'نه دوست دارم نه دوست ندارم',
+        text: 'متوسط',
         point: 3,
       },
       { text: 'دوست دارم', point: 4 },
@@ -420,7 +420,7 @@ export const questions_holland = [
       { text: 'خیلی بدم می آید', point: 1 },
       { text: 'بدم می آید', point: 2 },
       {
-        text: 'نه دوست دارم نه دوست ندارم',
+        text: 'متوسط',
         point: 3,
       },
       { text: 'دوست دارم', point: 4 },
@@ -433,7 +433,7 @@ export const questions_holland = [
       { text: 'خیلی بدم می آید', point: 1 },
       { text: 'بدم می آید', point: 2 },
       {
-        text: 'نه دوست دارم نه دوست ندارم',
+        text: 'متوسط',
         point: 3,
       },
       { text: 'دوست دارم', point: 4 },
@@ -446,7 +446,7 @@ export const questions_holland = [
       { text: 'خیلی بدم می آید', point: 1 },
       { text: 'بدم می آید', point: 2 },
       {
-        text: 'نه دوست دارم نه دوست ندارم',
+        text: 'متوسط',
         point: 3,
       },
       { text: 'دوست دارم', point: 4 },
@@ -459,7 +459,7 @@ export const questions_holland = [
       { text: 'خیلی بدم می آید', point: 1 },
       { text: 'بدم می آید', point: 2 },
       {
-        text: 'نه دوست دارم نه دوست ندارم',
+        text: 'متوسط',
         point: 3,
       },
       { text: 'دوست دارم', point: 4 },
@@ -472,7 +472,7 @@ export const questions_holland = [
       { text: 'خیلی بدم می آید', point: 1 },
       { text: 'بدم می آید', point: 2 },
       {
-        text: 'نه دوست دارم نه دوست ندارم',
+        text: 'متوسط',
         point: 3,
       },
       { text: 'دوست دارم', point: 4 },
@@ -485,7 +485,7 @@ export const questions_holland = [
       { text: 'خیلی بدم می آید', point: 1 },
       { text: 'بدم می آید', point: 2 },
       {
-        text: 'نه دوست دارم نه دوست ندارم',
+        text: 'متوسط',
         point: 3,
       },
       { text: 'دوست دارم', point: 4 },
@@ -498,7 +498,7 @@ export const questions_holland = [
       { text: 'خیلی بدم می آید', point: 1 },
       { text: 'بدم می آید', point: 2 },
       {
-        text: 'نه دوست دارم نه دوست ندارم',
+        text: 'متوسط',
         point: 3,
       },
       { text: 'دوست دارم', point: 4 },
@@ -512,7 +512,7 @@ export const questions_holland = [
       { text: 'خیلی بدم می آید', point: 1 },
       { text: 'بدم می آید', point: 2 },
       {
-        text: 'نه دوست دارم نه دوست ندارم',
+        text: 'متوسط',
         point: 3,
       },
       { text: 'دوست دارم', point: 4 },
@@ -525,7 +525,7 @@ export const questions_holland = [
       { text: 'خیلی بدم می آید', point: 1 },
       { text: 'بدم می آید', point: 2 },
       {
-        text: 'نه دوست دارم نه دوست ندارم',
+        text: 'متوسط',
         point: 3,
       },
       { text: 'دوست دارم', point: 4 },
@@ -538,7 +538,7 @@ export const questions_holland = [
       { text: 'خیلی بدم می آید', point: 1 },
       { text: 'بدم می آید', point: 2 },
       {
-        text: 'نه دوست دارم نه دوست ندارم',
+        text: 'متوسط',
         point: 3,
       },
       { text: 'دوست دارم', point: 4 },
@@ -551,7 +551,7 @@ export const questions_holland = [
       { text: 'خیلی بدم می آید', point: 1 },
       { text: 'بدم می آید', point: 2 },
       {
-        text: 'نه دوست دارم نه دوست ندارم',
+        text: 'متوسط',
         point: 3,
       },
       { text: 'دوست دارم', point: 4 },
@@ -564,7 +564,7 @@ export const questions_holland = [
       { text: 'خیلی بدم می آید', point: 1 },
       { text: 'بدم می آید', point: 2 },
       {
-        text: 'نه دوست دارم نه دوست ندارم',
+        text: 'متوسط',
         point: 3,
       },
       { text: 'دوست دارم', point: 4 },
@@ -577,7 +577,7 @@ export const questions_holland = [
       { text: 'خیلی بدم می آید', point: 1 },
       { text: 'بدم می آید', point: 2 },
       {
-        text: 'نه دوست دارم نه دوست ندارم',
+        text: 'متوسط',
         point: 3,
       },
       { text: 'دوست دارم', point: 4 },
@@ -590,7 +590,7 @@ export const questions_holland = [
       { text: 'خیلی بدم می آید', point: 1 },
       { text: 'بدم می آید', point: 2 },
       {
-        text: 'نه دوست دارم نه دوست ندارم',
+        text: 'متوسط',
         point: 3,
       },
       { text: 'دوست دارم', point: 4 },
@@ -604,7 +604,7 @@ export const questions_holland = [
       { text: 'خیلی بدم می آید', point: 1 },
       { text: 'بدم می آید', point: 2 },
       {
-        text: 'نه دوست دارم نه دوست ندارم',
+        text: 'متوسط',
         point: 3,
       },
       { text: 'دوست دارم', point: 4 },
@@ -617,7 +617,7 @@ export const questions_holland = [
       { text: 'خیلی بدم می آید', point: 1 },
       { text: 'بدم می آید', point: 2 },
       {
-        text: 'نه دوست دارم نه دوست ندارم',
+        text: 'متوسط',
         point: 3,
       },
       { text: 'دوست دارم', point: 4 },
@@ -630,7 +630,7 @@ export const questions_holland = [
       { text: 'خیلی بدم می آید', point: 1 },
       { text: 'بدم می آید', point: 2 },
       {
-        text: 'نه دوست دارم نه دوست ندارم',
+        text: 'متوسط',
         point: 3,
       },
       { text: 'دوست دارم', point: 4 },
