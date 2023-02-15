@@ -1,9 +1,11 @@
 import {
   Route,
   Routes,
-  createBrowserRouter,
   useNavigate,
 } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+
 import 'antd/dist/reset.css';
 import './index.css';
 
@@ -28,10 +30,7 @@ import TalentSurveyTest from './routes/talent-survey/test';
 import NotFound from './routes/not-found';
 
 import Layout from './components/Layout/Layout';
-import { useSelector } from 'react-redux';
-import TalentSurveyTest from './routes/talent-survey/test';
 import Profile from './routes/profile';
-import { useEffect } from 'react';
 
 function App() {
   const { isLoggedIn } = useSelector(
@@ -109,40 +108,38 @@ function App() {
               />
             </Route>
           </Route>
+
+          <Route
+            path="/talent-survey"
+            element={<TalentSurvey />}
+          >
+            <Route
+              path="test"
+              element={<TalentSurveyTest />}
+            />
+            <Route
+              path="haland"
+              element={<Haland />}
+            />
+            <Route
+              path="mbti"
+              element={<MBTI />}
+            />
+            <Route
+              path="disk"
+              element={<Disk />}
+            />
+            <Route
+              path="result"
+              element={<Result />}
+            />
+          </Route>
           <Route
             path="*"
             element={<NotFound />}
           />
         </Routes>
       )}
-      <Routes>
-        <Route
-          path="talent-survey"
-          element={<TalentSurvey />}
-        >
-          <Route
-            path="test"
-            element={<TalentSurveyTest />}
-          />
-          <Route
-            path="haland"
-            element={<Haland />}
-          />
-          <Route path="mbti" element={<MBTI />} />
-          <Route path="disk" element={<Disk />} />
-          <Route
-            path="result"
-            element={<Result />}
-          />
-        </Route>
-      </Routes>
-
-      <Routes>
-        <Route
-          path="moshavere-request"
-          element={<></>}
-        />
-      </Routes>
     </Layout>
   );
   // const router = createBrowserRouter([

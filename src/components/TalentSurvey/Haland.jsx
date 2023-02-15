@@ -2,10 +2,43 @@ import React from 'react';
 import { questions_holland } from '../../Data/data';
 import { useState } from 'react';
 import QuestionCard from './QuestionCard';
-import { useSelector } from 'react-redux';
+import {
+  useDispatch,
+  useSelector,
+} from 'react-redux';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { API_TALENT } from '../../api/configAPI';
+import { resumeActions } from '../../store/resume-slice';
+import { halandActions } from '../../store/haland-slice';
 
 function Haland() {
+  const { user_token, isLoggedIn } = useSelector(
+    (state) => state.auth,
+  );
+
+  const dispatch = useDispatch();
+
+  // if (isLoggedIn) {
+  //   axios
+  //     .get(API_TALENT, {
+  //       method: 'GET',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //         Authorization: `Token ${user_token}`,
+  //       },
+  //     })
+  //     .then((res) => {
+  //       const data = res.data;
+  //       if (data) {
+  //         const resultObj = JSON.parse(data);
+  //         dispatch(
+  //           halandActions.setAns(resultObj),
+  //         );
+  //       }
+  //     });
+  // }
+
   const { totalQuestions, ansArray } =
     useSelector((state) => state.haland);
   const [currentPage, setCurrentPage] =
@@ -17,8 +50,9 @@ function Haland() {
 
   const endIndex = currentPage * numQuestions;
 
-  const currentQuestions =
-    questions_holland.slice(startIndex, endIndex);
+  const currentQuestions = questions_holland
+    .slice(0, 6)
+    .slice(startIndex, endIndex);
 
   const backHandler = () => {
     setCurrentPage((prev) => prev - 1);
@@ -28,13 +62,36 @@ function Haland() {
     setCurrentPage((prev) => prev + 1);
   };
 
-  console.log(ansArray);
-
   const isLastPage =
     currentPage ===
     Math.floor(totalQuestions / 6);
 
-  return (
+  const seeTheResultHandler = () => {
+    const result_string =
+      JSON.stringify(ansArray);
+    axios
+      .post(
+        API_TALENT,
+        { result: result_string },
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: user_token,
+          },
+        },
+      )
+      .catch((err) => console.log(err));
+  };
+
+  return ansArray.length === totalQuestions ? (
+    <div>
+      <h2>شما قبلا این آزمون را داده اید</h2>
+      <Link to="/talent-survey/result">
+        نتیجه را نمایش بده
+      </Link>
+    </div>
+  ) : (
     <section className="container mx-auto p-7 mt-7">
       <section className="flex flex-col items-center justify-center gap-5">
         <section className="border shadow-lg shadow-blue-500/50 grid  grid-rows-3 grid-cols-2 gap-10 justify-items-center p-10 content-center rounded-3xl">
@@ -73,8 +130,14 @@ function Haland() {
             </button>
           )}
           {isLastPage && (
-            <button className="py-3 px-6 text-white bg-primaryColor rounded-3xl">
-              <Link to="/talent-survey/result">
+            <button
+              className="text-white bg-primaryColor rounded-3xl"
+              onClick={seeTheResultHandler}
+            >
+              <Link
+                to="/talent-survey/result"
+                className="py-3 px-6"
+              >
                 دیدن نتیجه تست
               </Link>
             </button>

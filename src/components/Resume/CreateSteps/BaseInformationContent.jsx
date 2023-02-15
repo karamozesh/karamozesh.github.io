@@ -22,8 +22,8 @@ const BaseInformationContent = () => {
       label: 'زن',
     },
     {
-      value: 'else',
-      label: 'سایر',
+      value: 'unknown',
+      label: 'تمایلی به اعلام ندارم',
     },
   ];
 
@@ -54,6 +54,10 @@ const BaseInformationContent = () => {
     {
       value: 'exempt-education',
       label: 'معافیت تحصیلی',
+    },
+    {
+      value: 'end-of-duty',
+      label: 'پایان خدمت',
     },
   ];
 
@@ -97,7 +101,7 @@ const BaseInformationContent = () => {
     const phonenumber_value = e.target.value;
     dispatch(
       resumeActions.changeBaseInformation({
-        prop: 'phoneNumber',
+        prop: 'phonenumber',
         value: phonenumber_value,
       }),
     );
@@ -202,16 +206,16 @@ const BaseInformationContent = () => {
 
   return (
     <div className="resume-step-content">
-      <div className="flex items-center">
-        {/* <img
+      {/* <div className="flex items-center"> */}
+      {/* <img
           src={profileImage}
           alt=""
           className="ml-4"
         /> */}
-        <input type="image" src={profileImage} />
-        {/* <input type="file" /> */}
-        بارگذاری تصاویر
-      </div>
+      {/* <input type="image" src={profileImage} /> */}
+      {/* <input type="file" /> */}
+      {/* بارگذاری تصاویر */}
+      {/* </div> */}
       <div className="mt-4">
         <div className="grid grid-cols-2 gap-28 mb-4">
           <ResumeInput

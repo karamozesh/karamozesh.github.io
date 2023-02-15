@@ -9,6 +9,7 @@ interface SelectType {
 */
 
 const initialState = {
+  cv_id: '',
   baseInformation: {
     nameResume: '', // String
     phonenumber: '', // String
@@ -52,6 +53,9 @@ const resumeSlice = createSlice({
   name: 'resume',
   initialState,
   reducers: {
+    setCVID(state, action) {
+      state.cv_id = action.payload;
+    },
     setBaseInformation(state, action) {
       state.baseInformation = action.payload;
     },

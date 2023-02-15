@@ -1,14 +1,103 @@
-import React from 'react';
+import React, {
+  useEffect,
+  useState,
+} from 'react';
 import check from '/src/images/check.png';
 import resultImg from '/src/images/resultLogo.png';
 import Cart from '../TalentSurvey/TalentUI/Cart';
 import JobItems from '../TalentSurvey/TalentUI/JobItems';
+import { useSelector } from 'react-redux';
+import CustomPieChart from './CustomPieChart';
+
 function Result() {
+  const { ansArray } = useSelector(
+    (state) => state.haland,
+  );
+  const [type, setType] = useState({
+    name: '',
+    point: 0,
+  });
+
+  const results = [
+    {
+      num: 1,
+      point: 0,
+      name: 'قاعده‌مند و قراردادی',
+      color: '#A89ADF',
+    },
+    {
+      num: 2,
+      point: 0,
+      name: 'جستجوگر',
+      color: '#22CBFF',
+    },
+    {
+      num: 3,
+      point: 0,
+      name: 'هنری',
+      color: '#FCC22F',
+    },
+    {
+      num: 4,
+      point: 0,
+      name: 'اجتماعی',
+      color: '#2DDAB0',
+    },
+    {
+      num: 5,
+      point: 0,
+      name: 'مدیر و جسور',
+      color: '#20D050',
+    },
+    {
+      num: 6,
+      point: 0,
+      name: 'عمل‌گرا',
+      color: '#717171',
+    },
+  ];
+
+  useEffect(() => {
+    let sortedAns = [...ansArray];
+    sortedAns.sort((a, b) => {
+      if (+a.id - +b.id > 0) return 1;
+      else return -1;
+    });
+    sortedAns.forEach((ans) => {
+      switch (ans.id % 6) {
+        case 1:
+          results[0].point += ans.point;
+          break;
+        case 2:
+          results[1].point += ans.point;
+          break;
+        case 3:
+          results[2].point += ans.point;
+          break;
+        case 4:
+          results[3].point += ans.point;
+          break;
+        case 5:
+          results[4].point += ans.point;
+          break;
+        case 0:
+          results[5].point += ans.point;
+          break;
+      }
+    });
+  }, []);
+
   return (
     <>
       <section className="container mx-auto p-10 flex flex-col gap-7 justify-center items-center">
         <h2 className=" border-yellow-300 border-2 p-3 rounded-3xl text-center inline-block ">
           آزمون شخصیت شناسی holland
+        </h2>
+        {results && (
+          <CustomPieChart results={results} />
+        )}
+        <h2 className="text-center">
+          نتیجه تست هالند شما
         </h2>
         <section className="">
           <div>

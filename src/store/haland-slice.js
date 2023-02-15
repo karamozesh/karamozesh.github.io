@@ -9,6 +9,9 @@ const halandSlice = createSlice({
   name: 'haland',
   initialState,
   reducers: {
+    setAns(state, action) {
+      state.ansArray = action.payload;
+    },
     addAns(state, action) {
       const ans = action.payload;
 

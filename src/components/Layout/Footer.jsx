@@ -18,7 +18,7 @@ export default function Footer() {
         </div>
         <div className="w-[90%] h-[0.5px] my-2 bg-black-900"></div>
         <p>
-          تمامی حقوق برای سایت کارآموزش محفوظ است
+          تمامی حقوق برای سایت آموزشیار محفوظ است
         </p>
       </div>
     </footer>
