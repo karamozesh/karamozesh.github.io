@@ -9,30 +9,14 @@ import { useEffect } from 'react';
 import 'antd/dist/reset.css';
 import './index.css';
 
-import Home from './routes/home';
+import HomePage from './pages/HomePage/HomePage';
+import LoginPage from './pages/AccessPage/LoginPage';
+import RegisterPage from './pages/AccessPage/RegisterPage';
 
-import Access from './routes/access';
-import Register from './routes/access/register';
-import Login from './routes/access/login';
-// import Resume from './routes/access/resume';
-import ResumeCreatingHomePage from './routes/resume/create-homepage';
-import ResumeCreating from './routes/resume/create-homepage/creating';
-import ResumeStep from './routes/resume/create-homepage/creating/slug';
-import ResumeTraining from './routes/resume/training';
-import TalentSurvey from './routes/talent-survey';
-import Haland from './components/TalentSurvey/Haland';
-import MBTI from './components/TalentSurvey/MBTI';
-import Disk from './components/TalentSurvey/Disk';
-import Result from './components/TalentResult/Result';
-import TalentSurveyTest from './routes/talent-survey/test';
-
-// import Resume from './routes/talent-survey/resume';
-import NotFound from './routes/not-found';
-
+import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
+import MoshavereRequestPage from './pages/MoshavereRequestPage/MoshavereRequestPage';
+import ProfilePage from './pages/ProfilePage/ProfilePage';
 import Layout from './components/Layout/Layout';
-import Profile from './routes/profile';
-import MoshavereRequest from './routes/moshavere-request/MoshavereRequest';
-import ResumeBank from './routes/resumeBank';
 
 function App() {
   const { isLoggedIn } = useSelector(
@@ -50,100 +34,47 @@ function App() {
       {/* not loggin users */}
       {!isLoggedIn && (
         <Routes>
-          <Route path="/" element={<Home />} />
           <Route
-            path="/access"
-            element={<Access />}
-          >
-            <Route
-              path="register"
-              element={<Register />}
-            />
-            <Route
-              path="login"
-              element={<Login />}
-            />
-          </Route>
+            path="/"
+            element={<HomePage />}
+          />
+          <Route
+            path="/login"
+            element={<LoginPage />}
+          />
+          <Route
+            path="/register"
+            element={<RegisterPage />}
+          />
           <Route
             path="*"
-            element={<NotFound />}
+            element={<NotFoundPage />}
           />
         </Routes>
       )}
       {/* loggin users */}
       {isLoggedIn && (
         <Routes>
-          <Route path="/" element={<Home />} />
           <Route
-            path="/access"
-            element={<Access />}
-          >
-            <Route
-              path="register"
-              element={<Register />}
-            />
-            <Route
-              path="login"
-              element={<Login />}
-            />
-          </Route>
+            path="/"
+            element={<HomePage />}
+          />
+          <Route
+            path="/register"
+            element={<RegisterPage />}
+          />
+          <Route
+            path="/login"
+            element={<LoginPage />}
+          />
           <Route
             path="/profile"
-            element={<Profile />}
+            element={<ProfilePage />}
           />
-          <Route path="/resume">
-            <Route
-              path="training"
-              element={<ResumeTraining />}
-            />
-            <Route
-              path="create-homepage"
-              element={<ResumeCreatingHomePage />}
-            />
-            <Route
-              path="creating"
-              element={<ResumeCreating />}
-            >
-              <Route
-                path=":stepPath"
-                element={<ResumeStep />}
-              />
-            </Route>
-          </Route>
           <Route
             path="/moshavere-request"
-            element={<MoshavereRequest />}
+            element={<MoshavereRequestPage />}
           />
-          <Route
-            path="/resume-bank"
-            element={<ResumeBank />}
-          />
-
-          <Route
-            path="/talent-survey"
-            element={<TalentSurvey />}
-          >
-            <Route
-              path="test"
-              element={<TalentSurveyTest />}
-            />
-            <Route
-              path="haland"
-              element={<Haland />}
-            />
-            <Route
-              path="mbti"
-              element={<MBTI />}
-            />
-            <Route
-              path="disk"
-              element={<Disk />}
-            />
-            <Route
-              path="result"
-              element={<Result />}
-            />
-          </Route>
           <Route
             path="*"
             element={<NotFound />}

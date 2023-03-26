@@ -6,7 +6,7 @@ import roadDashed from '../../asset/images/road-dashed.svg';
 import roadCircleImage from '../../asset/images/road-circle_image.svg';
 import roadSite from '../../asset/images/road-site_image.svg';
 
-export default function Home() {
+export default function HomePage() {
   return (
     <div className="mt-8">
       <div className="flex flex-col items-center min-h-[60vh] p-4 shadow-lg md:flex-row z-10">
@@ -58,9 +58,3 @@ export default function Home() {
     </div>
   );
 }
-
-const homeLoader = () => {
-  return null;
-};
-
-export { homeLoader };

@@ -2,9 +2,8 @@ import {
   Link,
   useLocation,
 } from 'react-router-dom';
-import Layout from '../../components/Layout/Layout';
 
-export default function NotFound() {
+export default function NotFoundPage() {
   const needLoginLinksArray = [
     'resume',
     'talent-survey',
