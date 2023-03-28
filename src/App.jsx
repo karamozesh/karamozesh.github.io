@@ -4,7 +4,6 @@ import {
   useNavigate,
 } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { useEffect } from 'react';
 
 import 'antd/dist/reset.css';
 import './index.css';
@@ -17,6 +16,10 @@ import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import MoshavereRequestPage from './pages/MoshavereRequestPage/MoshavereRequestPage';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
 import Layout from './components/Layout/Layout';
+import ResumeTrainingPage from './pages/ResumePage/ResumeTrainingPage/ResumeTrainingPage';
+import ResumeCreatingHomePage from './pages/ResumePage/ResumeCreatingPage/ResumeCreatingHomePage';
+import TalentSurveyPage from './pages/TalentSurveyPage/TalentSurveyPage';
+import TalentSurveyTestPage from './pages/TalentSurveyTestPage/TalentSurveyTestPage';
 
 function App() {
   const { isLoggedIn } = useSelector(
@@ -25,9 +28,9 @@ function App() {
 
   const navigate = useNavigate();
 
-  useEffect(() => {
-    navigate('/');
-  }, [isLoggedIn]);
+  // useEffect(() => {
+  //   navigate('/');
+  // }, [isLoggedIn]);
 
   return (
     <Layout>
@@ -46,10 +49,31 @@ function App() {
             path="/register"
             element={<RegisterPage />}
           />
+
           <Route
+            path="/resume-training"
+            element={<ResumeTrainingPage />}
+          />
+          <Route
+            path="/resume-creating"
+            element={<ResumeCreatingHomePage />}
+          />
+          <Route
+            path="/resume-creating-app"
+            element={<ResumeCreatingHomePage />}
+          />
+          <Route
+            path="/talent-survey"
+            element={<TalentSurveyPage />}
+          />
+          <Route
+            path="/talent-survey/:testName"
+            element={<TalentSurveyTestPage />}
+          />
+          {/* <Route
             path="*"
             element={<NotFoundPage />}
-          />
+          /> */}
         </Routes>
       )}
       {/* loggin users */}
@@ -68,6 +92,10 @@ function App() {
             element={<LoginPage />}
           />
           <Route
+            path="/resume-training"
+            element={<ResumeTrainingPage />}
+          />
+          <Route
             path="/profile"
             element={<ProfilePage />}
           />
@@ -83,120 +111,6 @@ function App() {
       )}
     </Layout>
   );
-  // const router = createBrowserRouter([
-  //   { path: '*', element: <NotFound /> },
-
-  //   // {
-  //   //   path: '/',
-  //   //   element: <Home />,
-  //   //   // loader: homeLoader,
-  //   //   errorElement: <RootBoundary />,
-  //   // },
-  //   {
-  //     path: 'access',
-  //     element: <Access />,
-  //     // loader: accessLoader,
-  //     children: [
-  //       {
-  //         path: 'login',
-  //         element: <Login />,
-  //         // loader: loginLoader,
-  //       },
-  //       {
-  //         path: 'register',
-  //         element: <Register />,
-  //         // loader: registerLoader,
-  //       },
-  //     ],
-  //   },
-  //   {
-  //     path: 'moshavere-request',
-  //     element: <></>,
-  //     loader: null,
-  //   },
-  //   {
-  //     path: 'resume',
-  //     element: <Resume />,
-  //     // loader: accessLoader,
-  //     children: [
-  //       {
-  //         path: 'create-homepage',
-  //         element: <ResumeCreatingHomePage />,
-  //         // loader: resumeCretingHomePageLoader,
-  //       },
-  //       {
-  //         path: 'creating',
-  //         element: <ResumeCreating />,
-  //         // loader: resumeCretingLoader,
-  //         children: [
-  //           {
-  //             path: ':stepPath',
-  //             element: <ResumeStep />,
-  //             // loader: resumeStepLoader,
-  //           },
-  //         ],
-  //       },
-  //       {
-  //         path: 'training',
-  //         element: <ResumeTraining />,
-  //         // loader: resumeTrainingLoader,
-  //       },
-  //     ],
-  //   },
-  //   // {
-  //   //   path: 'resume-bank',
-  //   //   element: <ResumeBank />,
-  //   //   // loader: resumeBankLoader,
-  //   // },
-  //   // {
-  //   //   path: 'skill',
-  //   //   element: <SkillHome />,
-  //   //   // loader: skillHomeLoader,
-  //   //   children: [
-  //   //     {
-  //   //       path: 'tutorial',
-  //   //       element: <SkillTutorial />,
-  //   //       // loader: skillTutorialLoader,
-  //   //     },
-  //   //   ],
-  //   // },
-  //   // {
-  //   //   path: 'talent-survey',
-  //   //   element: <TalentSurvey />,
-  //   //   // loader: talentSurveyLoader,
-  //   //   children: [
-  //   //     {
-  //   //       path: 'test',
-  //   //       element: <TalentSurveyTest />,
-  //   //       // loader: talentSurveyTestLoader,
-  //   //     },
-  //   //     {
-  //   //       path: 'haland',
-  //   //       element: <Haland />,
-  //   //     },
-  //   //     {
-  //   //       path: 'result',
-  //   //       element: <Result />,
-  //   //     },
-  //   //     {
-  //   //       path: 'mbti',
-  //   //       element: <MBTI />,
-  //   //     },
-  //   //     {
-  //   //       path: 'disk',
-  //   //       element: <Disk />,
-  //   //     },
-  //   //   ],
-  //   // },
-  // ]);
-
-  // return (
-  //   <Layout>
-  //     <div className="root-page">
-  //       <Outlet />
-  //     </div>
-  //   </Layout>
-  // );
 }
 
 export default App;

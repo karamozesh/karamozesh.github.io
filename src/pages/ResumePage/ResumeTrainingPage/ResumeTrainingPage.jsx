@@ -1,6 +1,6 @@
 import ResumeSection from '../../../components/Resume/ResumeSection';
 
-export default function ResumeTraining() {
+export default function ResumeTrainingPage() {
   const h2Class = 'mb-4 text-secondaryColor';
   const divClass =
     'p-4 mb-12 bg-primaryColor text-white rounded-md';
@@ -202,9 +202,3 @@ export default function ResumeTraining() {
     </div>
   );
 }
-
-const resumeTrainingLoader = () => {
-  return null;
-};
-
-export { resumeTrainingLoader };
