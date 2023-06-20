@@ -93,7 +93,7 @@ export default function TalentSurveyTestPage() {
   return ansArray.length === totalQuestions ? (
     <div>
       <h2>شما قبلا این آزمون را داده اید</h2>
-      <Link to="/talent-survey/result">
+      <Link to="/talent-survey/result/haland">
         نتیجه را نمایش بده
       </Link>
     </div>
@@ -141,7 +141,7 @@ export default function TalentSurveyTestPage() {
               onClick={seeTheResultHandler}
             >
               <Link
-                to="/talent-survey/result"
+                to="/talent-survey/result/haland"
                 className="py-3 px-6"
               >
                 دیدن نتیجه تست

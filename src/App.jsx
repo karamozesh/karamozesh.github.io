@@ -22,6 +22,7 @@ import TalentSurveyPage from './pages/TalentSurveyPage/TalentSurveyPage';
 import TalentSurveyTestPage from './pages/TalentSurveyPage/TalentSurveyTestPage/TalentSurveyTestPage';
 import ResumeCreatingPage from './pages/ResumePage/ResumeCreatingPage/ResumeCreatingPage';
 import TalentSurveyResultPage from './pages/TalentSurveyPage/TalentSurveyResultPage/TalentSurveyResultPage';
+import TalentSurveyResultListPage from './pages/TalentSurveyPage/TalentSurveyResultPage/TalentSurveyResultListPage';
 
 function App() {
   const { isLoggedIn } = useSelector(
@@ -73,6 +74,12 @@ function App() {
           />
           <Route
             path="/talent-survey/result"
+            element={
+              <TalentSurveyResultListPage />
+            }
+          />
+          <Route
+            path="/talent-survey/result/:testName"
             element={<TalentSurveyResultPage />}
           />
           <Route
@@ -118,6 +125,12 @@ function App() {
           />
           <Route
             path="/talent-survey/result"
+            element={
+              <TalentSurveyResultListPage />
+            }
+          />
+          <Route
+            path="/talent-survey/result/:testName"
             element={<TalentSurveyResultPage />}
           />
           <Route
