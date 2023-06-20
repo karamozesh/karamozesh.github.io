@@ -1,3 +1,3 @@
 export default function MoshavereRequestPage() {
-  return <div></div>;
+  return <div>MoshavereRequestPage</div>;
 }

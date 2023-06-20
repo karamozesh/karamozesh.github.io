@@ -168,6 +168,12 @@ img {
   transition: none !important;
 }
 
+/* remove border-left from menu mobile */
+
+:where(.css-dev-only-do-not-override-ixblex).ant-menu-light.ant-menu-root.ant-menu-inline {
+  border: none;
+}
+
 /*  css change antd styles 
                             --end */
 

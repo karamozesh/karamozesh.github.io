@@ -5,7 +5,6 @@ import {
 
 export default function NotFoundPage() {
   const needLoginLinksArray = [
-    'resume',
     'talent-survey',
     'moshavere-request',
     'resume-bank',
@@ -33,14 +32,12 @@ export default function NotFoundPage() {
           </Link>
         </>
       ) : (
-        <>
+        <div>
+          <span>- 404 -</span>
           <p className="text-lg">
-            صفحه مورد نظر پیدا نشد.
+            صفحه مورد نظر پیدا نشد
           </p>
-          <p className="text-base">
-            «گشتم نبود، نگرد نیست»
-          </p>
-        </>
+        </div>
       )}
     </div>
   );

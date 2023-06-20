@@ -71,13 +71,13 @@ export default function Navbar() {
       ) : (
         <div className="flex justify-between items-center w-[180px] h-[40px] rounded-3xl bg-gray-700 text-base shadow-md lg:w-[235px]">
           <Link
-            to="/access/login"
+            to="/login"
             className="flex justify-center items-center w-[100px] h-full text-black-900"
           >
             ورود
           </Link>
           <Link
-            to="/access/register"
+            to="/register"
             className={`flex justify-center items-center w-[170px] h-full ${
               pathname === '/'
                 ? 'bg-primaryColor text-white'
@@ -108,38 +108,44 @@ const MobileNav = () => {
 
   const items = [
     getItem(
+      'صفحه اصلی',
+      '/',
+      null,
+      null,
+    ),
+    getItem(
       'خودشناسی',
       '/talent-survey',
       null,
       null,
     ),
-    // getItem(
-    //   'درخواست مشاوره',
-    //   '/request-moshavere',
-    //   null,
-    //   null,
-    // ),
-    getItem('ساخت رزومه', '/resume', null, [
+    getItem(
+      'درخواست مشاوره',
+      '/request-moshavere',
+      null,
+      null,
+    ),
+    getItem('ساخت رزومه', '', null, [
       getItem(
         'آموزش رزومه نویسی',
-        '/training',
+        '/resume-training',
         null,
         null,
       ),
       getItem(
         'ساخت رزومه',
-        '/create-homepage',
+        '/resume-creating',
         null,
         null,
       ),
     ]),
-    // getItem('کسب مهارت', '/skill', null, []),
-    getItem(
-      'بانک رزومه',
-      '/resume-bank',
-      null,
-      null,
-    ),
+    getItem('کسب مهارت', '/skills', null, []),
+    // getItem(
+    //   'بانک رزومه',
+    //   '/resume-bank',
+    //   null,
+    //   null,
+    // ),
   ];
   const onClick = (e) => {
     const href = e.keyPath.reverse().join('');
@@ -182,26 +188,22 @@ const DesktopNav = () => {
 
   const { pathname } = useLocation();
 
-  const resumeURL_base = '/resume';
-
   const resumeMenuItems = [
     {
       label: (
-        <Link to={`${resumeURL_base}/training`}>
+        <Link to="resume-training">
           آموزش رزومه نویسی
         </Link>
       ),
-      key: `${resumeURL_base}/training`,
+      key: `/resume-training`,
     },
     {
       label: (
-        <Link
-          to={`${resumeURL_base}/create-homepage`}
-        >
+        <Link to="/resume-creating">
           ساخت رزومه
         </Link>
       ),
-      key: `${resumeURL_base}/create-homepage`,
+      key: '/resume-creating',
     },
   ];
 
@@ -216,7 +218,7 @@ const DesktopNav = () => {
     <nav className="desktop hidden w-full lg:block">
       <ul className="flex w-full text-base [&>*]:ml-4">
         <Link
-          to="/talent-survey/test"
+          to="/talent-survey"
           className={linkClassName}
         >
           خودشناسی
@@ -233,17 +235,19 @@ const DesktopNav = () => {
           className={linkClassName}
         />
         {/*  for next term */}
-        {/* <CustomDropdown
+        {/* now its next term! */}
+        <CustomDropdown
           items={skillMenuItems}
           label="کسب مهارت"
           className={linkClassName}
-        /> */}
-        <Link
+        />
+        {/* deprecate */}
+        {/* <Link
           to="resume-bank"
           className={linkClassName}
         >
           بانک رزومه
-        </Link>
+        </Link> */}
       </ul>
     </nav>
   );

@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import {
   Route,
   Routes,
@@ -11,7 +12,6 @@ import './index.css';
 import HomePage from './pages/HomePage/HomePage';
 import LoginPage from './pages/AccessPage/LoginPage';
 import RegisterPage from './pages/AccessPage/RegisterPage';
-
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import MoshavereRequestPage from './pages/MoshavereRequestPage/MoshavereRequestPage';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
@@ -19,7 +19,9 @@ import Layout from './components/Layout/Layout';
 import ResumeTrainingPage from './pages/ResumePage/ResumeTrainingPage/ResumeTrainingPage';
 import ResumeCreatingHomePage from './pages/ResumePage/ResumeCreatingPage/ResumeCreatingHomePage';
 import TalentSurveyPage from './pages/TalentSurveyPage/TalentSurveyPage';
-import TalentSurveyTestPage from './pages/TalentSurveyTestPage/TalentSurveyTestPage';
+import TalentSurveyTestPage from './pages/TalentSurveyPage/TalentSurveyTestPage/TalentSurveyTestPage';
+import ResumeCreatingPage from './pages/ResumePage/ResumeCreatingPage/ResumeCreatingPage';
+import TalentSurveyResultPage from './pages/TalentSurveyPage/TalentSurveyResultPage/TalentSurveyResultPage';
 
 function App() {
   const { isLoggedIn } = useSelector(
@@ -28,9 +30,9 @@ function App() {
 
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   navigate('/');
-  // }, [isLoggedIn]);
+  useEffect(() => {
+    navigate('/');
+  }, [isLoggedIn]);
 
   return (
     <Layout>
@@ -49,7 +51,6 @@ function App() {
             path="/register"
             element={<RegisterPage />}
           />
-
           <Route
             path="/resume-training"
             element={<ResumeTrainingPage />}
@@ -59,8 +60,8 @@ function App() {
             element={<ResumeCreatingHomePage />}
           />
           <Route
-            path="/resume-creating-app"
-            element={<ResumeCreatingHomePage />}
+            path="/resume-creating-app/:stepPath"
+            element={<ResumeCreatingPage />}
           />
           <Route
             path="/talent-survey"
@@ -70,10 +71,14 @@ function App() {
             path="/talent-survey/:testName"
             element={<TalentSurveyTestPage />}
           />
-          {/* <Route
+          <Route
+            path="/talent-survey/result"
+            element={<TalentSurveyResultPage />}
+          />
+          <Route
             path="*"
             element={<NotFoundPage />}
-          /> */}
+          />
         </Routes>
       )}
       {/* loggin users */}
@@ -96,6 +101,26 @@ function App() {
             element={<ResumeTrainingPage />}
           />
           <Route
+            path="/resume-creating"
+            element={<ResumeCreatingHomePage />}
+          />
+          <Route
+            path="/resume-creating-app/:stepPath"
+            element={<ResumeCreatingPage />}
+          />
+          <Route
+            path="/talent-survey"
+            element={<TalentSurveyPage />}
+          />
+          <Route
+            path="/talent-survey/:testName"
+            element={<TalentSurveyTestPage />}
+          />
+          <Route
+            path="/talent-survey/result"
+            element={<TalentSurveyResultPage />}
+          />
+          <Route
             path="/profile"
             element={<ProfilePage />}
           />
@@ -105,7 +130,7 @@ function App() {
           />
           <Route
             path="*"
-            element={<NotFound />}
+            element={<NotFoundPage />}
           />
         </Routes>
       )}

@@ -14,26 +14,26 @@ import profileImage from '../../../asset/images/people-media-profile.svg';
 const BaseInformationContent = () => {
   const jensiatOptions = [
     {
-      value: 'men',
+      value: 'M',
       label: 'مرد',
     },
     {
-      value: 'women',
+      value: 'F',
       label: 'زن',
     },
     {
-      value: 'unknown',
+      value: 'U',
       label: 'تمایلی به اعلام ندارم',
     },
   ];
 
   const vaziatTaaholOptions = [
     {
-      value: 'single',
+      value: '2',
       label: 'مجرد',
     },
     {
-      value: 'married',
+      value: '1',
       label: 'متاهل',
     },
   ];
@@ -49,14 +49,14 @@ const BaseInformationContent = () => {
   ];
 
   const nezamVazifeOptions = [
-    { value: 'included', label: 'مشمول' },
-    { value: 'exempt', label: 'معافیت دائم' },
+    { value: '3', label: 'مشمول' },
+    { value: '2', label: 'معافیت دائم' },
     {
-      value: 'exempt-education',
+      value: '1',
       label: 'معافیت تحصیلی',
     },
     {
-      value: 'end-of-duty',
+      value: '4',
       label: 'پایان خدمت',
     },
   ];
@@ -206,16 +206,11 @@ const BaseInformationContent = () => {
 
   return (
     <div className="resume-step-content">
-      {/* <div className="flex items-center"> */}
-      {/* <img
-          src={profileImage}
-          alt=""
-          className="ml-4"
-        /> */}
-      {/* <input type="image" src={profileImage} /> */}
-      {/* <input type="file" /> */}
-      {/* بارگذاری تصاویر */}
-      {/* </div> */}
+      <div className="flex items-center">
+        <input type="image" src={profileImage} />
+        <input type="file" />
+        بارگذاری تصاویر
+      </div>
       <div className="mt-4">
         <div className="grid grid-cols-2 gap-28 mb-4">
           <ResumeInput

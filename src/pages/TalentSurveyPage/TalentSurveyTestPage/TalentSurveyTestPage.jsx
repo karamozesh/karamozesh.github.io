@@ -3,9 +3,10 @@ import {
   useDispatch,
   useSelector,
 } from 'react-redux';
-import { questions_holland } from '../../Data/data';
-import QuestionCard from '../../components/TalentSurvey/QuestionCard';
+import { questions_holland } from '../../../Data/data';
+import QuestionCard from '../../../components/TalentSurvey/QuestionCard';
 import { Link } from 'react-router-dom';
+import { halandActions } from '../../../store/haland-slice';
 
 export default function TalentSurveyTestPage() {
   const { user_token, isLoggedIn } = useSelector(

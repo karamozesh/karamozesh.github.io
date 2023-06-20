@@ -32,7 +32,7 @@ export default function ResumeCreatingHomePage() {
         }
       />
       <Space>
-        <Link to="/resume/creating/base-information">
+        <Link to="/resume-creating-app/base-information">
           <button className="text-base py-2 px-8 rounded-2xl shadow-2xl text-white bg-secondaryColor">
             ساخت رزومه
           </button>

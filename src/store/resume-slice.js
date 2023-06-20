@@ -2,6 +2,11 @@ import { createSlice } from '@reduxjs/toolkit';
 
 /* 
 interface SelectType {
+  value: number,
+  label: String,
+}
+
+interface CityType {
   value: String,
   label: String,
 }
@@ -17,7 +22,7 @@ const initialState = {
     lastName: '', // String
     generic: '', // type: SelectType
     vaziatTaahol: '', // type: SelectType
-    city: '', // type: SelectType
+    city: '', // type: CityType
     nezamVazife: '', // type: SelectType
     birthdayDate: '', // Date
     address: '', // String
