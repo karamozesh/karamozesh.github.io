@@ -6,6 +6,9 @@ import svgr from 'vite-plugin-svgr';
 export default defineConfig({
   plugins: [svgr(), react()],
   base: '/',
+  test: {
+    environment: 'happy-dom',
+  },
   server: {
     port: 3000,
   },

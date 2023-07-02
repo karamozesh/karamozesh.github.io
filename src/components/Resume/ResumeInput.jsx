@@ -22,6 +22,7 @@ export default function ResumeInput({
           id={name}
           placeholder={placeholder}
           type={type}
+          aria-label={name}
           className={`py-2 px-4 rounded-xl bg-gray-400 focus:outline-none focus:outline-gray-500 placeholder-gray-800 ${className}`}
           onChange={onChange}
           {...props}
