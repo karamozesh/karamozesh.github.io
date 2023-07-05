@@ -245,6 +245,7 @@ const BaseInformationContent = () => {
               placement="bottomRight"
               options={jensiatOptions}
               onChange={genericChangeHandler}
+              aria-label='generic-select'
               value={
                 generic
                   ? generic.label

@@ -2,6 +2,16 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import store from '../store/index';
+import configureMockStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
+
+// const middlewares = [thunk];
+// const mockStore = configureMockStore(middlewares);
+// const reducers =
+// const initialState = JSON.parse(
+//   JSON.stringify(store.getState()),
+// );
+// export const mockedStore = mockStore(initialState)
 
 export const renderWithProviders = (
   ui,
