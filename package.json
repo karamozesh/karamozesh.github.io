@@ -13,6 +13,7 @@
     "test:watch": "vitest --environment happy-dom"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.15",
     "@reduxjs/toolkit": "^1.9.1",
     "animate.css": "^4.1.1",
     "antd": "^5.1.6",

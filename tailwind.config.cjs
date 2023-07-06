@@ -22,6 +22,8 @@ module.exports = {
         secondaryColor: '#F5AF2B',
         thirdColor: '#17268A',
         forthColor: '#352556',
+        greenColor: '#3EBA60',
+        redColor: '#DC1F31',
         black: {
           400: '#363636',
           500: '#2A2A2A',
@@ -40,6 +42,9 @@ module.exports = {
 
       fontFamily: {
         zohor: ['zohor'],
+      },
+      boxShadow: {
+        mahdis: '0px 0px 4px 0px #00000040',
       },
     },
   },
