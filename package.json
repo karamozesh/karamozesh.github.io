@@ -4,8 +4,6 @@
   "homepage": "https://github.com/pariajokar/Karamoozesh-Front/",
   "version": "1.0.0",
   "type": "module",
-  "predeploy": "npm run build",
-  "deploy": "gh-pages -d build",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -13,7 +11,9 @@
     "format": "prettier --write .",
     "lint": "eslint .",
     "test": "vitest --run --environment happy-dom",
-    "test:watch": "vitest --environment happy-dom"
+    "test:watch": "vitest --environment happy-dom",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.15",
