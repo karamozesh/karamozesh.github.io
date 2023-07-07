@@ -449,7 +449,10 @@ const ResultMoshavereRequest = () => {
   );
 };
 
-const MoshavereRequestForm = () => {
+const MoshavereRequestForm = ({
+  activeTab,
+  setActiveTab,
+}) => {
   const tabItems = [
     {
       label: 'مشاوره رایگان',
@@ -467,8 +470,6 @@ const MoshavereRequestForm = () => {
       textColor: 'black-900',
     },
   ];
-
-  const [activeTab, setActiveTab] = useState(0);
 
   return (
     <div>

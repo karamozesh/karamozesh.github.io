@@ -1,7 +1,11 @@
 import MoshavereRequestForm from '../../components/MoshavereRequest/MoshavereReuqestForm';
 import MoshavereRequestRules from '../../components/MoshavereRequest/MoshavereReuquestRules';
 
+import { useState } from 'react';
+
 export default function MoshavereRequestPage() {
+  const [activeTab, setActiveTab] = useState(0);
+
   return (
     <div className="px-4 py-4 md:py-7 md:px-11">
       <h2>
@@ -19,8 +23,13 @@ export default function MoshavereRequestPage() {
         تخصصی برای شما فراهم کرده است.
       </p>
       <div className="grid grid-cols-1 gap-x-4 gap-y-10 mt-20 items-start lg:grid-cols-2 lg:gap-y-0">
-        <MoshavereRequestRules />
-        <MoshavereRequestForm />
+        <MoshavereRequestRules
+          activeTab={activeTab}
+        />
+        <MoshavereRequestForm
+          activeTab={activeTab}
+          setActiveTab={setActiveTab}
+        />
       </div>
     </div>
   );

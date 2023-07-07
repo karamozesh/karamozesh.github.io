@@ -3,7 +3,10 @@ import againPeygiri from '../../asset/icon/entypo_cycle.svg';
 import styles from './MoshavereRequest.module.css';
 import MoshavereRequestConversation from './MoshavereRequestConversation';
 
+import messageSendIcon from '../../asset/icon/send-message-icon.png';
+
 import Input from '../UI/Input';
+import { useRef } from 'react';
 
 const MoshavereRequsetTicket = ({ request }) => {
   const { zamine, status } = request;
@@ -12,7 +15,16 @@ const MoshavereRequsetTicket = ({ request }) => {
 
   const peygiriClickHandler = () => {};
 
-  const addAnsHandler = () => {};
+  const messageRef = useRef('');
+
+  const sendMessageHandler = (e) => {
+    e.preventDefault();
+
+    if (messageRef.current.value.trim() !== '') {
+      messageRef.current.value = '';
+      console.log('message send...');
+    }
+  };
 
   const question1 =
     'من نمیدونم چیجوری میشه از زبان برنامه نویسی سی اس اس استفاده کنم';
@@ -105,12 +117,24 @@ const MoshavereRequsetTicket = ({ request }) => {
               small={true}
             />
           </div>
-          <input
-            type="text"
-            onChange={addAnsHandler}
-            placeholder="متن خود را وارد کنید ..."
-            className="translate-y-100 my-2 mr-3 text-xs placeholder:text-[#0000008F] outline-none"
-          />
+          <form
+            className="flex items-center w-full"
+            onSubmit={sendMessageHandler}
+          >
+            <button type="submit">
+              <img
+                className="w-[20px] h-[20px] mr-3 cursor-pointer"
+                src={messageSendIcon}
+                alt=""
+              />
+            </button>
+            <input
+              type="text"
+              ref={messageRef}
+              placeholder="متن خود را وارد کنید ..."
+              className="w-full translate-y-100 my-2 mx-3 text-xs placeholder:text-[#0000008F] outline-none"
+            />
+          </form>
         </>
       );
       break;
