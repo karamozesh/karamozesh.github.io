@@ -121,7 +121,7 @@ const MobileNav = () => {
     ),
     getItem(
       'درخواست مشاوره',
-      '/request-moshavere',
+      '/moshavere-request',
       null,
       null,
     ),
