@@ -45,6 +45,8 @@ module.exports = {
       },
       boxShadow: {
         mahdis: '0px 0px 4px 0px #00000040',
+        ticketConversation:
+          '0px 4px 4px 0px #00000040',
       },
       gridTemplateColumns: {
         ticket: '40% 40% 20%',
