@@ -1,7 +1,7 @@
 {
   "name": "karpey",
   "private": true,
-  "homepage": "https://mkhodagholi.github.io/Karamoozesh-Front",
+  "homepage": "https://github.com/pariajokar/Karamoozesh-Front/",
   "version": "1.0.0",
   "type": "module",
   "predeploy": "npm run build",
