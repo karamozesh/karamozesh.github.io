@@ -1,8 +1,11 @@
 {
   "name": "karpey",
   "private": true,
+  "homepage": "https://mkhodagholi.github.io/Karamoozesh-Front",
   "version": "1.0.0",
   "type": "module",
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d build",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -40,6 +43,7 @@
     "autoprefixer": "^10.4.13",
     "eslint": "^8.29.0",
     "eslint-plugin-react": "^7.31.11",
+    "gh-pages": "^5.0.0",
     "happy-dom": "^9.20.3",
     "postcss": "^8.4.20",
     "prettier": "^2.8.1",
