@@ -19,6 +19,8 @@ if (tokenData.token) {
   initialToken = tokenData.token;
 }
 
+initialToken = 'faskdflsdkfnds';
+
 let initialState = {
   user_token: initialToken,
   isLoggedIn: !!initialToken,
