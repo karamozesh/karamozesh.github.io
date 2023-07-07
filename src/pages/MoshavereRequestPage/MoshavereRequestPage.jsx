@@ -3,7 +3,7 @@ import MoshavereRequestRules from '../../components/MoshavereRequest/MoshavereRe
 
 export default function MoshavereRequestPage() {
   return (
-    <div className="px-11 py-7">
+    <div className="px-4 py-4 md:py-7 md:px-11">
       <h2>
         دریافت مشاوره حرفه ای از متخصصین آموزشیار
       </h2>
@@ -18,7 +18,7 @@ export default function MoshavereRequestPage() {
         برای دریافت مشاوره آن هم به صورت رایگان و
         تخصصی برای شما فراهم کرده است.
       </p>
-      <div className="grid grid-cols-2 gap-x-5 mt-20">
+      <div className="grid grid-cols-1 gap-x-4 gap-y-10 mt-20 items-start lg:grid-cols-2 lg:gap-y-0">
         <MoshavereRequestRules />
         <MoshavereRequestForm />
       </div>
