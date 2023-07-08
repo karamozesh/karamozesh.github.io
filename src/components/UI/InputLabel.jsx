@@ -5,6 +5,8 @@ const InputLabel = ({
   type,
   innerRef,
   dir,
+  role
+,
   ...props
 }) => {
   return (
@@ -17,6 +19,7 @@ const InputLabel = ({
       </label>
       <input
         className="bg-[#ECEBEB] placeholder-gray-800 rounded-full text-[12px] px-2 text-left p-2"
+        
         type={type}
         dir="ltr"
         name={text}
@@ -24,6 +27,8 @@ const InputLabel = ({
         onChange={onChange}
         ref={innerRef}
         autoComplete="off"
+        role={role}
+        
         // {...props}
       />
     </div>

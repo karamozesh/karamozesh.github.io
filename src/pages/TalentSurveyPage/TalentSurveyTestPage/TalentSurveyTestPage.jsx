@@ -3,7 +3,7 @@ import {
   useDispatch,
   useSelector,
 } from 'react-redux';
-import { questions_holland } from '../../../Data/data';
+import { questions_holland } from '../../../Data/HalandData';
 import QuestionCard from '../../../components/TalentSurvey/QuestionCard';
 import { Link } from 'react-router-dom';
 import { halandActions } from '../../../store/haland-slice';

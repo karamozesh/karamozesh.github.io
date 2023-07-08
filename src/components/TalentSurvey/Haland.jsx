@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { questions_holland } from '../../Data/data';
+import { questions_holland } from '../../Data/HalandData';
 import { useState } from 'react';
 import QuestionCard from './QuestionCard';
 import {
@@ -15,7 +15,7 @@ import { halandActions } from '../../store/haland-slice';
 function Haland() {
   const { user_token, isLoggedIn } = useSelector(
     (state) => state.auth,
-  );
+  )
 
   const dispatch = useDispatch();
 
@@ -68,6 +68,7 @@ function Haland() {
     setCurrentPage((prev) => prev + 1);
   };
 
+
   const isLastPage =
     currentPage ===
     Math.floor(totalQuestions / 6);
@@ -79,19 +80,7 @@ function Haland() {
       'talent-survey',
       result_string,
     );
-    // axios
-    //   .post(
-    //     API_TALENT,
-    //     { result: result_string },
-    //     {
-    //       method: 'POST',
-    //       headers: {
-    //         'Content-Type': 'application/json',
-    //         Authorization: user_token,
-    //       },
-    //     },
-    //   )
-    //   .catch((err) => console.log(err));
+    
   };
 
   return ansArray.length === totalQuestions ? (

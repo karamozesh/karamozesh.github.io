@@ -4,9 +4,14 @@ import svgr from 'vite-plugin-svgr';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [svgr(), react()],
-  base: '/',
-  server: {
-    port: 3000,
-  },
+    plugins: [svgr(), react()],
+    base: '/',
+    server: {
+        port: 3000,
+    },
+    test: {
+        globals: true,
+        environment: 'jsdom',
+        setupFiles: ['./src/setupTests.js'],
+    }
 });

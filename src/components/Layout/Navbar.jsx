@@ -207,7 +207,16 @@ const DesktopNav = () => {
     },
   ];
 
-  const skillMenuItems = [];
+  const skillMenuItems = [
+
+    {
+      label: (
+        <Link to="/skill">
+        </Link>
+      )
+    }
+
+  ];
 
   const linkClassName =
     pathname === '/'
@@ -234,13 +243,15 @@ const DesktopNav = () => {
           label="ساخت رزومه"
           className={linkClassName}
         />
+         <Link
+          to="/skill"
+          className={linkClassName}
+        >
+         کسب مهارت
+        </Link>
         {/*  for next term */}
         {/* now its next term! */}
-        <CustomDropdown
-          items={skillMenuItems}
-          label="کسب مهارت"
-          className={linkClassName}
-        />
+       
         {/* deprecate */}
         {/* <Link
           to="resume-bank"

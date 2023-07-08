@@ -3,8 +3,6 @@ import { useEffect, useState } from 'react';
 import LoginComponent from './LoginComponent';
 import RegisterComponent from './RegisterComponent';
 import ForgotPassword from './ForgotPassword';
-
-// this need to transfrom into asset folder
 import LoginBanner from '../../images/Rectangle 504.png';
 import {
   useLocation,
@@ -14,12 +12,15 @@ import {
 const Access = () => {
   const { pathname } = useLocation();
   const isLoginPage =
-    pathname.split('/')[2] === 'login';
+    pathname.split('/')[1] === 'login';
+
+    console.log(pathname)
+ 
 
   const navigate = useNavigate();
 
   const [status, setStatus] = useState(
-    !isLoginPage,
+    !isLoginPage
   );
   const [model, setModel] = useState(false);
 
@@ -33,10 +34,13 @@ const Access = () => {
   };
 
   const toggleLink = () => {
+    console.log(isLoginPage)
     const link = isLoginPage
-      ? '/access/register'
-      : '/access/login';
+      ? '/register'
+      : '/login';
+
     navigate(link);
+   
   };
 
   return (
