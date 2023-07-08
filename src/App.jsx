@@ -82,10 +82,15 @@ function App() {
             path="/talent-survey/result/:testName"
             element={<TalentSurveyResultPage />}
           />
+           
           <Route
             path="*"
             element={<NotFoundPage />}
           />
+          {/* <Route
+            path="/profile"
+            element={<ProfilePage />}
+          /> */}
         </Routes>
       )}
       {/* loggin users */}

@@ -4,8 +4,33 @@ import Button from '../../components/UI/Button';
 
 import roadDashed from '../../asset/images/road-dashed.svg';
 import roadCircleImage from '../../asset/images/road-circle_image.svg';
-import roadSite from '../../asset/images/road-site_image.svg';
+import roadSite from '../../asset/images/Group 386.png';
+const road ={
+  resume:{
+  position: "relative" ,
+  top : "-9rem",
+  right : " 15%"
+},
+  skill:{
+    position: "relative" ,
+    top : "-10rem",
+    right : " 40%"
 
+  },
+  moshavere:{
+    position: "relative" ,
+    top : "-25rem",
+    right : " 65%"
+  },
+  khodshenasi:{
+    position: "relative" ,
+    top : "-15rem",
+    right : " 80%"
+
+
+  }
+
+}
 export default function HomePage() {
   return (
     <div className="mt-8">
@@ -51,8 +76,33 @@ export default function HomePage() {
             <img src={roadCircleImage} alt="" />
           </div>
         </div>
-        <div className="mb-[20vh] md:mb-[40vh]">
-          <img src={roadSite} alt="" />
+        <div className="mb-[20vh] md:mb-[40vh] inline">
+          <img src={roadSite} alt=""  />
+          {/* <img src={ellipse1} alt="" className=' relative -top-36' />
+          <img src={ellipse2} alt="" className=' relative ' />
+          <img src={ellipse3} alt="" className=' relative ' />
+          <img src={ellipse4} alt="" className=' relative ' /> */}
+          <div className=''>
+            <p  className='relative -top-36 right-1/4 inline'  style={road.resume}>ساخت رزومه</p>
+            <p className=' relative  text-xs font-light' style={road.resume}>مثل حرفه ایا رزومه بساز</p>
+          </div>
+          <div className=''>
+            <p className=' relative ' style={road.skill}>کسب مهارت</p>
+            <p className=' relative  text-xs font-light' style={road.skill}>یادگیری مهارت های دلخواهتون به روش بهترینا </p>
+          </div>
+          <div className=''>
+            <p className=' relative ' style={road.moshavere}>مشاوره </p>
+            
+          </div>
+          <div className=''>
+            <p className=' relative ' style={road.khodshenasi}>خودشناسی</p>
+            <p className=' relative  text-xs font-light' style={road.khodshenasi}>ویژگی ها و ابعاد مختلفتو بهتر بشناس</p>
+
+          </div>
+          
+
+
+          
         </div>
       </div>
     </div>
