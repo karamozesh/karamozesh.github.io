@@ -39,6 +39,7 @@ const SkillsContent = () => {
     if (skills.length > 0) {
       skill_id = skills[skills.length - 1].id + 1;
     }
+    
     const skill_obj = {
       id: skill_id,
       name: skill_name,

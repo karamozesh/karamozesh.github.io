@@ -10,6 +10,7 @@ export const store = configureStore({
     resume: resumeReducer,
     haland: halandReducer,
     moshavereForm: moshavereFormReducer,
+    mbti: mbtiReducer,
   },
 });
 

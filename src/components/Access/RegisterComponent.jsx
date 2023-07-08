@@ -8,9 +8,9 @@ import {
 import axios from 'axios';
 import { API_REGISTER } from '../../api/configAPI';
 
-const RegisterComponent = ({}) => {
+const RegisterComponent = ({handleSubmit}) => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const usernameRef = useRef(null);
   const phonenumberRef = useRef(null);
@@ -100,13 +100,16 @@ const RegisterComponent = ({}) => {
       <p className="bg-primaryColor text-white p-5 text-center text-lg  font-bold">
         عضویت در کارآموزش
       </p>
+      <form action="" onSubmit={handleSubmit}>
       <div className="flex flex-col gap-3 p-5 px-8">
         <div className="grid grid-cols-2 gap-2">
           <InputLabel
+          name="username"
             text="نام کاربری"
             type="text"
             placeholder="mohammad021"
             innerRef={usernameRef}
+            role="username"
           />
           {/* its need to change into type="tel" and add pattern */}
           <InputLabel
@@ -114,6 +117,7 @@ const RegisterComponent = ({}) => {
             type="text"
             placeholder="09123456789"
             innerRef={phonenumberRef}
+            role="phoneNumber"
           />
         </div>
         <div className="flex flex-col gap-2">
@@ -122,6 +126,7 @@ const RegisterComponent = ({}) => {
             type="email"
             placeholder="example@gmail.com"
             innerRef={emailRef}
+            role="email"
           />
         </div>
         <div className="grid grid-cols-2 gap-2">
@@ -131,18 +136,21 @@ const RegisterComponent = ({}) => {
             placeholder="*******"
             innerRef={passwordRef}
             autoComplete="false"
+            role="password"
           />
           <InputLabel
             text="تکرار گذرواژه"
             type="password"
             placeholder="*******"
             innerRef={password_confirmRef}
+            role="confirmPassword"
           />
         </div>
         <div className="flex flex-col gap-3 pt-3">
           <button
             className="bg-secondaryColor p-1 text-sm rounded-full"
             onClick={registerClickHandler}
+            role='submitButton'
           >
             عضویت
           </button>
@@ -164,6 +172,7 @@ const RegisterComponent = ({}) => {
           </span>
         </div>
       </div>
+      </form>
     </div>
   );
 };

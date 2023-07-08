@@ -3,6 +3,14 @@ module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
+      backgroundImage: {
+        'hero-pattern1':
+          "url('/src/asset/images/bg.png')",
+        'hero-pattern2':
+          "url('/src/asset/images/bg2.png')",
+        'hero-pattern3':
+          "url('/src/asset/images/bg3.png')",
+      },
       fontSize: {
         xs: ['0.75rem', '1rem'],
         sm: ['0.875rem', '1.75rem'],

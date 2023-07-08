@@ -48,8 +48,8 @@ function HalandTest() {
 
   const { totalQuestions, ansArray } =
     useSelector((state) => state.haland);
-  const [currentPage, setCurrentPage] =
-    useState(1);
+    
+  const [currentPage, setCurrentPage] =  useState(1);
 
   const numQuestions = 6;
   const startIndex =
