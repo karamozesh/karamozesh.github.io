@@ -1,7 +1,7 @@
 {
   "name": "karpey",
   "private": true,
-  "homepage": "https://karamozesh.github.io/app/",
+  "homepage": "/",
   "version": "1.0.0",
   "type": "module",
   "scripts": {
