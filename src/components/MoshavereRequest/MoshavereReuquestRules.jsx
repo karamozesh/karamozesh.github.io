@@ -1,8 +1,8 @@
 const MoshavereRequestRules = ({ activeTab }) => {
   const priceArray = [
-    { countMonth: 1, price: 2500 },
-    { countMonth: 2, price: 4500 },
-    { countMonth: 3, price: 6000 },
+    { countMonth: 1, price: '250,000' },
+    { countMonth: 2, price: '450,000' },
+    { countMonth: 3, price: '600,000' },
   ];
 
   return (

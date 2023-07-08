@@ -5,7 +5,6 @@ import MoshavereRequestConversation from './MoshavereRequestConversation';
 
 import messageSendIcon from '../../asset/icon/send-message-icon.png';
 
-import Input from '../UI/Input';
 import { useRef } from 'react';
 
 const MoshavereRequsetTicket = ({ request }) => {

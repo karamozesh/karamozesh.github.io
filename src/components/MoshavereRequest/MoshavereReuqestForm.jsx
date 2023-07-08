@@ -2,16 +2,24 @@ import {
   RadioGroup,
   Tab,
 } from '@headlessui/react';
-import { useState } from 'react';
-import { Select, Tag } from 'antd';
+import { Select } from 'antd';
 import MoshavereRequsetTicket from './MoshavereReuqestTicket';
+import {
+  useDispatch,
+  useSelector,
+} from 'react-redux';
+import { moshavereFormActions } from '../../store/moshavereForm-slice';
 
 const ERTH_MOSHAVERE_OPTION_COLORS = {
   html: '#DC1F31',
   css: '#576BF0',
   javascript: '#F5AF2B',
-  nlp: '#3EBA60',
   typescript: '#17268A',
+  frontend: '#A899DF',
+  python: '#16B4E5',
+  backend: '#CBDAFF',
+  ai: '#0A0A0A',
+  nlp: '#3EBA60',
 };
 
 const erthMoshavere_options = [
@@ -28,12 +36,30 @@ const erthMoshavere_options = [
     value: 'javascript',
   },
   {
-    label: 'پردازش زبان طبیعی',
-    value: 'nlp',
-  },
-  {
     label: 'تایپ اسکریپت',
     value: 'typescript',
+  },
+  {
+    label: 'فرانت اند',
+    value: 'frontend',
+  },
+  {
+    label: 'پایتون',
+    value: 'python',
+  },
+  {
+    label: 'بک اند',
+    value: 'backend',
+  },
+
+  {
+    label: 'هوش مصنوعی',
+    value: 'ai',
+  },
+
+  {
+    label: 'پردازش زبان طبیعی',
+    value: 'nlp',
   },
 ];
 
@@ -82,12 +108,6 @@ const moshaver_time_options = [
   },
 ];
 
-const plans = [
-  { id: 1, name: 'یک ماهه', value: '1' },
-  { id: 2, name: 'دو ماهه', value: '2' },
-  { id: 3, name: 'سه ماهه', value: '3' },
-];
-
 const tagRender = ({ label, value, onClose }) => {
   const color =
     ERTH_MOSHAVERE_OPTION_COLORS[value];
@@ -112,9 +132,68 @@ const tagRender = ({ label, value, onClose }) => {
 };
 
 const FreeMoshavereRequestContent = () => {
-  const optionChangeHandler = (data) => {
-    // setOptionSelected(data);
-    // add data in redux store!
+  const {
+    zamine,
+    lvlOfInofrmation,
+    description,
+    files,
+    contactWay,
+    timeMoshavere,
+  } = useSelector(
+    (state) => state.moshavereForm.free,
+  );
+
+  const dispatch = useDispatch();
+
+  const zamineMoshavereChangeHandler = (
+    value,
+  ) => {
+    dispatch(
+      moshavereFormActions.changeFreeProp({
+        prop: 'zamine',
+        value,
+      }),
+    );
+  };
+
+  const lvlOfInofrmationChangeHandler = (
+    value,
+  ) => {
+    dispatch(
+      moshavereFormActions.changeFreeProp({
+        prop: 'lvlOfInofrmation',
+        value,
+      }),
+    );
+  };
+
+  const descriptionChangeHandler = (e) => {
+    const value = e.target.value;
+
+    dispatch(
+      moshavereFormActions.changeFreeProp({
+        prop: 'description',
+        value,
+      }),
+    );
+  };
+
+  const contactWayChangeHandler = (value) => {
+    dispatch(
+      moshavereFormActions.changeFreeProp({
+        prop: 'contactWay',
+        value,
+      }),
+    );
+  };
+
+  const timeMoshavereChangeHandler = (value) => {
+    dispatch(
+      moshavereFormActions.changeFreeProp({
+        prop: 'timeMoshavere',
+        value,
+      }),
+    );
   };
 
   return (
@@ -144,7 +223,10 @@ const FreeMoshavereRequestContent = () => {
               style={{
                 width: '100%',
               }}
-              onChange={optionChangeHandler}
+              onChange={
+                zamineMoshavereChangeHandler
+              }
+              value={zamine}
               options={erthMoshavere_options}
             />
           </div>
@@ -162,7 +244,10 @@ const FreeMoshavereRequestContent = () => {
               style={{
                 width: '100%',
               }}
-              onChange={optionChangeHandler}
+              onChange={
+                lvlOfInofrmationChangeHandler
+              }
+              value={lvlOfInofrmation}
               options={mizan_info_options}
             />
           </div>
@@ -174,6 +259,8 @@ const FreeMoshavereRequestContent = () => {
             id=""
             className="mt-2 p-4 bg-gray-600/[0.56] shadow-mahdis focus:outline-dashed"
             style={{ resize: 'none' }}
+            onChange={descriptionChangeHandler}
+            value={description}
           ></textarea>
         </div>
         <div
@@ -207,7 +294,8 @@ const FreeMoshavereRequestContent = () => {
               style={{
                 width: '100%',
               }}
-              onChange={optionChangeHandler}
+              onChange={contactWayChangeHandler}
+              value={contactWay}
               options={contact_way_options}
             />
           </div>
@@ -225,7 +313,10 @@ const FreeMoshavereRequestContent = () => {
               style={{
                 width: '100%',
               }}
-              onChange={optionChangeHandler}
+              value={timeMoshavere}
+              onChange={
+                timeMoshavereChangeHandler
+              }
               options={moshaver_time_options}
             />
           </div>
@@ -238,13 +329,86 @@ const FreeMoshavereRequestContent = () => {
   );
 };
 
+const plans = [
+  { id: 1, name: 'یک ماهه', value: '1' },
+  { id: 2, name: 'دو ماهه', value: '2' },
+  { id: 3, name: 'سه ماهه', value: '3' },
+];
+
 const VIPMoshavereRequestContent = () => {
-  const optionChangeHandler = (data) => {
-    // setOptionSelected(data);
-    // add data in redux store!
+  const {
+    zamine,
+    lvlOfInofrmation,
+    description,
+    files,
+    contactWay,
+    timeMoshavere,
+    plan,
+  } = useSelector(
+    (state) => state.moshavereForm.vip,
+  );
+
+  const dispatch = useDispatch();
+
+  const zamineMoshavereChangeHandler = (
+    value,
+  ) => {
+    dispatch(
+      moshavereFormActions.changeVipProp({
+        prop: 'zamine',
+        value,
+      }),
+    );
   };
 
-  const [plan, setPlan] = useState(plans[0]);
+  const lvlOfInofrmationChangeHandler = (
+    value,
+  ) => {
+    dispatch(
+      moshavereFormActions.changeVipProp({
+        prop: 'lvlOfInofrmation',
+        value,
+      }),
+    );
+  };
+
+  const descriptionChangeHandler = (e) => {
+    const value = e.target.value;
+
+    dispatch(
+      moshavereFormActions.changeVipProp({
+        prop: 'description',
+        value,
+      }),
+    );
+  };
+
+  const planChangeHandler = (value) => {
+    dispatch(
+      moshavereFormActions.changeVipProp({
+        prop: 'plan',
+        value,
+      }),
+    );
+  };
+
+  const contactWayChangeHandler = (value) => {
+    dispatch(
+      moshavereFormActions.changeVipProp({
+        prop: 'contactWay',
+        value,
+      }),
+    );
+  };
+
+  const timeMoshavereChangeHandler = (value) => {
+    dispatch(
+      moshavereFormActions.changeVipProp({
+        prop: 'timeMoshavere',
+        value,
+      }),
+    );
+  };
 
   return (
     <>
@@ -256,7 +420,7 @@ const VIPMoshavereRequestContent = () => {
         کارشناسان ما در اولین فرصت با شما تماس
         خواهند گرفت.
       </p>
-      <form className="m-8">
+      <form className="p-8">
         <div className="grid grid-cols-2 gap-x-4 mb-6">
           <div>
             <label className="inline-block mb-1">
@@ -273,7 +437,10 @@ const VIPMoshavereRequestContent = () => {
               style={{
                 width: '100%',
               }}
-              onChange={optionChangeHandler}
+              onChange={
+                zamineMoshavereChangeHandler
+              }
+              value={zamine}
               options={erthMoshavere_options}
             />
           </div>
@@ -291,7 +458,10 @@ const VIPMoshavereRequestContent = () => {
               style={{
                 width: '100%',
               }}
-              onChange={optionChangeHandler}
+              onChange={
+                lvlOfInofrmationChangeHandler
+              }
+              value={lvlOfInofrmation}
               options={mizan_info_options}
             />
           </div>
@@ -303,6 +473,8 @@ const VIPMoshavereRequestContent = () => {
             id=""
             className="mt-2 p-4 bg-gray-600/[0.56] shadow-mahdis focus:outline-dashed"
             style={{ resize: 'none' }}
+            onChange={descriptionChangeHandler}
+            value={description}
           ></textarea>
         </div>
         <div
@@ -336,7 +508,8 @@ const VIPMoshavereRequestContent = () => {
               style={{
                 width: '100%',
               }}
-              onChange={optionChangeHandler}
+              onChange={contactWayChangeHandler}
+              value={contactWay}
               options={contact_way_options}
             />
           </div>
@@ -354,7 +527,10 @@ const VIPMoshavereRequestContent = () => {
               style={{
                 width: '100%',
               }}
-              onChange={optionChangeHandler}
+              value={timeMoshavere}
+              onChange={
+                timeMoshavereChangeHandler
+              }
               options={moshaver_time_options}
             />
           </div>
@@ -362,7 +538,7 @@ const VIPMoshavereRequestContent = () => {
         <div>
           <RadioGroup
             value={plan}
-            onChange={setPlan}
+            onChange={planChangeHandler}
             className="flex mb-8"
           >
             <RadioGroup.Label className="text-base ml-10">
