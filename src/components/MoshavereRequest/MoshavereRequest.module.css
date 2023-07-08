@@ -1,7 +1,0 @@
-.ticket p {
-  width: 90%;
-  display: inline-block;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-}
