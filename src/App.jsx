@@ -23,6 +23,12 @@ import TalentSurveyTestPage from './pages/TalentSurveyPage/TalentSurveyTestPage/
 import ResumeCreatingPage from './pages/ResumePage/ResumeCreatingPage/ResumeCreatingPage';
 import TalentSurveyResultPage from './pages/TalentSurveyPage/TalentSurveyResultPage/TalentSurveyResultPage';
 import TalentSurveyResultListPage from './pages/TalentSurveyPage/TalentSurveyResultPage/TalentSurveyResultListPage';
+import Disk from './components/TalentSurvey/Disk';
+import MBTI from './components/TalentSurvey/MBTI';
+import HalandResult from './components/TalentResult/Result'
+import MbtiResult from './components/MbtiResult/Result';
+import SkillCard from './components/Skill/SkillCard';
+import JavaScript from './pages/Skill/JavaScript';
 
 function App() {
   const { isLoggedIn } = useSelector(
@@ -72,6 +78,14 @@ function App() {
             path="/talent-survey/:testName"
             element={<TalentSurveyTestPage />}
           />
+            <Route
+            path="/talent-survey/disk"
+            element={<Disk />}
+          />
+             <Route
+            path="/talent-survey/mbti"
+            element={<MBTI />}
+          />
           <Route
             path="/talent-survey/result"
             element={
@@ -81,11 +95,37 @@ function App() {
           <Route
             path="/talent-survey/result/:testName"
             element={<TalentSurveyResultPage />}
+          
           />
+            <Route
+            path="/talent-survey/result/haland"
+            element={<HalandResult />}
+          
+          />
+              <Route
+            path="/talent-survey/result/mbti"
+            element={<MbtiResult />}
+          
+          />
+               <Route
+            path="/skill"
+            element={<SkillCard />}
+          
+          />
+                <Route
+            path="/skill/javaScript"
+            element={<JavaScript />}
+          
+          />
+           
           <Route
             path="*"
             element={<NotFoundPage />}
           />
+          {/* <Route
+            path="/profile"
+            element={<ProfilePage />}
+          /> */}
         </Routes>
       )}
       {/* loggin users */}

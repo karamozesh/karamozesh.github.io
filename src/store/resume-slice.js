@@ -26,6 +26,7 @@ const initialState = {
     nezamVazife: '', // type: SelectType
     birthdayDate: '', // Date
     address: '', // String
+    image: null,
   },
   education: {
     gradeEducation: '', // String

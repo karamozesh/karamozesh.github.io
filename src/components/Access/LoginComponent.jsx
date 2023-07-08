@@ -1,12 +1,10 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import InputLabel from '../UI/InputLabel';
 import { useDispatch } from 'react-redux';
 import { loginByEmailPass } from '../../api/authAPI';
 import { Navigate } from 'react-router-dom';
 
-const LoginComponent = ({
-  toggleModeHandler,
-}) => {
+const LoginComponent = ({onSubmit}) => {
   const dispatch = useDispatch();
 
   const emailRef = useRef(null);
@@ -17,6 +15,7 @@ const LoginComponent = ({
     const password_value =
       passwordRef.current.value;
 
+      
     // simple validation
     if (
       email_value.trim().length < 1 ||
@@ -30,30 +29,46 @@ const LoginComponent = ({
         password_value,
       ),
     );
+  
+  
   };
 
   const gotoRegister = () => {
     Navigate('/access/login');
   };
 
+ 
+
+
   return (
     <div className="shadow-lg lg:w-1/2  lg:flex-col  hidden lg:flex w-full  flex-col text-right ">
       <p className="bg-primaryColor text-white p-5 text-center text-lg font-bold">
         ورود به حساب کاربری
       </p>
-      <div className="flex flex-col gap-5 p-6 px-8">
+      <form onSubmit={onSubmit}>
+       <div className="flex flex-col gap-5 p-6 px-8">
+       
         <InputLabel
           text="پست الکترونیک"
           type="email"
+          name="username"
           placeholder="Info@example.com"
           innerRef={emailRef}
+          
+          role='username'
+         
         />
+        
+        
         <InputLabel
           text="گذرواژه"
+          name="password"
           type="password"
           placeholder="********"
           innerRef={passwordRef}
           autoComplete="off"
+          role='password'
+         
         />
         {/* <p
           href=""
@@ -67,6 +82,8 @@ const LoginComponent = ({
           <button
             className="bg-secondaryColor p-1 rounded-full text-sm"
             onClick={loginHandler}
+            type='submit'
+            role='submitButton'
           >
             ورود به سایت
           </button>
@@ -87,8 +104,11 @@ const LoginComponent = ({
           </span>
         </div>
       </div>
+      </form>
     </div>
   );
 };
 
 export default LoginComponent;
+// export const validateInput = (str="")=>str.includes("@")
+ 

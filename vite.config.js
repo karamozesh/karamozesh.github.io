@@ -7,7 +7,9 @@ export default defineConfig({
   plugins: [svgr(), react()],
   base: '/',
   test: {
+    globals: true,
     environment: 'happy-dom',
+    setupFiles: ['./src/setupTests.js'],
   },
   server: {
     port: 3000,

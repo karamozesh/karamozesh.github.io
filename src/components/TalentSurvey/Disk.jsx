@@ -8,7 +8,8 @@ function Disk() {
         لطفا صبور باشید...
       </h3>
     </div>
-  );
+  )
 }
+
 
 export default Disk;

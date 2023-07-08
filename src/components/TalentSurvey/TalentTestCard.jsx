@@ -6,8 +6,7 @@ export default function TalentTestCard({
   image,
   description,
 }) {
-  // component for show test img with little explanation
-  // has 2 prop: img, description
+ 
   return (
     <div className="border float-right p-4">
       <p className="">

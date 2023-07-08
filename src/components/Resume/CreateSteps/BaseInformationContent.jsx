@@ -78,6 +78,7 @@ const BaseInformationContent = () => {
     city,
     birthdayDate,
     address,
+    image,
   } = baseInformation;
 
   const nameResumeRef = useRef(null);
@@ -195,6 +196,12 @@ const BaseInformationContent = () => {
     );
   };
 
+  const imageChangeHandler = (e) => {
+    const file = e.target.files[0];
+
+    dispatch(resumeActions.changeBaseInformation({prop}))
+  };
+
   useEffect(() => {
     // initial Value Set
     nameResumeRef.current.value = nameResume;
@@ -206,10 +213,17 @@ const BaseInformationContent = () => {
 
   return (
     <div className="resume-step-content">
-      <div className="flex items-center">
-        <input type="image" src={profileImage} />
-        <input type="file" />
-        بارگذاری تصاویر
+      <div className="relative isolate flex items-center w-fit h-[107px] rounded-full">
+        <img src={profileImage} alt="" />
+        <input
+          type="file"
+          accept="image/*"
+          className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+          onChange={imageChangeHandler}
+        />
+        <span className="mr-4">
+          {image.name ?? 'بارگذاری تصاویر'}
+        </span>
       </div>
       <div className="mt-4">
         <div className="grid grid-cols-2 gap-28 mb-4">
@@ -245,7 +259,7 @@ const BaseInformationContent = () => {
               placement="bottomRight"
               options={jensiatOptions}
               onChange={genericChangeHandler}
-              aria-label='generic-select'
+              aria-label="generic-select"
               value={
                 generic
                   ? generic.label

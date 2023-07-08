@@ -1,4 +1,5 @@
 const TalentSurveyResultPage = () => {
+  
   return <div>Its the Result Page!!!</div>;
 };
 

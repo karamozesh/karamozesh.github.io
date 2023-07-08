@@ -56,7 +56,6 @@ function Result() {
       color: '#717171',
     },
   ];
-
   useEffect(() => {
     let sortedAns = [...ansArray];
     sortedAns.sort((a, b) => {
@@ -157,7 +156,7 @@ function Result() {
               }
             />
             <div className="flex gap-3 flex-wrap">
-              <JobItems item={' حسابدار'} />
+              <Job Items item={' حسابدار'} />
               <JobItems item={'امور اداری'} />
             </div>
           </div>
