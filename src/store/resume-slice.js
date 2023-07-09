@@ -5,6 +5,7 @@ import {
 
 import {
   API_ADD_EDU_CV,
+  API_ADD_SKILL_CV,
   API_ADD_WORK_CV,
   API_CREATE_CV,
 } from '../api/configAPI';
@@ -43,6 +44,7 @@ export const createResume = createAsyncThunk(
       nezamVazife: duty_system,
       birthdayDate: data_of_birth,
       address: address,
+      user_id,
     } = data;
 
     const valid_obj = {
@@ -50,13 +52,13 @@ export const createResume = createAsyncThunk(
       phone_number,
       firstname,
       lastname,
-      gender,
-      martial_status,
-      city,
-      duty_system,
+      gender: gender.value,
+      martial_status: martial_status.value,
+      city: city.value,
+      duty_system: duty_system.value,
       data_of_birth,
       address,
-      user_id: 5,
+      user_id,
     };
 
     try {
@@ -66,6 +68,7 @@ export const createResume = createAsyncThunk(
         {
           headers: {
             'Content-Type': 'application/json',
+            Authorization: `Token ${user_token}`,
           },
         },
       );
@@ -98,6 +101,7 @@ export const sendEducationInfo = createAsyncThunk(
       endDate: end_date,
       nameUniversity: university,
       cv_id,
+      user_token,
     } = data;
 
     const valid_obj = {
@@ -106,16 +110,16 @@ export const sendEducationInfo = createAsyncThunk(
       start_date,
       end_date,
       university,
-      cv_id,
     };
 
     try {
       await axios.post(
-        API_ADD_EDU_CV(cv_id),
+        API_ADD_EDU_CV(1),
         JSON.stringify(valid_obj),
         {
           headers: {
             'Content-Type': 'application/json',
+            Authorization: `Token ${user_token}`,
           },
         },
       );
@@ -146,6 +150,8 @@ export const sendWorkExperienceInfo =
         companyName: company, // String
         startDate: start_date, // Date
         endDate: end_date, // Date
+        cv_id,
+        user_token,
       } = data;
 
       const valid_obj = {
@@ -154,17 +160,16 @@ export const sendWorkExperienceInfo =
         company,
         start_date,
         end_date,
-        cv_id: 1,
       };
 
       try {
         await axios.post(
-          API_ADD_EDU_CV(cv_id),
+          API_ADD_WORK_CV(1),
           JSON.stringify(valid_obj),
           {
             headers: {
               'Content-Type': 'application/json',
-              'Access-Control-Allow-origin': '*',
+              Authorization: `Token ${user_token}`,
             },
           },
         );
@@ -188,22 +193,25 @@ export const sendWorkExperienceInfo =
 
 export const sendSkills = createAsyncThunk(
   'resume/createResume',
-  async (data, { dispatch }) => {
+  async ({ data, user_token }, { dispatch }) => {
     try {
       const response = await axios.post(
-        API_ADD_WORK_CV(cv_id),
+        API_ADD_SKILL_CV(1),
         JSON.stringify(data),
         {
           headers: {
             'Content-Type': 'application/json',
+            Authorization: `Token ${user_token}`,
           },
         },
       );
       const skillObj = response.data;
+      console.log(skillObj);
       dispatch(
         resumeActions.addSkill({
           lvl: 1,
-          ...skillObj,
+          name: skillObj.title,
+          id: skillObj.id,
         }),
       );
       dispatch(
@@ -334,6 +342,12 @@ const resumeSlice = createSlice({
     ) {
       state.furtherInformation.contact.push(
         action.payload,
+      );
+    },
+    deleteSkill(state, action) {
+      const skill = action.payload;
+      state.skill = state.skill.filter(
+        (skillItem) => +skillItem.id !== +skill,
       );
     },
   },

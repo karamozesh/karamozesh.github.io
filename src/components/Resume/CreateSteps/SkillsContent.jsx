@@ -18,6 +18,9 @@ import {
 const SkillsContent = () => {
   const [lvlSkill, setLvlSkill] = useState(1);
   const [error, setError] = useState(null);
+  const { user_token } = useSelector(
+    (state) => state.auth,
+  );
   const dispatch = useDispatch();
 
   const { skill } = useSelector(
@@ -47,10 +50,12 @@ const SkillsContent = () => {
     const skill_lvl = lvlSkill;
 
     const skill_obj = {
-      name: skill_name,
+      title: skill_name,
       // lvl: skill_lvl,
     };
-    dispatch(sendSkills(skill_obj));
+    dispatch(
+      sendSkills({ data: skill_obj, user_token }),
+    );
     // dispatch(resumeActions.addSkill(skill_obj));
     resetFields();
   };

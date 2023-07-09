@@ -1,4 +1,8 @@
-import { useEffect } from 'react';
+import {
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import {
   useDispatch,
   useSelector,
@@ -21,6 +25,8 @@ import {
   sendEducationInfo,
   sendWorkExperienceInfo,
 } from '../../../store/resume-slice';
+import axios from 'axios';
+import { API_GET_USER_ID } from '../../../api/configAPI';
 
 export default function ResumeCreatingPage() {
   const params = useParams();
@@ -29,6 +35,31 @@ export default function ResumeCreatingPage() {
   const pathname = location.pathname;
   const slug = pathname.split('/')[2];
   const dispatch = useDispatch();
+  const { user_token } = useSelector(
+    (state) => state.auth,
+  );
+  const [user_id, setUesrId] = useState(null);
+
+  useEffect(() => {
+    const fetchUserId = async () => {
+      const response = await axios.get(
+        API_GET_USER_ID,
+        {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `${user_token}`,
+          },
+        },
+      );
+      const { user_id } = await response.data;
+      console.log(response.data);
+      setUesrId(user_id);
+
+      return user_id;
+    };
+    fetchUserId();
+  }, []);
 
   const {
     baseInformation,
@@ -36,11 +67,8 @@ export default function ResumeCreatingPage() {
     workExperience,
     skill,
     furtherInformation,
+    cv_id,
   } = useSelector((state) => state.resume);
-
-  const { user_token } = useSelector(
-    (state) => state.auth,
-  );
 
   const stepObjs = [
     {
@@ -92,13 +120,31 @@ export default function ResumeCreatingPage() {
   const saveClickHandler = () => {
     let destinationStep;
     if (slug === 'base-information') {
-      dispatch(createResume(baseInformation));
+      dispatch(
+        createResume({
+          ...baseInformation,
+          user_id,
+          user_token,
+        }),
+      );
       destinationStep = 'education';
     } else if (slug === 'education') {
-      dispatch(sendEducationInfo(education));
+      dispatch(
+        sendEducationInfo({
+          ...education,
+          cv_id,
+          user_token,
+        }),
+      );
       destinationStep = 'work-experience';
     } else if (slug === 'work-experience') {
-      dispatch(sendWorkExperienceInfo(workExperience));
+      dispatch(
+        sendWorkExperienceInfo({
+          ...workExperience,
+          cv_id,
+          user_token,
+        }),
+      );
       destinationStep = 'skills';
     } else if (slug === 'skills') {
       // dispatch(
