@@ -44,23 +44,21 @@ if (roleData.role) {
 let initialState = {
   user_token: initialToken,
   isLoggedIn: !!initialToken,
-  isMoshaver: !!initialRole,
+  isMoshaver: initialRole
+    ? initialRole === 2
+    : null,
 };
 
 export const registerUser = createAsyncThunk(
   'auth/login',
   async (data, { dispatch }) => {
     try {
-      await axios.post(
-        API_REGISTER,
-        JSON.stringify(data),
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
+      await axios.post(API_REGISTER, data, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
         },
-      );
+      });
       dispatch(
         notificationActions.changeSuccess({
           exist: true,
@@ -83,6 +81,7 @@ export const registerUser = createAsyncThunk(
 export const loginUser = createAsyncThunk(
   'auth/login',
   async (data, { dispatch }) => {
+    console.log('hello');
     try {
       const response = await axios.post(
         API_LOGIN,
@@ -95,9 +94,9 @@ export const loginUser = createAsyncThunk(
         },
       );
 
-      const data = await response.data;
+      const result = await response.data;
 
-      dispatch(authActions.loginHandler(data));
+      dispatch(authActions.loginHandler(result));
 
       dispatch(
         notificationActions.changeSuccess({
@@ -130,7 +129,7 @@ const authSlice = createSlice({
     loginHandler(state, action) {
       // need to check user is moshaver or not
       const data = action.payload;
-      const { user_token, role } = data;
+      const { token: user_token, role } = data;
       state.user_token = user_token;
       state.isLoggedIn = true;
       state.isMoshaver = role === 2;
@@ -141,7 +140,7 @@ const authSlice = createSlice({
       );
       localStorage.setItem(
         'role',
-        tole.toString(),
+        role.toString(),
       );
       cookies.set(
         token_id,

@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom';
 import { registerUser } from '../../store/auth-slice';
 
-const RegisterComponent = ({ handleSubmit }) => {
+const RegisterComponent = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -17,7 +17,8 @@ const RegisterComponent = ({ handleSubmit }) => {
   const passwordRef = useRef(null);
   const password_confirmRef = useRef(null);
 
-  const registerClickHandler = () => {
+  const registerClickHandler = (e) => {
+    e.preventDefault();
     const username_value =
       usernameRef.current.value;
     const phonenumber_value =
@@ -57,7 +58,10 @@ const RegisterComponent = ({ handleSubmit }) => {
       <p className="bg-primaryColor text-white p-5 text-center text-lg  font-bold">
         عضویت در کارآموزش
       </p>
-      <form action="" onSubmit={handleSubmit}>
+      <form
+        action=""
+        onSubmit={registerClickHandler}
+      >
         <div className="flex flex-col gap-3 p-5 px-8">
           <div className="grid grid-cols-2 gap-2">
             <InputLabel
