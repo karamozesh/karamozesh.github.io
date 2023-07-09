@@ -31,10 +31,9 @@ function getItem(
 
 export default function Navbar() {
   const { pathname } = useLocation();
-  const { isLoggedIn } = useSelector(
+  const { isLoggedIn, isMoshaver } = useSelector(
     (state) => state.auth,
   );
-  const isMoshaver = true;
 
   const normalUserNav = (
     <>
@@ -281,13 +280,13 @@ const MoshaverMobileNav = () => {
   const items = [
     getItem('صفحه اصلی', '/', null, null),
     getItem(
-      'مشاهده تیکت ها',
+      'درخواست های مشاوره',
       '/tickets',
       null,
       null,
     ),
     getItem(
-      'تیکت های من',
+      'مشاوره های من',
       '/my-tickets',
       null,
       null,
@@ -348,13 +347,13 @@ const MoshaverDesktopNav = () => {
           to="/tickets"
           className={linkClassName}
         >
-          مشاهده تیکت ها
+          درخواست های مشاوره
         </NavLink>
         <NavLink
           to="/my-tickets"
           className={linkClassName}
         >
-          تیکت های من
+          مشاوره های من
         </NavLink>
       </ul>
     </nav>

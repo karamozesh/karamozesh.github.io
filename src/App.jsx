@@ -38,9 +38,11 @@ import {
 } from 'react-toastify';
 import { notificationActions } from './store/notification-slice';
 import 'react-toastify/dist/ReactToastify.css';
+import TicketsPage from './pages/MoshaverPages/TicketsPage/TickestPage';
+import MyTicketsPage from './pages/MoshaverPages/MyTicketsPage/MyTicketsPage';
 
 function App() {
-  const { isLoggedIn } = useSelector(
+  const { isLoggedIn, isMoshaver } = useSelector(
     (state) => state.auth,
   );
 
@@ -92,155 +94,135 @@ function App() {
     }
   }, [error, dispatch]);
 
+  const userRoutes = (
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route
+        path="/register"
+        element={<RegisterPage />}
+      />
+      <Route
+        path="/login"
+        element={<LoginPage />}
+      />
+      <Route
+        path="/resume-training"
+        element={<ResumeTrainingPage />}
+      />
+      <Route
+        path="/resume-creating"
+        element={<ResumeCreatingHomePage />}
+      />
+      <Route
+        path="/resume-creating-app/:stepPath"
+        element={<ResumeCreatingPage />}
+      />
+      <Route
+        path="/talent-survey"
+        element={<TalentSurveyPage />}
+      />
+      <Route
+        path="/talent-survey/disk"
+        element={<Disk />}
+      />
+      <Route
+        path="/talent-survey/mbti"
+        element={<MBTI />}
+      />
+      <Route
+        path="/talent-survey/result"
+        element={<TalentSurveyResultListPage />}
+      />
+      <Route
+        path="/talent-survey/result/:testName"
+        element={<TalentSurveyResultPage />}
+      />
+      <Route
+        path="/talent-survey/result/haland"
+        element={<HalandResult />}
+      />
+      <Route
+        path="/talent-survey/result/mbti"
+        element={<MbtiResult />}
+      />
+      <Route
+        path="/profile"
+        element={<ProfilePage />}
+      />
+      <Route
+        path="/moshavere-request"
+        element={<MoshavereRequestPage />}
+      />
+      <Route
+        path="*"
+        element={<NotFoundPage />}
+      />
+    </Routes>
+  );
+
+  const notLogginRoutes = (
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route
+        path="/login"
+        element={<LoginPage />}
+      />
+      <Route
+        path="/register"
+        element={<RegisterPage />}
+      />
+      <Route
+        path="/profile"
+        element={<ProfilePage />}
+      />
+      <Route
+        path="/resume-training"
+        element={<ResumeTrainingPage />}
+      />
+      <Route
+        path="/resume-creating"
+        element={<ResumeCreatingHomePage />}
+      />
+      <Route
+        path="/talent-survey"
+        element={<TalentSurveyPage />}
+      />
+      <Route
+        path="/skill"
+        element={<SkillCard />}
+      />
+      <Route
+        path="/skill/javaScript"
+        element={<JavaScript />}
+      />
+      <Route
+        path="*"
+        element={<NotFoundPage />}
+      />
+    </Routes>
+  );
+
+  const moshaverRoutes = (
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route
+        path="/tickets"
+        element={<TicketsPage />}
+      />
+      <Route
+        path="/my-tickets"
+        element={<MyTicketsPage />}
+      />
+    </Routes>
+  );
+
+  const routes = isMoshaver
+    ? moshaverRoutes
+    : userRoutes;
+
   return (
     <Layout>
-      {/* not loggin users */}
-      {!isLoggedIn && (
-        <Routes>
-          <Route
-            path="/"
-            element={<HomePage />}
-          />
-          <Route
-            path="/login"
-            element={<LoginPage />}
-          />
-          <Route
-            path="/register"
-            element={<RegisterPage />}
-          />
-          <Route
-            path="/profile"
-            element={<ProfilePage />}
-          />
-          <Route
-            path="/resume-training"
-            element={<ResumeTrainingPage />}
-          />
-          <Route
-            path="/resume-creating"
-            element={<ResumeCreatingHomePage />}
-          />
-          <Route
-            path="/resume-creating-app/:stepPath"
-            element={<ResumeCreatingPage />}
-          />
-          {/* <Route
-            path="/moshavere-request"
-            element={<MoshavereRequestPage />}
-          /> */}
-          <Route
-            path="/talent-survey"
-            element={<TalentSurveyPage />}
-          />
-          <Route
-            path="/talent-survey/:testName"
-            element={<TalentSurveyTestPage />}
-          />
-          <Route
-            path="/talent-survey/disk"
-            element={<Disk />}
-          />
-          <Route
-            path="/talent-survey/mbti"
-            element={<MBTI />}
-          />
-          <Route
-            path="/talent-survey/result"
-            element={
-              <TalentSurveyResultListPage />
-            }
-          />
-          <Route
-            path="/talent-survey/result/:testName"
-            element={<TalentSurveyResultPage />}
-          />
-          <Route
-            path="/talent-survey/result/haland"
-            element={<HalandResult />}
-          />
-          <Route
-            path="/talent-survey/result/mbti"
-            element={<MbtiResult />}
-          />
-          <Route
-            path="/skill"
-            element={<SkillCard />}
-          />
-          <Route
-            path="/skill/javaScript"
-            element={<JavaScript />}
-          />
-
-          <Route
-            path="*"
-            element={<NotFoundPage />}
-          />
-          {/* <Route
-            path="/profile"
-            element={<ProfilePage />}
-          /> */}
-        </Routes>
-      )}
-      {/* loggin users */}
-      {isLoggedIn && (
-        <Routes>
-          <Route
-            path="/"
-            element={<HomePage />}
-          />
-          <Route
-            path="/register"
-            element={<RegisterPage />}
-          />
-          <Route
-            path="/login"
-            element={<LoginPage />}
-          />
-          <Route
-            path="/resume-training"
-            element={<ResumeTrainingPage />}
-          />
-          <Route
-            path="/resume-creating"
-            element={<ResumeCreatingHomePage />}
-          />
-          <Route
-            path="/resume-creating-app/:stepPath"
-            element={<ResumeCreatingPage />}
-          />
-          <Route
-            path="/talent-survey"
-            element={<TalentSurveyPage />}
-          />
-          <Route
-            path="/talent-survey/:testName"
-            element={<TalentSurveyTestPage />}
-          />
-          <Route
-            path="/talent-survey/result"
-            element={
-              <TalentSurveyResultListPage />
-            }
-          />
-          <Route
-            path="/talent-survey/result/:testName"
-            element={<TalentSurveyResultPage />}
-          />
-          <Route
-            path="/profile"
-            element={<ProfilePage />}
-          />
-          <Route
-            path="/moshavere-request"
-            element={<MoshavereRequestPage />}
-          />
-          <Route
-            path="*"
-            element={<NotFoundPage />}
-          />
-        </Routes>
-      )}
+      {isLoggedIn ? routes : notLogginRoutes}
       <ToastContainer
         position="bottom-right"
         autoClose={3500}

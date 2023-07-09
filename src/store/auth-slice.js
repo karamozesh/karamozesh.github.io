@@ -11,17 +11,30 @@ const retrieveStoredToken = () => {
   };
 };
 
-const tokenData = retrieveStoredToken();
+const retrieveStoredRole = () => {
+  const storedToken = localStorage.getItem('role');
+  return {
+    role: storedToken,
+  };
+};
 
-let initialToken;
+const tokenData = retrieveStoredToken();
+const roleData = retrieveStoredRole();
+
+let initialToken, initialRole;
 
 if (tokenData.token) {
   initialToken = tokenData.token;
 }
 
+if (roleData.role) {
+  initialRole = roleData.role;
+}
+
 let initialState = {
   user_token: initialToken,
   isLoggedIn: !!initialToken,
+  isMoshaver: !!initialRole,
 };
 
 // export const loginHandler = createAsyncThunk(
@@ -46,9 +59,12 @@ const authSlice = createSlice({
       cookies.remove(token_id);
     },
     loginHandler(state, action) {
-      const user_token = action.payload;
+      // need to check user is moshaver or not
+      const data = action.payload;
+      const { user_token, role } = data;
       state.user_token = user_token;
       state.isLoggedIn = true;
+      // state.isMoshaver = role === 1 ? F
       const nextYear = new Date(
         new Date().setFullYear(
           new Date().getFullYear() + 1,
