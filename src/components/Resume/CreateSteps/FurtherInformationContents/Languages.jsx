@@ -14,6 +14,7 @@ import ResumeSkillCardList from '../../ResumeLanguageCardList';
 
 const Languages = ({ heightOfChildren }) => {
   const [lvl, setLvl] = useState(1);
+  const [error, setError] = useState(null);
 
   const lvlChangeHandler = (lvl) => {
     setLvl(lvl);
@@ -32,18 +33,24 @@ const Languages = ({ heightOfChildren }) => {
   const resetFields = () => {
     languageRef.current.value = '';
     setLvl(1);
+    setError(null);
   };
 
   const addLanguageHandler = () => {
+    const language_name =
+      languageRef.current.value;
+    if (language_name.trim().length < 4) {
+      setError(
+        'اسم زبان باید حداقل بیشتر از ۳ حرف باشد!',
+      );
+      return;
+    }
     let lastLanguage_id = 1;
 
     if (languages.length > 0) {
       lastLanguage_id =
         languages[languages.length - 1].id + 1;
     }
-
-    const language_name =
-      languageRef.current.value;
 
     const language_obj = {
       id: lastLanguage_id,
@@ -85,6 +92,9 @@ const Languages = ({ heightOfChildren }) => {
         <ButtonAddResume
           onClick={() => addLanguageHandler()}
         />
+        <span className="inline-block mt-4 text-sm text-red-500">
+          {error ?? ''}
+        </span>
       </div>
       <ResumeSkillCardList
         languages={languages}

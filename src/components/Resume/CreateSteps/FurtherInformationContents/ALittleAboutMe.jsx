@@ -1,31 +1,17 @@
-import { useRef } from 'react';
-import {
-  useDispatch,
-  useSelector,
-} from 'react-redux';
+import { useDispatch } from 'react-redux';
 import ResumePeyvast from '../../ResumePeyvast';
+import { resumeActions } from '../../../../store/resume-slice';
 
 const ALittleAboutMe = ({ heightOfChildren }) => {
   const dispatch = useDispatch();
 
-  const aLittleAboutMeRef = useRef(null);
-
-  const addALittleAboutMeHandler = () => {
-    const aLittileAboutMe_value =
-      aLittleAboutMeRef.current.value;
-
-    // simple validation
-    if (aLittileAboutMe_value.trim().length < 5)
-      return;
-
+  const addALittleAboutMeHandler = (value) => {
     dispatch(
       resumeActions.changeFutherInformation({
         prop: 'aLittleAboutMe',
-        value: aLittileAboutMe_value,
+        value,
       }),
     );
-
-    aLittleAboutMeRef.current.value = '';
   };
 
   return (
@@ -37,7 +23,6 @@ const ALittleAboutMe = ({ heightOfChildren }) => {
         قبل در مورد شما گفته نشده است را بگویید
       </p>
       <ResumePeyvast
-        innerRef={aLittleAboutMeRef}
         onClick={addALittleAboutMeHandler}
       />
     </div>

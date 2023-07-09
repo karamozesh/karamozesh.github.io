@@ -5,27 +5,29 @@ import {
   useDispatch,
   useSelector,
 } from 'react-redux';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { resumeActions } from '../../../../store/resume-slice';
 
 const Favorites = ({ heightOfChildren }) => {
   const [favorite, setFavorite] = useState('');
+  const [error, setError] = useState(null);
   const dispatch = useDispatch();
+
+  const favoriteRef = useRef(null);
 
   const { furtherInformation } = useSelector(
     (state) => state.resume,
   );
   const { favorites } = furtherInformation;
 
-  console.log(favorites);
-
-  const favoriteInputChangeHandler = (e) => {
-    const favorite_value = e.target.value;
-    setFavorite(favorite_value);
-  };
-
   const addFavoriteHandler = () => {
-    if (favorite.trim().length < 3) return;
+    const favorite = favoriteRef.current.value;
+    if (favorite.trim().length < 3) {
+      setError(
+        'اسم علاقه مندی باید حداقل بیشتر از ۳ حرف باشد!',
+      );
+      return;
+    }
 
     let favorite_id = 1;
 
@@ -37,12 +39,17 @@ const Favorites = ({ heightOfChildren }) => {
       id: favorite_id,
       name: favorite,
     };
-    console.log(favorite_obj);
     dispatch(
       resumeActions.addFavoriteInFurtherInformation(
         favorite_obj,
       ),
     );
+    resetFields();
+  };
+
+  const resetFields = () => {
+    favoriteRef.current.value = '';
+    setError(null);
   };
 
   return (
@@ -54,13 +61,16 @@ const Favorites = ({ heightOfChildren }) => {
           label="علاقه مندی"
           name="favorites"
           type="text"
-          onChange={favoriteInputChangeHandler}
           placeholder="مثلا عکاسی"
           className="mb-8"
+          innerRef={favoriteRef}
         />
         <ButtonAddResume
           onClick={addFavoriteHandler}
         />
+        <span className="inline-block mt-4 text-sm text-red-500">
+          {error ?? ''}
+        </span>
       </div>
       <ResumeLanguageCardList
         languages={favorites}
