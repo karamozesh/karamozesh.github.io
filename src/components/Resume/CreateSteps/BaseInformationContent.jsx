@@ -231,7 +231,7 @@ const BaseInformationContent = () => {
         </span>
       </div>
       <div className="flex items-center">
-        {image?.name && <span>0%</span>}
+        {image?.name && <span>0</span>}
         <div
           className={
             'progress transition-all duration-1000 bg-greenColor rounded-sm mx-1'

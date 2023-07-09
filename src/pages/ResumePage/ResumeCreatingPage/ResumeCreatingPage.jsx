@@ -77,20 +77,32 @@ export default function ResumeCreatingPage() {
   }
 
   const saveClickHandler = () => {
+    let destinationStep;
     if (slug === 'base-information') {
       const { baseInformation } = resumeStates;
-      dispatch(saveInformationResume());
+      // dispatch(saveInformationResume());
 
-      navigate('education');
+      destinationStep = 'education';
+      navigate('');
     } else if (slug === 'education') {
-      navigate('work-experience');
+      destinationStep = 'work-experience';
     } else if (slug === 'work-experience') {
-      navigate('skills');
+      destinationStep = 'skills';
     } else if (slug === 'skills') {
-      navigate('further-information');
-    } else {
+      destinationStep = 'further-information';
+    } else if (slug === 'further-information') {
+      // here we must call the api!
       navigate('/profile');
+      return;
+    } else {
+      throw new Error(
+        'Invalid Step in Resume Creating App!',
+      );
     }
+    const destinationPath =
+      baseURL + destinationStep;
+
+    navigate(destinationPath);
   };
 
   return (
@@ -124,7 +136,6 @@ export default function ResumeCreatingPage() {
         <button className="max-w-[200px] ml-4 mt-6 rounded-xl shadow-xl bg-secondaryColor">
           <Link
             to={'backLink'}
-            // to={backLink}
             className="w-full h-full px-8 py-2"
           >
             بازگشت
@@ -133,7 +144,7 @@ export default function ResumeCreatingPage() {
 
         <button
           className="max-w-[200px] px-8 py-2 mt-6 rounded-xl shadow-xl bg-secondaryColor"
-          // onClick={saveClickHandler}
+          onClick={saveClickHandler}
         >
           ذخیره و ادامه
         </button>
