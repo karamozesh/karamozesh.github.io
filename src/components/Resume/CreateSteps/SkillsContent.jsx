@@ -13,7 +13,8 @@ import ButtonAddResume from '../../UI/ButtonAddResume';
 import { resumeActions } from '../../../store/resume-slice';
 
 const SkillsContent = () => {
-  const [lvlSkill, setLvlSkill] = useState(0);
+  const [lvlSkill, setLvlSkill] = useState(1);
+  const [error, setError] = useState(null);
   const dispatch = useDispatch();
 
   const { skill } = useSelector(
@@ -27,19 +28,25 @@ const SkillsContent = () => {
   const resetFields = () => {
     setLvlSkill(1);
     skillRef.current.value = '';
+    setError(null);
   };
 
   const skillAddHandler = () => {
     // simple validation for skill item
     const skill_name = skillRef.current.value;
-    if (skill_name.trim().length < 4) return;
+    if (skill_name.trim().length < 4) {
+      setError(
+        'اسم مهارت باید حداقل بیشتر از ۳ حرف باشد!',
+      );
+      return;
+    }
 
     const skill_lvl = lvlSkill;
     let skill_id = 1;
     if (skills.length > 0) {
       skill_id = skills[skills.length - 1].id + 1;
     }
-    
+
     const skill_obj = {
       id: skill_id,
       name: skill_name,
@@ -83,6 +90,9 @@ const SkillsContent = () => {
           <ButtonAddResume
             onClick={skillAddHandler}
           />
+          <span className="mt-4 text-sm text-red-500">
+            {error ?? ''}
+          </span>
         </div>
         {skills.length > 0 && (
           <ResumeSkillCardList skills={skills} />
