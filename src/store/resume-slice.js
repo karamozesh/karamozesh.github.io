@@ -66,7 +66,6 @@ export const createResume = createAsyncThunk(
         {
           headers: {
             'Content-Type': 'application/json',
-            'Access-Control-Allow-origin': '*',
           },
         },
       );

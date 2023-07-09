@@ -125,6 +125,10 @@ function App() {
             path="/resume-creating-app/:stepPath"
             element={<ResumeCreatingPage />}
           />
+          {/* <Route
+            path="/moshavere-request"
+            element={<MoshavereRequestPage />}
+          /> */}
           <Route
             path="/talent-survey"
             element={<TalentSurveyPage />}
