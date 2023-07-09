@@ -1,4 +1,10 @@
-import { createSlice } from '@reduxjs/toolkit';
+import {
+  createAsyncThunk,
+  createSlice,
+} from '@reduxjs/toolkit';
+
+import { API_CREATE_CV } from '../api/configAPI';
+import axios from 'axios';
 
 /* 
 interface SelectType {
@@ -12,6 +18,53 @@ interface CityType {
 }
 
 */
+
+export const createResume = createAsyncThunk(
+  'resume/createResume',
+  async (data, { dispatch }) => {
+    const {
+      user_token,
+      nameResume: about_me,
+      phonenumber: phone_number,
+      firstName: firstname,
+      lastName: lastname,
+      generic: gender,
+      vaziatTaahol: martial_status,
+      city: city,
+      nezamVazife: duty_system,
+      birthdayDate: data_of_birth,
+      address: address,
+    } = data;
+
+    const valid_obj = {
+      about_me,
+      phone_number,
+      firstname,
+      lastname,
+      gender,
+      martial_status,
+      city,
+      duty_system,
+      data_of_birth,
+      address,
+      user_id: 5,
+    };
+
+    const res = await axios
+      .post(
+        API_CREATE_CV,
+        JSON.stringify(valid_obj),
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Token ${'b295a8f55795efade9f71c3cb0136e246648d0ba'}`,
+          },
+        },
+      )
+      .then((res) => console.log(res));
+    console.log(res);
+  },
+);
 
 const initialState = {
   cv_id: '',

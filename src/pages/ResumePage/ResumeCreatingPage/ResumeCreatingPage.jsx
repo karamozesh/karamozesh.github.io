@@ -16,6 +16,7 @@ import WorkExperienceContent from '../../../components/Resume/CreateSteps/WorkEx
 import SkillsContent from '../../../components/Resume/CreateSteps/SkillsContent';
 import FurtherInformationContent from '../../../components/Resume/CreateSteps/FurtherInformationContent';
 import { saveInformationResume } from '../../../store/resumeActions';
+import { createResume } from '../../../store/resume-slice';
 
 export default function ResumeCreatingPage() {
   const params = useParams();
@@ -27,6 +28,10 @@ export default function ResumeCreatingPage() {
 
   const resumeStates = useSelector(
     (state) => state.resume,
+  );
+
+  const { user_token } = useSelector(
+    (state) => state.auth,
   );
 
   const stepObjs = [
@@ -80,10 +85,13 @@ export default function ResumeCreatingPage() {
     let destinationStep;
     if (slug === 'base-information') {
       const { baseInformation } = resumeStates;
-      // dispatch(saveInformationResume());
-
+      dispatch(
+        createResume({
+          user_token,
+          ...baseInformation,
+        }),
+      );
       destinationStep = 'education';
-      navigate('');
     } else if (slug === 'education') {
       destinationStep = 'work-experience';
     } else if (slug === 'work-experience') {
