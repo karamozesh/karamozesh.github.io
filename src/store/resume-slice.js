@@ -3,7 +3,11 @@ import {
   createSlice,
 } from '@reduxjs/toolkit';
 
-import { API_CREATE_CV } from '../api/configAPI';
+import {
+  API_ADD_EDU_CV,
+  API_ADD_WORK_CV,
+  API_CREATE_CV,
+} from '../api/configAPI';
 import axios from 'axios';
 
 /* 
@@ -50,21 +54,106 @@ export const createResume = createAsyncThunk(
       user_id: 5,
     };
 
-    const res = await axios
-      .post(
-        API_CREATE_CV,
+    const res = await axios.post(
+      API_CREATE_CV,
+      JSON.stringify(valid_obj),
+      {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      },
+    );
+
+    const cvId = await res.data;
+    dispatch(resumeActions.setCVID(cvId));
+  },
+);
+
+export const sendEducationInfo = createAsyncThunk(
+  'resume/createResume',
+  async (data, { dispatch }) => {
+    const {
+      gradeEducation: grade,
+      fieldOfStudy: field_of_study,
+      startDate: start_date,
+      endDate: end_date,
+      nameUniversity: university,
+      cv_id,
+    } = data;
+
+    const valid_obj = {
+      grade,
+      field_of_study,
+      start_date,
+      end_date,
+      university,
+      cv_id,
+    };
+
+    await axios.post(
+      API_ADD_EDU_CV(cv_id),
+      JSON.stringify(valid_obj),
+      {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      },
+    );
+  },
+);
+
+export const sendWorkExperienceInfo =
+  createAsyncThunk(
+    'resume/createResume',
+    async (data, { dispatch }) => {
+      const {
+        employmentStatus, // String
+        employmentTitle: title, // String
+        occupationalGroup: industry, // String
+        companyName: company, // String
+        startDate: start_date, // Date
+        endDate: end_date, // Date
+      } = data;
+
+      const valid_obj = {
+        title,
+        industry,
+        company,
+        start_date,
+        end_date,
+        cv_id: 1,
+      };
+
+      await axios.post(
+        API_ADD_WORK_CV(cv_id),
         JSON.stringify(valid_obj),
         {
           headers: {
             'Content-Type': 'application/json',
-            Authorization: `Token ${'b295a8f55795efade9f71c3cb0136e246648d0ba'}`,
           },
         },
-      )
-      .then((res) => console.log(res));
-    console.log(res);
-  },
-);
+      );
+    },
+  );
+
+// export const sendSkills = createAsyncThunk(
+//   'resume/createResume',
+//   async (data, { dispatch }) => {
+//     const { skills } = data;
+
+//     Promise.all(async () => {
+//       await axios.post(
+//         API_ADD_WORK_CV(cv_id),
+//         JSON.stringify(valid_obj),
+//         {
+//           headers: {
+//             'Content-Type': 'application/json',
+//           },
+//         },
+//       );
+//     });
+//   },
+// );
 
 const initialState = {
   cv_id: '',

@@ -16,7 +16,11 @@ import WorkExperienceContent from '../../../components/Resume/CreateSteps/WorkEx
 import SkillsContent from '../../../components/Resume/CreateSteps/SkillsContent';
 import FurtherInformationContent from '../../../components/Resume/CreateSteps/FurtherInformationContent';
 import { saveInformationResume } from '../../../store/resumeActions';
-import { createResume } from '../../../store/resume-slice';
+import {
+  createResume,
+  sendEducationInfo,
+  sendWorkExperienceInfo,
+} from '../../../store/resume-slice';
 
 export default function ResumeCreatingPage() {
   const params = useParams();
@@ -26,9 +30,13 @@ export default function ResumeCreatingPage() {
   const slug = pathname.split('/')[2];
   const dispatch = useDispatch();
 
-  const resumeStates = useSelector(
-    (state) => state.resume,
-  );
+  const {
+    baseInformation,
+    education,
+    workExperience,
+    skill,
+    furtherInformation,
+  } = useSelector((state) => state.resume);
 
   const { user_token } = useSelector(
     (state) => state.auth,
@@ -84,25 +92,32 @@ export default function ResumeCreatingPage() {
   const saveClickHandler = () => {
     let destinationStep;
     if (slug === 'base-information') {
-      const { baseInformation } = resumeStates;
-      dispatch(
-        createResume({
-          user_token,
-          ...baseInformation,
-        }),
-      );
+      dispatch(createResume(baseInformation));
       destinationStep = 'education';
     } else if (slug === 'education') {
+      dispatch(sendEducationInfo(education));
       destinationStep = 'work-experience';
     } else if (slug === 'work-experience') {
+      dispatch(
+        sendWorkExperienceInfo(workExperience),
+      );
       destinationStep = 'skills';
     } else if (slug === 'skills') {
-      destinationStep = 'further-information';
-    } else if (slug === 'further-information') {
-      // here we must call the api!
+      // dispatch(
+      //   sendEducationInfo({
+      //     user_token,
+      //     ...skill,
+      //   }),
+      // );
+      // destinationStep = 'further-information';
       navigate('/profile');
       return;
-    } else {
+    }
+    //  else if (slug === 'further-information') {
+    //   navigate('/profile');
+    //   return;
+    // }
+    else {
       throw new Error(
         'Invalid Step in Resume Creating App!',
       );
@@ -119,11 +134,11 @@ export default function ResumeCreatingPage() {
       <div className="flex flex-col justify-between min-h-[40vh] w-full">
         {/* steps */}
         <div className="flex justify-between items-end sections">
-          {stepObjs.map((stepObj) => (
+          {stepObjs.slice(0, 4).map((stepObj) => (
             <Link
               to={baseURL + stepObj.path}
               kye={stepObj.path}
-              className={`flex items-center justify-center w-[calc(100%/5-2px)] h-[50px] py-4 px-2 text-center bg-gray-600 rounded-t-2xl shadow-lg`}
+              className={`flex items-center justify-center w-[calc(100%/4-2px)] h-[50px] py-4 px-2 text-center bg-gray-600 rounded-t-2xl shadow-lg`}
               style={
                 stepObj.path === stepFind.path
                   ? {
