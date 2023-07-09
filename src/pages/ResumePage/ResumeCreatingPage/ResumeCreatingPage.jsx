@@ -89,6 +89,7 @@ export default function ResumeCreatingPage() {
 
   const { stepPath } = params;
   const baseURL = '/resume-creating-app/';
+  let backLink = baseURL;
 
   const stepFind = stepObjs.find(
     (stepObj) => stepPath === stepObj.path,
@@ -105,12 +106,15 @@ export default function ResumeCreatingPage() {
   switch (stepPath) {
     case 'education':
       content = <EducationContent />;
+      backLink += 'base-information';
       break;
     case 'work-experience':
       content = <WorkExperienceContent />;
+      backLink += 'education';
       break;
     case 'skills':
       content = <SkillsContent />;
+      backLink += 'work-experience';
       break;
     case 'further-information':
       content = <FurtherInformationContent />;
@@ -200,14 +204,16 @@ export default function ResumeCreatingPage() {
         {content}
       </div>
       <div className="flex self-end">
-        <button className="max-w-[200px] ml-4 mt-6 rounded-xl shadow-xl bg-secondaryColor">
-          <Link
-            to={'backLink'}
-            className="w-full h-full px-8 py-2"
-          >
-            بازگشت
-          </Link>
-        </button>
+        {stepPath !== 'base-information' && (
+          <button className="max-w-[200px] ml-4 mt-6 rounded-xl shadow-xl bg-secondaryColor">
+            <Link
+              to={backLink}
+              className="w-full h-full px-8 py-2"
+            >
+              بازگشت
+            </Link>
+          </button>
+        )}
 
         <button
           className="max-w-[200px] px-8 py-2 mt-6 rounded-xl shadow-xl bg-secondaryColor"
