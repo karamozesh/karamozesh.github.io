@@ -199,7 +199,12 @@ const BaseInformationContent = () => {
   const imageChangeHandler = (e) => {
     const file = e.target.files[0];
 
-    dispatch(resumeActions.changeBaseInformation({prop}))
+    dispatch(
+      resumeActions.changeBaseInformation({
+        prop: 'image',
+        value: file,
+      }),
+    );
   };
 
   useEffect(() => {
@@ -213,7 +218,7 @@ const BaseInformationContent = () => {
 
   return (
     <div className="resume-step-content">
-      <div className="relative isolate flex items-center w-fit h-[107px] rounded-full">
+      <div className="relative isolate flex items-center w-fit h-[120px] rounded-full">
         <img src={profileImage} alt="" />
         <input
           type="file"
@@ -222,8 +227,24 @@ const BaseInformationContent = () => {
           onChange={imageChangeHandler}
         />
         <span className="mr-4">
-          {image.name ?? 'بارگذاری تصاویر'}
+          {image?.name ?? 'بارگذاری تصاویر'}
         </span>
+      </div>
+      <div className="flex items-center">
+        {image?.name && <span>0%</span>}
+        <div
+          className={
+            'progress transition-all duration-1000 bg-greenColor rounded-sm mx-1'
+          }
+          style={{
+            width: image?.name ? '100px' : '0',
+            height: '4px',
+          }}
+        ></div>
+        {image?.name && (
+          <span className="ml-4">100%</span>
+        )}
+        {image?.name && 'آپلود شد.'}
       </div>
       <div className="mt-4">
         <div className="grid grid-cols-2 gap-28 mb-4">
@@ -254,30 +275,41 @@ const BaseInformationContent = () => {
             innerRef={firstNameRef}
           />
           <div className="grid grid-cols-2 gap-4">
-            <Select
-              defaultValue="جنسیت"
-              placement="bottomRight"
-              options={jensiatOptions}
-              onChange={genericChangeHandler}
-              aria-label="generic-select"
-              value={
-                generic
-                  ? generic.label
-                  : undefined
-              }
-            />
-            <Select
-              defaultValue="وضعیت تاهل"
-              dropdownMatchSelectWidth={false}
-              onChange={vaziatTaaholChangeHandler}
-              placement="bottomRight"
-              options={vaziatTaaholOptions}
-              value={
-                vaziatTaahol
-                  ? vaziatTaahol.label
-                  : undefined
-              }
-            />
+            <div className="flex flex-col">
+              <label className="mb-2">
+                جنسیت
+              </label>
+              <Select
+                labelInValue="جنسیت"
+                placement="bottomRight"
+                options={jensiatOptions}
+                onChange={genericChangeHandler}
+                aria-label="generic-select"
+                value={
+                  generic
+                    ? generic.label
+                    : undefined
+                }
+              />
+            </div>
+            <div className="flex flex-col">
+              <label className="mb-2">
+                وضعیت تاهل
+              </label>
+              <Select
+                dropdownMatchSelectWidth={false}
+                onChange={
+                  vaziatTaaholChangeHandler
+                }
+                placement="bottomRight"
+                options={vaziatTaaholOptions}
+                value={
+                  vaziatTaahol
+                    ? vaziatTaahol.label
+                    : undefined
+                }
+              />
+            </div>
           </div>
         </div>
         <div className="grid grid-cols-2 gap-28 mt-4">
@@ -290,27 +322,35 @@ const BaseInformationContent = () => {
             innerRef={lastNameRef}
           />
           <div className="grid grid-cols-2 gap-4 items-end">
-            <Select
-              defaultValue="شهر"
-              placement="bottomRight"
-              onChange={cityChangeHandler}
-              options={cityOptions}
-              value={
-                city ? city.label : undefined
-              }
-            />
-            <Select
-              defaultValue="نظام وظیفه"
-              dropdownMatchSelectWidth={false}
-              placement="bottomRight"
-              onChange={nezamVazifeChangeHandler}
-              options={nezamVazifeOptions}
-              value={
-                nezamVazife
-                  ? nezamVazife.label
-                  : undefined
-              }
-            />
+            <div className="flex flex-col">
+              <label className="mb-2">شهر</label>
+              <Select
+                placement="bottomRight"
+                onChange={cityChangeHandler}
+                options={cityOptions}
+                value={
+                  city ? city.label : undefined
+                }
+              />
+            </div>
+            <div className="flex flex-col">
+              <label className="mb-2">
+                نظام وظیفه
+              </label>
+              <Select
+                dropdownMatchSelectWidth={false}
+                placement="bottomRight"
+                onChange={
+                  nezamVazifeChangeHandler
+                }
+                options={nezamVazifeOptions}
+                value={
+                  nezamVazife
+                    ? nezamVazife.label
+                    : undefined
+                }
+              />
+            </div>
           </div>
         </div>
         <div className="grid grid-cols-2 gap-28 items-end mt-4">

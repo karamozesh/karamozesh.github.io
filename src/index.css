@@ -141,7 +141,7 @@ img {
 /* text for select */
 
 .ant-select-selection-item {
-  font-size: 1rem;
+  font-size: 0.75rem;
 }
 
 /* add margin-bottom for each tab items */
