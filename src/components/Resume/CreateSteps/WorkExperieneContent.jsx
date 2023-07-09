@@ -120,7 +120,7 @@ const WorkExperienceContent = () => {
           type="text"
           name="employment-status"
           onChange={employmentStatusChangeHandler}
-          placeholder="بازنشسته"
+          placeholder="به دنبال کار خوب"
           innerRef={employmentStatusRef}
         />
         <ResumeInput
@@ -140,7 +140,7 @@ const WorkExperienceContent = () => {
           onChange={
             occupationalGroupChangeHandler
           }
-          placeholder="بیکاران شماره B"
+          placeholder="AB+"
           innerRef={occupationalGroupRef}
         />
         <ResumeInput

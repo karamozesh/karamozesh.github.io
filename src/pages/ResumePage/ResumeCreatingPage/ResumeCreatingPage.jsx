@@ -98,9 +98,7 @@ export default function ResumeCreatingPage() {
       dispatch(sendEducationInfo(education));
       destinationStep = 'work-experience';
     } else if (slug === 'work-experience') {
-      dispatch(
-        sendWorkExperienceInfo(workExperience),
-      );
+      dispatch(sendWorkExperienceInfo(workExperience));
       destinationStep = 'skills';
     } else if (slug === 'skills') {
       // dispatch(

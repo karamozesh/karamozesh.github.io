@@ -10,7 +10,10 @@ import ResumeInput from '../ResumeInput';
 import ResumeSkillCardList from '../ResumeSkillCardList';
 import ButtonAddResume from '../../UI/ButtonAddResume';
 
-import { resumeActions } from '../../../store/resume-slice';
+import {
+  resumeActions,
+  sendSkills,
+} from '../../../store/resume-slice';
 
 const SkillsContent = () => {
   const [lvlSkill, setLvlSkill] = useState(1);
@@ -42,17 +45,13 @@ const SkillsContent = () => {
     }
 
     const skill_lvl = lvlSkill;
-    let skill_id = 1;
-    if (skills.length > 0) {
-      skill_id = skills[skills.length - 1].id + 1;
-    }
 
     const skill_obj = {
-      id: skill_id,
       name: skill_name,
-      lvl: skill_lvl,
+      // lvl: skill_lvl,
     };
-    dispatch(resumeActions.addSkill(skill_obj));
+    dispatch(sendSkills(skill_obj));
+    // dispatch(resumeActions.addSkill(skill_obj));
     resetFields();
   };
 

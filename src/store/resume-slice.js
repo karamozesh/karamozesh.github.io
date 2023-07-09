@@ -9,6 +9,7 @@ import {
   API_CREATE_CV,
 } from '../api/configAPI';
 import axios from 'axios';
+import { notificationActions } from './notification-slice';
 
 /* 
 interface SelectType {
@@ -22,6 +23,10 @@ interface CityType {
 }
 
 */
+
+const ERROR_MESSAGE =
+  'مشکلی در ذخیره اطلاعات پیش آمده است';
+const SUCCESS_MESSAGE = 'تغییرات ذخیره شد.';
 
 export const createResume = createAsyncThunk(
   'resume/createResume',
@@ -54,23 +59,38 @@ export const createResume = createAsyncThunk(
       user_id: 5,
     };
 
-    const res = await axios.post(
-      API_CREATE_CV,
-      JSON.stringify(valid_obj),
-      {
-        headers: {
-          'Content-Type': 'application/json',
+    try {
+      const res = await axios.post(
+        API_CREATE_CV,
+        JSON.stringify(valid_obj),
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-origin': '*',
+          },
         },
-      },
-    );
-
-    const cvId = await res.data;
-    dispatch(resumeActions.setCVID(cvId));
+      );
+      const cvId = await res.data;
+      dispatch(resumeActions.setCVID(cvId));
+      dispatch(
+        notificationActions.changeSuccess({
+          exist: true,
+          message: SUCCESS_MESSAGE,
+        }),
+      );
+    } catch (error) {
+      dispatch(
+        notificationActions.changeError({
+          exist: true,
+          message: ERROR_MESSAGE,
+        }),
+      );
+    }
   },
 );
 
 export const sendEducationInfo = createAsyncThunk(
-  'resume/createResume',
+  'resume/sendEducationInfo',
   async (data, { dispatch }) => {
     const {
       gradeEducation: grade,
@@ -90,24 +110,38 @@ export const sendEducationInfo = createAsyncThunk(
       cv_id,
     };
 
-    await axios.post(
-      API_ADD_EDU_CV(cv_id),
-      JSON.stringify(valid_obj),
-      {
-        headers: {
-          'Content-Type': 'application/json',
+    try {
+      await axios.post(
+        API_ADD_EDU_CV(cv_id),
+        JSON.stringify(valid_obj),
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
         },
-      },
-    );
+      );
+      dispatch(
+        notificationActions.changeSuccess({
+          exist: true,
+          message: SUCCESS_MESSAGE,
+        }),
+      );
+    } catch (error) {
+      dispatch(
+        notificationActions.changeError({
+          exist: true,
+          message: ERROR_MESSAGE,
+        }),
+      );
+    }
   },
 );
 
 export const sendWorkExperienceInfo =
   createAsyncThunk(
-    'resume/createResume',
+    'resume/sendWorkExperienceInfo',
     async (data, { dispatch }) => {
       const {
-        employmentStatus, // String
         employmentTitle: title, // String
         occupationalGroup: industry, // String
         companyName: company, // String
@@ -124,36 +158,72 @@ export const sendWorkExperienceInfo =
         cv_id: 1,
       };
 
-      await axios.post(
+      try {
+        await axios.post(
+          API_ADD_EDU_CV(cv_id),
+          JSON.stringify(valid_obj),
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-origin': '*',
+            },
+          },
+        );
+
+        dispatch(
+          notificationActions.changeSuccess({
+            exist: true,
+            message: SUCCESS_MESSAGE,
+          }),
+        );
+      } catch (error) {
+        dispatch(
+          notificationActions.changeError({
+            exist: true,
+            message: ERROR_MESSAGE,
+          }),
+        );
+      }
+    },
+  );
+
+export const sendSkills = createAsyncThunk(
+  'resume/createResume',
+  async (data, { dispatch }) => {
+    try {
+      const response = await axios.post(
         API_ADD_WORK_CV(cv_id),
-        JSON.stringify(valid_obj),
+        JSON.stringify(data),
         {
           headers: {
             'Content-Type': 'application/json',
           },
         },
       );
-    },
-  );
-
-// export const sendSkills = createAsyncThunk(
-//   'resume/createResume',
-//   async (data, { dispatch }) => {
-//     const { skills } = data;
-
-//     Promise.all(async () => {
-//       await axios.post(
-//         API_ADD_WORK_CV(cv_id),
-//         JSON.stringify(valid_obj),
-//         {
-//           headers: {
-//             'Content-Type': 'application/json',
-//           },
-//         },
-//       );
-//     });
-//   },
-// );
+      const skillObj = response.data;
+      dispatch(
+        resumeActions.addSkill({
+          lvl: 1,
+          ...skillObj,
+        }),
+      );
+      dispatch(
+        notificationActions.changeSuccess({
+          exist: true,
+          message: 'مهارت اضافه شد.',
+        }),
+      );
+    } catch (error) {
+      dispatch(
+        notificationActions.changeError({
+          exist: true,
+          message:
+            'مشکلی در اضافه شدن مهارت ایجاد شد.',
+        }),
+      );
+    }
+  },
+);
 
 const initialState = {
   cv_id: '',

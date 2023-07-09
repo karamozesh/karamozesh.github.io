@@ -88,6 +88,11 @@
     border-radius: 12px;
     width: 8px;
   }
+
+  .toast div {
+    font-family: 'Iran Yekan' !important;
+    font-size: 0.8rem;
+  }
 }
 
 * {

@@ -1,10 +1,13 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import {
   Route,
   Routes,
   useNavigate,
 } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import {
+  useDispatch,
+  useSelector,
+} from 'react-redux';
 
 import 'antd/dist/reset.css';
 import './index.css';
@@ -25,10 +28,16 @@ import TalentSurveyResultPage from './pages/TalentSurveyPage/TalentSurveyResultP
 import TalentSurveyResultListPage from './pages/TalentSurveyPage/TalentSurveyResultPage/TalentSurveyResultListPage';
 import Disk from './components/TalentSurvey/Disk';
 import MBTI from './components/TalentSurvey/MBTI';
-import HalandResult from './components/TalentResult/Result'
+import HalandResult from './components/TalentResult/Result';
 import MbtiResult from './components/MbtiResult/Result';
 import SkillCard from './components/Skill/SkillCard';
 import JavaScript from './pages/Skill/JavaScript';
+import {
+  ToastContainer,
+  toast,
+} from 'react-toastify';
+import { notificationActions } from './store/notification-slice';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const { isLoggedIn } = useSelector(
@@ -40,6 +49,48 @@ function App() {
   useEffect(() => {
     navigate('/');
   }, [isLoggedIn]);
+
+  const { error, success } = useSelector(
+    (state) => state.notification,
+  );
+
+  const errorTimer = useRef(null);
+  const successTimer = useRef(null);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (success.exist) {
+      toast.success(success.message);
+      clearTimeout(successTimer.current);
+      successTimer.current = setTimeout(() => {
+        dispatch(
+          notificationActions.resetSuccess(),
+        );
+      }, 1000);
+    }
+  }, [success, dispatch]);
+
+  useEffect(() => {
+    if (error.exist) {
+      toast.error(error.message, {
+        position: 'bottom-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'light',
+      });
+      clearTimeout(errorTimer.current);
+      errorTimer.current = setTimeout(() => {
+        dispatch(
+          notificationActions.resetError(),
+        );
+      }, 3000);
+    }
+  }, [error, dispatch]);
 
   return (
     <Layout>
@@ -57,6 +108,10 @@ function App() {
           <Route
             path="/register"
             element={<RegisterPage />}
+          />
+          <Route
+            path="/profile"
+            element={<ProfilePage />}
           />
           <Route
             path="/resume-training"
@@ -78,11 +133,11 @@ function App() {
             path="/talent-survey/:testName"
             element={<TalentSurveyTestPage />}
           />
-            <Route
+          <Route
             path="/talent-survey/disk"
             element={<Disk />}
           />
-             <Route
+          <Route
             path="/talent-survey/mbti"
             element={<MBTI />}
           />
@@ -95,29 +150,24 @@ function App() {
           <Route
             path="/talent-survey/result/:testName"
             element={<TalentSurveyResultPage />}
-          
           />
-            <Route
+          <Route
             path="/talent-survey/result/haland"
             element={<HalandResult />}
-          
           />
-              <Route
+          <Route
             path="/talent-survey/result/mbti"
             element={<MbtiResult />}
-          
           />
-               <Route
+          <Route
             path="/skill"
             element={<SkillCard />}
-          
           />
-                <Route
+          <Route
             path="/skill/javaScript"
             element={<JavaScript />}
-          
           />
-           
+
           <Route
             path="*"
             element={<NotFoundPage />}
@@ -187,6 +237,17 @@ function App() {
           />
         </Routes>
       )}
+      <ToastContainer
+        position="bottom-right"
+        autoClose={3500}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={true}
+        rtl={true}
+        draggable
+        pauseOnHover
+        className="toast"
+      />
     </Layout>
   );
 }
