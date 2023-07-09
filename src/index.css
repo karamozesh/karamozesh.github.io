@@ -109,6 +109,10 @@
 html {
   font-weight: 400;
   font-size: 16px;
+}
+
+body {
+  width: 100%;
   overflow-x: hidden;
 }
 
@@ -229,6 +233,10 @@ img {
 .animation-text {
   animation: textAnimation 5s linear infinite
     alternate-reverse;
+}
+
+nav a.active {
+  color: #ffea7b;
 }
 
 /* .no-scroll::-webkit-scrollbar-thumb:hover {

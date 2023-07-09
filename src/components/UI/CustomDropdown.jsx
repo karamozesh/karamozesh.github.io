@@ -6,6 +6,7 @@ export default function CustomDropdown({
   label,
   items,
   className,
+  classNameLabel,
 }) {
   const menu = { items };
 
@@ -16,7 +17,11 @@ export default function CustomDropdown({
       placement="bottomRight"
     >
       <Space>
-        {label}
+        <label
+          className={`cursor-pointer ${classNameLabel}`}
+        >
+          {label}
+        </label>
         <img
           src={caretDownIcon}
           alt="caret-down"
