@@ -28,6 +28,10 @@ export default function SkillCard() {
             <Link to="/skill/javaScript">
             <Card title ={'JavaScript'}  img={js}> </Card>
             </Link>
+            <Link to="/skill/python">
+            <Card title ={'Python'}  img={python}> </Card>
+            </Link>
+            
             <Card title ={'CSS'}  img={css}> </Card>
             <Card title ={'HTML'}  img={html}> </Card>
             <Card title ={'Django'}  img={django}> </Card>

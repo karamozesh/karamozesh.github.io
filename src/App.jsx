@@ -32,6 +32,9 @@ import HalandResult from './components/TalentResult/Result';
 import MbtiResult from './components/MbtiResult/Result';
 import SkillCard from './components/Skill/SkillCard';
 import JavaScript from './pages/Skill/JavaScript';
+import Python from './pages/Skill/Python';
+
+
 import {
   ToastContainer,
   toast,
@@ -194,6 +197,10 @@ function App() {
       <Route
         path="/skill/javaScript"
         element={<JavaScript />}
+      />
+      <Route
+        path="/skill/python"
+        element={<Python />}
       />
       <Route
         path="*"
