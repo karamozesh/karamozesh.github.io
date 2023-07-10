@@ -28,6 +28,7 @@ module.exports = {
       colors: {
         primaryColor: '#576BF0',
         secondaryColor: '#F5AF2B',
+        'secondaryColor-lighter': '#FFEA7B',
         thirdColor: '#17268A',
         forthColor: '#352556',
         greenColor: '#3EBA60',

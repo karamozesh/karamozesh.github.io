@@ -2,7 +2,7 @@ import ResumeSkillCard from './ResumeSkillCard';
 
 const ResumeSkillCardList = ({ skills }) => {
   return (
-    <div className="max-h-[70%] mt-8 overflow-scroll">
+    <div className="max-h-[400px] scroll mt-8 overflow-scroll">
       {skills.map((skill) => (
         <ResumeSkillCard
           key={skill.id}

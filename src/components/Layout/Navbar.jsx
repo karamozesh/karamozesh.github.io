@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import {
   Link,
+  NavLink,
   useLocation,
   useNavigate,
 } from 'react-router-dom';
@@ -30,8 +31,22 @@ function getItem(
 
 export default function Navbar() {
   const { pathname } = useLocation();
-  const { isLoggedIn } = useSelector(
+  const { isLoggedIn, isMoshaver } = useSelector(
     (state) => state.auth,
+  );
+
+  const normalUserNav = (
+    <>
+      <MobileNav />
+      <DesktopNav />
+    </>
+  );
+
+  const moshaverNav = (
+    <>
+      <MoshaverMobileNav />
+      <MoshaverDesktopNav />
+    </>
   );
 
   return (
@@ -43,7 +58,6 @@ export default function Navbar() {
       }`}
     >
       <div className="flex items-center w-full">
-        <MobileNav />
         {pathname !== '/' && (
           <Link to="/">
             <h1 className="hidden ml-4 text-xl lg:text-2xl md:block">
@@ -51,7 +65,7 @@ export default function Navbar() {
             </h1>
           </Link>
         )}
-        <DesktopNav />
+        {isMoshaver ? moshaverNav : normalUserNav}
       </div>
       {isLoggedIn ? (
         <div
@@ -107,12 +121,7 @@ const MobileNav = () => {
   };
 
   const items = [
-    getItem(
-      'صفحه اصلی',
-      '/',
-      null,
-      null,
-    ),
+    getItem('صفحه اصلی', '/', null, null),
     getItem(
       'خودشناسی',
       '/talent-survey',
@@ -139,13 +148,7 @@ const MobileNav = () => {
         null,
       ),
     ]),
-    getItem('کسب مهارت', '/skills', null, []),
-    // getItem(
-    //   'بانک رزومه',
-    //   '/resume-bank',
-    //   null,
-    //   null,
-    // ),
+    getItem('کسب مهارت', '/skill', null, null),
   ];
   const onClick = (e) => {
     const href = e.keyPath.reverse().join('');
@@ -191,32 +194,146 @@ const DesktopNav = () => {
   const resumeMenuItems = [
     {
       label: (
-        <Link to="resume-training">
+        <NavLink to="resume-training">
           آموزش رزومه نویسی
-        </Link>
+        </NavLink>
       ),
       key: `/resume-training`,
     },
     {
       label: (
-        <Link to="/resume-creating">
+        <NavLink to="/resume-creating">
           ساخت رزومه
-        </Link>
+        </NavLink>
       ),
       key: '/resume-creating',
     },
   ];
 
-  const skillMenuItems = [
+  const linkClassName =
+    pathname === '/'
+      ? 'px-4 bg-primaryColor rounded-2xl'
+      : null;
 
-    {
-      label: (
-        <Link to="/skill">
-        </Link>
-      )
-    }
+  const sectionFirst = pathname.split('/')[1];
+  const isResumePage =
+    sectionFirst.split('-')[0] === 'resume';
 
+  return (
+    <nav className="desktop hidden w-full lg:block">
+      <ul className="flex w-full text-base [&>*]:ml-4">
+        <NavLink
+          to="/talent-survey"
+          className={linkClassName}
+        >
+          خودشناسی
+        </NavLink>
+        <NavLink
+          to="/moshavere-request"
+          className={linkClassName}
+        >
+          درخواست مشاوره
+        </NavLink>
+        <CustomDropdown
+          items={resumeMenuItems}
+          label="ساخت رزومه"
+          className={linkClassName}
+          classNameLabel={
+            isResumePage ? 'text-[#FFEA7B]' : ''
+          }
+        />
+        <NavLink
+          to="/skill"
+          className={linkClassName}
+        >
+          کسب مهارت
+        </NavLink>
+        {/*  for next term */}
+        {/* now its next term! */}
+
+        {/* deprecate */}
+        {/* <Link
+          to="resume-bank"
+          className={linkClassName}
+        >
+          بانک رزومه
+        </Link> */}
+      </ul>
+    </nav>
+  );
+};
+
+const MoshaverMobileNav = () => {
+  // mobile
+
+  const [open, setOpen] = useState(false);
+  const navigator = useNavigate();
+
+  const drawerCloseHandler = () => {
+    setOpen(false);
+  };
+
+  const drawerToggleHandler = () => {
+    setOpen((prev) => !prev);
+  };
+
+  const items = [
+    getItem('صفحه اصلی', '/', null, null),
+    getItem(
+      'درخواست های مشاوره',
+      '/tickets',
+      null,
+      null,
+    ),
+    getItem(
+      'مشاوره های من',
+      '/my-tickets',
+      null,
+      null,
+    ),
   ];
+  const onClick = (e) => {
+    const href = e.keyPath.reverse().join('');
+    navigator(href);
+  };
+
+  return (
+    <nav className="mobile lg:hidden">
+      <div className="flex items-center cursor-pointer ml-8">
+        <div>
+          <BarMenu
+            fill="currentColor"
+            stroke="currentColor"
+            onClick={drawerToggleHandler}
+          />
+        </div>
+      </div>
+      <Drawer
+        title="آموزشیار"
+        placement="right"
+        onClose={drawerCloseHandler}
+        open={open}
+        closeIcon={<BarMenu />}
+      >
+        <Menu
+          onClick={onClick}
+          className="text-base border-l-5"
+          defaultSelectedKeys={['1']}
+          mode="inline"
+          items={items}
+          inlineIndent={24}
+        />
+      </Drawer>
+    </nav>
+  );
+};
+
+const MoshaverDesktopNav = () => {
+  // desktop
+
+  const { pathname } = useLocation();
+
+  console.log(pathname);
 
   const linkClassName =
     pathname === '/'
@@ -226,39 +343,18 @@ const DesktopNav = () => {
   return (
     <nav className="desktop hidden w-full lg:block">
       <ul className="flex w-full text-base [&>*]:ml-4">
-        <Link
-          to="/talent-survey"
+        <NavLink
+          to="/tickets"
           className={linkClassName}
         >
-          خودشناسی
-        </Link>
-        <Link
-          to="/moshavere-request"
+          درخواست های مشاوره
+        </NavLink>
+        <NavLink
+          to="/my-tickets"
           className={linkClassName}
         >
-          درخواست مشاوره
-        </Link>
-        <CustomDropdown
-          items={resumeMenuItems}
-          label="ساخت رزومه"
-          className={linkClassName}
-        />
-         <Link
-          to="/skill"
-          className={linkClassName}
-        >
-         کسب مهارت
-        </Link>
-        {/*  for next term */}
-        {/* now its next term! */}
-       
-        {/* deprecate */}
-        {/* <Link
-          to="resume-bank"
-          className={linkClassName}
-        >
-          بانک رزومه
-        </Link> */}
+          مشاوره های من
+        </NavLink>
       </ul>
     </nav>
   );

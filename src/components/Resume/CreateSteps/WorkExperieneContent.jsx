@@ -78,13 +78,12 @@ const WorkExperienceContent = () => {
   };
 
   const companyNameChangeHandler = (e) => {
-    const companyNameChange_value =
-      e.target.value;
+    const companyName_value = e.target.value;
 
     dispatch(
       resumeActions.changeWorkExperience({
-        prop: 'companyNameChange',
-        value: companyNameChange_value,
+        prop: 'companyName',
+        value: companyName_value,
       }),
     );
   };
@@ -94,7 +93,7 @@ const WorkExperienceContent = () => {
     dateString,
   ) => {
     dispatch(
-      resumeActions.changeEducation({
+      resumeActions.changeWorkExperience({
         prop: 'startDate',
         value: dateString,
       }),
@@ -106,7 +105,7 @@ const WorkExperienceContent = () => {
     dateString,
   ) => {
     dispatch(
-      resumeActions.changeEducation({
+      resumeActions.changeWorkExperience({
         prop: 'endDate',
         value: dateString,
       }),
@@ -121,7 +120,7 @@ const WorkExperienceContent = () => {
           type="text"
           name="employment-status"
           onChange={employmentStatusChangeHandler}
-          placeholder="بازنشسته"
+          placeholder="به دنبال کار خوب"
           innerRef={employmentStatusRef}
         />
         <ResumeInput
@@ -141,7 +140,7 @@ const WorkExperienceContent = () => {
           onChange={
             occupationalGroupChangeHandler
           }
-          placeholder="بیکاران شماره B"
+          placeholder="AB+"
           innerRef={occupationalGroupRef}
         />
         <ResumeInput

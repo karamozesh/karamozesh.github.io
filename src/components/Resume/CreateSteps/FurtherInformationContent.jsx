@@ -5,9 +5,15 @@ import Languages from './FurtherInformationContents/Languages';
 import Certifications from './FurtherInformationContents/Certifications';
 import Favorites from './FurtherInformationContents/Favorites';
 import ContactWays from './FurtherInformationContents/ContactWays';
+import { useSelector } from 'react-redux';
 
 const FurtherInformationContent = () => {
   const heightOfChildren = 'h-[350px]';
+  const { furtherInformation } = useSelector(
+    (state) => state.resume,
+  );
+
+  console.log(furtherInformation);
 
   const items = [
     {
@@ -56,6 +62,8 @@ const FurtherInformationContent = () => {
       ),
     },
   ];
+
+  // console.log(FocusTrap)
 
   return (
     <div className="resume-step-content">

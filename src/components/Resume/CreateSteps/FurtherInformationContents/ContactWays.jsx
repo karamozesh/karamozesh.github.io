@@ -10,6 +10,10 @@ import ResumeLanguageCardList from '../../ResumeLanguageCardList';
 
 const ContactWays = ({ heightOfChildren }) => {
   const dispatch = useDispatch();
+  const [error, setError] = useState({
+    name: null,
+    link: null,
+  });
   const { furtherInformation } = useSelector(
     (state) => state.resume,
   );
@@ -43,15 +47,38 @@ const ContactWays = ({ heightOfChildren }) => {
   const resetFields = () => {
     nameContactWayRef.current.value = '';
     linkContactWayRef.current.value = '';
+    setError(null);
   };
 
   const addContactWayHandler = () => {
     // simple validation
     if (
-      contactWay.name.trim().length < 5 ||
+      contactWay.name.trim().length < 5 &&
       contactWay.link.trim().length < 5
-    )
+    ) {
+      setError({
+        name: 'راه ارتباطی و لینک ارتباطی باید حداقل بیشتر از 4 حرف باشد!',
+        link: null,
+      });
       return;
+    }
+
+    if (contactWay.name.trim().length < 5) {
+      setError({
+        name: 'راه ارتباطی باید حداقل بیشتر از 4 حرف باشد!',
+        link: null,
+      });
+      return;
+    }
+
+    if (contactWay.link.trim().length < 5) {
+      setError({
+        link: 'لینک ارتباطی باید حداقل بیشتر از 4 حرف باشد!',
+        name: null,
+      });
+      return;
+    }
+
     let contactWay_id = 1;
 
     if (contact.length > 0) {
@@ -94,6 +121,16 @@ const ContactWays = ({ heightOfChildren }) => {
         <ButtonAddResume
           onClick={addContactWayHandler}
         />
+        {error && (
+          <>
+            <span className="inline-block mt-4 text-sm text-red-500">
+              {error.name ?? ''}
+            </span>
+            <span className="inline-block mt-4 text-sm text-red-500">
+              {error.link ?? ''}
+            </span>
+          </>
+        )}
       </div>
       <ResumeLanguageCardList
         languages={contact}

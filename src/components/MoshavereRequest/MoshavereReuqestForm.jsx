@@ -570,61 +570,6 @@ const VIPMoshavereRequestContent = () => {
   );
 };
 
-const ResultMoshavereRequest = () => {
-  const requests = [
-    {
-      zamine: {
-        label: 'هوش مصنوعی',
-        value: 'hosh',
-      },
-      status: '1',
-    },
-    {
-      zamine: {
-        label: 'فرانت اند',
-        value: 'front',
-      },
-      status: '2',
-      last_date: '1402/03/20',
-    },
-    {
-      zamine: {
-        label: 'فرانت اند',
-        value: 'front',
-      },
-      status: '2',
-      last_date: '1402/03/02',
-    },
-    {
-      zamine: {
-        label: 'فرانت اند',
-        value: 'front',
-      },
-      status: '3',
-      last_date: '1402/04/22',
-    },
-  ];
-
-  return (
-    <div className="h-[630px] overflow-y-auto scroll pt-5">
-      {requests.length > 0 ? (
-        requests.map((requset) => (
-          <MoshavereRequsetTicket
-            request={requset}
-          />
-        ))
-      ) : (
-        <span
-          style={{ color: '#000000A1' }}
-          className="flex justify-center items-center h-full w-full text-base"
-        >
-          شما درخواستی ثبت نکرده اید!
-        </span>
-      )}
-    </div>
-  );
-};
-
 const MoshavereRequestForm = ({
   activeTab,
   setActiveTab,
@@ -640,11 +585,6 @@ const MoshavereRequestForm = ({
       bgColor: 'secondaryColor',
       textColor: 'black-900',
     },
-    {
-      label: 'نتیجه درخواست',
-      bgColor: 'greenColor',
-      textColor: 'black-900',
-    },
   ];
 
   return (
@@ -654,29 +594,18 @@ const MoshavereRequestForm = ({
         onChange={setActiveTab}
       >
         <Tab.List className="flex items-end">
-          {tabItems
-            .slice(0, 2)
-            .map((item, index) => (
-              <Tab
-                key={item.label}
-                className={`shadow-mahdis rounded-t-xl overflow-hidden ${
-                  activeTab === index
-                    ? `w-[40%] h-12 bg-${item.bgColor} text-${item.textColor}`
-                    : 'w-[30%] h-10 bg-white text-black-900'
-                }`}
-              >
-                {item.label}
-              </Tab>
-            ))}
-          <Tab
-            className={`shadow-mahdis rounded-t-xl overflow-hidden ${
-              activeTab === 2
-                ? `w-[40%] h-12 bg-greenColor text-${tabItems[2].textColor}`
-                : 'w-[30%] h-10 bg-white text-black-900'
-            }`}
-          >
-            {tabItems[2].label}
-          </Tab>
+          {tabItems.map((item, index) => (
+            <Tab
+              key={item.label}
+              className={`shadow-mahdis rounded-t-xl overflow-hidden ${
+                activeTab === index
+                  ? `w-[44%] h-12 bg-${item.bgColor} text-${item.textColor}`
+                  : 'w-[56%] h-10 bg-white text-black-900'
+              }`}
+            >
+              {item.label}
+            </Tab>
+          ))}
         </Tab.List>
         <Tab.Panels className="rounded-b-md shadow-mahdis items-start">
           <Tab.Panel className="p-3">
@@ -684,9 +613,6 @@ const MoshavereRequestForm = ({
           </Tab.Panel>
           <Tab.Panel className="p-3">
             <VIPMoshavereRequestContent />
-          </Tab.Panel>
-          <Tab.Panel>
-            <ResultMoshavereRequest />
           </Tab.Panel>
         </Tab.Panels>
       </Tab.Group>

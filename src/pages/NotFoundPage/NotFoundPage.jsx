@@ -2,16 +2,19 @@ import {
   Link,
   useLocation,
 } from 'react-router-dom';
+import Modal from '../../components/UI/Modal';
 
 export default function NotFoundPage() {
   const needLoginLinksArray = [
     'talent-survey',
     'moshavere-request',
     'resume-bank',
+    'resume-creating-app',
   ];
 
   const { pathname } = useLocation();
   const route = pathname.split('/')[1];
+  console.log(route);
 
   const isneedLogin =
     needLoginLinksArray.includes(route);
@@ -19,18 +22,7 @@ export default function NotFoundPage() {
   return (
     <div className="root-page flex flex-col justify-center items-center text-center text-lg">
       {isneedLogin ? (
-        <>
-          <div>
-            برای دسترسی به این صفحه نیازمند این
-            هستید که لاگین کنید
-          </div>
-          <Link
-            className="px-4 py-2 mt-2 bg-primaryColor text-white text-sm rounded-md"
-            to="/access/login"
-          >
-            همین الان میرم لاگین میکنم
-          </Link>
-        </>
+        <Modal />
       ) : (
         <div>
           <span>- 404 -</span>

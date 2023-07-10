@@ -1,4 +1,8 @@
-import { useEffect } from 'react';
+import {
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import {
   useDispatch,
   useSelector,
@@ -16,6 +20,13 @@ import WorkExperienceContent from '../../../components/Resume/CreateSteps/WorkEx
 import SkillsContent from '../../../components/Resume/CreateSteps/SkillsContent';
 import FurtherInformationContent from '../../../components/Resume/CreateSteps/FurtherInformationContent';
 import { saveInformationResume } from '../../../store/resumeActions';
+import {
+  createResume,
+  sendEducationInfo,
+  sendWorkExperienceInfo,
+} from '../../../store/resume-slice';
+import axios from 'axios';
+import { API_GET_USER_ID } from '../../../api/configAPI';
 
 export default function ResumeCreatingPage() {
   const params = useParams();
@@ -24,10 +35,40 @@ export default function ResumeCreatingPage() {
   const pathname = location.pathname;
   const slug = pathname.split('/')[2];
   const dispatch = useDispatch();
-
-  const resumeStates = useSelector(
-    (state) => state.resume,
+  const { user_token } = useSelector(
+    (state) => state.auth,
   );
+  const [user_id, setUesrId] = useState(null);
+
+  useEffect(() => {
+    const fetchUserId = async () => {
+      const response = await axios.get(
+        API_GET_USER_ID,
+        {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `${user_token}`,
+          },
+        },
+      );
+      const { user_id } = await response.data;
+      console.log(response.data);
+      setUesrId(user_id);
+
+      return user_id;
+    };
+    fetchUserId();
+  }, []);
+
+  const {
+    baseInformation,
+    education,
+    workExperience,
+    skill,
+    furtherInformation,
+    cv_id,
+  } = useSelector((state) => state.resume);
 
   const stepObjs = [
     {
@@ -48,6 +89,7 @@ export default function ResumeCreatingPage() {
 
   const { stepPath } = params;
   const baseURL = '/resume-creating-app/';
+  let backLink = baseURL;
 
   const stepFind = stepObjs.find(
     (stepObj) => stepPath === stepObj.path,
@@ -64,12 +106,15 @@ export default function ResumeCreatingPage() {
   switch (stepPath) {
     case 'education':
       content = <EducationContent />;
+      backLink += 'base-information';
       break;
     case 'work-experience':
       content = <WorkExperienceContent />;
+      backLink += 'education';
       break;
     case 'skills':
       content = <SkillsContent />;
+      backLink += 'work-experience';
       break;
     case 'further-information':
       content = <FurtherInformationContent />;
@@ -77,20 +122,58 @@ export default function ResumeCreatingPage() {
   }
 
   const saveClickHandler = () => {
+    let destinationStep;
     if (slug === 'base-information') {
-      const { baseInformation } = resumeStates;
-      dispatch(saveInformationResume());
-
-      navigate('education');
+      dispatch(
+        createResume({
+          ...baseInformation,
+          user_id,
+          user_token,
+        }),
+      );
+      destinationStep = 'education';
     } else if (slug === 'education') {
-      navigate('work-experience');
+      dispatch(
+        sendEducationInfo({
+          ...education,
+          cv_id,
+          user_token,
+        }),
+      );
+      destinationStep = 'work-experience';
     } else if (slug === 'work-experience') {
-      navigate('skills');
+      dispatch(
+        sendWorkExperienceInfo({
+          ...workExperience,
+          cv_id,
+          user_token,
+        }),
+      );
+      destinationStep = 'skills';
     } else if (slug === 'skills') {
-      navigate('further-information');
-    } else {
+      // dispatch(
+      //   sendEducationInfo({
+      //     user_token,
+      //     ...skill,
+      //   }),
+      // );
+      // destinationStep = 'further-information';
       navigate('/profile');
+      return;
     }
+    //  else if (slug === 'further-information') {
+    //   navigate('/profile');
+    //   return;
+    // }
+    else {
+      throw new Error(
+        'Invalid Step in Resume Creating App!',
+      );
+    }
+    const destinationPath =
+      baseURL + destinationStep;
+
+    navigate(destinationPath);
   };
 
   return (
@@ -99,11 +182,11 @@ export default function ResumeCreatingPage() {
       <div className="flex flex-col justify-between min-h-[40vh] w-full">
         {/* steps */}
         <div className="flex justify-between items-end sections">
-          {stepObjs.map((stepObj) => (
+          {stepObjs.slice(0, 4).map((stepObj) => (
             <Link
               to={baseURL + stepObj.path}
               kye={stepObj.path}
-              className={`flex items-center justify-center w-[calc(100%/5-2px)] h-[50px] py-4 px-2 text-center bg-gray-600 rounded-t-2xl shadow-lg`}
+              className={`flex items-center justify-center w-[calc(100%/4-2px)] h-[50px] py-4 px-2 text-center bg-gray-600 rounded-t-2xl shadow-lg`}
               style={
                 stepObj.path === stepFind.path
                   ? {
@@ -121,19 +204,20 @@ export default function ResumeCreatingPage() {
         {content}
       </div>
       <div className="flex self-end">
-        <button className="max-w-[200px] ml-4 mt-6 rounded-xl shadow-xl bg-secondaryColor">
-          <Link
-            to={'backLink'}
-            // to={backLink}
-            className="w-full h-full px-8 py-2"
-          >
-            بازگشت
-          </Link>
-        </button>
+        {stepPath !== 'base-information' && (
+          <button className="max-w-[200px] ml-4 mt-6 rounded-xl shadow-xl bg-secondaryColor">
+            <Link
+              to={backLink}
+              className="w-full h-full px-8 py-2"
+            >
+              بازگشت
+            </Link>
+          </button>
+        )}
 
         <button
           className="max-w-[200px] px-8 py-2 mt-6 rounded-xl shadow-xl bg-secondaryColor"
-          // onClick={saveClickHandler}
+          onClick={saveClickHandler}
         >
           ذخیره و ادامه
         </button>

@@ -64,8 +64,7 @@ const Certifications = ({ heightOfChildren }) => {
     }));
   };
 
-  const zamimeChangeHandler = (e) => {
-    const value = e.target.value;
+  const zamimeChangeHandler = (value) => {
     setCertifactionInfo((prev) => ({
       ...prev,
       zamime: value,
@@ -109,7 +108,7 @@ const Certifications = ({ heightOfChildren }) => {
         </div>
       </div>
       <ResumePeyvast
-        onChange={zamimeChangeHandler}
+        onClick={zamimeChangeHandler}
       />
     </div>
   );
