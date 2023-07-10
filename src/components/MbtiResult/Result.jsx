@@ -1,123 +1,138 @@
 import React, {
-    useEffect,
-    useState,
-  } from 'react';
-  import check from '/src/images/check.png';
-  import resultImg from '/src/images/resultLogo.png';
-  import Cart from '../TalentSurvey/TalentUI/Cart';
-  import JobItems from '../TalentSurvey/TalentUI/JobItems';
-  import { useSelector } from 'react-redux';
-  
-  function Result() {
+  useEffect,
+  useState,
+} from 'react';
+import check from '/src/images/check.png';
+import resultImg from '/src/images/resultLogo.png';
+import Cart from '../TalentSurvey/TalentUI/Cart';
+import JobItems from '../TalentSurvey/TalentUI/JobItems';
+import { useSelector } from 'react-redux';
 
-    const { ansArray } = useSelector(
-      (state) => state.haland,
+function Result() {
+  const { ansArray } = useSelector(
+    (state) => state.mbti,
+  );
+  const [type, setType] = useState({
+    name: '',
+    value: '',
+  });
+
+  console.log(ansArray);
+
+  const calculateResult = () => {
+    const answer = [...ansArray];
+    const result = answer.reduce(
+      (previewValue, currentValue) => {
+        const key = currentValue.value;
+        previewValue[key] = previewValue[key] + 1;
+
+        console.log(key, previewValue);
+        return previewValue;
+      },
+      {
+        I: 0,
+        E: 0,
+        S: 0,
+        F: 0,
+        J: 0,
+        P: 0,
+        S: 0,
+        N: 0,
+      },
     );
-    const [type, setType] = useState({
-      name: '',
-      value: '',
-    });
-    
-   
+    console.log('myresult ', result);
+    let personality = '';
 
-    const calculateResult = () => {
-        const answer = [...ansArray]
-        const result = answer.reduce((acc, answer) => {
-          acc[answer] = (acc[answer] || 0) + 1;
-          return acc;
-        }, {});
-    
-        let personality = '';
-    
-        if (result.E > result.I) personality += 'E';
-        else personality += 'I';
-    
-        if (result.S > result.N) personality += 'S';
-        else personality += 'N';
-    
-        if (result.T > result.F) personality += 'T';
-        else personality += 'F';
-    
-        if(result.J > result.P) personality += 'J';
-        else personality += 'P';
-    
-        return personality;
-      };
-    
-      const myResult = calculateResult();
-    // const results = [
-    //   {
-    //     num: 1,
-    //     point: 0,
-    //     name: 'قاعده‌مند و قراردادی',
-    //     color: '#A89ADF',
-    //   },
-    //   {
-    //     num: 2,
-    //     point: 0,
-    //     name: 'جستجوگر',
-    //     color: '#22CBFF',
-    //   },
-    //   {
-    //     num: 3,
-    //     point: 0,
-    //     name: 'هنری',
-    //     color: '#FCC22F',
-    //   },
-    //   {
-    //     num: 4,
-    //     point: 0,
-    //     name: 'اجتماعی',
-    //     color: '#2DDAB0',
-    //   },
-    //   {
-    //     num: 5,
-    //     point: 0,
-    //     name: 'مدیر و جسور',
-    //     color: '#20D050',
-    //   },
-    //   {
-    //     num: 6,
-    //     point: 0,
-    //     name: 'عمل‌گرا',
-    //     color: '#717171',
-    //   },
-    // ];
-  
-    // useEffect(() => {
-    //   let sortedAns = [...ansArray];
-    //   sortedAns.sort((a, b) => {
-    //     if (+a.id - +b.id > 0) return 1;
-    //     else return -1;
-    //   });
-    //   sortedAns.forEach((ans) => {
-    //     switch (ans.id % 6) {
-    //       case 1:
-    //         results[0].point += ans.point;
-    //         break;
-    //       case 2:
-    //         results[1].point += ans.point;
-    //         break;
-    //       case 3:
-    //         results[2].point += ans.point;
-    //         break;
-    //       case 4:
-    //         results[3].point += ans.point;
-    //         break;
-    //       case 5:
-    //         results[4].point += ans.point;
-    //         break;
-    //       case 0:
-    //         results[5].point += ans.point;
-    //         break;
-    //     }
-    //   });
-    // }, []);
-  
-    return (
-      <>
+    if (result.E > result.I) personality += 'E';
+    else personality += 'I';
+
+    if (result.S > result.N) personality += 'S';
+    else personality += 'N';
+
+    if (result.T > result.F) personality += 'T';
+    else personality += 'F';
+
+    if (result.J > result.P) personality += 'J';
+    else personality += 'P';
+    console.log(result.E, result.I);
+    return personality;
+  };
+
+  const myResult = calculateResult();
+  console.log('myresult ', myResult);
+  // const results = [
+  //   {
+  //     num: 1,
+  //     point: 0,
+  //     name: 'قاعده‌مند و قراردادی',
+  //     color: '#A89ADF',
+  //   },
+  //   {
+  //     num: 2,
+  //     point: 0,
+  //     name: 'جستجوگر',
+  //     color: '#22CBFF',
+  //   },
+  //   {
+  //     num: 3,
+  //     point: 0,
+  //     name: 'هنری',
+  //     color: '#FCC22F',
+  //   },
+  //   {
+  //     num: 4,
+  //     point: 0,
+  //     name: 'اجتماعی',
+  //     color: '#2DDAB0',
+  //   },
+  //   {
+  //     num: 5,
+  //     point: 0,
+  //     name: 'مدیر و جسور',
+  //     color: '#20D050',
+  //   },
+  //   {
+  //     num: 6,
+  //     point: 0,
+  //     name: 'عمل‌گرا',
+  //     color: '#717171',
+  //   },
+  // ];
+
+  // useEffect(() => {
+  //   let sortedAns = [...ansArray];
+  //   sortedAns.sort((a, b) => {
+  //     if (+a.id - +b.id > 0) return 1;
+  //     else return -1;
+  //   });
+  //   sortedAns.forEach((ans) => {
+  //     switch (ans.id % 6) {
+  //       case 1:
+  //         results[0].point += ans.point;
+  //         break;
+  //       case 2:
+  //         results[1].point += ans.point;
+  //         break;
+  //       case 3:
+  //         results[2].point += ans.point;
+  //         break;
+  //       case 4:
+  //         results[3].point += ans.point;
+  //         break;
+  //       case 5:
+  //         results[4].point += ans.point;
+  //         break;
+  //       case 0:
+  //         results[5].point += ans.point;
+  //         break;
+  //     }
+  //   });
+  // }, []);
+
+  return (
+    <>
       <p>{myResult}</p>
-        {/* <section className="container mx-auto p-10 flex flex-col gap-7 justify-center items-center">
+      {/* <section className="container mx-auto p-10 flex flex-col gap-7 justify-center items-center">
           <h2 className=" border-yellow-300 border-2 p-3 rounded-3xl text-center inline-block ">
 
             آزمون شخصیت شناسی Mbti
@@ -263,8 +278,7 @@ import React, {
             </div>
           </section>
         </section> */}
-      </>
-    );
-  }
-  export default Result;
-  
+    </>
+  );
+}
+export default Result;
