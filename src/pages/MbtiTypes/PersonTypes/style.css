@@ -1,0 +1,23 @@
+.celebrities:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -70px;
+    height: 260px;
+    background-color: #f2f3f4;
+    transform: skewY(4deg);
+    z-index: -1;
+}
+
+.celebrities:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -70px;
+    height: 200px;
+    background-color: #f2f3f4;
+    transform: skewY(-4deg);
+    z-index: -1;
+}
