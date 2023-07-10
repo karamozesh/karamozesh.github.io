@@ -8,8 +8,10 @@ import Cart from '../TalentSurvey/TalentUI/Cart';
 import JobItems from '../TalentSurvey/TalentUI/JobItems';
 import { useSelector } from 'react-redux';
 import ENTJ from '../../pages/MbtiTypes/ENTJ';
-
-
+import INTJ from '../../pages/MbtiTypes/INTJ';
+import INTP from '../../pages/MbtiTypes/INTP';
+import INFP from '../../pages/MbtiTypes/INFP';
+import ENFJ from '../../pages/MbtiTypes/ENFJ';
 
 function Result() {
   const { ansArray } = useSelector(
@@ -64,15 +66,10 @@ function Result() {
   const myResult = calculateResult();
   console.log('myresult ', myResult);
 
+  if (myResult == 'INFP') {
+    return <INTP />;
+  }
 
-      if (myResult == 'INFP'){
-        return <ENTJ/>
-      }
-
-  return (
-    
-<></>
-      
-  );
+  return <></>;
 }
 export default Result;

@@ -1,21 +1,31 @@
 .description-pullout {
-    -webkit-text-size-adjust: 100%;
-    -webkit-font-smoothing: antialiased;
-    font-variant: normal;
-    text-rendering: auto;
-    --font-family-text: "Noto Sans Arabic", "Noto Sans", "Helvetica Neue", Arial, sans-serif;
-    --font-family-titles: var(--font-family-text);
-    font-weight: 400;
-    word-break: break-word;
-    box-sizing: border-box;
-    color: #fff;
-    margin-bottom: 30px;
-    clip-path: polygon(2% 9%, 13% 3%, 55% 0, 98% 6%, 100% 42%, 99% 91%, 84% 100%, 54% 94%, 24% 100%, 4% 97%, 0 79%);
-    line-height: 2.2;
-    padding: 45px 70px;
-    font-size: 1.4em;
-    font-style: normal;
-    background-color: #88619a;
-    font-family: var(--font-family-text)!important;
-    margin: 50px 0;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  font-variant: normal;
+  text-rendering: auto;
+  font-weight: 400;
+  word-break: break-word;
+  box-sizing: border-box;
+  color: #fff;
+  margin-bottom: 30px;
+  clip-path: polygon(
+    2% 9%,
+    13% 3%,
+    55% 0,
+    98% 6%,
+    100% 42%,
+    99% 91%,
+    84% 100%,
+    54% 94%,
+    24% 100%,
+    4% 97%,
+    0 79%
+  );
+  line-height: 2.2;
+  padding: 45px 70px;
+  font-size: 1.4em;
+  font-style: normal;
+  background-color: #88619a;
+  font-family: var(--font-family-text) !important;
+  margin: 50px 0;
 }
