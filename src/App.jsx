@@ -33,6 +33,11 @@ import MbtiResult from './components/MbtiResult/Result';
 import SkillCard from './components/Skill/SkillCard';
 import JavaScript from './pages/Skill/JavaScript';
 import Python from './pages/Skill/Python';
+import Htmlcss from './pages/Skill/Htmlcss';
+import NLP from './pages/Skill/NLP';
+
+
+
 
 
 import {
@@ -201,6 +206,14 @@ function App() {
       <Route
         path="/skill/python"
         element={<Python />}
+      />
+        <Route
+        path="/skill/html&css"
+        element={<Htmlcss />}
+      />
+       <Route
+        path="/skill/nlp"
+        element={<NLP />}
       />
       <Route
         path="*"

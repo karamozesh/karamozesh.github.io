@@ -28,12 +28,12 @@ function Python() {
 
                 <section className="flex gap-5 justify-center mx-auto h-[70vh] mt-8 w-full bg-hero-pattern1 bg-cover">
                             
-                <SkillRoad title={'نتیجه'}></SkillRoad>
-                <SkillRoad title={'نقاط ضعف پایتون'}></SkillRoad>
-                <SkillRoad title={'دلیل برای یادگیری پایتون'}></SkillRoad>
-                <SkillRoad title={'آینده پایتون'}></SkillRoad>
+            
+                <SkillRoad title={'پروژه های متن باز معروف'}></SkillRoad>
                 <SkillRoad title={'نقشه راه'}></SkillRoad>
-                <SkillRoad title={'شروع کار با پایتون'}></SkillRoad>
+                <SkillRoad title={'ایده پروژه برای تمرین'}></SkillRoad>
+                <SkillRoad title={'منابع یادگیری'}></SkillRoad>
+                <SkillRoad title={'اهمیت یادگیری و کاربرد ها'}></SkillRoad>
                 <SkillRoad title={'کاربرد پایتون در دنیای برنامه نویسی'}></SkillRoad>
 
 
@@ -161,7 +161,7 @@ function Python() {
                     <img src={ bg7} alt="" className='  -mt-80' />
                 </section>
                 
-                  <section className=' -mt-16'>
+                <section className=' -mt-16'>
                     
                     <h1 className='mr-16'>نظرات کاربران</h1>
                     <ul className='mt-4 mr-16 font-normal text-sm'>
@@ -170,10 +170,10 @@ function Python() {
                       <li>کامنت خود را بصورت فارسی تایپ نمایید. از به کار بردن کلمات رکیک یا توهین آمیز خودداری نمایید. 
                        <br /> در صورت مشاهده کامنت تایید نمیشود.</li>
                     </ul>
-                    <div className='w-[80%]'>
-                    <textarea name="" id="" cols="70" rows="10" className=' mr-44 bg-gray-200'></textarea>
-                    <br /><img src={bg8} className=' -mt-32' alt="" />
-                    <Button className=' -mt-28 ml-64 float-left'>ارسال دیدگاه</Button></div>
+                    <div className='w-[90%]'>
+                    <textarea name="" id="" cols="60" rows="10" className=' mr-44 bg-gray-200'></textarea>
+                    <br /><img src={bg8} className=' -mt-10 ' alt="" />
+                    <Button className=' -mt-36 ml-60 float-left'>ارسال دیدگاه</Button></div>
                     
                     
 

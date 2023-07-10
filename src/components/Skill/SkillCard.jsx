@@ -31,14 +31,17 @@ export default function SkillCard() {
             <Link to="/skill/python">
             <Card title ={'Python'}  img={python}> </Card>
             </Link>
-            
-            <Card title ={'CSS'}  img={css}> </Card>
-            <Card title ={'HTML'}  img={html}> </Card>
+            <Link to="/skill/html&css">
+            <Card title ={'Html&Css'}  img={html}> </Card>
+            </Link>
+            <Link to="/skill/nlp">
+            <Card title ={'NLP'}  img={nlp}> </Card>
+            </Link>
             <Card title ={'Django'}  img={django}> </Card>
-            <Card title ={'Python'}  img={python}> </Card>
+         
             <Card title ={'Machine Learning'}  img={machineLearning}> </Card>
             <Card title ={'Image Processing'}  img={imageProcessing}> </Card>
-            <Card title ={'NLP'}  img={nlp}> </Card>
+
             <Card title ={'React'}  img={react}> </Card>
 
         </section>
