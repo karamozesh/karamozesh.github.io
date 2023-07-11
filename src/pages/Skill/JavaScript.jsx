@@ -3,6 +3,14 @@ import SkillSection from './UI/SkiilSection'
 import SkillRoad from './UI/SkillRoad'
 import bg from '../../asset/images/bg.png'
 import roadmap from '../../asset/images/roadmap.png'
+import bg2 from '../../asset/images/bg2.png'
+import bg3 from '../../asset/images/Group 444.png'
+import bg4 from '../../asset/images/Teleportation-pana 3.png'
+import bg5 from '../../asset/images/Teleportation-pana 2.png'
+import bg6 from '../../asset/images/Group 445.png'
+import bg7 from '../../asset/images/Group 446.png'
+import bg8 from '../../asset/images/Group 447.png'
+import Button from '../../components/UI/Button'
 function Js() {
   
   return (
@@ -74,9 +82,11 @@ function Js() {
                </section>
 
 
-               <section className='bg-hero-pattern2 h-[80vh]  bg-no-repeat	'></section>
+               <section className=''></section>
 
                <section className='container mx-auto '>
+                <img src={bg2} className='w-[15%] float-left' alt="" />
+                <br /><br /> <br />
                 <h1 className="inline-block py-8 ">
                 شروع کار با جاوا اسکریپت
                 </h1>
@@ -86,43 +96,48 @@ function Js() {
                     
                     بهترین سایت‌های آموزش جاوا اسکریپت عبارتند از:
                     <br />
-                    <a href="">JavaScript.com</a>
+                    <a className=' text-emerald-400' href="">JavaScript.com</a>
                     <br />
-                    <a href="">W3schools</a>
+                    <a className=' text-emerald-400' href="">W3schools</a>
                     <br />
-                   <a href=""> Mozilla Developer Network</a>
+                   <a className=' text-emerald-400' href=""> Mozilla Developer Network</a>
                    <br />
                     
                     بهترین سایت‌های آموزش جاوا اسکریپت به زبان فارسی عبارتند از:
                     <br />
-                    <a href="">آکادمی آموزش برنامه‌نویسی سبزلرن</a>
+                    <a className=' text-emerald-400' href="">آکادمی آموزش برنامه‌نویسی سبزلرن</a>
                     <br />
-                    <a href="">آموزش جاوا اسکریپت موزیلا</a>
+                    <a className=' text-emerald-400' href="">آموزش جاوا اسکریپت موزیلا</a>
                 </p>
                </section>
 
                <section className='mx-auto  w-full flex justify-center'>
                 <img src={roadmap} alt="" className='w-full mr-8'/>
                </section>
+               <img src={bg7} className='-mt-32' alt="" />
 
 
                 {/* <section>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#0099ff" fill-opacity="1" d="M0,160L34.3,160C68.6,160,137,160,206,170.7C274.3,181,343,203,411,224C480,245,549,267,617,245.3C685.7,224,754,160,823,160C891.4,160,960,224,1029,261.3C1097.1,299,1166,309,1234,272C1302.9,235,1371,149,1406,106.7L1440,64L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"></path></svg> 
                 </section> */}
 
+<section className=' '>
 
-                  <section className='bg-hero-pattern3 bg-no-repeat  border'>
+                <h1 className='mr-16'>نظرات کاربران</h1>
+                <ul className='mt-4 mr-16 font-normal text-sm'>
+                    <li>قبل از مطرح کردن هرگونه سوال ، بخش سوالات دیگران را مطالعه نمایید.</li>
+                    <li>در صورت وجود هرگونه مشکل از طریق بخش تیکت ها ، مشکل خود را پیگیری نمایید.</li>
+                    <li>کامنت خود را بصورت فارسی تایپ نمایید. از به کار بردن کلمات رکیک یا توهین آمیز خودداری نمایید.
+                        <br /> در صورت مشاهده کامنت تایید نمیشود.</li>
+                </ul>
+                <div className='w-[90%]'>
+                    <textarea name="" id="" cols="60" rows="10" className=' mr-44 bg-gray-200'></textarea>
+                    <br /><img src={bg8} className=' -mt-10 ' alt="" />
+                    <Button className=' -mt-36 ml-60 float-left'>ارسال دیدگاه</Button></div>
 
-                    <h1>نظرات کاربران</h1>
-                    <ul>
-                      <li>قبل از مطرح کردن هرگونه سوال ، بخش سوالات دیگران را مطالعه نمایید.</li>
-                      <li>در صورت وجود هرگونه مشکل از طریق بخش تیکت ها ، مشکل خود را پیگیری نمایید.</li>
-                      <li>کامنت خود را بصورت فارسی تایپ نمایید. از به کار بردن کلمات رکیک یا توهین آمیز خودداری نمایید. در صورت مشاهده کامنت تایید نمیشود.</li>
-                    </ul>
 
-                    <textarea name="" id="" cols="30" rows="10"></textarea>
-                    <button>ارسال دیدگاه</button>
-                  </section>
+
+            </section>
 
 
         </section>
