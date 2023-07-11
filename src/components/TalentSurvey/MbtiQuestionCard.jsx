@@ -32,7 +32,7 @@ import {
         <h3>
           {id}. {question}
         </h3>
-        <div className="grid grid-cols-5 mb-10 grid-rows-1 gap-5 mt-6 text-md text-xs">
+        <div className="grid grid-cols-2 mb-10 grid-rows-1 gap-5 mt-6 text-md text-xs">
           {choices.map((choice, index) => (
 
 

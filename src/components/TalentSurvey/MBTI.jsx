@@ -60,7 +60,7 @@ function MBTI() {
   ) : (
     <section className="container mx-auto p-7 mt-7">
       <section className="flex flex-col items-center justify-center gap-5">
-        <section className="border shadow-lg shadow-blue-500/50 grid  grid-rows-3 grid-cols-2 gap-10 justify-items-center p-10 content-center rounded-3xl">
+        <section className="border shadow-lg shadow-blue-500/50 grid  grid-rows-3 grid-cols-2 gap-10 p-10 rounded-3xl">
           {currentQuestions.length > 0 &&
             currentQuestions.map(
               (questionObj, index) => (

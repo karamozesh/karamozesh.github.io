@@ -127,6 +127,10 @@ function App() {
       />
 
       <Route
+        path="/talent-survey/haland"
+        element={<TalentSurveyTestPage />}
+      />
+      <Route
         path="/talent-survey/mbti"
         element={<MBTI />}
       />
