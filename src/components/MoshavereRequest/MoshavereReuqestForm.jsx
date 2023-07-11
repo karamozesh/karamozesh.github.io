@@ -8,7 +8,14 @@ import {
   useDispatch,
   useSelector,
 } from 'react-redux';
-import { moshavereFormActions } from '../../store/moshavereForm-slice';
+import {
+  addTicketFree,
+  moshavereFormActions,
+} from '../../store/moshavereForm-slice';
+import {
+  getDateValue,
+  getLabelFromDate,
+} from '../../functions/date';
 
 const ERTH_MOSHAVERE_OPTION_COLORS = {
   html: '#DC1F31',
@@ -93,20 +100,22 @@ const contact_way_options = [
   },
 ];
 
-const moshaver_time_options = [
-  {
-    label: 'امروز',
-    value: '1',
-  },
-  {
-    label: 'دیروز',
-    value: '2',
-  },
-  {
-    label: 'فردا',
-    value: '3',
-  },
-];
+const currentDate = new Date().getDate();
+
+const dateArray = new Array(7)
+  .fill(0)
+  .map((_, index) => {
+    const date = new Date();
+    date.setDate(currentDate + index);
+    return date;
+  });
+
+const moshaver_time_options = dateArray.map(
+  (date) => ({
+    label: getLabelFromDate(date),
+    value: getDateValue(date),
+  }),
+);
 
 const tagRender = ({ label, value, onClose }) => {
   const color =
@@ -132,16 +141,23 @@ const tagRender = ({ label, value, onClose }) => {
 };
 
 const FreeMoshavereRequestContent = () => {
+  const data = useSelector(
+    (state) => state.moshavereForm.free,
+  );
+
+  const { user_token } = useSelector(
+    (state) => state.auth,
+  );
+
   const {
     zamine,
     lvlOfInofrmation,
-    description,
+    question,
     files,
     contactWay,
     timeMoshavere,
-  } = useSelector(
-    (state) => state.moshavereForm.free,
-  );
+    title,
+  } = data;
 
   const dispatch = useDispatch();
 
@@ -167,12 +183,12 @@ const FreeMoshavereRequestContent = () => {
     );
   };
 
-  const descriptionChangeHandler = (e) => {
+  const questionChangeHandler = (e) => {
     const value = e.target.value;
 
     dispatch(
       moshavereFormActions.changeFreeProp({
-        prop: 'description',
+        prop: 'question',
         value,
       }),
     );
@@ -196,6 +212,23 @@ const FreeMoshavereRequestContent = () => {
     );
   };
 
+  const titleChangeHandler = (e) => {
+    const value = e.target.value;
+
+    dispatch(
+      moshavereFormActions.changeFreeProp({
+        prop: 'title',
+        value,
+      }),
+    );
+  };
+
+  const addTicketHandler = (e) => {
+    e.preventDefault();
+
+    dispatch(addTicketFree({ data, user_token }));
+  };
+
   return (
     <>
       <p>
@@ -206,7 +239,40 @@ const FreeMoshavereRequestContent = () => {
         کارشناسان ما در اولین فرصت با شما ارتباط
         خواهند گرفت.
       </p>
-      <form className="p-8">
+      <form
+        className="p-8"
+        onSubmit={addTicketHandler}
+      >
+        <div>
+          <div className="flex flex-col mb-6">
+            <label className="inline-block mb-1">
+              عنوان مشاوره:{' '}
+              <span className="text-redColor">
+                *
+              </span>
+            </label>
+            <input
+              type="text"
+              className="bg-gray-700 rounded-lg py-2 px-3 text-xs focus:outline-dashed"
+              onChange={titleChangeHandler}
+            />
+          </div>
+        </div>
+        <div>
+          <div className="flex flex-col mb-6">
+            <label className="inline-block mb-1">
+              سوال مشاوره:{' '}
+              <span className="text-redColor">
+                *
+              </span>
+            </label>
+            <textarea
+              type="text"
+              className="h-[100px] bg-gray-700 rounded-lg py-2 px-3 text-xs focus:outline-dashed resize-none"
+              onChange={questionChangeHandler}
+            />
+          </div>
+        </div>
         <div className="grid grid-cols-2 gap-x-4 mb-6">
           <div>
             <label className="inline-block mb-1">
@@ -222,11 +288,11 @@ const FreeMoshavereRequestContent = () => {
               placeholder="لطفا انتخاب کنید (یک یا بیشتر)"
               style={{
                 width: '100%',
+                fontSize: '12px',
               }}
               onChange={
                 zamineMoshavereChangeHandler
               }
-              value={zamine}
               options={erthMoshavere_options}
             />
           </div>
@@ -243,41 +309,47 @@ const FreeMoshavereRequestContent = () => {
               placeholder="لطفا انتخاب کنید"
               style={{
                 width: '100%',
+                fontSize: '12px',
               }}
               onChange={
                 lvlOfInofrmationChangeHandler
               }
-              value={lvlOfInofrmation}
+              // value={lvlOfInofrmation}
               options={mizan_info_options}
             />
           </div>
         </div>
-        <div className="flex flex-col mb-3">
+        {/* <div className="flex flex-col mb-3">
           <label>توضیحات</label>
           <textarea
             name=""
             id=""
-            className="mt-2 p-4 bg-gray-600/[0.56] shadow-mahdis focus:outline-dashed"
+            className="mt-2 p-4 bg-gray-600/[0.56] shadow-mahdis focus:outline-dashed text-xs"
             style={{ resize: 'none' }}
-            onChange={descriptionChangeHandler}
-            value={description}
+            // value={question}
           ></textarea>
-        </div>
+        </div> */}
         <div
-          className="flex flex-col px-6 py-4 mb-5"
+          className="relative flex flex-col px-6 py-4 mb-5"
           style={{
             backgroundImage: `url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='black' stroke-width='2' stroke-dasharray='6%2c 14' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e")`,
           }}
         >
-          <span className="text-xs text-black-900/[.4]">
-            رزومه من
-          </span>
-          <span className="inline-block my-4 text-xs text-black-900/[.4]">
-            سند
-          </span>
-          <span className="text-xs text-black-900/[.4]">
-            نتیجه خودشناسی
-          </span>
+          <div className="absolute inset-0 flex justify-center items-center w-full h-full bg-gray-500/10">
+            قابلیت فرستادن فایل به زودی اضافه
+            خواهد شد
+          </div>
+          <div className="flex flex-col blur-sm">
+            <span className="text-xs text-black-900/[.4]">
+              رزومه من
+            </span>
+            <span className="inline-block my-4 text-xs text-black-900/[.4]">
+              سند
+            </span>
+            <span className="text-xs text-black-900/[.4]">
+              نتیجه خودشناسی
+            </span>
+          </div>
         </div>
         <div className="grid grid-cols-2 gap-x-4 mb-7">
           <div>
@@ -293,9 +365,10 @@ const FreeMoshavereRequestContent = () => {
               tagRender={tagRender}
               style={{
                 width: '100%',
+                fontSize: '12px',
               }}
               onChange={contactWayChangeHandler}
-              value={contactWay}
+              // value={contactWay}
               options={contact_way_options}
             />
           </div>
@@ -312,8 +385,9 @@ const FreeMoshavereRequestContent = () => {
               tagRender={tagRender}
               style={{
                 width: '100%',
+                fontSize: '12px',
               }}
-              value={timeMoshavere}
+              // value={timeMoshavere}
               onChange={
                 timeMoshavereChangeHandler
               }
@@ -321,7 +395,11 @@ const FreeMoshavereRequestContent = () => {
             />
           </div>
         </div>
-        <button className="w-full h-[54px] rounded-md bg-greenColor text-white">
+        <button
+          className="w-full h-[54px] rounded-md bg-greenColor text-white"
+          onClick={addTicketHandler}
+          type="submit"
+        >
           ثبت درخواست مشاوره
         </button>
       </form>
@@ -339,7 +417,7 @@ const VIPMoshavereRequestContent = () => {
   const {
     zamine,
     lvlOfInofrmation,
-    description,
+    question,
     files,
     contactWay,
     timeMoshavere,
@@ -372,12 +450,12 @@ const VIPMoshavereRequestContent = () => {
     );
   };
 
-  const descriptionChangeHandler = (e) => {
+  const questionChangeHandler = (e) => {
     const value = e.target.value;
 
     dispatch(
       moshavereFormActions.changeVipProp({
-        prop: 'description',
+        prop: 'question',
         value,
       }),
     );
@@ -473,8 +551,8 @@ const VIPMoshavereRequestContent = () => {
             id=""
             className="mt-2 p-4 bg-gray-600/[0.56] shadow-mahdis focus:outline-dashed"
             style={{ resize: 'none' }}
-            onChange={descriptionChangeHandler}
-            value={description}
+            onChange={questionChangeHandler}
+            value={question}
           ></textarea>
         </div>
         <div
@@ -562,7 +640,10 @@ const VIPMoshavereRequestContent = () => {
             ))}
           </RadioGroup>
         </div>
-        <button className="w-full h-[54px] rounded-md bg-greenColor text-white">
+        <button
+          className="w-full h-[54px] rounded-md bg-greenColor text-white"
+          // onClick={addTicketHandler}
+        >
           ثبت درخواست مشاوره
         </button>
       </form>
@@ -588,7 +669,7 @@ const MoshavereRequestForm = ({
   ];
 
   return (
-    <div>
+    <div className="mb-20">
       <Tab.Group
         selectedIndex={activeTab}
         onChange={setActiveTab}

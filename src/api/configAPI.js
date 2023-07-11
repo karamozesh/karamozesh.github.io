@@ -24,3 +24,6 @@ export const API_GET_USER_ID =
 
 export const API_TALENT =
   baseUrl + '/api/skills/link';
+
+export const API_ADD_TICKET =
+  baseUrl + '/api/ticket/';
