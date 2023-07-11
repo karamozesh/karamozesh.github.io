@@ -27,3 +27,6 @@ export const API_TALENT =
 
 export const API_ADD_TICKET =
   baseUrl + '/api/ticket/';
+
+export const API_GET_USER_TICKETS =
+  baseUrl + '/user/profile/ticket/';

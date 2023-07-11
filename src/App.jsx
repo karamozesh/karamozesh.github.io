@@ -44,11 +44,13 @@ import { notificationActions } from './store/notification-slice';
 import 'react-toastify/dist/ReactToastify.css';
 import TicketsPage from './pages/MoshaverPages/TicketsPage/TickestPage';
 import MyTicketsPage from './pages/MoshaverPages/MyTicketsPage/MyTicketsPage';
+import axios from 'axios';
+import { API_GET_USER_TICKETS } from './api/configAPI';
+import { getUserTickets } from './store/ticket-slice';
 
 function App() {
-  const { isLoggedIn, isMoshaver } = useSelector(
-    (state) => state.auth,
-  );
+  const { isLoggedIn, isMoshaver, user_token } =
+    useSelector((state) => state.auth);
 
   const navigate = useNavigate();
 
@@ -97,6 +99,15 @@ function App() {
       }, 3000);
     }
   }, [error, dispatch]);
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      if (isMoshaver) {
+      } else {
+        dispatch(getUserTickets(user_token));
+      }
+    }
+  }, [isLoggedIn, isMoshaver]);
 
   const userRoutes = (
     <Routes>
