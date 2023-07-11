@@ -9,6 +9,7 @@ import django from '../../asset/images/django.png'
 import nlp from '../../asset/images/nlp.png'
 import css from '../../asset/images/css.png'
 import html from '../../asset/images/html.png'
+import uiux from '../../asset/images/ux-ui-design-icon-outline-vector-33243310 1.png'
 import { Link } from "react-router-dom";
 
 
@@ -28,13 +29,24 @@ export default function SkillCard() {
             <Link to="/skill/javaScript">
             <Card title ={'JavaScript'}  img={js}> </Card>
             </Link>
-            <Card title ={'CSS'}  img={css}> </Card>
-            <Card title ={'HTML'}  img={html}> </Card>
-            <Card title ={'Django'}  img={django}> </Card>
+            <Link to="/skill/python">
             <Card title ={'Python'}  img={python}> </Card>
-            <Card title ={'Machine Learning'}  img={machineLearning}> </Card>
-            <Card title ={'Image Processing'}  img={imageProcessing}> </Card>
+            </Link>
+            <Link to="/skill/html&css">
+            <Card title ={'Html&Css'}  img={html}> </Card>
+            </Link>
+            <Link to="/skill/nlp">
             <Card title ={'NLP'}  img={nlp}> </Card>
+            </Link>
+            <Link to="/skill/ui-ux">
+            <Card title ={'UIUX'}  img={uiux}> </Card>
+            </Link>
+
+            <Card title ={'Django'}  img={django}> </Card>
+         
+            <Card title ={'Machine Learning'}  img={machineLearning}> </Card>
+            
+
             <Card title ={'React'}  img={react}> </Card>
 
         </section>
