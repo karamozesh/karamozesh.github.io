@@ -15,15 +15,7 @@ function MBTI() {
   );
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    if (isLoggedIn) {
-      const talentObj = JSON.parse(
-        localStorage.getItem('talent-survey'),
-      );
-      if (talentObj)
-        dispatch(mbtiActions.setAns(talentObj));
-    }
-  }, []);
+ 
 
   const { totalQuestions, ansArray } =
     useSelector((state) => state.mbti);
@@ -55,10 +47,7 @@ function MBTI() {
   const seeTheResultHandler = () => {
     const result_string =
       JSON.stringify(ansArray);
-    localStorage.setItem(
-      'talent-survey',
-      result_string,
-    );
+ 
   };
   console.log(ansArray);
   return ansArray.length === totalQuestions ? (
