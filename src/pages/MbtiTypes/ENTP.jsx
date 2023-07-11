@@ -14,7 +14,8 @@ function ENTP() {
   return (
     <main>
 
-            <HeaderType  typeName = {'مجادله گر'} type={'ENTP-A / ENTP-T'} typeImg = {entp}/>
+            <HeaderType  
+            typeName = {'مجادله گر'} type={'ENTP-A / ENTP-T'} typeImg = {entp} color={'#88619A'}/>
       
 
 

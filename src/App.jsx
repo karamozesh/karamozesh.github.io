@@ -26,7 +26,6 @@ import TalentSurveyTestPage from './pages/TalentSurveyPage/TalentSurveyTestPage/
 import ResumeCreatingPage from './pages/ResumePage/ResumeCreatingPage/ResumeCreatingPage';
 import TalentSurveyResultPage from './pages/TalentSurveyPage/TalentSurveyResultPage/TalentSurveyResultPage';
 import TalentSurveyResultListPage from './pages/TalentSurveyPage/TalentSurveyResultPage/TalentSurveyResultListPage';
-import Disk from './components/TalentSurvey/Disk';
 import MBTI from './components/TalentSurvey/MBTI';
 import HalandResult from './components/TalentResult/Result';
 import MbtiResult from './components/MbtiResult/Result';
@@ -121,10 +120,7 @@ function App() {
         path="/talent-survey"
         element={<TalentSurveyPage />}
       />
-      <Route
-        path="/talent-survey/disk"
-        element={<Disk />}
-      />
+     
       <Route
         path="/talent-survey/mbti"
         element={<MBTI />}

@@ -1,6 +1,6 @@
 import React from 'react';
 import infp from '../../images/INFP.svg';
-import entjSvg from '../../images/entjSvg.svg';
+import infpSvg from '../../images/infpSvg.png';
 import './style.css';
 import PersonTypes from './PersonTypes/PersonTypes';
 import HeaderType from './Type/Type';
@@ -75,8 +75,8 @@ function INTP() {
             این امر می‌تواند به انزوا منجر شود.
           </p>
         </div>
-        <figure className="m-10">
-          <img src={entjSvg} alt="" />
+        <figure className="m-10 flex justify-center">
+          <img src={infpSvg} alt="" />
         </figure>
         <div className=" p-5 text-[#545C6D]">
           <p className="text-xl">
@@ -95,7 +95,7 @@ function INTP() {
             کردن خود در کارشان بررسی می‌کنند.
           </p>
         </div>
-        <div class="description-pullout">
+        <div class="description-pullout-g">
           میانجی‌گران استعدادی برای ابراز خویش،
           آشکار کردن زیبایی و اسرار خود از طریق
           استعاره‌ها و شخصیت‌های داستانی دارند.

@@ -4,10 +4,6 @@ import intjSvg from '../../images/intjSvg.svg';
 import './style.css';
 import PersonTypes from './PersonTypes/PersonTypes';
 import HeaderType from './Type/Type';
-import Margaret from '../../images/margaret.svg';
-import steve from '../../images/steve.svg';
-import whoopi from '../../images/whoopi.svg';
-import franklin from '../../images/franklin.svg';
 import friedrich from '../../images/friedrich.svg';
 import michelle from '../../images/michelle.svg';
 import elon from '../../images/elon.svg';
@@ -20,6 +16,7 @@ function INTJ() {
         typeName={' معمار'}
         type={'INTJ-A / INTJ-T'}
         typeImg={intj}
+        color={'#88619A'}
       />
 
       <section className="container mx-auto  mt-10 p-20 font-medium   ">

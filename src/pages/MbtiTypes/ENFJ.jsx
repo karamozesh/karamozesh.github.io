@@ -1,10 +1,8 @@
 import React from 'react';
-import infp from '../../images/INFP.svg';
-import entjSvg from '../../images/entjSvg.svg';
+import enfj from '../../images/enfj.svg';
 import './style.css';
 import PersonTypes from './PersonTypes/PersonTypes';
 import HeaderType from './Type/Type';
-
 import barack from '../../images/barack.svg';
 import oprah from '../../images/oprah.svg';
 import ben from '../../images/oprah.svg';
@@ -16,7 +14,7 @@ function ENFJ() {
       <HeaderType
         typeName={'قهرمان'}
         type={'ENFJ-A / ENFJ-T'}
-        typeImg={infp}
+        typeImg={enfj}
         color={'#33A474'}
       />
 

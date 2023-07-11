@@ -16,6 +16,7 @@ function ENTJ() {
         typeName={'فرمانده'}
         type={'ENTJ-A / ENTJ-T'}
         typeImg={entj}
+        color={'#88619A'}
       />
 
       <section className="container mx-auto  mt-10 p-20 font-medium   ">
