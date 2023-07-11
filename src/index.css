@@ -274,3 +274,12 @@ nav a.active {
     font-size: 20px;
   }
 }
+
+.nlp-bg {
+  background-image: url('/src/asset/images/Group 446.png');
+  background-size: cover;
+  background-position-y: 85px;
+  padding-bottom: 180px;
+  margin-bottom: 54px;
+  background-repeat: no-repeat;
+}
