@@ -120,7 +120,7 @@ function App() {
         path="/talent-survey"
         element={<TalentSurveyPage />}
       />
-     
+
       <Route
         path="/talent-survey/mbti"
         element={<MBTI />}
@@ -148,6 +148,14 @@ function App() {
       <Route
         path="/moshavere-request"
         element={<MoshavereRequestPage />}
+      />
+      <Route
+        path="/skill"
+        element={<SkillCard />}
+      />
+      <Route
+        path="/skill/javaScript"
+        element={<JavaScript />}
       />
       <Route
         path="*"
