@@ -5,13 +5,19 @@ export const API_LOGIN =
   baseUrl + '/api/user/login/';
 export const API_REGISTER =
   baseUrl + '/api/user/register/';
+
+// --- Resume API
 export const API_CREATE_CV = baseUrl + '/api/cv/';
+
 export const API_ADD_EDU_CV = (cv_id) =>
   baseUrl + `/api/cv/${cv_id}/education/`;
+
 export const API_ADD_WORK_CV = (cv_id) =>
   baseUrl + `/api/cv/${cv_id}/work/`;
+
 export const API_ADD_SKILL_CV = (cv_id) =>
   baseUrl + `/api/cv/${cv_id}/skill/`;
+
 export const API_DELETE_SKILL_CV = (
   cv_id,
   skill_id,
@@ -22,11 +28,88 @@ export const API_GET_CVID =
 export const API_GET_USER_ID =
   baseUrl + '/user/get_user-id';
 
+// Resume API ---
+
+// --- API TALENT API
 export const API_TALENT =
   baseUrl + '/api/skills/link';
+//  API TALENT API ---
+
+// --- User Ticket API
 
 export const API_ADD_TICKET =
   baseUrl + '/api/ticket/';
 
 export const API_GET_USER_TICKETS =
   baseUrl + '/user/profile/ticket/';
+
+export const API_TICKET_SEND_MESSAGE =
+  baseUrl + '/api/ticket/send-message/';
+
+export const API_TICKET_END =
+  baseUrl + '/api/ticket/end/';
+
+//  User Ticket API ---
+
+// --- Moshaver API
+export const API_GET_MOSHAVER_ALL_TICKETS =
+  baseUrl + '/api/consultation/ticket/';
+
+export const API_GET_MOSHAVER_OWN_TICKETS =
+  baseUrl + '/api/consultation/ticket/';
+
+//  Moshaver API ---
+
+export const POST_CONFIG = (user_token) => {
+  return {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Token ${user_token}`,
+    },
+  };
+};
+
+export const POST_CONFIG_FILE = (user_token) => {
+  return {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'multipart/form-data',
+      Authorization: `Token ${user_token}`,
+    },
+  };
+};
+
+export const GET_CONFIG = (
+  user_token,
+  params,
+) => {
+  return {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Token ${user_token}`,
+    },
+    params,
+  };
+};
+
+export const PATCH_CONFIG = (user_token) => {
+  return {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Token ${user_token}`,
+    },
+  };
+};
+
+export const DELETE_CONFIG = (user_token) => {
+  return {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Token ${user_token}`,
+    },
+  };
+};

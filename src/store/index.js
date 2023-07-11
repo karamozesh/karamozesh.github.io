@@ -5,6 +5,7 @@ import halandReducer from './haland-slice';
 import moshavereFormReducer from './moshavereForm-slice';
 import mbtiReducer from './mbti-slice';
 import notificationReducer from './notification-slice';
+import ticketReducer from './ticket-slice';
 
 export const store = configureStore({
   reducer: {
@@ -14,6 +15,7 @@ export const store = configureStore({
     moshavereForm: moshavereFormReducer,
     mbti: mbtiReducer,
     notification: notificationReducer,
+    ticket: ticketReducer,
   },
 });
 
