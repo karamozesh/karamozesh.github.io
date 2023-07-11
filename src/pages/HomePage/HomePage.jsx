@@ -51,7 +51,7 @@ export default function HomePage() {
             با دیگران :)
           </p>
           <Button className="inline w-fit px-8 shadow-lg">
-            <Link to="/profile">
+            <Link to="/talent-survey">
               خودشناسی
             </Link>
           </Button>
