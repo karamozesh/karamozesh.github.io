@@ -4,6 +4,7 @@ import dashedrectangle from '../../asset/images/Rectangle 579.png';
 import reqresult from '../../asset/images/image 30.png';
 import Button from '../UI/Button';
 import { Link } from 'react-router-dom';
+import Input from '../UI/Input';
 
 /* 
 shadow-[0px_0px_10px_5px_rgba(0,0,0,0.15)]
@@ -15,134 +16,115 @@ const UserInput = () => {
 };
 
 export default function P1() {
+  const formSubmitHandler = () => {};
+
   return (
     <>
-      <div
-        id="p1"
-        className="pb-20 flex flex-col rounded-md mt-5"
-      >
-        <div>
-          <p className="text-lg mr-4 mt-3">
-            پروفایل
-          </p>
-          <p className=" font-normal text-xs mr-6 mt-3">
-            در این بخش می‌توانید وضعیت پروفایل خود
-            را مشاهده کنید.
-          </p>
-          <br />
-        </div>
-        <form action="">
-          <div className="mr-12 rounded-md bg-gray-100 w-5/6 ">
-            <div className="grid grid-cols-2 pt-4 mt-3 mr-10">
-              <label
-                htmlFor=""
-                className="text-sm font-normal"
-              >
+      <div className="flex flex-col rounded-md mt-4">
+        <h1 className="text-3xl font-normal mt-3">
+          پروفایل
+        </h1>
+        <p className="text-sm mt-8 mb-4">
+          در این بخش می‌توانید وضعیت پروفایل خود
+          را مشاهده کنید.
+        </p>
+        <form
+          className="w-[90%] mx-auto pt-8 px-16 rounded-md bg-gray-600/20"
+          onSubmit={formSubmitHandler}
+        >
+          <div className="grid grid-cols-2 gap-32">
+            <div className="flex flex-col">
+              <label>
                 نام خوانوادگی{' '}
                 <span className="text-red-500">
                   *
                 </span>
               </label>
-              <label
-                htmlFor=""
-                className="text-sm font-normal"
-              >
-                مدرک تحصیلی
-              </label>
-            </div>
-            <div className="grid grid-cols-2  mr-10">
-              <input
+              <Input
                 type="text"
-                className="bg-stone-200 rounded-md w-2/3"
-              />
-              <input
-                type="text"
-                className="bg-stone-200 rounded-md w-2/3 h-9"
+                className="rounded-[10px] mt-2 text-sm"
               />
             </div>
-            <br />
-            <div className="grid grid-cols-2  mr-10">
-              <label
-                htmlFor=""
-                className="text-sm"
-              >
-                {' '}
+            <div className="flex flex-col">
+              <label>مدرک تحصیلی</label>
+              <Input
+                type="text"
+                className="rounded-[10px] mt-2 text-sm"
+              />
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 gap-32 mt-5">
+            <div className="flex flex-col">
+              <label>
                 شماره موبایل{' '}
                 <span className="text-red-500">
                   *
                 </span>
               </label>
-              <label
-                htmlFor=""
-                className="text-sm"
-              >
-                {' '}
+              <Input
+                type="text"
+                className="rounded-[10px] mt-2 text-sm"
+              />
+            </div>
+            <div className="flex flex-col">
+              <label>
                 ایمیل
                 <span className="text-red-500">
                   *
                 </span>
               </label>
-            </div>
-
-            <div className="grid grid-cols-2  mr-10">
-              <input
+              <Input
                 type="text"
-                className="bg-stone-200  rounded-md w-2/3"
-              />
-              <input
-                type="text"
-                placeholder="info@example.com"
-                className=" bg-stone-200 rounded-md w-2/3 h-9"
+                className="rounded-[10px] mt-2 text-sm"
               />
             </div>
-            <br />
-            <br />
-            <div>
-              <img
-                src={dashedrectangle}
-                className="w-[90%] mr-10"
-                alt=""
-              />
-              <div className="  ">
-                <p className=" relative -top-10 mr-10  right-3 inline">
-                  رزومه من{' '}
-                </p>
-                <input
-                  type="button"
-                  value="دانلود"
-                  style={{
-                    backgroundColor: '#00C408',
-                  }}
-                  className="hover:shadow-xl h-7 text-white font-thin relative text-xs  text -top-10 float-left ml-36 w-16 rounded-sm "
-                />
-                <input
-                  type="button"
-                  value="اعمال تغییرات"
-                  className=" hover:shadow-xl relative -top-10  border-2 border-black rounded-md h-7 float-left font-thin ml-2 text-xs  inline w-28 "
-                />
-              </div>
-            </div>
+          </div>
 
+          <div>
             <img
               src={dashedrectangle}
               className="w-[90%] mr-10"
               alt=""
             />
-            <div className="  ">
-              <p className="mr-10 relative -top-10  right-3 ml-10 inline">
-                نتیجه خودشناسی
-              </p>
-              <input
-                type="button"
-                value="نتیجه تست Mbti"
-                className="hover:shadow-xl relative -top-10 h-7  text-xs  inline ml-8  border-2 rounded-md border-black w-36   bg-white"
-              />
-              <input
-                type="button"
-                value="نتیجه تست هالند"
-                className="hover:shadow-xl relative -top-10 h-7 text-xs border-2 border-black rounded-md inline w-36   bg-white"
-              />
+            <div className="flex justify-between">
+              <p>رزومه من</p>
+              <div>
+                <Button
+                  type="button"
+                  className="shadow-profile bg-[#00C408] text-white text-xs rounded-sm "
+                >
+                  دانلود
+                </Button>
+                <Button
+                  type="button"
+                  className="shadow-profile rounded-md  text-xs bg-white"
+                >
+                  اعمال تغییرات
+                </Button>
+              </div>
             </div>
+          </div>
+
+          <img
+            src={dashedrectangle}
+            className="w-[90%] mr-10"
+            alt=""
+          />
+          <div>
+            <p>نتیجه خودشناسی</p>
+            <Button
+              type="button"
+              className="flex justify-center items-center hover:shadow-xl  text-xs ml-8  border-2 rounded-md border-black bg-white"
+            >
+              نتیجه تست Mbti
+            </Button>
+            <Button
+              type="button"
+              className="shadow-profile text-xs border-2 border-black rounded-md bg-white"
+            >
+              نتیجه تست هالند
+            </Button>
           </div>
           <div className=" w-[90%] mr-7 bg-gray-500 h-0.5 rounded-xl"></div>
           <br />

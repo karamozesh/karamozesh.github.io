@@ -5,10 +5,14 @@ import MoshavereRequestConversation from './MoshavereRequestConversation';
 
 import messageSendIcon from '../../asset/icon/send-message-icon.png';
 
-import { useRef } from 'react';
+import caretBottom from '../../asset/icon/caret-bottom_icon.svg';
+
+import { useRef, useState } from 'react';
 
 const MoshavereRequsetTicket = ({ request }) => {
   const { zamine, status } = request;
+  const [showMessages, setShowMessages] =
+    useState(false);
 
   let ticketContent;
 
@@ -46,6 +50,10 @@ const MoshavereRequsetTicket = ({ request }) => {
     { id: 8, text: answer2, type: 'answer' },
   ];
 
+  const showMessageToggle = () => {
+    setShowMessages((prev) => !prev);
+  };
+
   switch (status) {
     case '1':
       ticketContent = (
@@ -68,14 +76,10 @@ const MoshavereRequsetTicket = ({ request }) => {
               در حال بررسی
             </span>
           </p>
-          <div className="flex items-center">
-            <p className="ml-1">پیگیری مجدد</p>
-            <img
-              src={againPeygiri}
-              alt=""
-              className="cursor-pointer"
-              onClik={peygiriClickHandler}
-            />
+          <div className="flex justify-end">
+            <p className="text-left">
+              {request.last_date}
+            </p>
           </div>
         </>
       );
@@ -94,15 +98,29 @@ const MoshavereRequsetTicket = ({ request }) => {
                 {zamine.label}
               </span>
             </p>
-            <p>
+            <div className="flex items-center whitespace-nowrap">
               وضعیت :{' '}
-              <span
-                className=""
-                style={{ color: '#00000080' }}
+              <div
+                className="flex items-center w-full mr-2 cursor-pointer"
+                onClick={showMessageToggle}
               >
-                پاسخ داده شده
-              </span>
-            </p>
+                <span
+                  className="text-sm"
+                  style={{ color: '#00000080' }}
+                >
+                  پاسخ داده شده
+                </span>
+                <img
+                  src={caretBottom}
+                  alt=""
+                  className={`w-[10px] h-[7px] mr-2 transition-transform duration-300 ${
+                    showMessages
+                      ? 'rotate-180'
+                      : ''
+                  }`}
+                />
+              </div>
+            </div>
             <div className="flex justify-end">
               <p className="text-left">
                 {request.last_date}
@@ -110,12 +128,14 @@ const MoshavereRequsetTicket = ({ request }) => {
             </div>
           </div>
           <div className="h-[2px] bg-black-500"></div>
-          <div className="max-h-[250px] inner-scroll overflow-y-auto">
-            <MoshavereRequestConversation
-              messages={messages}
-              small={true}
-            />
-          </div>
+          {showMessages ? (
+            <div className="max-h-[250px] inner-scroll overflow-y-auto">
+              <MoshavereRequestConversation
+                messages={messages}
+                small={true}
+              />
+            </div>
+          ) : null}
           <form
             className="flex items-center w-full"
             onSubmit={sendMessageHandler}
@@ -176,9 +196,9 @@ const MoshavereRequsetTicket = ({ request }) => {
     <div
       className={`${
         status !== '2'
-          ? 'grid grid-cols-ticket items-center px-3 py-5'
-          : 'flex flex-col '
-      } mx-4 mb-5 shadow-mahdis ${
+          ? 'grid grid-cols-ticket items-center px-3 py-4'
+          : 'flex flex-col'
+      } ml-4 mb-5 border-[1px] border-gray-500/30 ${
         styles.ticket
       } `}
     >

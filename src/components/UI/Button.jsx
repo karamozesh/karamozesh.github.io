@@ -9,7 +9,7 @@ export default function Button({
     <button
       type={type}
       onClick={onClick}
-      className={`py-2 px-4 bg-secondaryColor text-black rounded-3xl ${className}`}
+      className={`py-2 px-4 bg-secondaryColor text-black rounded-3xl cursor-pointer ${className}`}
       {...props}
     >
       {children}

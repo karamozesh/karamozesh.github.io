@@ -1,24 +1,36 @@
-import Button from "../UI/Button";
-export default function p2 (){
-    return ( 
-        <div >
- <div id='p2' className=' h-auto pb-20 rounded-md flex w-full shadow-[0px_0px_10px_5px_rgba(0,0,0,0.15)] mt-5  '> 
-      <div><p className='pb-8 text-lg mr-4 mt-3'>نتیجه درخواست</p >
-      <p className=' font-normal text-xs mr-6 mt-3'>در این بخش می‌توانید وضعیت درخواست‌های مشاوره خود را در زمینه مورد نظر مشاهده کنید.</p><br />
-            <Button className=' bg-indigo-300 w-32 rounded-sm mr-6 font-light text-xs inline '>همه درخواست ها</Button>
-      <Button className=' bg-indigo-300 w-32 rounded-sm mr-6 font-light text-xs inline'> فیلتر</Button>
+import { Link } from 'react-router-dom';
+import Button from '../UI/Button';
+import ResultMoshavereRequest from '../MoshavereRequest/ResultMoshavereRequest';
+export default function p2() {
+  return (
+    <div>
+      <div className="rounded-md flex w-full mt-5">
+        <div>
+          <h1 className="text-2xl">
+            نتیجه درخواست
+          </h1>
+          <p className="text-xs mt-4">
+            در این بخش می‌توانید وضعیت درخواست‌های
+            مشاوره خود را در زمینه مورد نظر مشاهده
+            کنید.
+          </p>
+          <br />
+          <Button className="bg-indigo-300 rounded-sm text-xs">
+            همه درخواست ها
+          </Button>
+          <Button className=" bg-indigo-300 rounded-sm mr-2 text-xs">
+            فیلتر
+          </Button>
 
-      <a href="" className=' text-lime-600 mr-8 font-light text-xs'>درخواست جدید</a>
-      
-      
-      </div>
-      <div className=" border-0.5 border-black-500 mr-8">
-    
-      </div>
-
-
-      </div>
-       
+          <Link
+            to="/moshavere-request"
+            className="text-lime-600 mr-4 text-xs"
+          >
+            درخواست جدید
+          </Link>
         </div>
-    );
+      </div>
+      <ResultMoshavereRequest />
+    </div>
+  );
 }
