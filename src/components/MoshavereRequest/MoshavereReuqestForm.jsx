@@ -339,7 +339,7 @@ const FreeMoshavereRequestContent = () => {
             قابلیت فرستادن فایل به زودی اضافه
             خواهد شد
           </div>
-          <div className="flex flex-col blur-sm">
+          <div className="flex flex-col blur-sm pointer-events-non">
             <span className="text-xs text-black-900/[.4]">
               رزومه من
             </span>
@@ -489,165 +489,172 @@ const VIPMoshavereRequestContent = () => {
   };
 
   return (
-    <>
-      <p>
-        جهت مشاوره و تماس می توانید فرم زیر را پر
-        کرده و برای ما ارسال نمایید.
-      </p>
-      <p>
-        کارشناسان ما در اولین فرصت با شما تماس
-        خواهند گرفت.
-      </p>
-      <form className="p-8">
-        <div className="grid grid-cols-2 gap-x-4 mb-6">
-          <div>
-            <label className="inline-block mb-1">
-              زمینه مشاوره{' '}
-              <span className="text-redColor">
-                *
-              </span>
-            </label>
-            <Select
-              mode="multiple"
-              showArrow
-              tagRender={tagRender}
-              placeholder="لطفا انتخاب کنید (یک یا بیشتر)"
-              style={{
-                width: '100%',
-              }}
-              onChange={
-                zamineMoshavereChangeHandler
-              }
-              value={zamine}
-              options={erthMoshavere_options}
-            />
-          </div>
-          <div>
-            <label className="inline-block mb-1">
-              میزان اطلاعات شما{' '}
-              <span className="text-redColor">
-                *
-              </span>
-            </label>
-            <Select
-              showArrow
-              tagRender={tagRender}
-              placeholder="لطفا انتخاب کنید"
-              style={{
-                width: '100%',
-              }}
-              onChange={
-                lvlOfInofrmationChangeHandler
-              }
-              value={lvlOfInofrmation}
-              options={mizan_info_options}
-            />
-          </div>
-        </div>
-        <div className="flex flex-col mb-3">
-          <label>توضیحات</label>
-          <textarea
-            name=""
-            id=""
-            className="mt-2 p-4 bg-gray-600/[0.56] shadow-mahdis focus:outline-dashed"
-            style={{ resize: 'none' }}
-            onChange={questionChangeHandler}
-            value={question}
-          ></textarea>
-        </div>
-        <div
-          className="flex flex-col px-6 py-4 mb-5"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='black' stroke-width='2' stroke-dasharray='6%2c 14' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e")`,
-          }}
-        >
-          <span className="text-xs text-black-900/[.4]">
-            رزومه من
-          </span>
-          <span className="inline-block my-4 text-xs text-black-900/[.4]">
-            سند
-          </span>
-          <span className="text-xs text-black-900/[.4]">
-            نتیجه خودشناسی
-          </span>
-        </div>
-        <div className="grid grid-cols-2 gap-x-4 mb-7">
-          <div>
-            <label className="inline-block mb-1">
-              راه ارتباطی{' '}
-              <span className="text-redColor">
-                *
-              </span>
-            </label>
-            <Select
-              showArrow
-              placeholder="لطفا انتخاب کنید"
-              tagRender={tagRender}
-              style={{
-                width: '100%',
-              }}
-              onChange={contactWayChangeHandler}
-              value={contactWay}
-              options={contact_way_options}
-            />
-          </div>
-          <div>
-            <label className="inline-block mb-1">
-              زمان مشاوره{' '}
-              <span className="text-redColor">
-                *
-              </span>
-            </label>
-            <Select
-              showArrow
-              placeholder="لطفا انتخاب کنید"
-              tagRender={tagRender}
-              style={{
-                width: '100%',
-              }}
-              value={timeMoshavere}
-              onChange={
-                timeMoshavereChangeHandler
-              }
-              options={moshaver_time_options}
-            />
-          </div>
-        </div>
-        <div>
-          <RadioGroup
-            value={plan}
-            onChange={planChangeHandler}
-            className="flex mb-8"
-          >
-            <RadioGroup.Label className="text-base ml-10">
-              نوع اشتراک
-            </RadioGroup.Label>
-            {plans.map((planItem) => (
-              <div className="flex items-center w-1/4">
-                <RadioGroup.Option
-                  key={planItem.id}
-                  value={planItem}
-                  className={`w-[22px] h-[20px] ml-2 shadow-mahdis rounded-sm cursor-pointer ${
-                    +planItem.id === +plan.id
-                      ? 'bg-greenColor'
-                      : ''
-                  }`}
-                ></RadioGroup.Option>
-                <span className="text-sm">
-                  {planItem.name}
+    <div className="relative">
+      <div className="w-full h-full flex justify-center items-center text-center absolute bg-gray-500/50 align-middle">
+        <p className="text-2xl">
+          مشاوره ویژه در حال ساخت است
+        </p>
+      </div>
+      <div className="blur-sm pointer-events-none p-3">
+        <p>
+          جهت مشاوره و تماس می توانید فرم زیر را
+          پر کرده و برای ما ارسال نمایید.
+        </p>
+        <p>
+          کارشناسان ما در اولین فرصت با شما تماس
+          خواهند گرفت.
+        </p>
+        <form className="p-8">
+          <div className="grid grid-cols-2 gap-x-4 mb-6">
+            <div>
+              <label className="inline-block mb-1">
+                زمینه مشاوره{' '}
+                <span className="text-redColor">
+                  *
                 </span>
-              </div>
-            ))}
-          </RadioGroup>
-        </div>
-        <button
-          className="w-full h-[54px] rounded-md bg-greenColor text-white"
-          // onClick={addTicketHandler}
-        >
-          ثبت درخواست مشاوره
-        </button>
-      </form>
-    </>
+              </label>
+              <Select
+                mode="multiple"
+                showArrow
+                tagRender={tagRender}
+                placeholder="لطفا انتخاب کنید (یک یا بیشتر)"
+                style={{
+                  width: '100%',
+                }}
+                onChange={
+                  zamineMoshavereChangeHandler
+                }
+                value={zamine}
+                options={erthMoshavere_options}
+              />
+            </div>
+            <div>
+              <label className="inline-block mb-1">
+                میزان اطلاعات شما{' '}
+                <span className="text-redColor">
+                  *
+                </span>
+              </label>
+              <Select
+                showArrow
+                tagRender={tagRender}
+                placeholder="لطفا انتخاب کنید"
+                style={{
+                  width: '100%',
+                }}
+                onChange={
+                  lvlOfInofrmationChangeHandler
+                }
+                value={lvlOfInofrmation}
+                options={mizan_info_options}
+              />
+            </div>
+          </div>
+          <div className="flex flex-col mb-3">
+            <label>توضیحات</label>
+            <textarea
+              name=""
+              id=""
+              className="mt-2 p-4 bg-gray-600/[0.56] shadow-mahdis focus:outline-dashed"
+              style={{ resize: 'none' }}
+              onChange={questionChangeHandler}
+              value={question}
+            ></textarea>
+          </div>
+          <div
+            className="flex flex-col px-6 py-4 mb-5"
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='black' stroke-width='2' stroke-dasharray='6%2c 14' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e")`,
+            }}
+          >
+            <span className="text-xs text-black-900/[.4]">
+              رزومه من
+            </span>
+            <span className="inline-block my-4 text-xs text-black-900/[.4]">
+              سند
+            </span>
+            <span className="text-xs text-black-900/[.4]">
+              نتیجه خودشناسی
+            </span>
+          </div>
+          <div className="grid grid-cols-2 gap-x-4 mb-7">
+            <div>
+              <label className="inline-block mb-1">
+                راه ارتباطی{' '}
+                <span className="text-redColor">
+                  *
+                </span>
+              </label>
+              <Select
+                showArrow
+                placeholder="لطفا انتخاب کنید"
+                tagRender={tagRender}
+                style={{
+                  width: '100%',
+                }}
+                onChange={contactWayChangeHandler}
+                value={contactWay}
+                options={contact_way_options}
+              />
+            </div>
+            <div>
+              <label className="inline-block mb-1">
+                زمان مشاوره{' '}
+                <span className="text-redColor">
+                  *
+                </span>
+              </label>
+              <Select
+                showArrow
+                placeholder="لطفا انتخاب کنید"
+                tagRender={tagRender}
+                style={{
+                  width: '100%',
+                }}
+                value={timeMoshavere}
+                onChange={
+                  timeMoshavereChangeHandler
+                }
+                options={moshaver_time_options}
+              />
+            </div>
+          </div>
+          <div>
+            <RadioGroup
+              value={plan}
+              onChange={planChangeHandler}
+              className="flex mb-8"
+            >
+              <RadioGroup.Label className="text-base ml-10">
+                نوع اشتراک
+              </RadioGroup.Label>
+              {plans.map((planItem) => (
+                <div className="flex items-center w-1/4">
+                  <RadioGroup.Option
+                    key={planItem.id}
+                    value={planItem}
+                    className={`w-[22px] h-[20px] ml-2 shadow-mahdis rounded-sm cursor-pointer ${
+                      +planItem.id === +plan.id
+                        ? 'bg-greenColor'
+                        : ''
+                    }`}
+                  ></RadioGroup.Option>
+                  <span className="text-sm">
+                    {planItem.name}
+                  </span>
+                </div>
+              ))}
+            </RadioGroup>
+          </div>
+          <button
+            className="w-full h-[54px] rounded-md bg-greenColor text-white"
+            // onClick={addTicketHandler}
+          >
+            ثبت درخواست مشاوره
+          </button>
+        </form>
+      </div>
+    </div>
   );
 };
 
@@ -692,7 +699,8 @@ const MoshavereRequestForm = ({
           <Tab.Panel className="p-3">
             <FreeMoshavereRequestContent />
           </Tab.Panel>
-          <Tab.Panel className="p-3">
+          {/* <Tab.Panel className="p-3"> */}
+          <Tab.Panel>
             <VIPMoshavereRequestContent />
           </Tab.Panel>
         </Tab.Panels>
