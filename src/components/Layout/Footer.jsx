@@ -1,4 +1,5 @@
 import logoSite from '../../asset/images/logo-site.png';
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
@@ -13,8 +14,12 @@ export default function Footer() {
       />
       <div className="flex flex-col justify-center w-full h-full">
         <div className="flex">
-          <p className="mr-4">درباره ما</p>
-          <p>تماس با ما</p>
+          <Link to='/contact-us'>
+            <p className="mr-4">تماس با ما</p>
+          </Link>
+          
+          <a href='' className="mr-4">درباره ما</a>
+
         </div>
         <div className="w-[90%] h-[0.5px] my-2 bg-black-900"></div>
         <p>
