@@ -35,6 +35,7 @@ import Python from './pages/Skill/Python';
 import Htmlcss from './pages/Skill/Htmlcss';
 import NLP from './pages/Skill/NLP';
 import UIUX from './pages/Skill/UIUX';
+import Cus from './pages/Us/ContactUs';
 
 import {
   ToastContainer,
@@ -256,6 +257,11 @@ function App() {
       <Route
         path="/login"
         element={<LoginPage />}
+      />
+      
+      <Route
+        path="/contact-us"
+        element={<Cus />}
       />
       <Route
         path="/register"

@@ -18,47 +18,51 @@ function Python() {
   return (
 
         <section className="  mx-auto flex flex-col  ">
-
-              <h1 className="inline-block p-10 ">
-                    پایتون   </h1>
+<div className='bg-line bg-no-repeat'>
+   <h1 className="inline-block p-10 ">
+                    پایتون   </h1></div>
+             
        
 
               <SkillSection explain={'پایتون یک زبان برنامه‌نویسی شیءگرا، تفسیری، سطح بالا، و همه منظوره است، که خیدو فان روسوم آن را طراحی کرده‌است، و اولین بار در سال ۱۹۹۱ منتشر شده‌است. نام پایتون از علاقه خاص خالق آن به مجموعه کمدی تلویزیونی Monty Python گرفته شده است. فلسفه اصلی طراحی پایتون «خوانایی بالای کد» است.'}></SkillSection>
 
 
-                <section className="flex gap-5 justify-center mx-auto h-[70vh] mt-8 w-full bg-hero-pattern1 bg-cover">
+                
+            <section className=" bg-white flex sticky top-0 gap-5 justify-center mx-auto  mt-8 w-full   ">
+                <div className=' bg-dotted bg-no-repeat bg-center flex sticky top-0 gap-5 justify-center mx-auto  mt-8 w-full'>
                             
             
-                <SkillRoad title={'پروژه های متن باز معروف'}></SkillRoad>
-                <SkillRoad title={'نقشه راه'}></SkillRoad>
-                <SkillRoad title={'ایده پروژه برای تمرین'}></SkillRoad>
-                <SkillRoad title={'منابع یادگیری'}></SkillRoad>
-                <SkillRoad title={'اهمیت یادگیری و کاربرد ها'}></SkillRoad>
-                <SkillRoad title={'کاربرد پایتون در دنیای برنامه نویسی'}></SkillRoad>
-
+                <SkillRoad href={'#1'} title={'پروژه های متن باز معروف'}></SkillRoad>
+                <SkillRoad href={'#2'} title={'نقشه راه'}></SkillRoad>
+                <SkillRoad href={'#3'} title={'ایده پروژه برای تمرین'}></SkillRoad>
+                <SkillRoad href={'#4'} title={'منابع یادگیری'}></SkillRoad>
+                <SkillRoad href={'#5'} title={'اهمیت یادگیری و کاربرد ها'}></SkillRoad>
+                <SkillRoad href={'#6'} title={'کاربرد پایتون در دنیای برنامه نویسی'}></SkillRoad>
+                </div>
 
               
                </section>
+               <section className='inline-block z-10'> <img src={bg} className='w-[10%] -mt-7 float-left' alt="" />
+            </section>
 
                <section className='container mx-auto '>
-                <h1 className="inline-block py-8 mr-8 ">
+                <h2 id='6'  className="inline-block px-10  ">
                 کاربرد پایتون در دنیای برنامه نویسی چیست؟
-                </h1>
-                <p className='px-5'>
+                </h2>
+                <p className='px-10 text-xs leading-7'>
                 کلمات کلیدی و اصلی این زبان به‌صورت حداقلی تهیه شده‌اند و در مقابل کتابخانه‌هایی که در اختیار کاربر است بسیار وسیع هستند. سینتکس ساده و قابل فهم، راه حل‌های مؤثر و ابزارهای قدرتمندی که در اختیار برنامه‌نویسان قرار می‌دهد، پایتون را به یکی از محبوب‌ترین زبان‌های برنامه‌نویسی تبدیل کرده است. همچنین، پایتون به عنوان یک زبان چندمنظوره شناخته می‌شود که برای توسعه وب، تحلیل داده، هوش مصنوعی، اتوماسیون، ایجاد برنامه‌های سمت سرور و دسکتاپ، و بسیاری از کاربردهای دیگر استفاده می‌شود.
                       <br />
                       <br />
-                      <br />
+                
                       <img src={bg6} alt="" className='-ml-4 w-32 float-left'/>
-                      <h1 className="inline-block py-8  mr-8">
+                      <h2 id='5' className="inline-block ">
                       اهمیت یادگیری و کاربردها:
-                      </h1>
-                      <br />
-                      <br />
+                      </h2>
+                      
                       <br />
                       یادگیری و استفاده از زبان برنامه‌نویسی پایتون در دنیای امروز بسیار مهم است. پایتون یک زبان برنامه‌نویسی قدرتمند و ساده است که برای حل مسائل مختلف، توسعه وب، علم داده، هوش مصنوعی و بسیاری از زمینه‌های دیگر استفاده می‌شود. در زیر به برخی از اهمیت‌ها و کاربردهای پایتون اشاره می‌کنم:
                         <br />
-                        <br />
+                       <br />
                         1•	سادگی و خوانایی: پایتون با نحوه نوشتن خود و استفاده از سینتکسی ساده، برای شروع کردن به یادگیری زبان برنامه‌نویسی بسیار مناسب است. این زبان برنامه‌نویسی خوانایی بالا و ساختار کدی قابل فهم را ارائه می‌دهد.
                       <br />
                       <br />
@@ -91,12 +95,11 @@ function Python() {
 
                <section className='container mx-auto -mb-32  '>
                <img src={bg2} alt="" className='w-36 float-left mr-8'/>
-
-                <h1 className="inline-block py-8 mr-8 ">
-منابع یادگیری                 </h1>
-                <p className='px-5'>
-                                
-                    <br />
+<br />
+                <h2 id='4' className="inline-block px-10  ">
+منابع یادگیری                 </h2>
+                <p className='px-10 text-xs leading-7'>
+                 
                 <a className=' text-emerald-400' href="https://docs.python.org/3/tutorial/index.html">سایت اصلی پایتون</a>
                     <br />
                 <a className=' text-emerald-400' href="https://www.w3schools.com/python/">W3schools</a>
@@ -107,12 +110,12 @@ function Python() {
                    <br />
                 <a className=' text-emerald-400' href="https://www.youtube.com/watch?v=YYXdXT2l-Gg&list=PL-osiE80TeTskrapNbzXhwoFUiLCjGgY7">فیلم آموزشی stendex در Youtube</a>
                    <br />
-                   
+                   <br />
                 </p>
-                <h1 className="inline-block py-8 mr-12">ایده پروژه برای تمرین:</h1>
-                <p className='px-5'>
+                <h2 id='3' className="inline-block px-10 ">ایده پروژه برای تمرین:</h2>
+                <p className='px-10 text-xs leading-7'>
                 بهترین راه برای تمرین و پیاده‌سازی مهارت‌های پایتون، انجام پروژه‌های عملی است. در زیر چند پروژه تمرینی را برای شما فراهم کرده‌ام:
-
+<br />
 •	ماشین حساب ساده: یک برنامه ساده بنویسید که اعداد را به عنوان ورودی دریافت کرده و عملیات‌های اصلی ریاضی (جمع، تفریق، ضرب و تقسیم) را انجام دهد.
 <br /><br />
 •	مدیریت دفترچه تلفن: یک برنامه بنویسید که امکان اضافه کردن، حذف و جستجوی مخاطبین در دفترچه تلفن را فراهم کند. این برنامه باید از لیست یا دیکشنری برای ذخیره اطلاعات استفاده کند.
@@ -126,10 +129,10 @@ function Python() {
 <br /><br />
                 </p>
                 
-                <img src={bg3} alt="" className='w-[47%] float-left '/>
+                <img src={bg3} alt="" className='w-[48%] float-left mb-16 '/>
                </section>
             
-                <h1 className="inline py-8 mr-12 "> نقشه راه</h1>
+                <h2 id='2' className="inline-block px-10  "> نقشه راه</h2>
                <section className='mx-auto w-[96%] flex justify-center'>
                 
 
@@ -141,8 +144,8 @@ function Python() {
                 <img src={bg5} alt="" className='inline w-16 mr-10 float-right'/>
                 </section>
                 <section>
-                <h1 className="inline-block py-8 mr-12">پروژه های متن باز معروف:</h1>
-                <p className='px-5'>
+                <h2 id='1' className="inline-block px-10 ">پروژه های متن باز معروف:</h2>
+                <p className='px-10 text-xs leading-7'>
             <br />   در محیط توسعه پایتون، پروژه‌های متن باز بزرگ و تأثیرگذار زیادی وجود دارند که می‌توانید بر روی آنها کار کنید و به اهداف خود در حوزه‌های مختلف نرم‌افزاری دست یابید. در زیر چند نمونه از این پروژه‌ها را برای شما فراهم کرده‌ام:
 <br /><br />	Django: یک چارچوب توسعه وب قدرتمند بر پایه پایتون است که برای ساخت وب‌سایت‌ها و برنامه‌های تحت وب استفاده می‌شود. می‌توانید با استفاده از Django، وب‌سایت‌هایی با ویژگی‌های پیچیده مانند سیستم‌های مدیریت محتوا (CMS) و بازار آنلاین را پیاده‌سازی کنید.
 <br /><br />	TensorFlow: یک کتابخانه محاسبات عددی باز برای یادگیری عمیق است. TensorFlow به شما امکان می‌دهد الگوریتم‌های یادگیری عمیق را بر روی داده‌های خود اجرا کنید و مدل‌های هوش مصنوعی پیچیده را آموزش دهید. با استفاده از TensorFlow، می‌توانید به تحقیقات در حوزه هوش مصنوعی، پردازش تصویر، پردازش زبان طبیعی و سایر حوزه‌های مرتبط بپردازید.

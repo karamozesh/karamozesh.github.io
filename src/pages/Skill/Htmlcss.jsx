@@ -11,6 +11,7 @@ import bg6 from '../../asset/images/Group 445.png'
 import bg7 from '../../asset/images/Group 446.png'
 import bg8 from '../../asset/images/Group 447.png'
 import Button from '../../components/UI/Button'
+import line from '../../asset/images/Line 136.png'
 
 
 function Htmlcss() {
@@ -18,47 +19,48 @@ function Htmlcss() {
   return (
 
         <section className="  mx-auto flex flex-col  ">
-
+                   
+                   <div className='bg-line bg-no-repeat'>
               <h1 className="inline-block p-10 ">
-                    HTML و CSS  </h1>
+                    HTML و CSS  </h1> </div>
        
 
               <SkillSection explain={'هر وبسایت دو بخش دارد . یک بخش از وبسایت قسمتی ست که کاربر مشاهده میکند و با آن کار میکند که frontend نام دارد . بخش دیگر قسمتی ست که کاربر چیزی از آن را مشاهده نمیکند و شامل تمام کار هایی ست که در پشت صحنه ی وبسایت انجام می شود مثل برقراری ارتباط با دیتا بیس و ... backend  نامیده می شود .'}></SkillSection>
 
 
-                <section className="flex gap-5 justify-center mx-auto h-[70vh] mt-8 w-full bg-hero-pattern1 bg-cover">
-                            
+              <section className=" bg-white flex sticky top-0 gap-5 justify-center mx-auto  mt-8 w-full   ">
+                <div className=' bg-dotted bg-no-repeat bg-center flex sticky top-0 gap-5 justify-center mx-auto  mt-8 w-full'>
             
-                <SkillRoad title={'پروژه های تمرینی'}></SkillRoad>
-                <SkillRoad title={'نقشه راه'}></SkillRoad>
-                <SkillRoad title={'منابع یادگیری'}></SkillRoad>
-
-                <SkillRoad title={'اهمیت یادگیری و کاربرد ها'}></SkillRoad>
-                <SkillRoad title={'CSS'}></SkillRoad>
-                <SkillRoad title={'HTML'}></SkillRoad>
+                <SkillRoad href={'#1'} title={'پروژه های تمرینی'}></SkillRoad>
+                <SkillRoad href={'#2'} title={'نقشه راه'}></SkillRoad>
+                <SkillRoad href={'#3'} title={'منابع یادگیری HTMl,CSS '}></SkillRoad>
+                <SkillRoad href={'#4'} title={' اهمیت یادگیری و کاربرد ها'}></SkillRoad>
+                <SkillRoad href={'#5'} title={'CSS چیست'}></SkillRoad>
+                <SkillRoad href={'#6'} title={'HTML چیست'}></SkillRoad> </div>
 
 
               
                </section>
+               <section className='inline-block z-10'> <img src={bg} className='w-[10%] -mt-7 float-left' alt="" />
+            </section>
 
                <section className='container mx-auto '>
-                <h1 className="inline-block py-8 mr-8 ">
+                <h2 id='6' className="inline-block px-10 ">
                 کاربرد HTML در دنیای برنامه نویسی چیست؟
-                </h1>
-                <p className='px-5'>
+                </h2>
+                <p className='px-10 text-xs leading-7'>
                 برای برنامه نویس frontend  شدن و طراحی یک صفحه ی وب ،  در اولین قدم باید html  را یاد بگیرید . 
 html یک زبان نشانه گذاری است نه یک زبان برنامه نویسی . یک زبان برای توصیف صفحات وب است که توسط مرورگرها به نمایش در خواهد آمد. Html مجموعه ای از تگ ها می باشد که توسط آنها اجزای اصلی صفحه را میسازید.
 
+                     
                       <br />
-                      <br />
-                      <br />
-                      <img src={bg6} alt="" className='-ml-4 w-32 float-left'/>
-                      <h1 className="inline-block py-8  mr-8">
+                   <br />
+                      <img src={bg6} alt="" className='-ml-16 w-32 float-left'/>
+                      <h2 id='5' className="inline-block  ">
                       اهمیت یادگیری و کاربردها:
-                      </h1>
+                      </h2>
                       <br />
-                      <br />
-                      <br />
+                     
                       برای برنامه نویس frontend شدن و طراحی یک صفحه ی وب ، در اولین قدم باید html 
 را یاد بگیرید . 
  htmlیک زبان نشانه گذاری است نه یک زبان برنامه نویسی . یک زبان برای توصیف 
@@ -86,12 +88,11 @@ class و همچنین id نشانه هایی قرار داده شده و سپس 
 
                <section className='container mx-auto -mb-32  '>
                <img src={bg2} alt="" className='w-36 float-left mr-8'/>
-
-                <h1 className="inline-block py-8 mr-8 ">
-منابع یادگیری  Html              </h1>
-                <p className='px-5'>
-                                
-                    <br />
+<br />
+                <h2 id='4' className="inline-block px-10  ">
+منابع یادگیری  Html              </h2>
+                <p className='px-10 text-xs leading-7'>
+                     
                 <a className=' text-emerald-400' href="https://html.com/">سایت اصلی html</a>
                     <br />
                 <a className=' text-emerald-400' href="https://www.w3schools.com/html/">W3schools</a>
@@ -107,11 +108,10 @@ class و همچنین id نشانه هایی قرار داده شده و سپس 
                    
                 </p>
                 <br />
-                <h1 className="inline-block py-8 mr-8 ">
-منابع یادگیری  Css               </h1>
-                <p className='px-5'>
-                                
-                    <br />
+                <h2 id='3' className="inline-block px-10  ">
+منابع یادگیری  Css               </h2>
+                <p className='px-10 text-xs leading-7'>
+                     
                 <a className=' text-emerald-400' href="https://web.dev/learn/css/">web.dev</a>
                     <br />
                 <a className=' text-emerald-400' href="https://www.w3schools.com/css/">W3schools</a>
@@ -131,23 +131,24 @@ class و همچنین id نشانه هایی قرار داده شده و سپس 
         
 
                 
-<img src={bg3} alt="" className='w-[47%] float-left '/>
-                <h1 className="inline py-8 mr-12 "> نقشه راه</h1>
+<img src={bg3} alt="" className='w-[53%] float-left '/>
+                <h2 id='2' className="inline-block px-10 "> نقشه راه</h2>
                <section className='mx-auto w-[96%] flex justify-center'>
                 
 
-                <img src={road} alt="" className='w-[94%] mr-8'/>
+                <img src={road} alt="" className='w-[80%] mr-8'/>
                 
                </section>
                <section  className='mx-auto w-[96%] '>
-                <img src={bg4} alt="" className='inline w-14  float-left'/>
-                <img src={bg5} alt="" className='inline w-16 mr-10 float-right'/>
+                <img src={bg4} alt="" className='inline w-10  float-left'/>
+                <img src={bg5} alt="" className='inline w-12 mr-10 float-right'/>
                 </section>
            
                 
-<br /> <br /><br /><br /> <br /> <br /> <br /> <br /> <br />
-                <h1 className="inline-block py-8 mr-12">پروژه هایی برای تمرین html , css :</h1>
-                <p className='px-5'>
+<br /> <br /><br /><br /> <br /> <br /> <br />  <br />
+                <h2 id='1' className="inline-block px-10 ">پروژه هایی برای تمرین html , css :</h2>
+                <p className='px-10 text-xs leading-7'>
+                    <br />
                 1. صفحه‌ی گرامیداشت<br />
 ساده‌ترین وبسایتی که به عنوان یک مبتدی می‌توانید بسازید، صفحه‌ی گرامیداشت شخصی است که او را در زندگی تحسین می‌کنید. برای ساخت چنین صفحه‌ای تنها به دانش پایه‌ای HTML و CSS نیاز دارید. در رابطه با آن شخص مطلب بنویسید و عکس او را به صفحه اضافه کنید. در بالای صفحه باید تصویر و نام شخص مورد نظر را قرار دهید و مابقی جزئیات را در زیر آن‌ها بنویسید. با استفاده از پاراگراف‌ها، لیست‌ها، لینک‌ها و تصاویری با CSS می‌توانید ظاهر زیبایی را به صفحه ببخشید. از رنگ پس‌زمینه و فونت مناسب برای صفحه استفاده کنید. شما با استفاده از HTML می‌توانید اکثر قسمت‌های صفحه را بسازید، اما از کمی CSS هم برای رنگ و لعاب بخشیدن به صفحه استفاده کنید. <br /> <br />
 2. صفحه‌ی وب شامل فرم<br />
