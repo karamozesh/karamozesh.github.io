@@ -13,6 +13,8 @@ export const sendTestResult = createAsyncThunk(
   async ({ user_token, result, name }) => {
     const objData = { name, result };
 
+    console.log('here');
+
     try {
       const response = await axios.post(
         API_TALENT_TESTS,

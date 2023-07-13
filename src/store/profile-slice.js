@@ -129,7 +129,7 @@ export const changeFieldProfile =
       { dispatch },
     ) => {
       try {
-        const response = axios.patch(
+        const response = await axios.patch(
           API_CHANGE_FIELD_PROFILE,
           JSON.stringify(dataObj),
           PATCH_CONFIG(user_token),
@@ -145,6 +145,7 @@ export const changeFieldProfile =
           }),
         );
       } catch (error) {
+        console.log(error);
         dispatch(
           notificationActions.changeError({
             exist: true,

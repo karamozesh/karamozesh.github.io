@@ -1,5 +1,3 @@
-import againPeygiri from '../../asset/icon/entypo_cycle.svg';
-
 import styles from './MoshavereRequest.module.css';
 import MoshavereRequestConversation from './MoshavereRequestConversation';
 
@@ -8,15 +6,29 @@ import messageSendIcon from '../../asset/icon/send-message-icon.png';
 import caretBottom from '../../asset/icon/caret-bottom_icon.svg';
 
 import { useRef, useState } from 'react';
+import { getDateLabelJalaali } from '../../functions/date';
+import { useNavigate } from 'react-router-dom';
 
 const MoshavereRequsetTicket = ({ request }) => {
-  const { zamine, status } = request;
+  const { tags, status } = request;
   const [showMessages, setShowMessages] =
     useState(false);
 
-  let ticketContent;
+  const navigate = useNavigate();
 
-  const peygiriClickHandler = () => {};
+  const navigateToTicketPage = () => {
+    navigate(`/moshavere-request/${request.id}`);
+  };
+
+  const messages = request.messages;
+
+  const last_date = getDateLabelJalaali(
+    new Date(
+      messages[messages.length - 1].created_time,
+    ),
+  );
+
+  let ticketContent;
 
   const messageRef = useRef('');
 
@@ -29,27 +41,6 @@ const MoshavereRequsetTicket = ({ request }) => {
     }
   };
 
-  const question1 =
-    'من نمیدونم چیجوری میشه از زبان برنامه نویسی سی اس اس استفاده کنم';
-
-  const question2 = 'منابع را یادتون رفت بگید';
-
-  const answer1 =
-    'خب ببین کار خاصی نداره. اول از همه این یک زبان برنامه نویسی نیست. دوم میتونی با استفاده از منابعی که میدم ازش استفاده کنی';
-
-  const answer2 = 'منابعی وجود نداره!';
-
-  const messages = [
-    { id: 1, text: question1, type: 'question' },
-    { id: 2, text: answer1, type: 'answer' },
-    { id: 3, text: question2, type: 'question' },
-    { id: 4, text: question1, type: 'question' },
-    { id: 5, text: answer2, type: 'answer' },
-    { id: 6, text: question2, type: 'question' },
-    { id: 7, text: answer1, type: 'answer' },
-    { id: 8, text: answer2, type: 'answer' },
-  ];
-
   const showMessageToggle = () => {
     setShowMessages((prev) => !prev);
   };
@@ -58,15 +49,23 @@ const MoshavereRequsetTicket = ({ request }) => {
     case '1':
       ticketContent = (
         <>
-          <p>
-            زمینه مشاوره :{' '}
-            <span
-              className=""
-              style={{ color: '#00000080' }}
-            >
-              {zamine.label}
-            </span>
-          </p>
+          <div className="flex items-center">
+            <p className="whitespace-nowrap">
+              زمینه مشاوره :{' '}
+            </p>
+            <div className="flex flex-wrap w-[90%]">
+              {tags.map((tag, index) => (
+                <span
+                  key={index}
+                  className="mr-4"
+                  style={{ color: '#00000080' }}
+                >
+                  {index > 0 ? ',' : ''}
+                  {tag.name}{' '}
+                </span>
+              ))}
+            </div>
+          </div>
           <p>
             وضعیت :{' '}
             <span
@@ -78,7 +77,7 @@ const MoshavereRequsetTicket = ({ request }) => {
           </p>
           <div className="flex justify-end">
             <p className="text-left">
-              {request.last_date}
+              {last_date}
             </p>
           </div>
         </>
@@ -95,7 +94,7 @@ const MoshavereRequsetTicket = ({ request }) => {
                 className=""
                 style={{ color: '#00000080' }}
               >
-                {zamine.label}
+                {/* {zamine.map(item => item)} */}
               </span>
             </p>
             <div className="flex items-center whitespace-nowrap">
@@ -123,7 +122,7 @@ const MoshavereRequsetTicket = ({ request }) => {
             </div>
             <div className="flex justify-end">
               <p className="text-left">
-                {request.last_date}
+                {last_date}
               </p>
             </div>
           </div>
@@ -166,7 +165,7 @@ const MoshavereRequsetTicket = ({ request }) => {
               className=""
               style={{ color: '#00000080' }}
             >
-              {zamine.label}
+              {/* {zamine.label} */}
             </span>
           </p>
           <p>
@@ -180,7 +179,7 @@ const MoshavereRequsetTicket = ({ request }) => {
           </p>
           <div className="flex justify-end">
             <p className="text-left">
-              {request.last_date}
+              {last_date}
             </p>
           </div>
         </>
@@ -194,15 +193,39 @@ const MoshavereRequsetTicket = ({ request }) => {
 
   return (
     <div
-      className={`${
-        status !== '2'
-          ? 'grid grid-cols-ticket items-center px-3 py-4'
-          : 'flex flex-col'
-      } ml-4 mb-5 border-[1px] border-gray-500/30 ${
-        styles.ticket
-      } `}
+      className={`flex flex-col ml-2 ${
+        status !== '2' ? 'px-3 py-4' : ''
+      } border-[1px] border-gray-500/30 `}
     >
-      {ticketContent}
+      <div className="flex  items-center">
+        <button
+          onClick={navigateToTicketPage}
+          className="ml-4"
+        >
+          بریم به چتا
+        </button>
+        <p>
+          موضوع:{' '}
+          <span style={{ color: '#00000080' }}>
+            {request.title}
+          </span>
+        </p>
+        <p className="mr-4">
+          سوال:{' '}
+          <span style={{ color: '#00000080' }}>
+            {messages[0].question}
+          </span>
+        </p>
+      </div>
+      <div
+        className={`${
+          status !== '2'
+            ? 'grid grid-cols-ticket items-center px-3 py-4'
+            : 'flex flex-col'
+        }`}
+      >
+        {ticketContent}
+      </div>
     </div>
   );
 };

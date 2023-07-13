@@ -8,8 +8,7 @@ import { API_ADD_TICKET } from '../api/configAPI';
 export const addTicketFree = createAsyncThunk(
   'moshavereForm/addTicketFree',
   async ({ user_token, data }) => {
-
-    console.log(user_token, data)
+    console.log(user_token, data);
 
     const {
       zamine,

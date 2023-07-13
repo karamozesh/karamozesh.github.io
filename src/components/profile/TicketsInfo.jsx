@@ -1,10 +1,57 @@
 import { Link } from 'react-router-dom';
 import Button from '../UI/Button';
 import ResultMoshavereRequest from '../MoshavereRequest/ResultMoshavereRequest';
+import { Tooltip } from 'antd';
+import { useSelector } from 'react-redux';
 export default function TicketsInfo() {
+  const { tickets } = useSelector(
+    (state) => state.ticket,
+  );
+
+  // status: '1' => در حال بررسی
+  // status: '2' => پاسخ داده شده
+  // status: '3' => اتمام مشاوره
+
+  // const requests = [
+  //   {
+  //     zamine: {
+  //       label: 'هوش مصنوعی',
+  //       value: 'hosh',
+  //     },
+  //     last_date: '1402/04/22',
+  //     status: '1',
+  //   },
+  //   {
+  //     zamine: {
+  //       label: 'فرانت اند',
+  //       value: 'front',
+  //     },
+  //     status: '2',
+  //     last_date: '1402/03/20',
+  //   },
+  //   {
+  //     zamine: {
+  //       label: 'فرانت اند',
+  //       value: 'front',
+  //     },
+  //     status: '2',
+  //     last_date: '1402/03/02',
+  //   },
+  //   {
+  //     zamine: {
+  //       label: 'فرانت اند',
+  //       value: 'front',
+  //     },
+  //     status: '3',
+  //     last_date: '1402/04/22',
+  //   },
+  // ];
+
+
+
   return (
     <div>
-      <div className="rounded-md flex w-full mt-5">
+      <div className="rounded-md flex w-full mt-5 mb-10">
         <div>
           <h1 className="text-2xl">
             نتیجه درخواست
@@ -15,12 +62,14 @@ export default function TicketsInfo() {
             کنید.
           </p>
           <br />
-          <Button className="bg-indigo-300 rounded-sm text-xs">
+          {/* <Button className="bg-indigo-300 rounded-sm text-xs">
             همه درخواست ها
-          </Button>
-          <Button className=" bg-indigo-300 rounded-sm mr-2 text-xs">
-            فیلتر
-          </Button>
+          </Button> */}
+          <Tooltip title="به زودی این قابلیت ایجاد خواهد شد">
+            <Button className=" bg-indigo-300 rounded-sm text-xs cursor-not-allowed">
+              فیلتر
+            </Button>
+          </Tooltip>
 
           <Link
             to="/moshavere-request"
@@ -30,7 +79,7 @@ export default function TicketsInfo() {
           </Link>
         </div>
       </div>
-      <ResultMoshavereRequest />
+      <ResultMoshavereRequest tickets={tickets} />
     </div>
   );
 }

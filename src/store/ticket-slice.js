@@ -24,14 +24,14 @@ const ERROR_MESSAGE = {
 };
 
 const initialState = {
-  tikets: [],
+  tickets: [],
   allTickets: [],
   ownTickets: [],
 };
 
 export const getUserTickets = createAsyncThunk(
   'tickets/getUserTickets',
-  async (user_token, { dispatch }) => {
+  async ({ user_token }, { dispatch }) => {
     const response = await axios.get(
       API_GET_USER_TICKETS,
       {
@@ -63,6 +63,15 @@ export const ticketSendMessage = createAsyncThunk(
       );
 
       const data = await response.data;
+
+      const created_time = new Date();
+
+      dispatch(
+        ticketActions.addTicketQuestion({
+          ...data,
+          created_time: created_time.toString(),
+        }),
+      );
       dispatch(
         notificationActions.changeSuccess({
           exist: true,
@@ -71,7 +80,7 @@ export const ticketSendMessage = createAsyncThunk(
       );
     } catch (error) {
       dispatch(
-        notificationActions.changeSuccess({
+        notificationActions.changeError({
           exist: true,
           message: ERROR_MESSAGE.SEND_MESSAGE,
         }),
@@ -161,7 +170,32 @@ const ticketSlice = createSlice({
   initialState,
   reducers: {
     setTickets(state, action) {
-      state.tikets = action.payload;
+      state.tickets = action.payload;
+    },
+    addTicketQuestion(state, action) {
+      const { ticket_id, created_time, message } =
+        action.payload;
+
+      console.log(action.payload);
+
+      let updatedTickets = [...state.tickets];
+
+      const ticketSelectedIndex =
+        updatedTickets.findIndex(
+          (ticket) => +ticket.id === +ticket_id,
+        );
+
+      const ticketSelected =
+        state.tickets[ticketSelectedIndex];
+
+      ticketSelected.messages.push({
+        created_time,
+        question: message,
+      });
+      updatedTickets[ticketSelectedIndex] =
+        ticketSelected;
+
+      state.tickets = updatedTickets;
     },
     setAllTickets(state, action) {
       state.allTickets = action.payload;

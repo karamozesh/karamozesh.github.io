@@ -44,3 +44,38 @@ export const getDateValue = (date) => {
 
   return dateString;
 };
+
+export const getDateLabelJalaali = (date) => {
+  const day = new Intl.DateTimeFormat(
+    'fa-IR-u-nu-latn',
+    { day: '2-digit' },
+  ).format(date);
+
+  const month = new Intl.DateTimeFormat(
+    'fa-IR-u-nu-latn',
+    { month: '2-digit' },
+  ).format(date);
+
+  const year = new Intl.DateTimeFormat(
+    'fa-IR-u-nu-latn',
+    { year: 'numeric' },
+  ).format(date);
+
+  const dateString =
+    year + '/' + month + '/' + day;
+
+  return dateString;
+};
+
+export const dateToMessageTime = (date) => {
+  const timeString = date.toLocaleTimeString(
+    'IR-fa',
+    {
+      hour12: true,
+      hour: '2-digit',
+      minute: '2-digit',
+    },
+  );
+
+  return timeString;
+};

@@ -36,6 +36,8 @@ import Htmlcss from './pages/Skill/Htmlcss';
 import NLP from './pages/Skill/NLP';
 import UIUX from './pages/Skill/UIUX';
 
+import UserTicketPage from './pages/UserTicketPage/UserTicketPage';
+
 import {
   ToastContainer,
   toast,
@@ -218,6 +220,10 @@ function App() {
       <Route
         path="/moshavere-request"
         element={<MoshavereRequestPage />}
+      />
+      <Route
+        path="/moshavere-request/:ticketId"
+        element={<UserTicketPage />}
       />
       <Route
         path="/skill"

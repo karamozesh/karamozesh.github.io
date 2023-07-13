@@ -1,6 +1,5 @@
 import Button from '../UI/Button';
 import { Link } from 'react-router-dom';
-import Input from '../UI/Input';
 import TalentResultBtn from './TalentResultBtn';
 import {
   useDispatch,
@@ -13,7 +12,6 @@ import {
   profileActions,
 } from '../../store/profile-slice';
 
-import profileImage from '../../asset/images/people-media-profile.svg';
 import { useState } from 'react';
 import { Progress, Tooltip } from 'antd';
 
@@ -23,20 +21,16 @@ export default function UserInfo() {
     (state) => state.auth,
   );
 
-  const [imageFile, setImageFile] =
-    useState(null);
+  const [error, setError] = useState(null);
 
   const {
     first_name,
     last_name,
     email,
     phone_number,
-    image,
     cv,
     talent_result: talentTestsArray,
   } = useSelector((state) => state.profile);
-
-  console.log(talentTestsArray);
 
   const filedChangeHandler = (e, prop) => {
     const value = e.target.value;
@@ -79,9 +73,6 @@ export default function UserInfo() {
     },
   ];
 
-  const cancelWantClickHandler = () =>
-    setWantChange(false);
-
   const formSubmitHandler = (e) => {
     e.preventDefault();
     // simple validation
@@ -91,8 +82,12 @@ export default function UserInfo() {
       last_name.trim().length < 2 ||
       email.trim().length < 2 ||
       phone_number.trim().length < 2
-    )
+    ) {
+      setError(
+        'یکی از فیلد ها اشتباهی مقدار دهی شده است',
+      );
       return;
+    }
 
     const fieldObj = {
       first_name,
@@ -101,29 +96,13 @@ export default function UserInfo() {
       phone_number,
     };
 
-    new Promise((resolve) => {
-      dispatch(
-        changeFieldProfile({
-          user_token,
-          dataObj: fieldObj,
-        }),
-      );
-      if (resolve) {
-        cancelWantClickHandler();
-      }
-    });
-  };
-
-  const imageChangeHandler = (e) => {
-    const file = e.target.files[0];
-
-    setImageFile(file);
     dispatch(
-      changeUserImageProfile({
+      changeFieldProfile({
         user_token,
-        fileImage: file,
+        dataObj: fieldObj,
       }),
     );
+    setError(null);
   };
 
   return (
@@ -136,23 +115,6 @@ export default function UserInfo() {
         مشاهده کنید.
       </p>
       <div className="w-[90%] mx-auto">
-        <h2 className="mb-2">عکس پروفایل</h2>
-        <div className="relative isolate flex items-center w-fit py-8 px-16 rounded-md bg-gray-600/20">
-          <img
-            src={image ?? profileImage}
-            alt=""
-            key={image}
-          />
-          <input
-            type="file"
-            accept="image/*"
-            className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
-            onChange={imageChangeHandler}
-          />
-          <span className="mr-4">
-            {imageFile?.name ?? 'بارگذاری تصاویر'}
-          </span>
-        </div>
         <h2 className="mb-2 mt-8">
           اطلاعات کاربری
         </h2>
@@ -183,11 +145,16 @@ export default function UserInfo() {
               ),
             )}
           </div>
+          {error ? (
+            <p className="mt-4 text-red-500">
+              {error}
+            </p>
+          ) : null}
           <Button
             type="submit"
             className="mt-8 hover:bg-amber-300 bg-[#FFC359] rounded-md shadow-profile-talent-btn"
           >
-            <Link to="/profile">ذخیره</Link>
+            ذخیره
           </Button>
         </form>
         <h2 className="mt-8 mb-2">
@@ -219,7 +186,7 @@ export default function UserInfo() {
                   اعمال تغییرات
                 </Link>
               </Button>
-              <Tooltip title="به زودی این قابلیت ایجاد می‌شود">
+              <Tooltip title="به زودی این قابلیت ایجاد خواهد شد">
                 <Button
                   type="button"
                   className="px-5 bg-[#24AD29] text-white text-xs rounded-md cursor-not-allowed"
