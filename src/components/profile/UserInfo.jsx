@@ -11,19 +11,25 @@ import {
   changeFieldProfile,
   profileActions,
 } from '../../store/profile-slice';
+
+import profileImage from '../../asset/images/people-media-profile.svg';
 import { useState } from 'react';
 
-export default function P1() {
+export default function UserInfo() {
   const dispatch = useDispatch();
   const { user_token } = useSelector(
     (state) => state.auth,
   );
+
+  const [imageFile, setImageFile] =
+    useState(null);
 
   const {
     first_name,
     last_name,
     email,
     phone_number,
+    image,
     cv,
     talent_result,
   } = useSelector((state) => state.profile);
@@ -106,6 +112,12 @@ export default function P1() {
     });
   };
 
+  const imageChangeHandler = (e) => {
+    const file = e.target.files[0];
+
+    setImageFile(file);
+  };
+
   return (
     <div className="flex flex-col rounded-md mt-4">
       <h1 className="text-3xl font-normal mt-3">
@@ -116,7 +128,22 @@ export default function P1() {
         مشاهده کنید.
       </p>
       <div className="w-[90%] mx-auto">
-        <h2 className="mb-2">اطلاعات کاربری</h2>
+        <h2 className="mb-2">عکس پروفایل</h2>
+        <div className="relative isolate flex items-center w-fit py-8 px-16 rounded-md bg-gray-600/20">
+          <img src={profileImage} alt="" />
+          <input
+            type="file"
+            accept="image/*"
+            className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+            onChange={imageChangeHandler}
+          />
+          <span className="mr-4">
+            {imageFile?.name ?? 'بارگذاری تصاویر'}
+          </span>
+        </div>
+        <h2 className="mb-2 mt-8">
+          اطلاعات کاربری
+        </h2>
         <form
           className="py-8 px-16 rounded-md bg-gray-600/20"
           onSubmit={formSubmitHandler}

@@ -1,9 +1,8 @@
-import profilimage from '../../asset/images/set-social-people-media-profile-member_24877-53571 1.png';
 import userIcon from '../../asset/icon/profile-user_icon.svg';
 import moshavereIcon from '../../asset/icon/profile-moshaver_icon.svg';
-import P1 from '../../components/profile/P1';
-import P2 from '../../components/profile/P2';
-import { useEffect, useState } from 'react';
+import UserInfo from '../../components/profile/UserInfo';
+import TicketsInfo from '../../components/profile/TicketsInfo';
+import { useState } from 'react';
 
 const ProfileTab = ({
   isActive,
@@ -48,21 +47,16 @@ export default function ProfilePage() {
 
   switch (tabIndex) {
     case 0:
-      contentProfile = <P1 />;
+      contentProfile = <UserInfo />;
       break;
 
     case 1:
-      contentProfile = <P2 />;
+      contentProfile = <TicketsInfo />;
   }
 
   return (
     <div className="flex mx-8 mt-8">
       <div className="flex flex-col items-center w-[100px] mt-6">
-        <img
-          src={profilimage}
-          alt=""
-          className="w-[62px] h-[64px]"
-        />
         {tabArray.map(({ image, id }) => (
           <ProfileTab
             image={image}

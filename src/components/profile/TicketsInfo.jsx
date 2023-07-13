@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import Button from '../UI/Button';
 import ResultMoshavereRequest from '../MoshavereRequest/ResultMoshavereRequest';
-export default function p2() {
+export default function TicketsInfo() {
   return (
     <div>
       <div className="rounded-md flex w-full mt-5">
