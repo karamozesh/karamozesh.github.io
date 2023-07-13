@@ -45,13 +45,24 @@ import 'react-toastify/dist/ReactToastify.css';
 import TicketsPage from './pages/MoshaverPages/TicketsPage/TickestPage';
 import MyTicketsPage from './pages/MoshaverPages/MyTicketsPage/MyTicketsPage';
 import axios from 'axios';
-import { API_GET_USER_TICKETS } from './api/configAPI';
+import {
+  API_GET_USER_ID,
+  API_GET_USER_TICKETS,
+} from './api/configAPI';
 import { getUserTickets } from './store/ticket-slice';
-import { getProfileInformation } from './store/profile-slice';
+import {
+  // getCVId,
+  getProfileInformation,
+  getUserId,
+} from './store/profile-slice';
+import { getResume } from './store/resume-slice';
 
 function App() {
   const { isLoggedIn, isMoshaver, user_token } =
     useSelector((state) => state.auth);
+  const { user_id } = useSelector(
+    (state) => state.profile,
+  );
 
   const navigate = useNavigate();
 
@@ -67,6 +78,8 @@ function App() {
   const successTimer = useRef(null);
 
   const dispatch = useDispatch();
+
+  // --- notification
 
   useEffect(() => {
     if (success.exist) {
@@ -101,14 +114,21 @@ function App() {
     }
   }, [error, dispatch]);
 
+  // notification ---
+
+  // --- user info fetch
+
   useEffect(() => {
     if (isLoggedIn) {
       if (isMoshaver) {
       } else {
-        dispatch(getUserTickets(user_token));
+        dispatch(getUserTickets({ user_token }));
+        dispatch(getUserId({ user_token }));
       }
     }
   }, [isLoggedIn, isMoshaver]);
+
+  // user info fetch ---
 
   useEffect(() => {
     if (isLoggedIn) {
@@ -117,6 +137,25 @@ function App() {
       );
     }
   }, [isLoggedIn, isMoshaver]);
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      if (!isMoshaver && user_id && user_token) {
+        // dispatch(getCVId({ user_token }));
+        dispatch(
+          getResume({
+            user_token,
+            cv_id: 'cv_id',
+          }),
+        );
+      }
+    }
+  }, [
+    isLoggedIn,
+    isMoshaver,
+    user_token,
+    user_id,
+  ]);
 
   const userRoutes = (
     <Routes>

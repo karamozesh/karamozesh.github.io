@@ -1,8 +1,4 @@
-import {
-  useEffect,
-  useRef,
-  useState,
-} from 'react';
+import { useEffect } from 'react';
 import {
   useDispatch,
   useSelector,
@@ -25,8 +21,6 @@ import {
   sendEducationInfo,
   sendWorkExperienceInfo,
 } from '../../../store/resume-slice';
-import axios from 'axios';
-import { API_GET_USER_ID } from '../../../api/configAPI';
 
 export default function ResumeCreatingPage() {
   const params = useParams();
@@ -38,28 +32,9 @@ export default function ResumeCreatingPage() {
   const { user_token } = useSelector(
     (state) => state.auth,
   );
-  const [user_id, setUesrId] = useState(null);
-
-  useEffect(() => {
-    const fetchUserId = async () => {
-      const response = await axios.get(
-        API_GET_USER_ID,
-        {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `${user_token}`,
-          },
-        },
-      );
-      const { user_id } = await response.data;
-      console.log(response.data);
-      setUesrId(user_id);
-
-      return user_id;
-    };
-    fetchUserId();
-  }, []);
+  const { user_id } = useSelector(
+    (state) => state.profile,
+  );
 
   const {
     baseInformation,
@@ -178,7 +153,7 @@ export default function ResumeCreatingPage() {
 
   return (
     <div className="flex flex-col main resume">
-      <h1 className="mb-4">رزومه جدید</h1>
+      <h1 className="mb-4">رزومه من</h1>
       <div className="flex flex-col justify-between min-h-[40vh] w-full">
         {/* steps */}
         <div className="flex justify-between items-end sections">

@@ -5,7 +5,9 @@ import {
 import axios from 'axios';
 import {
   API_CHANGE_FIELD_PROFILE,
+  // API_GET_CV_ID,
   API_GET_PROFILE,
+  API_GET_USER_ID,
   GET_CONFIG,
   PATCH_CONFIG,
 } from '../api/configAPI';
@@ -16,6 +18,57 @@ const SUCCESS_MESSAGE =
 
 const ERROR_MESSAGE =
   'ثبت تغییرات دچار مشکل شده است';
+
+// export const getCVId = createAsyncThunk(
+//   'profile/getCVId',
+//   async ({ user_token }, { dispatch }) => {
+//     try {
+//       const response = await axios.get(
+//         API_GET_CV_ID,
+//         // GET_CONFIG(user_token),
+//         {
+//           headers: {
+//             Authorization: user_token,
+//           },
+//         },
+//       );
+//       const data = await response.data;
+
+//       console.log(data);
+//       // dispatch(
+//       //   profileActions.changeField({
+//       //     prop: 'user_id',
+//       //     value: user_id,
+//       //   }),
+//       // );
+//     } catch (error) {}
+//   },
+// );
+
+export const getUserId = createAsyncThunk(
+  'profile/getUserId',
+  async ({ user_token }, { dispatch }) => {
+    try {
+      const response = await axios.get(
+        API_GET_USER_ID,
+        {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `${user_token}`,
+          },
+        },
+      );
+      const { user_id } = await response.data;
+      dispatch(
+        profileActions.changeField({
+          prop: 'user_id',
+          value: user_id,
+        }),
+      );
+    } catch (error) {}
+  },
+);
 
 export const getProfileInformation =
   createAsyncThunk(
@@ -79,6 +132,8 @@ export const changeFieldProfile =
   );
 
 const initialState = {
+  resume: null,
+  user_id: '',
   first_name: '',
   last_name: '',
   email: '',
@@ -108,6 +163,9 @@ const profileSlice = createSlice({
       const { prop, value } = action.payload;
 
       state[prop] = value;
+    },
+    saveResumeArray(state, action) {
+      state.resume = action.payload;
     },
   },
 });

@@ -491,7 +491,7 @@ const VIPMoshavereRequestContent = () => {
   return (
     <div className="relative">
       <div className="w-full h-full flex justify-center items-center text-center absolute bg-gray-500/50 align-middle">
-        <p className="text-2xl">
+        <p className="text-2xl bg-white/50 p-2 rounded-xl">
           مشاوره ویژه در حال ساخت است
         </p>
       </div>

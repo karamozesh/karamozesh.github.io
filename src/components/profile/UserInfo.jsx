@@ -14,6 +14,7 @@ import {
 
 import profileImage from '../../asset/images/people-media-profile.svg';
 import { useState } from 'react';
+import { Progress, Tooltip } from 'antd';
 
 export default function UserInfo() {
   const dispatch = useDispatch();
@@ -183,12 +184,18 @@ export default function UserInfo() {
         </h2>
         <div className="flex flex-col gap-y-9 py-8 px-16 rounded-md bg-gray-600/20">
           <div
-            className="flex justify-between py-3 px-5"
+            className="flex justify-between items-center py-3 px-5"
             style={{
               backgroundImage: `url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='black' stroke-width='2' stroke-dasharray='6%2c 14' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e")`,
             }}
           >
             <p>رزومه من</p>
+            <Progress
+              className="w-[40%] mt-2"
+              percent={50}
+              style={{ direction: 'ltr' }}
+              strokeColor={'#24AD29'}
+            />
             <div className="flex gap-x-2">
               <Button
                 type="button"
@@ -201,12 +208,14 @@ export default function UserInfo() {
                   اعمال تغییرات
                 </Link>
               </Button>
-              <Button
-                type="button"
-                className="px-5 bg-[#24AD29] text-white text-xs rounded-md"
-              >
-                دانلود
-              </Button>
+              <Tooltip title="به زودی این قابلیت ایجاد می‌شود">
+                <Button
+                  type="button"
+                  className="px-5 bg-[#24AD29] text-white text-xs rounded-md cursor-not-allowed"
+                >
+                  دانلود
+                </Button>
+              </Tooltip>
             </div>
           </div>
           <div

@@ -6,6 +6,16 @@ export const API_LOGIN =
 export const API_REGISTER =
   baseUrl + '/api/user/register/';
 
+// --- very funny API
+
+// export const API_GET_CV_ID =
+//   baseUrl + '/api/cv/get_cv-id/';
+
+export const API_GET_USER_ID =
+  baseUrl + '/user/get_user-id';
+
+// very funny API ---
+
 // --- Profile API
 
 export const API_GET_PROFILE =
@@ -17,6 +27,10 @@ export const API_CHANGE_FIELD_PROFILE =
 // Profile API ---
 
 // --- Resume API
+
+export const API_GET_CV = (user_id) =>
+  baseUrl + `/api/cv/${user_id}/`;
+
 export const API_CREATE_CV = baseUrl + '/api/cv/';
 
 export const API_ADD_EDU_CV = (cv_id) =>
@@ -33,10 +47,6 @@ export const API_DELETE_SKILL_CV = (
   skill_id,
 ) =>
   baseUrl + `/api/cv/${cv_id}/skill/${skill_id}/`;
-export const API_GET_CVID =
-  baseUrl + '/api/cv/get_cv-id/';
-export const API_GET_USER_ID =
-  baseUrl + '/user/get_user-id';
 
 // Resume API ---
 

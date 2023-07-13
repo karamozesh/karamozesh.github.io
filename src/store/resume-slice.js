@@ -8,9 +8,12 @@ import {
   API_ADD_SKILL_CV,
   API_ADD_WORK_CV,
   API_CREATE_CV,
+  API_GET_CV,
+  GET_CONFIG,
 } from '../api/configAPI';
 import axios from 'axios';
 import { notificationActions } from './notification-slice';
+import { profileActions } from './profile-slice';
 
 /* 
 interface SelectType {
@@ -28,6 +31,27 @@ interface CityType {
 const ERROR_MESSAGE =
   'مشکلی در ذخیره اطلاعات پیش آمده است';
 const SUCCESS_MESSAGE = 'تغییرات ذخیره شد.';
+
+export const getResume = createAsyncThunk(
+  'resume/getResume',
+  async ({ cv_id, user_token }, { dispatch }) => {
+    // we have one resume for now, so cv_id is 1
+    try {
+      const response = await axios.get(
+        API_GET_CV(1),
+        GET_CONFIG(user_token),
+      );
+
+      const data = await response.data;
+
+      dispatch(
+        profileActions.saveResumeArray(data),
+      );
+
+      console.log(response);
+    } catch (error) {}
+  },
+);
 
 export const createResume = createAsyncThunk(
   'resume/createResume',
@@ -110,6 +134,7 @@ export const sendEducationInfo = createAsyncThunk(
       start_date,
       end_date,
       university,
+      cv_id: 1,
     };
 
     try {
