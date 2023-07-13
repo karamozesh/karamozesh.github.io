@@ -5,12 +5,14 @@ import {
 import axios from 'axios';
 import {
   API_CHANGE_FIELD_PROFILE,
+  API_CHANGE_IMAGE_PROFILE,
   // API_GET_CV_ID,
   API_GET_PROFILE,
   API_GET_USER_ID,
   API_TALENT_TESTS,
   GET_CONFIG,
   PATCH_CONFIG,
+  POST_CONFIG,
 } from '../api/configAPI';
 import { notificationActions } from './notification-slice';
 
@@ -34,7 +36,7 @@ export const getTalents = createAsyncThunk(
       dispatch(
         profileActions.changeField({
           prop: 'talent_result',
-          data,
+          value: data,
         }),
       );
     } catch (error) {}
@@ -153,6 +155,46 @@ export const changeFieldProfile =
     },
   );
 
+export const changeUserImageProfile =
+  createAsyncThunk(
+    'profile/changeUserImageProfile',
+    async (
+      { user_token, imageFile },
+      { dispatch },
+    ) => {
+      try {
+        const response = await axios.post(
+          API_CHANGE_IMAGE_PROFILE,
+          POST_CONFIG(user_token),
+        );
+
+        const linkImage = await response.data;
+
+        dispatch(
+          profileActions.changeField({
+            prop: 'image',
+            value: linkImage,
+          }),
+        );
+        dispatch(
+          notificationActions.changeSuccess({
+            exist: true,
+            message:
+              'عکس پروفایل با موفقیت تغییر کرد',
+          }),
+        );
+      } catch (error) {
+        dispatch(
+          notificationActions.changeError({
+            exist: true,
+            message:
+              'تغییر عکس پروفایل با شکست مواجه شد',
+          }),
+        );
+      }
+    },
+  );
+
 const initialState = {
   resume: null,
   user_id: '',
@@ -162,6 +204,7 @@ const initialState = {
   phone_number: '',
   cv: [],
   talent_result: [],
+  image: null,
 };
 
 const profileSlice = createSlice({

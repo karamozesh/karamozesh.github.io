@@ -9,6 +9,7 @@ import {
 import InputLabelProfile from '../UI/InputLabelProfile';
 import {
   changeFieldProfile,
+  changeUserImageProfile,
   profileActions,
 } from '../../store/profile-slice';
 
@@ -32,8 +33,10 @@ export default function UserInfo() {
     phone_number,
     image,
     cv,
-    talent_result,
+    talent_result: talentTestsArray,
   } = useSelector((state) => state.profile);
+
+  console.log(talentTestsArray);
 
   const filedChangeHandler = (e, prop) => {
     const value = e.target.value;
@@ -76,8 +79,6 @@ export default function UserInfo() {
     },
   ];
 
-  const talentTestsArray = [];
-
   const cancelWantClickHandler = () =>
     setWantChange(false);
 
@@ -117,6 +118,12 @@ export default function UserInfo() {
     const file = e.target.files[0];
 
     setImageFile(file);
+    dispatch(
+      changeUserImageProfile({
+        user_token,
+        fileImage: file,
+      }),
+    );
   };
 
   return (
@@ -131,7 +138,11 @@ export default function UserInfo() {
       <div className="w-[90%] mx-auto">
         <h2 className="mb-2">عکس پروفایل</h2>
         <div className="relative isolate flex items-center w-fit py-8 px-16 rounded-md bg-gray-600/20">
-          <img src={profileImage} alt="" />
+          <img
+            src={image ?? profileImage}
+            alt=""
+            key={image}
+          />
           <input
             type="file"
             accept="image/*"
@@ -226,16 +237,31 @@ export default function UserInfo() {
           >
             <p>نتیجه خودشناسی</p>
             <div className="flex gap-x-2">
-              {talentTestsArray.length > 0
-                ? talentTestsArray.map(
-                    (talentTest) => (
-                      <TalentResultBtn
-                        key={talentTest.id}
-                        talent={talentTest}
-                      />
-                    ),
-                  )
-                : null}
+              {talentTestsArray.length > 0 ? (
+                talentTestsArray.map(
+                  (talentTest) => (
+                    <TalentResultBtn
+                      key={talentTest.id}
+                      talent={talentTest}
+                    />
+                  ),
+                )
+              ) : (
+                <div className="flex items-center gap-x-2">
+                  <p>
+                    شما تا هم اکنون هیج تستی نداده
+                    اید
+                  </p>
+                  <Button className="px-0 py-0 shadow-profile-talent-btn rounded-md text-xs bg-primaryColor text-white">
+                    <Link
+                      to="/talent-survey/"
+                      className="inline-block h-full w-full px-4 py-2"
+                    >
+                      منو ببر تست بدم
+                    </Link>
+                  </Button>
+                </div>
+              )}
             </div>
           </div>
         </div>

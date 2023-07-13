@@ -84,6 +84,7 @@ export default function Navbar() {
           >
             <img
               src={image ?? imageProfile}
+              key={image}
               alt=""
             />
           </Link>
