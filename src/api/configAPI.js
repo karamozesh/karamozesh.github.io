@@ -1,5 +1,5 @@
 export const baseUrl =
-  'https://amoozeshyar-khu.iran.liara.run';
+  'https://Amoozeshyar.iran.liara.run';
 
 export const POST_CONFIG = (user_token) => {
   return {
