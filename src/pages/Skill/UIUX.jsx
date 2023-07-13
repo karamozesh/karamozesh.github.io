@@ -2,7 +2,7 @@ import React from 'react'
 import SkillSection from './UI/SkiilSection'
 import SkillRoad from './UI/SkillRoad'
 import bg from '../../asset/images/bg.png'
-import road from '../../asset/images/Group 448.png'
+import road from '../../asset/images/Group 449.png'
 import bg2 from '../../asset/images/bg2.png'
 import bg3 from '../../asset/images/Group 444.png'
 import bg4 from '../../asset/images/Teleportation-pana 3.png'
@@ -11,6 +11,8 @@ import bg6 from '../../asset/images/Group 445.png'
 import bg7 from '../../asset/images/Group 446.png'
 import bg8 from '../../asset/images/Group 447.png'
 import Button from '../../components/UI/Button'
+import { Link } from 'react-router-dom'
+
 
 
 function UIUX() {
@@ -18,46 +20,45 @@ function UIUX() {
     return (
 
         <section className="  mx-auto flex flex-col  ">
-
-            <h1 className="inline-block p-10 ">
-            Ui UX DESIGN</h1>
+<div className='bg-line bg-no-repeat'>    <h1 className="inline-block p-10 ">
+            Ui UX DESIGN</h1></div>
+        
 
 
             <SkillSection explain={' طراحی UI/UX به فرآیند ایجاد رابط های کاربری (UI) و افزایش تجربیات کاربر (UX) در محصولات دیجیتالی مانند وب سایت ها، برنامه های کاربردی تلفن همراه، نرم افزارها یا هر پلتفرم تعاملی دیگر اشاره دارد. هدف اصلی طراحی UI/UX این است که اطمینان حاصل شود که کاربران می توانند به راحتی با محصول حرکت کنند، با آن تعامل داشته باشند و ارزشی را از محصول کسب کنند و در عین حال از یک تجربه یکپارچه و بصری لذت ببرند.'}></SkillSection>
 
 
-            <section className="flex gap-5 justify-center mx-auto h-[70vh] mt-8 w-full bg-hero-pattern1 bg-cover">
+            <section className=" bg-white flex sticky top-0 gap-5 justify-center mx-auto  mt-8 w-full   ">
+                <div className=' bg-dotted bg-no-repeat bg-center flex sticky top-0 gap-5 justify-center mx-auto  mt-8 w-full'>
+                <SkillRoad href={'#1'} title={'نقشه راه'}></SkillRoad>
+                <SkillRoad href={'#2'} title={'منابع یادگیری'}></SkillRoad>
+                <SkillRoad href={'#3'} title={'کاربرد'}></SkillRoad>
+                <SkillRoad href={'#4'} title={'اهمیت یادگیری'}></SkillRoad>
+                <SkillRoad href={'#5'} title={'UX چیست'}></SkillRoad>
+                <SkillRoad href={'#6'} title={'UI چیست'}></SkillRoad></div>
 
-
-                <SkillRoad title={'منابع یادگیری'}></SkillRoad>
-                <SkillRoad title={'کاربرد'}></SkillRoad>
-                <SkillRoad title={'اهمیت'}></SkillRoad>
-                <SkillRoad title={'UX'}></SkillRoad>
-                <SkillRoad title={'UI'}></SkillRoad>
-
-
-
+            
             </section>
-
-            <section className='container mx-auto '>
-                <h1 className="inline-block py-8 mr-8 ">
+           
+   <section className='inline-block z-10'> <img src={bg} className='w-[10%] -mt-7 float-left' alt="" />
+            </section>
+            <section className='container mx-auto  inline-block '> 
+         
+                <h2 id="6" className="inline-block px-10  ">
                 طراحی رابط کاربری (UI)
-                </h1>
-                <p className='px-5'>
+                </h2>
+                <p className='px-10 text-xs leading-7'>
                 طراحی UI بر عناصر بصری یک محصول دیجیتال تمرکز دارد. این شامل ایجاد زیبایی شناسی، چیدمان و ظاهر و احساس کلی رابط کاربری است. طراحان رابط کاربری روی انتخاب طرح های رنگی مناسب، تایپوگرافی، آیکون ها، تصاویر و سایر عناصر بصری کار می کنند تا یک طراحی جذاب و منسجم ایجاد کنند. آنها همچنین عواملی مانند نام تجاری، دسترسی و پاسخگویی به دستگاه های مختلف را در نظر می گیرند.
-
                     <br />
-                    <br />
-                    <br />
-                    <h1 className="inline-block py-8 mr-8 ">
+                    <h2  id="5" className="inline-block ">
                     طراحی تجربه کاربری (UX)
-                </h1><br />
+                </h2> <br />
                 طراحی UX حول محور ایجاد یک تجربه معنادار و رضایت بخش برای کاربران در هنگام تعامل با یک محصول است. هدف طراحان UX درک نیازها، رفتارها و انتظارات کاربران برای طراحی رابط های بصری و کاربرپسند است. آنها تحقیقات کاربر را انجام می دهند، پرسونای کاربر ایجاد می کنند، و جریان های کاربر و قاب های سیمی را برای ترسیم سفر کاربر توسعه می دهند. طراحان UX همچنین بر روی معماری اطلاعات، طراحی تعامل و تست قابلیت استفاده تمرکز می کنند تا از تجربه کاربری روان و جذاب اطمینان حاصل کنند. 
                     <img src={bg6} alt="" className='-ml-4 w-32 float-left' /><br /><br />
-                    <h1 className="inline-block py-8  mr-8">
+                    <h2 id='4' className="inline-block ">
                     اهمیت یادگیری
-                    </h1>
-                    <br />
+                    </h2>
+                    
                     <br />
                     یادگیری طراحی UI/UX در عصر دیجیتال امروزی بسیار مهم است. طراحی UI (رابط کاربری) و UX (تجربه کاربر) نقش اساسی در ایجاد تجربیات لذت بخش، کاربردی و کاربرپسند برای محصولات دیجیتالی مختلف مانند وب سایت ها، برنامه های تلفن همراه، نرم افزارها و حتی دستگاه های هوشمند دارند. در اینجا چند دلیل کلیدی برای اهمیت یادگیری طراحی UI/UX آورده شده است:
                     از کاربرد‌های این مهارت می‌توان به موارد زیر اشاره کرد: <br /> <br />
@@ -72,10 +73,10 @@ function UIUX() {
     کارایی هزینه و زمان: سرمایه گذاری در طراحی UI/UX در مراحل اولیه توسعه می تواند در درازمدت در هزینه ها و زمان قابل توجهی صرفه جویی کند. با انجام تحقیقات کاربر، نمونه سازی اولیه و تست قابلیت استفاده، می توانید مشکلات بالقوه را قبل از اینکه تعمیر آنها گران شود شناسایی کرده و به آنها رسیدگی کنید.
 <br /> <br />
 مهارت های مشارکتی: یادگیری طراحی UI/UX شامل همکاری نزدیک با سهامداران، توسعه دهندگان و دیگر طراحان است. این به شما کمک می کند مهارت های مشارکتی را توسعه دهید، دیدگاه های مختلف را درک کنید و تصمیمات طراحی را به طور موثر برقرار کنید.<br /> <br />
-به طور کلی، یادگیری طراحی UI/UX شما را به مهارت‌های ارزشمندی مجهز می‌کند که می‌تواند بر رضایت کاربر، موفقیت کسب‌وکار و چشم‌انداز شغلی در چشم‌انداز دیجیتالی که به سرعت در حال تحول است، تأثیر مثبت بگذارد.<br /> <br /> <br />
-<h1 className="inline-block py-8  mr-8">
+به طور کلی، یادگیری طراحی UI/UX شما را به مهارت‌های ارزشمندی مجهز می‌کند که می‌تواند بر رضایت کاربر، موفقیت کسب‌وکار و چشم‌انداز شغلی در چشم‌انداز دیجیتالی که به سرعت در حال تحول است، تأثیر مثبت بگذارد.<br /> <br />
+<h2 id='3' className="inline-block">
                     کاربرد
-                    </h1><br /> <br />
+                    </h2><br /> 
                     طراحی UI/UX طیف وسیعی از کاربردها در صنایع مختلف و محصولات دیجیتال دارد. در اینجا چند زمینه رایج وجود دارد که طراحی UI/UX نقشی حیاتی دارد:
                     <br /> <br />
                     وب سایت ها: طراحی UI/UX برای ایجاد وب سایت های بصری جذاب و کاربر پسند بسیار مهم است. این شامل طراحی ناوبری بصری، سازماندهی موثر محتوا و بهینه سازی تجربه کلی کاربر است.
@@ -97,9 +98,9 @@ function UIUX() {
             <section className='container mx-auto  '>
                 <img src={bg2} alt="" className='w-36 float-left mr-8' />
 <br /> <br /> <br /> <br />
-                <h1 className="inline-block py-8 mr-8 ">
-                    منابع یادگیری  UIUX             </h1>
-                <p className='px-5'>
+                <h2 id='2' className="inline-block px-10">
+                    منابع یادگیری  UIUX             </h2>
+                <p className='px-10 text-xs leading-7'>
                     <h3>منابع کتاب</h3>
                     
 1.	"Don't Make Me Think" by Steve Krug  <br />
@@ -108,7 +109,7 @@ function UIUX() {
 4.	"About Face: The Essentials of Interaction Design" by Alan Cooper, Robert Reimann, and David Cronin <br />
 5.	"Seductive Interaction Design" by Stephen Anderson <br />
                     <br /> <br />
-                    <h3>وبسایت ها </h3> <br />
+                    <h3>وبسایت ها </h3> 
                     <a className=' text-emerald-400' href="https://www.smashingmagazine.com">	Smashing Magazine</a>
                     <br />
                     <a className=' text-emerald-400' href="https://www.nngroup.com/articles/">Nielsen Norman Group  </a>
@@ -121,7 +122,7 @@ function UIUX() {
                     
                    <br /> <br /> <br />
                    <h3 >دوره ها</h3>
-                   <br /> 
+                   
                    <a className=' text-emerald-400' href="https://www.interaction-design.org/">	Interaction Design Foundation  </a>
                    <br />
                    <a className=' text-emerald-400' href="https://www.udemy.com/topic/ui-ux-design/">	Udemy UI/UX Design Courses  </a>
@@ -135,9 +136,15 @@ function UIUX() {
                     
                 </p>
                 <br /> <br />
-               
+                <img src={bg3} alt="" className='w-[53%] float-left '/>
+                <h2 id='1' className="inline-block px-10"> نقشه راه</h2>
+               <section className='mx-auto w-[96%] flex justify-center'>
+                
 
- <img src={bg7} className='-mb-48 -z-10' alt="" />
+                <img src={road} alt="" className='w-[80%] mr-8'/>
+                
+                </section>
+            <img src={bg7} className='-mb-48 -z-10' alt="" />
 
             </section>
 

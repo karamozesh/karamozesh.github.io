@@ -283,3 +283,12 @@ nav a.active {
   margin-bottom: 54px;
   background-repeat: no-repeat;
 }
+.bg-dotted{
+  
+  background-image: url('/src/asset/images/Line\ 137.png');
+  width: 90%;
+}
+.bg-line{
+ background-image: url('/src/asset/images/Line\ 136.png');
+ width: 90%;
+}
