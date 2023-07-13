@@ -11,7 +11,7 @@ import CustomDropdown from '../UI/CustomDropdown';
 
 import { ReactComponent as BarMenu } from '../../asset/icon/bars-v2.svg';
 import { useSelector } from 'react-redux';
-import { ReactComponent as UserProfile } from '../../asset/icon/user-profile_icon.svg';
+import imageProfile from '../../asset/images/people-media-profile.svg';
 
 function getItem(
   label,
@@ -33,6 +33,9 @@ export default function Navbar() {
   const { pathname } = useLocation();
   const { isLoggedIn, isMoshaver } = useSelector(
     (state) => state.auth,
+  );
+  const { image } = useSelector(
+    (state) => state.profile,
   );
 
   const normalUserNav = (
@@ -79,7 +82,10 @@ export default function Navbar() {
             to="/profile"
             className="flex justify-center items-center w-full h-full"
           >
-            <UserProfile className="w-1/2 fill-white cursor-pointer" />
+            <img
+              src={image ?? imageProfile}
+              alt=""
+            />
           </Link>
         </div>
       ) : (
