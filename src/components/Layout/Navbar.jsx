@@ -5,13 +5,17 @@ import {
   useLocation,
   useNavigate,
 } from 'react-router-dom';
-import { Drawer, Menu } from 'antd';
+import { Drawer, Dropdown, Menu } from 'antd';
 
 import CustomDropdown from '../UI/CustomDropdown';
 
 import { ReactComponent as BarMenu } from '../../asset/icon/bars-v2.svg';
-import { useSelector } from 'react-redux';
+import {
+  useDispatch,
+  useSelector,
+} from 'react-redux';
 import imageProfile from '../../asset/images/people-media-profile.svg';
+import { authActions } from '../../store/auth-slice';
 
 function getItem(
   label,
@@ -38,6 +42,8 @@ export default function Navbar() {
     (state) => state.profile,
   );
 
+  const dispatch = useDispatch();
+
   const normalUserNav = (
     <>
       <MobileNav />
@@ -51,6 +57,27 @@ export default function Navbar() {
       <MoshaverDesktopNav />
     </>
   );
+
+  const navigate = useNavigate();
+
+  const onClick = ({ key }) => {
+    if (key === '1') {
+      navigate('/profile');
+    } else if (key === '2') {
+      dispatch(authActions.logoutHandler());
+    } else
+      throw Error('Invalid key profile dropdown');
+  };
+  const items = [
+    {
+      label: 'پروفایل',
+      key: '1',
+    },
+    {
+      label: 'خروج',
+      key: '2',
+    },
+  ];
 
   return (
     <header
@@ -78,16 +105,20 @@ export default function Navbar() {
               : 'bg-white'
           } rounded-full`}
         >
-          <Link
-            to="/profile"
-            className="flex justify-center items-center w-full h-full"
+          <Dropdown
+            menu={{
+              items,
+              onClick,
+            }}
+            placement="bottomCenter"
           >
             <img
               src={image ?? imageProfile}
               key={image}
+              className="cursor-pointer w-[50px] h-[50px]"
               alt=""
             />
-          </Link>
+          </Dropdown>
         </div>
       ) : (
         <div className="flex justify-between items-center w-[180px] h-[40px] rounded-3xl bg-gray-700 text-base shadow-md lg:w-[235px]">

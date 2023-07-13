@@ -8,6 +8,7 @@ import caretBottom from '../../asset/icon/caret-bottom_icon.svg';
 import { useRef, useState } from 'react';
 import { getDateLabelJalaali } from '../../functions/date';
 import { useNavigate } from 'react-router-dom';
+import Button from '../UI/Button';
 
 const MoshavereRequsetTicket = ({ request }) => {
   const { tags, status } = request;
@@ -198,24 +199,27 @@ const MoshavereRequsetTicket = ({ request }) => {
       } border-[1px] border-gray-500/30 `}
     >
       <div className="flex  items-center">
-        <button
+        <Button
           onClick={navigateToTicketPage}
           className="ml-4"
         >
           بریم به چتا
-        </button>
-        <p>
+        </Button>
+        <p className="flex">
           موضوع:{' '}
           <span style={{ color: '#00000080' }}>
             {request.title}
           </span>
         </p>
-        <p className="mr-4">
+        <div className="max-w-full flex items-center mr-4">
           سوال:{' '}
-          <span style={{ color: '#00000080' }}>
+          <p
+            style={{ color: '#00000080' }}
+            className={`mr-2 ${styles.elips}`}
+          >
             {messages[0].question}
-          </span>
-        </p>
+          </p>
+        </div>
       </div>
       <div
         className={`${

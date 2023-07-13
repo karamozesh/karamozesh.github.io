@@ -72,8 +72,8 @@ export const API_GET_USER_ID =
 
 // --- Profile API
 
-export const API_CHANGE_IMAGE_PROFILE = '';
-// baseUrl + '/user/profile/setting/';
+export const API_UPLOAD_IMAGE_PROFILE =
+  baseUrl + '/user/upload-image/';
 
 export const API_GET_PROFILE =
   baseUrl + '/user/profile/setting/';

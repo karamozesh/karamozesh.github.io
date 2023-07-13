@@ -3,7 +3,10 @@ import moshavereIcon from '../../asset/icon/profile-moshaver_icon.svg';
 import UserInfo from '../../components/profile/UserInfo';
 import TicketsInfo from '../../components/profile/TicketsInfo';
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import {
+  useDispatch,
+  useSelector,
+} from 'react-redux';
 import { changeUserImageProfile } from '../../store/profile-slice';
 
 import profileImage from '../../asset/images/people-media-profile.png';
@@ -38,6 +41,12 @@ export default function ProfilePage() {
   const { image } = useSelector(
     (state) => state.profile,
   );
+  const { user_token } = useSelector(
+    (state) => state.auth,
+  );
+
+  const dispatch = useDispatch();
+
   const [imageFile, setImageFile] =
     useState(null);
 
@@ -48,7 +57,7 @@ export default function ProfilePage() {
     dispatch(
       changeUserImageProfile({
         user_token,
-        fileImage: file,
+        imageFile: file,
       }),
     );
   };

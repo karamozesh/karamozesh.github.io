@@ -4,3 +4,11 @@
   text-overflow: ellipsis;
   overflow: hidden;
 } */
+
+.elips {
+  display: inline-block;
+  width: 90%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}

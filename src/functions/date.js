@@ -72,7 +72,7 @@ export const dateToMessageTime = (date) => {
     'IR-fa',
     {
       hour12: true,
-      hour: '2-digit',
+      hour: 'numeric',
       minute: '2-digit',
     },
   );

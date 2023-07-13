@@ -2,7 +2,7 @@ import MoshavereRequsetTicket from './MoshavereReuqestTicket';
 
 const ResultMoshavereRequest = ({ tickets }) => {
   return (
-    <div className="h-[630px] overflow-y-auto scroll pt-5">
+    <div className="h-[630px] overflow-hidden overflow-y-auto scroll pt-5">
       {tickets.length > 0 ? (
         tickets.map((ticket) => (
           <MoshavereRequsetTicket

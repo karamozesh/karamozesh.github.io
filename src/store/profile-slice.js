@@ -5,14 +5,15 @@ import {
 import axios from 'axios';
 import {
   API_CHANGE_FIELD_PROFILE,
-  API_CHANGE_IMAGE_PROFILE,
   // API_GET_CV_ID,
   API_GET_PROFILE,
   API_GET_USER_ID,
   API_TALENT_TESTS,
+  API_UPLOAD_IMAGE_PROFILE,
   GET_CONFIG,
   PATCH_CONFIG,
   POST_CONFIG,
+  POST_CONFIG_FILE,
 } from '../api/configAPI';
 import { notificationActions } from './notification-slice';
 
@@ -163,11 +164,16 @@ export const changeUserImageProfile =
       { user_token, imageFile },
       { dispatch },
     ) => {
+      console.log(imageFile);
+
       try {
         const response = await axios.post(
-          API_CHANGE_IMAGE_PROFILE,
-          POST_CONFIG(user_token),
+          API_UPLOAD_IMAGE_PROFILE,
+          { image: imageFile },
+          POST_CONFIG_FILE(user_token),
         );
+
+        console.log(response);
 
         const linkImage = await response.data;
 
