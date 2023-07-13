@@ -1,10 +1,22 @@
+import { useState } from 'react';
 import logoSite from '../../asset/images/logo-site.png';
-import { Link } from "react-router-dom";
+import ContactUsModal from '../ContactUsModal/ContactUsModal';
+import { Modal } from 'antd';
 
 export default function Footer() {
+  const [contactUsModal, setContactUsModal] =
+    useState(false);
+
+  const [aboutUsModal, setAboutUsModal] =
+    useState(false);
+
+  const contactUsCloseHandler = () => {
+    setContactUsModal(false);
+  };
+
   return (
     <footer
-      className="flex items-center w-full h-[100px] pl-8 bg-[#C5D0DA] text-black-400 text-xs"
+      className="flex items-center w-full h-[120px] pt-2 pl-8 bg-[#C5D0DA] text-black-400 text-xs"
       style={{ direction: 'ltr' }}
     >
       <img
@@ -14,12 +26,24 @@ export default function Footer() {
       />
       <div className="flex flex-col justify-center w-full h-full">
         <div className="flex">
-          <Link to='/contact-us'>
-            <p className="mr-4">تماس با ما</p>
-          </Link>
-          
-          <a href='' className="mr-4">درباره ما</a>
+          <button
+            className="mr-4"
+            onClick={() =>
+              setContactUsModal(true)
+            }
+          >
+            تماس ما
+          </button>
+          {contactUsModal && (
+            <ContactUsModal
+              onClose={setContactUsModal}
+            />
+          )}
+          {aboutUsModal && <ContactUsModal />}
 
+          <button className="mr-4">
+            درباره ما
+          </button>
         </div>
         <div className="w-[90%] h-[0.5px] my-2 bg-black-900"></div>
         <p>
