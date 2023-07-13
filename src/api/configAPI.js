@@ -1,6 +1,60 @@
 export const baseUrl =
   'https://amoozeshyar-khu.iran.liara.run';
 
+export const POST_CONFIG = (user_token) => {
+  return {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Token ${user_token}`,
+    },
+  };
+};
+
+export const POST_CONFIG_FILE = (user_token) => {
+  return {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'multipart/form-data',
+      Authorization: `Token ${user_token}`,
+    },
+  };
+};
+
+export const GET_CONFIG = (
+  user_token,
+  params,
+) => {
+  return {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Token ${user_token}`,
+    },
+    params,
+  };
+};
+
+export const PATCH_CONFIG = (user_token) => {
+  return {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Token ${user_token}`,
+    },
+  };
+};
+
+export const DELETE_CONFIG = (user_token) => {
+  return {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Token ${user_token}`,
+    },
+  };
+};
+
 export const API_LOGIN =
   baseUrl + '/api/user/login/';
 export const API_REGISTER =
@@ -80,56 +134,9 @@ export const API_GET_MOSHAVER_OWN_TICKETS =
 
 //  Moshaver API ---
 
-export const POST_CONFIG = (user_token) => {
-  return {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Token ${user_token}`,
-    },
-  };
-};
+// --- Talent API
 
-export const POST_CONFIG_FILE = (user_token) => {
-  return {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'multipart/form-data',
-      Authorization: `Token ${user_token}`,
-    },
-  };
-};
+export const API_TALENT_TESTS =
+  baseUrl + '/api/talent-survey/';
 
-export const GET_CONFIG = (
-  user_token,
-  params,
-) => {
-  return {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Token ${user_token}`,
-    },
-    params,
-  };
-};
-
-export const PATCH_CONFIG = (user_token) => {
-  return {
-    method: 'PATCH',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Token ${user_token}`,
-    },
-  };
-};
-
-export const DELETE_CONFIG = (user_token) => {
-  return {
-    method: 'DELETE',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Token ${user_token}`,
-    },
-  };
-};
+// Talent API ---

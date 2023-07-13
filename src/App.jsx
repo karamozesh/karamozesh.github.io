@@ -53,6 +53,7 @@ import { getUserTickets } from './store/ticket-slice';
 import {
   // getCVId,
   getProfileInformation,
+  getTalents,
   getUserId,
 } from './store/profile-slice';
 import { getResume } from './store/resume-slice';
@@ -148,6 +149,7 @@ function App() {
             cv_id: 'cv_id',
           }),
         );
+        dispatch(getTalents({ user_token }));
       }
     }
   }, [

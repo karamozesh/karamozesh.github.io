@@ -1,4 +1,31 @@
-import { createSlice } from '@reduxjs/toolkit';
+import {
+  createAsyncThunk,
+  createSlice,
+} from '@reduxjs/toolkit';
+import axios from 'axios';
+import {
+  API_TALENT_TESTS,
+  POST_CONFIG,
+} from '../api/configAPI';
+
+export const sendTestResult = createAsyncThunk(
+  'haland/sendTestResult',
+  async ({ user_token, result, name }) => {
+    const objData = { name, result };
+
+    try {
+      const response = await axios.post(
+        API_TALENT_TESTS,
+        JSON.stringify(objData),
+        POST_CONFIG(user_token),
+      );
+
+      const data = await response.data;
+
+      console.log(data);
+    } catch (error) {}
+  },
+);
 
 const initialState = {
   totalQuestions: 48,

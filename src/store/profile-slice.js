@@ -8,6 +8,7 @@ import {
   // API_GET_CV_ID,
   API_GET_PROFILE,
   API_GET_USER_ID,
+  API_TALENT_TESTS,
   GET_CONFIG,
   PATCH_CONFIG,
 } from '../api/configAPI';
@@ -18,6 +19,27 @@ const SUCCESS_MESSAGE =
 
 const ERROR_MESSAGE =
   'ثبت تغییرات دچار مشکل شده است';
+
+export const getTalents = createAsyncThunk(
+  'profile/getTalents',
+  async ({ user_token }, { dispatch }) => {
+    try {
+      const response = await axios.get(
+        API_TALENT_TESTS,
+        GET_CONFIG(user_token),
+      );
+
+      const data = await response.data;
+
+      dispatch(
+        profileActions.changeField({
+          prop: 'talent_result',
+          data,
+        }),
+      );
+    } catch (error) {}
+  },
+);
 
 // export const getCVId = createAsyncThunk(
 //   'profile/getCVId',

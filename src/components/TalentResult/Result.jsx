@@ -9,6 +9,8 @@ import JobItems from '../TalentSurvey/TalentUI/JobItems';
 import { useSelector } from 'react-redux';
 import CustomPieChart from './CustomPieChart';
 
+import lump from '../../asset/images/lump.png';
+
 function Result() {
   const { ansArray } = useSelector(
     (state) => state.haland,
@@ -92,9 +94,6 @@ function Result() {
         <h2 className=" border-yellow-300 border-2 p-3 rounded-3xl text-center inline-block ">
           آزمون شخصیت شناسی holland
         </h2>
-        {results && (
-          <CustomPieChart results={results} />
-        )}
         <h2 className="text-center">
           نتیجه تست هالند شما
         </h2>
@@ -156,7 +155,7 @@ function Result() {
               }
             />
             <div className="flex gap-3 flex-wrap">
-              <Job Items item={' حسابدار'} />
+              <Cart Items item={' حسابدار'} />
               <JobItems item={'امور اداری'} />
             </div>
           </div>
@@ -234,6 +233,24 @@ function Result() {
             </div>
           </div>
         </section>
+        <div className="flex items-center">
+          <img
+            src={lump}
+            alt=""
+            className="w-[76px] ml-3 aspect-square"
+          />
+          <p>
+            پاسخ های شما به سوالات مطرح شده در
+            ازمون هالند در کنار یکدیگر مشخص میکند
+            که شخصیت و علایق شغلی و کاریشما تا چه
+            حد به هر یک از تیپ های شخصیتی نزدیک تر
+            است.3 تیپ شغلی که بالاترین امتیاز را
+            کسب میکند نشان میدهند{' '}
+          </p>
+        </div>
+        {results && (
+          <CustomPieChart results={results} />
+        )}
       </section>
     </>
   );
