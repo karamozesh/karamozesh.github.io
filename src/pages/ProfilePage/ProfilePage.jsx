@@ -55,8 +55,6 @@ export default function ProfilePage() {
       contentProfile = <P2 />;
   }
 
-  console.log(tabIndex);
-
   return (
     <div className="flex mx-8 mt-8">
       <div className="flex flex-col items-center w-[100px] mt-6">

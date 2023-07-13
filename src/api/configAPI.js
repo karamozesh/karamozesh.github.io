@@ -6,6 +6,16 @@ export const API_LOGIN =
 export const API_REGISTER =
   baseUrl + '/api/user/register/';
 
+// --- Profile API
+
+export const API_GET_PROFILE =
+  baseUrl + '/user/profile/setting/';
+
+export const API_CHANGE_FIELD_PROFILE =
+  baseUrl + '/user/profile/setting/';
+
+// Profile API ---
+
 // --- Resume API
 export const API_CREATE_CV = baseUrl + '/api/cv/';
 

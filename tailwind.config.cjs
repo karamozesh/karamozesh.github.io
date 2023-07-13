@@ -59,6 +59,8 @@ module.exports = {
         profile: '0px 3px 18px 0px #00000040',
         // 'profile-tab-active':
         //   '10px 0px 18px 0px #00000040',
+        'profile-talent-btn':
+          '0px 0px 4px 0px #00000040',
       },
       gridTemplateColumns: {
         ticket: '40% 40% 20%',

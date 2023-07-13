@@ -3,6 +3,8 @@ export default function Input({
   placeholder,
   onChange,
   className,
+  defaultValue,
+  value,
   ...props
 }) {
   return (
@@ -11,6 +13,8 @@ export default function Input({
       placeholder={placeholder}
       dir="auto"
       onChange={onChange}
+      value={value}
+      defaultValue={defaultValue}
       className={`bg-gray-700 rounded-3xl px-4 py-2 focus:outline-gray-800 ${className}`}
     />
   );

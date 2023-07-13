@@ -47,6 +47,7 @@ import MyTicketsPage from './pages/MoshaverPages/MyTicketsPage/MyTicketsPage';
 import axios from 'axios';
 import { API_GET_USER_TICKETS } from './api/configAPI';
 import { getUserTickets } from './store/ticket-slice';
+import { getProfileInformation } from './store/profile-slice';
 
 function App() {
   const { isLoggedIn, isMoshaver, user_token } =
@@ -106,6 +107,14 @@ function App() {
       } else {
         dispatch(getUserTickets(user_token));
       }
+    }
+  }, [isLoggedIn, isMoshaver]);
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      dispatch(
+        getProfileInformation({ user_token }),
+      );
     }
   }, [isLoggedIn, isMoshaver]);
 
