@@ -47,7 +47,7 @@ export default function HomePage() {
           </h1>
           <p className="my-2">
             بستری برای خودشناسی ، یادگیری ، آموزش
-            و به اشتراک گذاشتن رزومه و تجربیتتون
+            و به اشتراک گذاشتن رزومه و تجربیاتتون
             با دیگران :)
           </p>
           <Button className="inline w-fit px-8 shadow-lg">
