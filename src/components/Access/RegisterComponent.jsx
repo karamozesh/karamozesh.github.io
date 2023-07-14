@@ -49,8 +49,12 @@ const RegisterComponent = () => {
       password2: passwordConfirm_value,
     };
 
-    dispatch(registerUser(data));
-    navigate('/login');
+    dispatch(
+      registerUser({
+        data,
+        cb: () => navigate('/login'),
+      }),
+    );
   };
 
   return (

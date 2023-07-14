@@ -50,14 +50,18 @@ let initialState = {
 
 export const registerUser = createAsyncThunk(
   'auth/login',
-  async (data, { dispatch }) => {
+  async ({ data, cb }, { dispatch }) => {
     try {
-      await axios.post(API_REGISTER, data, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+      const response = await axios.post(
+        API_REGISTER,
+        data,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
         },
-      });
+      );
       dispatch(
         notificationActions.changeSuccess({
           exist: true,
@@ -65,6 +69,9 @@ export const registerUser = createAsyncThunk(
             'ساختن اکانت با موافقیت انجام شد دوست من.',
         }),
       );
+      cb();
+
+      return response.data;
     } catch (error) {
       dispatch(
         notificationActions.changeError({
@@ -73,6 +80,7 @@ export const registerUser = createAsyncThunk(
             'ساختن اکانت با مشکل مواجه شد دوست من.',
         }),
       );
+      throw Error('error');
     }
   },
 );
