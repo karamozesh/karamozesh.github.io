@@ -20,11 +20,11 @@ function ENTJ() {
       />
 
       <section className="container mx-auto  mt-10 p-20 font-medium   ">
-        <h1 className="text-5xl text-[#51596A] pb-5">
+        <h1 className="text-4xl text-[#51596A] pb-5">
           شخصیت “فرمانده”
         </h1>
         <div className=" p-5 text-[#545C6D] border-4 border-t-0 border-b-0 border-l-[#33A474] border-r-[#33A474] border-5">
-          <p className="text-xl">
+          <p className="text-lg">
             زمانتان محدود است، پس آن را با زندگی
             کردن بجای شخص دیگری هدر ندهید. به دام
             جزم‌اندیشی نیفتید - که به معنای زندگی
@@ -43,7 +43,7 @@ function ENTJ() {
         </div>
 
         <div className=" p-5 text-[#545C6D] ">
-          <p className="text-xl">
+          <p className="text-lg">
             فرماندهان، رهبرانی بالفطره هستند.
             افراد دارای این گونه شخصیتی تجسم
             کاریزما و اعتماد به نفس هستند و قدرت
@@ -66,10 +66,10 @@ function ENTJ() {
         </div>
 
         <div className=" p-5 text-[#545C6D] mt-5">
-          <h2 className="text-5xl text-[#51596A] pb-5">
+          <h2 className="text-4xl text-[#51596A] pb-5">
             شادی در لذت موفقیت نهفته است
           </h2>
-          <p className="text-xl">
+          <p className="text-lg">
             اگر فرماندهان عاشق چیزی باشند، آن چیز
             چالشی خوب اعم از بزرگ یا کوچک است و
             عمیقاً معتقدند که اگر زمان و منابع
@@ -95,7 +95,7 @@ function ENTJ() {
           <img src={entjSvg} alt="" />
         </figure>
         <div className=" p-5 text-[#545C6D]">
-          <p className="text-xl">
+          <p className="text-lg">
             فرماندهان در پشت میز مذاکره، چه در
             محیط شرکت یا در هنگام خریدن یک خودرو،
             مسلط، بی‌امان، و بی‌رحم هستند. دلیلش
@@ -115,7 +115,7 @@ function ENTJ() {
           ح*****ه کارآمدی باشم".
         </div>
         <div className=" p-5 text-[#545C6D]">
-          <p className="text-xl">
+          <p className="text-lg">
             اگر کسی باشد که فرمانده به وی احترام
             بگذارد، آن فرد کسی است که از لحاظ فکری
             قادر است با دقت و کیفیتی همانند خودش

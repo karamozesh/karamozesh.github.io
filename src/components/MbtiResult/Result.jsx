@@ -1,7 +1,4 @@
-import React, {
-  
-  useState,
-} from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import ENTJ from '../../pages/MbtiTypes/ENTJ';
 import INTJ from '../../pages/MbtiTypes/INTJ';
@@ -49,7 +46,7 @@ function Result() {
         P: 0,
         S: 0,
         N: 0,
-        T:0
+        T: 0,
       },
     );
     console.log('myresult ', result);
@@ -72,55 +69,37 @@ function Result() {
 
   const myResult = calculateResult();
 
-
   if (myResult == 'ENTJ') {
     return <ENTJ />;
-  }else if(myResult == 'INTJ'){
+  } else if (myResult == 'INTJ') {
     return <INTJ />;
-  }
-  else if(myResult == 'INTP'){
+  } else if (myResult == 'INTP') {
     return <INTP />;
-  }
-  else if(myResult == 'INFP'){
+  } else if (myResult == 'INFP') {
     return <INFP />;
-  }
-  else if(myResult == 'ENFJ'){
+  } else if (myResult == 'ENFJ') {
     return <ENFJ />;
-  }
-  else if(myResult == 'INFJ'){
+  } else if (myResult == 'INFJ') {
     return <INFJ />;
-  }
-  else if(myResult == 'ENFP'){
+  } else if (myResult == 'ENFP') {
     return <ENFP />;
-  }
-  else if(myResult == 'ISTJ'){
+  } else if (myResult == 'ISTJ') {
     return <ISTJ />;
-  }
-  else if(myResult == 'ISFJ'){
+  } else if (myResult == 'ISFJ') {
     return <ISFJ />;
-  }
-  else if(myResult == 'ESTJ'){
+  } else if (myResult == 'ESTJ') {
     return <ESTJ />;
-  }
-  else if(myResult == 'ESFJ'){
+  } else if (myResult == 'ESFJ') {
     return <ESFJ />;
-  }
-
-  else if(myResult == 'ISTP'){
+  } else if (myResult == 'ISTP') {
     return <ISTP />;
-  }
-
-  else if(myResult == 'ISFP'){
+  } else if (myResult == 'ISFP') {
     return <ISFP />;
-  }
-  else if(myResult == 'ESTP'){
+  } else if (myResult == 'ESTP') {
     return <ESTP />;
-  }
-  else if(myResult == 'ESFP'){
+  } else if (myResult == 'ESFP') {
     return <ESFP />;
   }
-
-
 
   return <></>;
 }

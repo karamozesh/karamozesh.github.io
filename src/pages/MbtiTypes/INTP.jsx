@@ -21,11 +21,11 @@ function INTP() {
       />
 
       <section className="container mx-auto  mt-10 p-20 font-medium ">
-        <h1 className="text-5xl text-[#51596A] pb-5">
+        <h1 className="text-4xl text-[#51596A] pb-5">
           شخصیت منطق دان
         </h1>
         <div className=" p-5 text-[#545C6D] border-4 border-t-0 border-b-0 border-l-[#33A474] border-r-[#33A474] border-5">
-          <p className="text-xl">
+          <p className="text-lg">
             از دیروز بیاموز، برای امروز زندگی کن،
             به فردا امیدوار باش. مسئله مهم این است
             که دست از سؤال پرسیدن بر ندارید.
@@ -36,7 +36,7 @@ function INTP() {
         </div>
 
         <div className=" p-5 text-[#545C6D] ">
-          <p className="text-xl">
+          <p className="text-lg">
             گونه شخصیتی منطق‌دان نسبتاً نادر است و
             تنها سه درصد از جمعیت را شامل می‌شود
             که قطعاً خبر خوبی برای آنها است چرا که
@@ -52,11 +52,11 @@ function INTP() {
         </div>
 
         <div className=" p-5 text-[#545C6D] mt-5">
-          <h2 className="text-5xl text-[#51596A] pb-5">
+          <h2 className="text-4xl text-[#51596A] pb-5">
             {' '}
             زندگی آزموده نشده ارزش زیستن ندارد
           </h2>
-          <p className="text-xl">
+          <p className="text-lg">
             افراد دارای گونه شخصیتی منطق‌دان عاشق
             الگوها هستند و تعیین اختلافات بین
             عبارات تقریباً نوعی سرگرمی برایشان به
@@ -78,7 +78,7 @@ function INTP() {
           <img src={entjSvg} alt="" />
         </figure>
         <div className=" p-5 text-[#545C6D]">
-          <p className="text-xl">
+          <p className="text-lg">
             ممکن است این مسئله باعث شود این گونه
             شخصیتی غیرقابل اعتماد به نظر برسد، اما
             در واقع هیچ کس به اندازه منطق‌دانان
@@ -105,7 +105,7 @@ function INTP() {
           گونه‌های شخصیتی در نظر گرفته می‌شوند.
         </div>
         <div className=" p-5 text-[#545C6D]">
-          <p className="text-xl">
+          <p className="text-lg">
             علاوه بر این، بعید است منطق‌دانان
             اساساً شکایت‌های عاطفی را درک کنند، و
             دوستانشان حمایت عاطفی چندانی از آنها

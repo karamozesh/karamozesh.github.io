@@ -6,9 +6,7 @@ import {
   useNavigate,
 } from 'react-router-dom';
 import { Drawer, Dropdown, Menu } from 'antd';
-
 import CustomDropdown from '../UI/CustomDropdown';
-
 import { ReactComponent as BarMenu } from '../../asset/icon/bars-v2.svg';
 import {
   useDispatch,
