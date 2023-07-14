@@ -61,6 +61,8 @@ module.exports = {
         //   '10px 0px 18px 0px #00000040',
         'profile-talent-btn':
           '0px 0px 4px 0px #00000040',
+        glass:
+          'inset 0 0 2000px rgba(255, 255, 255, .5)',
       },
       gridTemplateColumns: {
         ticket: '40% 40% 20%',

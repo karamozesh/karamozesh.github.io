@@ -1,10 +1,23 @@
 import MoshavereRequsetTicket from './MoshavereReuqestTicket';
 
+const reverseArray = (array) => {
+  const reversedArray = [];
+  for (let i = array.length - 1; i > -1; i--) {
+    const ticket = array[i];
+
+    reversedArray.push(ticket);
+  }
+
+  return reversedArray;
+};
+
 const ResultMoshavereRequest = ({ tickets }) => {
+  let reverseTickets = reverseArray(tickets);
+
   return (
     <div className="h-[630px] overflow-hidden overflow-y-auto scroll pt-5">
-      {tickets.length > 0 ? (
-        tickets.map((ticket) => (
+      {reverseTickets.length > 0 ? (
+        reverseTickets.map((ticket) => (
           <MoshavereRequsetTicket
             request={ticket}
           />

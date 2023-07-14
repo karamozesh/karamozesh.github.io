@@ -5,12 +5,11 @@ import {
 import axios from 'axios';
 import { API_ADD_TICKET } from '../api/configAPI';
 import { notificationActions } from './notification-slice';
+import { ticketActions } from './ticket-slice';
 
 export const addTicketFree = createAsyncThunk(
   'moshavereForm/addTicketFree',
   async ({ user_token, data }, { dispatch }) => {
-    console.log(user_token, data);
-
     const {
       zamine,
       lvlOfInofrmation,
@@ -31,7 +30,7 @@ export const addTicketFree = createAsyncThunk(
     };
 
     try {
-      const response = axios.post(
+      const response = await axios.post(
         API_ADD_TICKET,
         JSON.stringify(validData),
         {
@@ -41,16 +40,38 @@ export const addTicketFree = createAsyncThunk(
           },
         },
       );
-      const { ticket_id } = await response.data;
+      const ticketObj = await response.data;
+
+      const tagsArray = ticketObj.tags.map(
+        (tag) => ({ name: tag }),
+      );
+      const id = ticketObj.ticket_id;
+      const status = '1';
+      const messages = [
+        {
+          created_time: new Date().toString(),
+          question: question,
+        },
+      ];
+      dispatch(
+        ticketActions.addTicket({
+          ...ticketObj,
+          tags: tagsArray,
+          id,
+          status,
+          messages,
+        }),
+      );
       dispatch(
         notificationActions.changeSuccess({
           message: 'تیکت با موفقیت ساخته شد.',
           exist: true,
         }),
       );
+      return response.data;
     } catch (error) {
       dispatch(
-        notificationActions.changeSuccess({
+        notificationActions.changeError({
           message: 'ساخت تیکت دچار مشکل شد.',
           exist: true,
         }),

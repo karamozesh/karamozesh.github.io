@@ -67,7 +67,7 @@ export const ticketSendMessage = createAsyncThunk(
       const created_time = new Date();
 
       dispatch(
-        ticketActions.addTicketQuestion({
+        ticketActions.addQuestion({
           ...data,
           created_time: created_time.toString(),
         }),
@@ -172,7 +172,14 @@ const ticketSlice = createSlice({
     setTickets(state, action) {
       state.tickets = action.payload;
     },
-    addTicketQuestion(state, action) {
+    addTicket(state, action) {
+      const newTicket = action.payload;
+      const updatedTickets = [...state.tickets];
+      updatedTickets.push(newTicket);
+
+      state.tickets = updatedTickets;
+    },
+    addQuestion(state, action) {
       const { ticket_id, created_time, message } =
         action.payload;
 

@@ -109,6 +109,7 @@
 html {
   font-weight: 400;
   font-size: 16px;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -283,12 +284,11 @@ nav a.active {
   margin-bottom: 54px;
   background-repeat: no-repeat;
 }
-.bg-dotted{
-  
+.bg-dotted {
   background-image: url('/src/asset/images/Line\ 137.png');
   width: 90%;
 }
-.bg-line{
- background-image: url('/src/asset/images/Line\ 136.png');
- width: 90%;
+.bg-line {
+  background-image: url('/src/asset/images/Line\ 136.png');
+  width: 90%;
 }

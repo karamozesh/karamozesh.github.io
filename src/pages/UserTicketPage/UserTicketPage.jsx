@@ -2,7 +2,10 @@ import {
   useDispatch,
   useSelector,
 } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import {
+  useNavigate,
+  useParams,
+} from 'react-router-dom';
 import MoshavereRequestConversation from '../../components/MoshavereRequest/MoshavereRequestConversation';
 
 import messageSendIcon from '../../asset/icon/send-message-icon.png';
@@ -18,6 +21,7 @@ const UserTicketPage = () => {
   );
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const { ticketId } = useParams();
 
@@ -27,7 +31,7 @@ const UserTicketPage = () => {
 
   const messageRef = useRef(null);
 
-  const sendMessageHandler = (e) => {
+  const sendMessageHandler = async (e) => {
     e.preventDefault();
 
     const message = messageRef.current.value;

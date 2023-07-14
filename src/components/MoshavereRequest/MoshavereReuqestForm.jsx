@@ -16,6 +16,7 @@ import {
   getDateValue,
   getLabelFromDate,
 } from '../../functions/date';
+import { useNavigate } from 'react-router-dom';
 
 const ERTH_MOSHAVERE_OPTION_COLORS = {
   html: '#DC1F31',
@@ -145,6 +146,8 @@ const FreeMoshavereRequestContent = () => {
     (state) => state.moshavereForm.free,
   );
 
+  const navigate = useNavigate();
+
   const { user_token } = useSelector(
     (state) => state.auth,
   );
@@ -223,10 +226,15 @@ const FreeMoshavereRequestContent = () => {
     );
   };
 
-  const addTicketHandler = (e) => {
+  const addTicketHandler = async (e) => {
     e.preventDefault();
 
-    dispatch(addTicketFree({ data, user_token }));
+    dispatch(
+      addTicketFree({ data, user_token }),
+    ).then(() => {
+      navigate('/profile');
+      window.scrollTo(0, 0);
+    });
   };
 
   return (
