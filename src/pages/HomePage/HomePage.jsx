@@ -41,7 +41,7 @@ export default function HomePage() {
             className="h-full"
           />
         </div>
-        <div className="flex flex-col justify-center  w-full my-4 md:text-center md:items-center md:w-[45%]">
+        <div className="flex flex-col justify-center w-full my-4 md:text-center md:items-center md:w-[45%]">
           <h1 className="text-4xl md:text-8xl">
             آموزشیار
           </h1>
@@ -59,8 +59,8 @@ export default function HomePage() {
         <div className="w-[5%]"></div>
       </div>
       <div>
-        <div className="flex justify-between">
-          <div className="w-[30%] md:-translate-y-24">
+        <div className="flex justify-between ">
+          <div className="w-[30%] md:-translate-y-24 -z-20">
             <img
               src={roadDashed}
               alt=""
@@ -76,13 +76,10 @@ export default function HomePage() {
             <img src={roadCircleImage} alt="" />
           </div>
         </div>
-        <div className="mb-[20vh] md:mb-[40vh] inline">
+        <div  className="mb-[20vh] md:mb-[40vh] inline">
           <img src={roadSite} alt=""  />
-          {/* <img src={ellipse1} alt="" className=' relative -top-36' />
-          <img src={ellipse2} alt="" className=' relative ' />
-          <img src={ellipse3} alt="" className=' relative ' />
-          <img src={ellipse4} alt="" className=' relative ' /> */}
-          <div className=''>
+    
+          <div className=' '>
             <p  className='relative -top-36 right-1/4 inline'  style={road.resume}>ساخت رزومه</p>
             <p className=' relative  text-xs font-light' style={road.resume}>مثل حرفه ایا رزومه بساز</p>
           </div>
