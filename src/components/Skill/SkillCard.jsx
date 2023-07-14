@@ -72,6 +72,7 @@ import { Link } from 'react-router-dom'
 const details={
 
    width :'190px',
+  
  
 }
 export default function SkillCard() {
@@ -79,24 +80,24 @@ export default function SkillCard() {
   return (
     <div className='h-[600px]'>
       <div className=' w-[80%] grid grid-cols-4 mt-28 mr-36 h-auto'>
-        <div style={details}  className=" inline h-30 border border-black-300">
+        <div style={details}  className=" rounded-md inline h-30 border border-black-300">
           <Link to='/skill/python'>
-          <img style={details}  src={python} className=' h-32' alt="" />
+          <img style={details}  src={python} className='p-1 h-32' alt="" />
           <p className='font-extralight text-center border-t border-black-300 leading-10 '>Python</p>
           </Link> </div>
 
-        <div style={details} className=" inline h-30 border border-black-300"><img src={uiux} style={details} className=' h-26' alt="" /> <Link to='/skill/ui-ux'><p className='font-extralight leading-8  text-center border-t border-black-300'>UI UX Design</p></Link></div>
-        <div style={details} className=" inline h-30 border border-black-300"><Link to=''><img style={details} src={html} className=' h-32' alt="" /><p className='font-extralight text-center border-t border-black-300 leading-8 '>HTML & CSS</p></Link></div>
+        <div style={details} className="rounded-md inline h-30 border border-black-300"><img src={uiux} style={details} className='p-1 h-26' alt="" /> <Link to='/skill/ui-ux'><p className='font-extralight leading-8  text-center border-t border-black-300'>UI UX Design</p></Link></div>
+        <div style={details} className="rounded-md inline h-30 border border-black-300"><Link to=''><img style={details} src={html} className='p-1 h-32' alt="" /><p className='font-extralight text-center border-t border-black-300 leading-8 '>HTML & CSS</p></Link></div>
 
-        <div style={details} className=" inline h-30 border border-black-300"><Link to='/skill/javaScript'><img style={details} src={javascript} className=' h-26' alt="" /><p className='font-extralight leading-8 text-center border-t border-black-300'>JavaScript</p></Link></div>
+        <div style={details} className="rounded-md inline h-30 border border-black-300"><Link to='/skill/javaScript'><img style={details} src={javascript} className=' h-26' alt="" /><p className='font-extralight leading-8 text-center border-t border-black-300'>JavaScript</p></Link></div>
         
       </div>
       <div  className=' w-[80%] grid grid-cols-4 mt-16 mr-36 '>
-      <div style={details} className=" inlineh-30 border border-black-300">
+      <div style={details} className="rounded-md inlineh-30 border border-black-300">
         <img style={details} src={ip} className=' h-26 ' alt="" /><p href="/machine-learning" className='font-extralight text-center border-t  border-black-300 leading-9 '>Machine Learning</p></div>
-      <div style={details} className=" inline  h-30 border border-black-300"><Link to='/skill/nlp'><img style={details} src={ml} className=' h-32' alt="" /><p className='font-extralight leading-9 text-center border-t  border-black-300 '>NLP</p></Link></div>
-      <div style={details} className=" inline   h-30 border border-black-300"><img style={details} src={nlp} className=' h-26' alt="" /><p className=' font-extralight text-center border-t border-black-300 leading-10 '>Image Processing</p></div>
-      <div style={details} className="  inline   h-30 border border-black-300"><img src={react} style={details} className=' h-26' alt="" /><p className='font-extralight text-center border-t leading-10 border-black-300'>React</p></div>
+      <div style={details} className="rounded-md inline  h-30 border border-black-300"><Link to='/skill/nlp'><img style={details} src={ml} className=' h-32' alt="" /><p className='font-extralight leading-9 text-center border-t  border-black-300 '>NLP</p></Link></div>
+      <div style={details} className=" inline rounded-md  h-30 border border-black-300"><img style={details} src={nlp} className=' h-26' alt="" /><p className=' font-extralight text-center border-t border-black-300 leading-10 '>Image Processing</p></div>
+      <div style={details} className="  inline rounded-md  h-30 border border-black-300"><img src={react} style={details} className='p-1 h-26' alt="" /><p className='font-extralight text-center border-t leading-10 border-black-300'>React</p></div>
         
       
       </div>
