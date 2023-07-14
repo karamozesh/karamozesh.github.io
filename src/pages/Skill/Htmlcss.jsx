@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef, useEffect } from 'react';
 import SkillSection from './UI/SkiilSection'
 import SkillRoad from './UI/SkillRoad'
 import bg from '../../asset/images/bg.png'
@@ -12,10 +12,20 @@ import bg7 from '../../asset/images/Group 446.png'
 import bg8 from '../../asset/images/Group 447.png'
 import Button from '../../components/UI/Button'
 import line from '../../asset/images/Line 136.png'
-
+import useObserver from '../../hooks/use-observer';
 
 function Htmlcss() {
-  
+   const navbarRef = useRef(null);
+   const observeLineRef = useRef(null);
+   const top1Ref = useRef(null);
+   const top2Ref = useRef(null);
+   const top3Ref = useRef(null);
+   const top4Ref = useRef(null);
+   const top5Ref = useRef(null);
+   const top6Ref = useRef(null);
+ 
+   useObserver(navbarRef, observeLineRef);
+ 
   return (
 
         <section className="  mx-auto flex flex-col  ">
@@ -27,16 +37,17 @@ function Htmlcss() {
 
               <SkillSection explain={'هر وبسایت دو بخش دارد . یک بخش از وبسایت قسمتی ست که کاربر مشاهده میکند و با آن کار میکند که frontend نام دارد . بخش دیگر قسمتی ست که کاربر چیزی از آن را مشاهده نمیکند و شامل تمام کار هایی ست که در پشت صحنه ی وبسایت انجام می شود مثل برقراری ارتباط با دیتا بیس و ... backend  نامیده می شود .'}></SkillSection>
 
+              <div ref={observeLineRef}></div>
 
               <section className=" bg-white flex sticky top-0 gap-5 justify-center mx-auto  mt-8 w-full   ">
                 <div className=' bg-dotted bg-no-repeat bg-center flex sticky top-0 gap-5 justify-center mx-auto  mt-8 w-full'>
             
-                <SkillRoad href={'#1'} title={'پروژه های تمرینی'}></SkillRoad>
-                <SkillRoad href={'#2'} title={'نقشه راه'}></SkillRoad>
-                <SkillRoad href={'#3'} title={'منابع یادگیری HTMl,CSS '}></SkillRoad>
-                <SkillRoad href={'#4'} title={' اهمیت یادگیری و کاربرد ها'}></SkillRoad>
-                <SkillRoad href={'#5'} title={'CSS چیست'}></SkillRoad>
-                <SkillRoad href={'#6'} title={'HTML چیست'}></SkillRoad> </div>
+                <SkillRoad refTitle={top6Ref} title={'پروژه های تمرینی'}></SkillRoad>
+                <SkillRoad refTitle={top5Ref} title={'نقشه راه'}></SkillRoad>
+                <SkillRoad refTitle={top4Ref} title={'منابع یادگیری HTMl,CSS '}></SkillRoad>
+                <SkillRoad refTitle={top3Ref} title={' اهمیت یادگیری و کاربرد ها'}></SkillRoad>
+                <SkillRoad refTitle={top2Ref} title={'CSS چیست'}></SkillRoad>
+                <SkillRoad refTitle={top1Ref} title={'HTML چیست'}></SkillRoad> </div>
 
 
               
@@ -45,7 +56,7 @@ function Htmlcss() {
             </section>
 
                <section className='container mx-auto '>
-                <h2 id='6' className="inline-block px-10 ">
+                <h2 id='6' className="inline-block px-10 " ref={top1Ref}>
                 کاربرد HTML در دنیای برنامه نویسی چیست؟
                 </h2>
                 <p className='px-10 text-xs leading-7'>
@@ -56,7 +67,7 @@ html یک زبان نشانه گذاری است نه یک زبان برنامه 
                       <br />
                    <br />
                       <img src={bg6} alt="" className='-ml-16 w-32 float-left'/>
-                      <h2 id='5' className="inline-block  ">
+                      <h2 id='5' className="inline-block  " ref={top2Ref}>
                       اهمیت یادگیری و کاربردها:
                       </h2>
                       <br />
@@ -89,7 +100,7 @@ class و همچنین id نشانه هایی قرار داده شده و سپس 
                <section className='container mx-auto -mb-32  '>
                <img src={bg2} alt="" className='w-36 float-left mr-8'/>
 <br />
-                <h2 id='4' className="inline-block px-10  ">
+                <h2 id='4' className="inline-block px-10  " ref={top3Ref}>
 منابع یادگیری  Html              </h2>
                 <p className='px-10 text-xs leading-7'>
                      
@@ -108,7 +119,7 @@ class و همچنین id نشانه هایی قرار داده شده و سپس 
                    
                 </p>
                 <br />
-                <h2 id='3' className="inline-block px-10  ">
+                <h2 id='3' className="inline-block px-10  "  ref={top4Ref}>
 منابع یادگیری  Css               </h2>
                 <p className='px-10 text-xs leading-7'>
                      
@@ -132,7 +143,7 @@ class و همچنین id نشانه هایی قرار داده شده و سپس 
 
                 
 <img src={bg3} alt="" className='w-[53%] float-left '/>
-                <h2 id='2' className="inline-block px-10 "> نقشه راه</h2>
+                <h2 id='2' className="inline-block px-10 "  ref={top5Ref}> نقشه راه</h2>
                <section className='mx-auto w-[96%] flex justify-center'>
                 
 
@@ -146,7 +157,7 @@ class و همچنین id نشانه هایی قرار داده شده و سپس 
            
                 
 <br /> <br /><br /><br /> <br /> <br /> <br />  <br />
-                <h2 id='1' className="inline-block px-10 ">پروژه هایی برای تمرین html , css :</h2>
+                <h2 id='1' className="inline-block px-10 "  ref={top6Ref}>پروژه هایی برای تمرین html , css :</h2>
                 <p className='px-10 text-xs leading-7'>
                     <br />
                 1. صفحه‌ی گرامیداشت<br />

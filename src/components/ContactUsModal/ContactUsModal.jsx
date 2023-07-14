@@ -25,12 +25,9 @@ export default function ContactUs({ onClose }) {
       >
         <div className="content-center items-center flex flex-row rounded-md  bg-slate-300 h-12">
           <h1 className="px-9 text-md w-[95%] ">تماس با ما</h1>
-          <button onClick={onClose} className=' '>
+          <button onClick={closeHandler} className=' '>
             <img  src={cross} alt="" /></button>
-            
-            
-            
-           
+      
             
           
         </div>

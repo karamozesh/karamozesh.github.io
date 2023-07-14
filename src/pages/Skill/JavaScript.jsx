@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef, useEffect } from 'react';
 import SkillSection from './UI/SkiilSection'
 import SkillRoad from './UI/SkillRoad'
 import bg from '../../asset/images/bg.png'
@@ -13,9 +13,21 @@ import bg8 from '../../asset/images/Group 447.png'
 import Button from '../../components/UI/Button'
 import bg9 from '../../asset/images/Group 372.png'
 import Title from '../../components/Title'
+import useObserver from '../../hooks/use-observer'; 
 
 function Js() {
-  
+  const navbarRef = useRef(null);
+  const observeLineRef = useRef(null);
+  const top1Ref = useRef(null);
+  const top2Ref = useRef(null);
+  const top3Ref = useRef(null);
+  const top4Ref = useRef(null);
+  const top5Ref = useRef(null);
+  const top6Ref = useRef(null);
+  const top7Ref = useRef(null);
+
+  useObserver(navbarRef, observeLineRef);
+
   return (
 
         <section className="  mx-auto flex flex-col  ">
@@ -30,17 +42,18 @@ function Js() {
 
               </SkillSection>
 
+              <div ref={observeLineRef}></div>
 
               <section className=" bg-white flex sticky top-0 gap-5 justify-center mx-auto  mt-8 w-full   ">
                 <div className=' bg-dotted bg-no-repeat bg-center flex sticky top-0 gap-5 justify-center mx-auto  mt-8 w-full'>
                
-                <SkillRoad href={'#7'} title={'نتیجه'}></SkillRoad>
-                <SkillRoad href={'#6'} title={'نقاط ضعف جاوا اسکریپت'}></SkillRoad>
-                <SkillRoad href={'#5'} title={'دلیل برای یادگیری جاوا اسکریپت'}></SkillRoad>
-                <SkillRoad href={'#4'} title={'آینده جاوا اسکریپت'}></SkillRoad>
-                <SkillRoad href={'#3'} title={'نقشه راه'}></SkillRoad>
-                <SkillRoad href={'#2'} title={'شروع کار با جاوا اسکریپت'}></SkillRoad>
-                <SkillRoad href={'#1'} title={'کاربرد جاوا اسکریپت در دنیای برنامه نویسی'}></SkillRoad>
+                <SkillRoad refTitle={top7Ref} title={'نتیجه'}></SkillRoad>
+                <SkillRoad refTitle={top6Ref} title={'نقاط ضعف جاوا اسکریپت'}></SkillRoad>
+                <SkillRoad refTitle={top5Ref} title={'دلیل برای یادگیری جاوا اسکریپت'}></SkillRoad>
+                <SkillRoad refTitle={top4Ref} title={'آینده جاوا اسکریپت'}></SkillRoad>
+                <SkillRoad refTitle={top3Ref} title={'نقشه راه'}></SkillRoad>
+                <SkillRoad refTitle={top2Ref} title={'شروع کار با جاوا اسکریپت'}></SkillRoad>
+                <SkillRoad refTitle={top1Ref} title={'کاربرد جاوا اسکریپت در دنیای برنامه نویسی'}></SkillRoad>
                 </div>
 
               
@@ -49,7 +62,7 @@ function Js() {
             </section>
 
                <section className='container mx-auto '>
-                <h2 id='1' className="inline-block px-10 ">
+                <h2 id='1' className="inline-block px-10 " ref={top1Ref}>
                 کاربرد جاوا اسکریپت در دنیای برنامه نویسی چیست؟
                 </h2>
                 <p className='px-10 text-xs leading-7'>
@@ -96,7 +109,7 @@ function Js() {
                <section className='container mx-auto '>
                 <img src={bg2} className='w-[15%] float-left' alt="" />
                 <br /><br /> <br />
-                <h2 id='2' className="inline-block px-10 ">
+                <h2 id='2' className="inline-block px-10 "  ref={top2Ref}>
                 شروع کار با جاوا اسکریپت
                 </h2>
                 <p className='px-10 text-xs leading-7'>
@@ -120,7 +133,7 @@ function Js() {
                 </p>
                </section>
                
-                  <h2 id='3' className='inline-block px-10 '>نقشه راه</h2>
+                  <h2 id='3' className='inline-block px-10 ' ref={top3Ref}>نقشه راه</h2>
                   <section className='-mt-36'>
                 <img src={bg3} alt="" className='w-[53%] float-left ' /></section>
                <section className='mx-auto  w-full flex justify-center'>
@@ -131,13 +144,13 @@ function Js() {
                <section>     
                 <img src={bg4} alt="" className='inline w-10  float-left'/>
               <img src={bg5} alt="" className='inline w-12 mr-10 float-right'/></section>
-               <br /><h2 id='4' className='inline-block px-10 '>آینده جاوا اسکریپت</h2>
-               <p  className='px-10 text-xs leading-7'>جاوا اسکریپت به طور مداوم در حال تکامل است و ویژگی ها و به روز رسانی های جدید به طور منظم منتشر می شود. برخی از آخرین پیشرفت های جاوا اسکریپت شامل پشتیبانی از WebAssembly است که به توسعه دهندگان اجازه می دهد تا کد را به زبان های دیگر مانند C++ و Rust بنویسند و آن را در مرورگر اجرا کنند. <br />
+               <br /><h2 id='4' className='inline-block px-10 '  ref={top4Ref}>آینده جاوا اسکریپت</h2>
+              <p  className='px-10 text-xs leading-7'>جاوا اسکریپت به طور مداوم در حال تکامل است و ویژگی ها و به روز رسانی های جدید به طور منظم منتشر می شود. برخی از آخرین پیشرفت های جاوا اسکریپت شامل پشتیبانی از WebAssembly است که به توسعه دهندگان اجازه می دهد تا کد را به زبان های دیگر مانند C++ و Rust بنویسند و آن را در مرورگر اجرا کنند. <br />
 علاوه بر این، روند رو به رشدی به سمت استفاده از جاوا اسکریپت برای برنامه نویسی سمت سرور وجود دارد و ابزارهایی مانند Node.js به طور فزاینده ای محبوب می شوند. این به توسعه دهندگان اجازه می دهد تا از یک زبان برای توسعه سمت کلاینت و سمت سرور استفاده کنند و ساخت برنامه های کاربردی وب مقیاس پذیر و کارآمد را آسان تر می کند و به عنوان یکی از زبان‌های برنامه‌نویسی اصلی در توسعه وب، همچنان محبوب و پرکاربرد خواهد بود.</p>
 <div>
   <img src={bg6} alt="" className=' w-32 float-left'/>
 </div>
-<h2 id='5' className='inline-block px-10  -mt-36 '>دلیل برای یادگیری جاوا اسکریپت</h2>
+<h2 id='5' className='inline-block px-10  -mt-36 '  ref={top5Ref}>دلیل برای یادگیری جاوا اسکریپت</h2>
 <br />
 <p  className='px-10 text-xs leading-7'>جاوا اسکریپت دارای چندین مزیت است که آن را به انتخاب بهتری نسبت به رقبای خود تبدیل می کند. چندین مزیت استفاده از جاوا اسکریپت به شرح زیر است:
 <br />
@@ -182,7 +195,7 @@ function Js() {
 ممکن است برنامه نویسی چیزی نباشد که با آن آشنا هستید و یادگیری یک مهارت جدید راهی عالی برای تحریک مغز شماست.</p>
 <div className='inline -mb-96'><img src={bg9} className='w-[15%] float-left ' alt="" /></div>
 
-<h2 id='6'  className='inline-block px-10   '>نقاط ضعف جاوا اسکریپت</h2>
+<h2 id='6'  className='inline-block px-10   ' ref={top6Ref}>نقاط ضعف جاوا اسکریپت</h2>
 <p  className='px-10 text-xs leading-7'>مانند هر زبان برنامه نویسی دیگری، جاوا اسکریپت محدودیت های زیادی دارد که باید در نظر بگیرید. برخی از معایب استفاده از جاوا اسکریپت به شرح زیر است:  <br />
 1. سازگاری مرورگر
 مرورگرهای وب مختلف کد جاوا اسکریپت را به طور متفاوتی تفسیر می کنند که باعث ناسازگاری می شود. بنابراین، باید اسکریپت جاوا اسکریپت خود را در همه مرورگرهای وب محبوب، از جمله نسخه‌های قدیمی‌تر، آزمایش کنید تا به تجربه کاربر آسیب نرسانید. <br />
@@ -193,7 +206,7 @@ function Js() {
 
 <br /> <br />
 
-<h2 id='7' className='inline-block px-10  '>نتیجه</h2> <br />
+<h2 id='7' className='inline-block px-10  '  ref={top7Ref}>نتیجه</h2> <br />
 <p className='px-10 text-xs leading-7'>جاوا اسکریپت به عنوان یکی از محبوب‌ترین و پرکاربرد‌ترین زبان‌های برنامه‌نویسی در حال حاضر، برای توسعه دهندگان وب امری ضروری است. با توجه به رشد روزافزون فناوری وب و نیازهای جدید کاربران، یادگیری جاوا اسکریپت برای توسعه دهندگان انتخاب مناسبی است.  <br />
 فریم‌ورک‌های مدرن، اینترنت اشیاء و فناوری‌های جدید مانند 5G و هوش مصنوعی نیز نشان می‌دهد که جاوا اسکریپت در آینده همچنان پرکاربرد خواهد بود و توسعه دهندگان با یادگیری این زبان برنامه‌نویسی، می‌توانند به راحتی با نیازهای جدید کاربران همراه شوند.</p> 
 
