@@ -1,5 +1,6 @@
 import Button from '../UI/Button';
 import { Link } from 'react-router-dom';
+import cross from '../../asset/images/akar-icons_cross.png'
 
 export default function ContactUs({ onClose }) {
   const closeHandler = () => {
@@ -18,12 +19,15 @@ export default function ContactUs({ onClose }) {
       onClick={closeHandler}
     >
       <div
-        className="absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] w-fit rounded-md mx-auto bg-slate-300"
+        className="absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] w-[60%] rounded-md h-[80%] mx-auto bg-white"
         style={{ direction: 'rtl' }}
         onClick={modalClickHandler}
       >
         <div className="content-center items-center flex flex-row rounded-md  bg-slate-300 h-12">
-          <h1 className="px-9">تماس با ما</h1>
+          <h1 className="px-9 ">تماس با ما</h1>
+          
+            <img className=' float-left' src={cross} alt="" onClick={''} />
+          
         </div>
         <p className="text-sm">
           هرگونه نظر، پیشنهاد، انتقاد یا مشکلات

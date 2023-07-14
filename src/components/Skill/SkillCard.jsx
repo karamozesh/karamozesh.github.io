@@ -69,28 +69,34 @@ import ml from '../../asset/images/artigo-nlp-27 1.png'
 import ip from '../../asset/images/Blog-Images-Forget-Machine-Learning-Humans-Still-Have-a-Lot-to-Learn-Part-II 1.png'
 import uiux from '../../asset/images/ux-ui-design-icon-outline-vector-33243310 1.png'
 import { Link } from 'react-router-dom'
+const details={
+
+   width :'190px',
+ 
+}
 export default function SkillCard() {
   
   return (
     <div className='h-[600px]'>
-      <div className=' w-[60%] grid grid-cols-4 mt-28 mr-52 h-auto'>
-        <div className=" inline  w-24 h-30 border border-black-300"><Link to='/skill/python'>
-          <img src={python} className='w-24 h-20' alt="" />
-          <p className='font-extralight text-center border-t border-black-300'>Python</p>
+      <div className=' w-[80%] grid grid-cols-4 mt-28 mr-36 h-auto'>
+        <div style={details}  className=" inline h-30 border border-black-300">
+          <Link to='/skill/python'>
+          <img style={details}  src={python} className=' h-32' alt="" />
+          <p className='font-extralight text-center border-t border-black-300 leading-10 '>Python</p>
           </Link> </div>
 
-        <div className=" inline  w-24 h-30 border border-black-300"><img src={uiux} className='w-24 h-20' alt="" /> <Link to='/skill/ui-ux'><p className='font-extralight text-center border-t border-black-300'>UI UX Design</p></Link></div>
-        <div className=" inline  w-24 h-30 border border-black-300"><Link to=''><img src={html} className='w-24 h-20' alt="" /><p className='font-extralight text-center border-t border-black-300'>HTML & CSS</p></Link></div>
+        <div style={details} className=" inline h-30 border border-black-300"><img src={uiux} style={details} className=' h-26' alt="" /> <Link to='/skill/ui-ux'><p className='font-extralight leading-8  text-center border-t border-black-300'>UI UX Design</p></Link></div>
+        <div style={details} className=" inline h-30 border border-black-300"><Link to=''><img style={details} src={html} className=' h-32' alt="" /><p className='font-extralight text-center border-t border-black-300 leading-8 '>HTML & CSS</p></Link></div>
 
-        <div className=" inline  w-24 h-30 border border-black-300"><Link to='/skill/javaScript'><img src={javascript} className='w-24 h-20' alt="" /><p className='font-extralight text-center border-t border-black-300'>JavaScript</p></Link></div>
+        <div style={details} className=" inline h-30 border border-black-300"><Link to='/skill/javaScript'><img style={details} src={javascript} className=' h-26' alt="" /><p className='font-extralight leading-8 text-center border-t border-black-300'>JavaScript</p></Link></div>
         
       </div>
-      <div className=' w-[60%] grid grid-cols-4 mt-16 mr-52 '>
-      <div className=" inline  w-24 h-30 border border-black-300">
-        <img src={ip} className='w-24 h-20 ' alt="" /><p href="/machine-learning" className='font-extralight leading-4  text-center border-t  border-black-300 '>Machine Learning</p></div>
-      <div className=" inline  w-24 h-30 border border-black-300"><Link to='/skill/nlp'><img src={ml} className='w-24 h-20' alt="" /><p className='font-extralight leading-4  text-center border-t  border-black-300 '>NLP</p></Link></div>
-      <div className=" inline  w-24 h-30 border border-black-300"><img src={nlp} className='w-24 h-20' alt="" /><p className=' font-extralight text-center border-t border-black-300 leading-4'>Image Processing</p></div>
-      <div className="  inline  w-24 h-30 border border-black-300"><img src={react} className='w-20 mr-2 h-20' alt="" /><p className='font-extralight text-center border-t leading-4 border-black-300'>React</p></div>
+      <div  className=' w-[80%] grid grid-cols-4 mt-16 mr-36 '>
+      <div style={details} className=" inlineh-30 border border-black-300">
+        <img style={details} src={ip} className=' h-26 ' alt="" /><p href="/machine-learning" className='font-extralight text-center border-t  border-black-300 leading-9 '>Machine Learning</p></div>
+      <div style={details} className=" inline  h-30 border border-black-300"><Link to='/skill/nlp'><img style={details} src={ml} className=' h-32' alt="" /><p className='font-extralight leading-9 text-center border-t  border-black-300 '>NLP</p></Link></div>
+      <div style={details} className=" inline   h-30 border border-black-300"><img style={details} src={nlp} className=' h-26' alt="" /><p className=' font-extralight text-center border-t border-black-300 leading-10 '>Image Processing</p></div>
+      <div style={details} className="  inline   h-30 border border-black-300"><img src={react} style={details} className=' h-26' alt="" /><p className='font-extralight text-center border-t leading-10 border-black-300'>React</p></div>
         
       
       </div>
