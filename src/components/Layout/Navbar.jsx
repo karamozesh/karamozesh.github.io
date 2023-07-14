@@ -99,7 +99,7 @@ export default function Navbar() {
       </div>
       {isLoggedIn ? (
         <div
-          className={`flex w-[50px] h-[50px] ${
+          className={`flex justify-center items-center w-[50px] h-[50px] overflow-hidden ${
             pathname === '/'
               ? 'bg-primaryColor'
               : 'bg-white'
@@ -110,12 +110,12 @@ export default function Navbar() {
               items,
               onClick,
             }}
-            placement="bottomCenter"
+            placement="bottom"
           >
             <img
-              src={image ?? imageProfile}
-              key={image}
-              className="cursor-pointer w-[50px] h-[50px]"
+              src={image.url ?? imageProfile}
+              key={image.changed}
+              className="cursor-pointer w-[50px] h-[50px] bg-cover"
               alt=""
             />
           </Dropdown>

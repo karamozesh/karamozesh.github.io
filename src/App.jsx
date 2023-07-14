@@ -57,6 +57,7 @@ import {
   getProfileInformation,
   getTalents,
   getUserId,
+  getUserImageProfile,
 } from './store/profile-slice';
 import { getResume } from './store/resume-slice';
 
@@ -135,6 +136,9 @@ function App() {
 
   useEffect(() => {
     if (isLoggedIn) {
+      dispatch(
+        getUserImageProfile({ user_token }),
+      );
       dispatch(
         getProfileInformation({ user_token }),
       );

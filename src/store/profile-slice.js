@@ -17,6 +17,12 @@ import {
 } from '../api/configAPI';
 import { notificationActions } from './notification-slice';
 
+const trunkDecmimal = (num) => {
+  if (num < 1) {
+    return num.substring(0, 4);
+  } else return num;
+};
+
 const SUCCESS_MESSAGE =
   'تغییرات با موفقیت ثبت شد';
 
@@ -161,26 +167,49 @@ export const changeUserImageProfile =
   createAsyncThunk(
     'profile/changeUserImageProfile',
     async (
-      { user_token, imageFile },
+      { user_token, imageFile, cb },
       { dispatch },
     ) => {
-      console.log(imageFile);
-
+      cb({
+        text: 'عکس در حال آپلود...',
+        progress: 0,
+        isUpload: true,
+      });
       try {
-        const response = await axios.post(
+        const response = await axios.patch(
           API_UPLOAD_IMAGE_PROFILE,
           { image: imageFile },
-          POST_CONFIG_FILE(user_token),
+          {
+            ...POST_CONFIG_FILE(user_token),
+            onUploadProgress: ({
+              progress,
+              ...other
+            }) => {
+              cb((prev) => {
+                const prevProgress =
+                  prev.progress;
+                if (prevProgress === progress)
+                  return prev;
+                else
+                  return {
+                    ...prev,
+                    progress: progress.toFixed(2),
+                  };
+              });
+            },
+          },
         );
 
-        console.log(response);
-
-        const linkImage = await response.data;
+        const { image: url } =
+          await response.data;
 
         dispatch(
           profileActions.changeField({
             prop: 'image',
-            value: linkImage,
+            value: {
+              url,
+              changed: Math.random(),
+            },
           }),
         );
         dispatch(
@@ -198,7 +227,39 @@ export const changeUserImageProfile =
               'تغییر عکس پروفایل با شکست مواجه شد',
           }),
         );
+      } finally {
+        cb({
+          text: 'بارگذاری تصویر',
+          progress: 0,
+          isUpload: false,
+        });
       }
+    },
+  );
+
+export const getUserImageProfile =
+  createAsyncThunk(
+    'profile/getUserImageProfile',
+    async ({ user_token }, { dispatch }) => {
+      try {
+        const response = await axios.get(
+          API_UPLOAD_IMAGE_PROFILE,
+          GET_CONFIG(user_token),
+        );
+
+        const { image: url } =
+          await response.data;
+
+        dispatch(
+          profileActions.changeField({
+            prop: 'image',
+            value: {
+              url,
+              changed: Math.random(),
+            },
+          }),
+        );
+      } catch (error) {}
     },
   );
 
@@ -211,7 +272,7 @@ const initialState = {
   phone_number: '',
   cv: [],
   talent_result: [],
-  image: null,
+  image: { url: '', changed: '' },
 };
 
 const profileSlice = createSlice({

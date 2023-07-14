@@ -21,6 +21,16 @@ export const POST_CONFIG_FILE = (user_token) => {
   };
 };
 
+export const PATCH_CONFIG_FILE = (user_token) => {
+  return {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'multipart/form-data',
+      Authorization: `Token ${user_token}`,
+    },
+  };
+};
+
 export const GET_CONFIG = (
   user_token,
   params,
@@ -73,7 +83,7 @@ export const API_GET_USER_ID =
 // --- Profile API
 
 export const API_UPLOAD_IMAGE_PROFILE =
-  baseUrl + '/user/upload-image/';
+  baseUrl + '/user/upload_image/';
 
 export const API_GET_PROFILE =
   baseUrl + '/user/profile/setting/';

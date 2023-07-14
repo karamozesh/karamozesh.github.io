@@ -12,6 +12,7 @@ import { changeUserImageProfile } from '../../store/profile-slice';
 import profileImage from '../../asset/images/people-media-profile.png';
 
 import greenTick from '../../asset/icon/green-tick.png';
+import { Progress } from 'antd';
 
 const ProfileTab = ({
   isActive,
@@ -41,6 +42,11 @@ export default function ProfilePage() {
   const { image } = useSelector(
     (state) => state.profile,
   );
+  const [imageInfo, setImageInfo] = useState({
+    text: 'بارگذاری تصویر',
+    isUpload: false,
+    progress: null,
+  });
   const { user_token } = useSelector(
     (state) => state.auth,
   );
@@ -52,12 +58,16 @@ export default function ProfilePage() {
 
   const imageChangeHandler = (e) => {
     const file = e.target.files[0];
+    if (!file) return;
 
     setImageFile(file);
     dispatch(
       changeUserImageProfile({
         user_token,
         imageFile: file,
+        cb: (info) => {
+          setImageInfo(info);
+        },
       }),
     );
   };
@@ -86,36 +96,42 @@ export default function ProfilePage() {
       contentProfile = <TicketsInfo />;
   }
 
+  console.log(imageInfo.progress);
+
   return (
     <div className="flex mx-8 mt-8">
       <div className="flex flex-col items-center w-[150px] mt-6">
         <div className="relative flex flex-col items-center w-fit mb-2">
           <img
-            src={image ?? profileImage}
+            src={image.url ?? profileImage}
             alt=""
             className="w-[62px] h-[64px] rounded-full"
-            key={image}
+            key={image.changed}
           />
           <input
             type="file"
             accept="image/*"
-            className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+            className={`absolute inset-0 w-full h-full opacity-0 ${
+              imageInfo.isUpload
+                ? 'cursor-not-allowed'
+                : 'cursor-pointer'
+            }`}
             onChange={imageChangeHandler}
+            disabled={imageInfo.isUpload}
           />
-          <span className="mt-2 text-xs whitespace-nowrap">
-            {imageFile?.name ? (
-              <div className="flex items-end">
-                عکس آپلود شد.
-                <img
-                  src={greenTick}
-                  alt=""
-                  className="w-[30px] aspect-auto"
-                />
-              </div>
-            ) : (
-              'بارگذاری تصویر'
+          <div className="flex flex-col justify-center">
+            <span className="mt-2 mb-1 text-xs whitespace-nowrap">
+              {imageInfo.text}
+            </span>
+            {imageInfo.isUpload && (
+              <Progress
+                percent={
+                  +imageInfo.progress * 100
+                }
+                status="active"
+              />
             )}
-          </span>
+          </div>
         </div>
         {tabArray.map(({ image, id }) => (
           <ProfileTab
