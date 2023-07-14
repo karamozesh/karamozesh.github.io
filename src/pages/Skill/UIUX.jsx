@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef, useEffect } from 'react';
 import SkillSection from './UI/SkiilSection'
 import SkillRoad from './UI/SkillRoad'
 import bg from '../../asset/images/bg.png'
@@ -12,11 +12,21 @@ import bg7 from '../../asset/images/Group 446.png'
 import bg8 from '../../asset/images/Group 447.png'
 import Button from '../../components/UI/Button'
 import { Link } from 'react-router-dom'
-
+import useObserver from '../../hooks/use-observer';
 
 
 function UIUX() {
-
+    const navbarRef = useRef(null);
+    const observeLineRef = useRef(null);
+    const top1Ref = useRef(null);
+    const top2Ref = useRef(null);
+    const top3Ref = useRef(null);
+    const top4Ref = useRef(null);
+    const top5Ref = useRef(null);
+    const top6Ref = useRef(null);
+  
+    useObserver(navbarRef, observeLineRef);
+  
     return (
 
         <section className="  mx-auto flex flex-col  ">
@@ -27,15 +37,15 @@ function UIUX() {
 
             <SkillSection explain={' طراحی UI/UX به فرآیند ایجاد رابط های کاربری (UI) و افزایش تجربیات کاربر (UX) در محصولات دیجیتالی مانند وب سایت ها، برنامه های کاربردی تلفن همراه، نرم افزارها یا هر پلتفرم تعاملی دیگر اشاره دارد. هدف اصلی طراحی UI/UX این است که اطمینان حاصل شود که کاربران می توانند به راحتی با محصول حرکت کنند، با آن تعامل داشته باشند و ارزشی را از محصول کسب کنند و در عین حال از یک تجربه یکپارچه و بصری لذت ببرند.'}></SkillSection>
 
-
+            <div ref={observeLineRef}></div>
             <section className=" bg-white flex sticky top-0 gap-5 justify-center mx-auto  mt-8 w-full   ">
                 <div className=' bg-dotted bg-no-repeat bg-center flex sticky top-0 gap-5 justify-center mx-auto  mt-8 w-full'>
-                <SkillRoad href={'#1'} title={'نقشه راه'}></SkillRoad>
-                <SkillRoad href={'#2'} title={'منابع یادگیری'}></SkillRoad>
-                <SkillRoad href={'#3'} title={'کاربرد'}></SkillRoad>
-                <SkillRoad href={'#4'} title={'اهمیت یادگیری'}></SkillRoad>
-                <SkillRoad href={'#5'} title={'UX چیست'}></SkillRoad>
-                <SkillRoad href={'#6'} title={'UI چیست'}></SkillRoad></div>
+                <SkillRoad refTitle={top6Ref} title={'نقشه راه'}></SkillRoad>
+                <SkillRoad refTitle={top5Ref} title={'منابع یادگیری'}></SkillRoad>
+                <SkillRoad refTitle={top4Ref} title={'کاربرد'}></SkillRoad>
+                <SkillRoad refTitle={top3Ref} title={'اهمیت یادگیری'}></SkillRoad>
+                <SkillRoad refTitle={top2Ref} title={'UX چیست'}></SkillRoad>
+                <SkillRoad refTitle={top1Ref} title={'UI چیست'}></SkillRoad></div>
 
             
             </section>
@@ -44,18 +54,18 @@ function UIUX() {
             </section>
             <section className='container mx-auto  inline-block '> 
          
-                <h2 id="6" className="inline-block px-10  ">
+                <h2 id="6" className="inline-block px-10  " ref={top1Ref}>
                 طراحی رابط کاربری (UI)
                 </h2>
                 <p className='px-10 text-xs leading-7'>
                 طراحی UI بر عناصر بصری یک محصول دیجیتال تمرکز دارد. این شامل ایجاد زیبایی شناسی، چیدمان و ظاهر و احساس کلی رابط کاربری است. طراحان رابط کاربری روی انتخاب طرح های رنگی مناسب، تایپوگرافی، آیکون ها، تصاویر و سایر عناصر بصری کار می کنند تا یک طراحی جذاب و منسجم ایجاد کنند. آنها همچنین عواملی مانند نام تجاری، دسترسی و پاسخگویی به دستگاه های مختلف را در نظر می گیرند.
                     <br />
-                    <h2  id="5" className="inline-block ">
+                    <h2  id="5" className="inline-block " ref={top2Ref}>
                     طراحی تجربه کاربری (UX)
                 </h2> <br />
                 طراحی UX حول محور ایجاد یک تجربه معنادار و رضایت بخش برای کاربران در هنگام تعامل با یک محصول است. هدف طراحان UX درک نیازها، رفتارها و انتظارات کاربران برای طراحی رابط های بصری و کاربرپسند است. آنها تحقیقات کاربر را انجام می دهند، پرسونای کاربر ایجاد می کنند، و جریان های کاربر و قاب های سیمی را برای ترسیم سفر کاربر توسعه می دهند. طراحان UX همچنین بر روی معماری اطلاعات، طراحی تعامل و تست قابلیت استفاده تمرکز می کنند تا از تجربه کاربری روان و جذاب اطمینان حاصل کنند. 
                     <img src={bg6} alt="" className='-ml-4 w-32 float-left' /><br /><br />
-                    <h2 id='4' className="inline-block ">
+                    <h2 id='4' className="inline-block " ref={top3Ref}>
                     اهمیت یادگیری
                     </h2>
                     
@@ -74,7 +84,7 @@ function UIUX() {
 <br /> <br />
 مهارت های مشارکتی: یادگیری طراحی UI/UX شامل همکاری نزدیک با سهامداران، توسعه دهندگان و دیگر طراحان است. این به شما کمک می کند مهارت های مشارکتی را توسعه دهید، دیدگاه های مختلف را درک کنید و تصمیمات طراحی را به طور موثر برقرار کنید.<br /> <br />
 به طور کلی، یادگیری طراحی UI/UX شما را به مهارت‌های ارزشمندی مجهز می‌کند که می‌تواند بر رضایت کاربر، موفقیت کسب‌وکار و چشم‌انداز شغلی در چشم‌انداز دیجیتالی که به سرعت در حال تحول است، تأثیر مثبت بگذارد.<br /> <br />
-<h2 id='3' className="inline-block">
+<h2 id='3' className="inline-block" ref={top4Ref}>
                     کاربرد
                     </h2><br /> 
                     طراحی UI/UX طیف وسیعی از کاربردها در صنایع مختلف و محصولات دیجیتال دارد. در اینجا چند زمینه رایج وجود دارد که طراحی UI/UX نقشی حیاتی دارد:
@@ -98,7 +108,7 @@ function UIUX() {
             <section className='container mx-auto  '>
                 <img src={bg2} alt="" className='w-36 float-left mr-8' />
 <br /> <br /> <br /> <br />
-                <h2 id='2' className="inline-block px-10">
+                <h2 id='2' className="inline-block px-10" ref={top5Ref}>
                     منابع یادگیری  UIUX             </h2>
                 <p className='px-10 text-xs leading-7'>
                     <h3>منابع کتاب</h3>
@@ -137,7 +147,7 @@ function UIUX() {
                 </p>
                 <br /> <br />
                 <img src={bg3} alt="" className='w-[53%] float-left '/>
-                <h2 id='1' className="inline-block px-10"> نقشه راه</h2>
+                <h2 id='1' className="inline-block px-10" ref={top6Ref}> نقشه راه</h2>
                <section className='mx-auto w-[96%] flex justify-center'>
                 
 

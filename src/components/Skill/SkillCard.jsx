@@ -86,8 +86,8 @@ export default function SkillCard() {
           <p className='font-extralight text-center border-t border-black-300 leading-10 '>Python</p>
           </Link> </div>
 
-        <div style={details} className="rounded-md inline h-30 border border-black-300"><img src={uiux} style={details} className='p-1 h-26' alt="" /> <Link to='/skill/ui-ux'><p className='font-extralight leading-8  text-center border-t border-black-300'>UI UX Design</p></Link></div>
-        <div style={details} className="rounded-md inline h-30 border border-black-300"><Link to=''><img style={details} src={html} className='p-1 h-32' alt="" /><p className='font-extralight text-center border-t border-black-300 leading-8 '>HTML & CSS</p></Link></div>
+        <div style={details} className="rounded-md inline h-30 border border-black-300"> <Link to='/skill/ui-ux'><img src={uiux} style={details} className='p-1 h-26' alt="" /><p className='font-extralight leading-8  text-center border-t border-black-300'>UI UX Design</p></Link></div>
+        <div style={details} className="rounded-md inline h-30 border border-black-300"><Link to='/skill/html&css'><img style={details} src={html} className='p-1 h-32' alt="" /><p className='font-extralight text-center border-t border-black-300 leading-8 '>HTML & CSS</p></Link></div>
 
         <div style={details} className="rounded-md inline h-30 border border-black-300"><Link to='/skill/javaScript'><img style={details} src={javascript} className=' h-26' alt="" /><p className='font-extralight leading-8 text-center border-t border-black-300'>JavaScript</p></Link></div>
         

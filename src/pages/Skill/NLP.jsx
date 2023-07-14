@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef, useEffect } from 'react';
 import SkillSection from './UI/SkiilSection'
 import SkillRoad from './UI/SkillRoad'
 import bg from '../../asset/images/bg.png'
@@ -11,9 +11,20 @@ import bg6 from '../../asset/images/Group 445.png'
 import bg7 from '../../asset/images/Group 446.png'
 import bg8 from '../../asset/images/Group 447.png'
 import Button from '../../components/UI/Button'
-
+import useObserver from '../../hooks/use-observer';
 
 function NLP() {
+    const navbarRef = useRef(null);
+    const observeLineRef = useRef(null);
+    const top1Ref = useRef(null);
+    const top2Ref = useRef(null);
+    const top3Ref = useRef(null);
+    const top4Ref = useRef(null);
+    const top5Ref = useRef(null);
+
+  
+    useObserver(navbarRef, observeLineRef);
+  
 
     return (
         <section className="  mx-auto flex flex-col  ">
@@ -23,16 +34,16 @@ function NLP() {
 
             <SkillSection explain={'پردازش زبان طبیعی (Natural Language Processing) به شاخه‌ای از علوم رایانه (Computer Science)‌ و به‌طور خاص، شاخه‌ای از هوش مصنوعی (AI) مربوط می‌شود. این شاخه به کامپیوترها این امکان را می‌دهد تا متن و کلمه‌های گفتاری را به‌همان شیوه‌ای درک کنند که انسان می‌تواند بفهمد. '}></SkillSection>
 
-
+            <div ref={observeLineRef}></div>
             <section className=" bg-white flex sticky top-0 gap-5 justify-center mx-auto  mt-8 w-full   ">
                 <div className=' bg-dotted bg-no-repeat bg-center flex sticky top-0 gap-5 justify-center mx-auto  mt-8 w-full'>
 
 
-                <SkillRoad href={'#1'} title={'پروژه های تمرینی'}></SkillRoad>
-                <SkillRoad href={'#2'} title={'نقشه راه'}></SkillRoad>
-                <SkillRoad href={'#3'} title={'منابع یادگیری'}></SkillRoad>
-                <SkillRoad href={'#4'} title={'اهمیت یادگیری و کاربرد ها'}></SkillRoad>
-                <SkillRoad href={'#5'} title={'کاربرد NLP'}></SkillRoad> </div>
+                <SkillRoad refTitle={top5Ref} title={'پروژه های تمرینی'}></SkillRoad>
+                <SkillRoad refTitle={top4Ref} href={'#2'} title={'نقشه راه'}></SkillRoad>
+                <SkillRoad refTitle={top3Ref} href={'#3'} title={'منابع یادگیری'}></SkillRoad>
+                <SkillRoad refTitle={top2Ref} href={'#4'} title={'اهمیت یادگیری و کاربرد ها'}></SkillRoad>
+                <SkillRoad refTitle={top1Ref} href={'#5'} title={'کاربرد NLP'}></SkillRoad> </div>
 
             </section>
                
@@ -40,8 +51,9 @@ function NLP() {
             </section>
 
             <section className='container mx-auto '>
-                <h2 id='5' className="inline-block px-10  ">
-                    کاربرد NLP در دنیای برنامه نویسی چیست؟
+                <h2 id='5' className="inline-block px-10  "ref={top1Ref}>
+                
+                {' '}کاربرد NLP در دنیای برنامه نویسی چیست؟
                 </h2>
                 <p className='px-10 text-xs leading-7'>
                     پردازش زبان طبیعی (NLP) زبان‌شناسی محاسباتی (Computational Linguistics) را با مدل‌های (Statistical Models)، یادگیری ماشین (Machine Learning) و یادگیری عمیق (Deep Leaning) ترکیب می‌کند که همان زیرشاخه یادگیری ماشین است. در کنار هم این فناوری‌ها کامپیوترها را قادر می‌کنند تا زبان انسان را در قالب متن یا داده‌های صوتی پردازش و معنای کامل آن را درک کنند.
@@ -50,8 +62,9 @@ function NLP() {
                     <br />
                   
                     <img src={bg6} alt="" className='-ml-4 w-32 float-left' />
-                    <h2 id='4' className="inline-block  ">
-                        اهمیت یادگیری و کاربردها:
+                    <h2 id='4' className="inline-block  "ref={top2Ref}>
+                    
+                        اهمیت یادگیری و کاربردها:{' '}
                     </h2>
                     <br />
                     
@@ -78,8 +91,8 @@ function NLP() {
             <section className='container mx-auto'>
                 <img src={bg2} alt="" className='w-36 float-left mr-8' />
 <br />
-                <h2 id='3' className="inline-block px-10 ">
-                    منابع یادگیری  NLP             </h2>
+                <h2 id='3' className="inline-block px-10 " ref={top3Ref}>
+                    منابع یادگیری  NLP {' '}           </h2>
                      <br /> 
                 <p className='px-10 text-xs leading-7'>
                     یکی از قوی‌ترین دانشگاه‌ها در حوزه NLP دانشگاه استنفورد است که پیشرفت در این حوزه را مدیون عملکرد تیم‌های تحقیقاتی در آن هستیم. همچنین قوی‌ترین کتاب‌ها و منابع آموزشی در این حوزه را اساتید این دانشگاه به ارمغان آورده‌اند.
@@ -96,7 +109,9 @@ function NLP() {
          
                <br /> <br />
                 <img src={bg3} alt="" className='w-[45%]  -ml-48 float-left ' /> <br /><br /> <br />
-                <h2 id='2' className="inline-block px-10"> نقشه راه</h2>
+                <h2 id='2' className="inline-block px-10" ref={top4Ref}>
+                 
+                نقشه راه {' '}</h2>
                 <div className='mx-auto w-[96%] flex justify-center'>
 
                     <img src={road} alt="" className='w-[94%] mr-8' />
@@ -110,7 +125,8 @@ function NLP() {
 
                 <br /> <br /> <br /> <br />
                 <div className='nlp-bg h-[700px]'>
-                    <h2 id='1' className="inline-block px-10">پروژه هایی برای تمرین NLP :</h2>
+                    <h2 id='1' ref={top5Ref} className="inline-block px-10">پروژه هایی برای تمرین NLP : {' '}
+                    </h2>
                     <p className='px-10 text-xs leading-7'>
                         پروژه‌ها و تمارین:
                         همه ما میدانیم برای تسلط و یادگیری واقعی یک مهارت نیاز به تمرین و تکرار زیاد است. به‌ قول لینوس توروالدز خالق هسته لینوکس : "حرف زدن بی‌فایده است، کدت را نشان بده"
