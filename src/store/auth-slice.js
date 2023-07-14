@@ -21,10 +21,9 @@ const retrieveStoredToken = () => {
 };
 
 const retrieveStoredRole = () => {
-  const storedToken =
-    localStorage.getItem('role');
+  const storedRole = localStorage.getItem('role');
   return {
-    role: storedToken,
+    role: storedRole,
   };
 };
 
@@ -81,7 +80,6 @@ export const registerUser = createAsyncThunk(
 export const loginUser = createAsyncThunk(
   'auth/login',
   async (data, { dispatch }) => {
-    console.log('hello');
     try {
       const response = await axios.post(
         API_LOGIN,

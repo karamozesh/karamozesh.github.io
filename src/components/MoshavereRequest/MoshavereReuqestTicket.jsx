@@ -219,6 +219,10 @@ const MoshavereRequsetTicket = ({ request }) => {
           >
             {messages[0].question}
           </p>
+          <Button className="w-fit whitespace-nowrap mr-2 bg-red-500 text-white">
+            پاکش کن (البته میشه از آیکون سطل آشغال
+            هم استفاده کنیم)
+          </Button>
         </div>
       </div>
       <div

@@ -4,10 +4,11 @@ import {
 } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { API_ADD_TICKET } from '../api/configAPI';
+import { notificationActions } from './notification-slice';
 
 export const addTicketFree = createAsyncThunk(
   'moshavereForm/addTicketFree',
-  async ({ user_token, data }) => {
+  async ({ user_token, data }, { dispatch }) => {
     console.log(user_token, data);
 
     const {
@@ -29,19 +30,32 @@ export const addTicketFree = createAsyncThunk(
       contact_way: contactWay,
     };
 
-    const response = axios.post(
-      API_ADD_TICKET,
-      JSON.stringify(validData),
-      {
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Token ${user_token}`,
+    try {
+      const response = axios.post(
+        API_ADD_TICKET,
+        JSON.stringify(validData),
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Token ${user_token}`,
+          },
         },
-      },
-    );
-    const { ticket_id } = await response.data;
-
-    console.log(ticket_id);
+      );
+      const { ticket_id } = await response.data;
+      dispatch(
+        notificationActions.changeSuccess({
+          message: 'تیکت با موفقیت ساخته شد.',
+          exist: true,
+        }),
+      );
+    } catch (error) {
+      dispatch(
+        notificationActions.changeSuccess({
+          message: 'ساخت تیکت دچار مشکل شد.',
+          exist: true,
+        }),
+      );
+    }
   },
 );
 
