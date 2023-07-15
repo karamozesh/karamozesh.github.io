@@ -37,7 +37,7 @@ function Htmlcss() {
         explain={
           'هر وبسایت دو بخش دارد . یک بخش از وبسایت قسمتی ست که کاربر مشاهده میکند و با آن کار میکند که frontend نام دارد . بخش دیگر قسمتی ست که کاربر چیزی از آن را مشاهده نمیکند و شامل تمام کار هایی ست که در پشت صحنه ی وبسایت انجام می شود مثل برقراری ارتباط با دیتا بیس و ... backend  نامیده می شود .'
         }
-      ></SkillSection>
+      />
       <div ref={observeLineRef}></div>
       <section
         className="flex sticky top-0 gap-5 justify-center mx-auto w-full z-20 py-5 bg-white/80"
@@ -69,15 +69,14 @@ function Htmlcss() {
             title={'پروژه های تمرینی'}
           />
         </div>
-      </section>
-      <section className="inline-block z-10">
-        {' '}
+      </section>{' '}
+      <div className="relative mb-[150px]">
         <img
           src={bg}
-          className="w-[10%] -mt-7 float-left"
+          className="absolute left-0 w-[10%] -mt-7"
           alt=""
         />
-      </section>
+      </div>
       <section className="container mx-auto ">
         <h2
           id="6"
@@ -97,11 +96,6 @@ function Htmlcss() {
           صفحه را میسازید.
           <br />
           <br />
-          <img
-            src={bg6}
-            alt=""
-            className="-ml-16 w-32 float-left"
-          />
           <h2
             id="5"
             className="inline-block  "
@@ -274,7 +268,7 @@ function Htmlcss() {
           {' '}
           نقشه راه
         </h2>
-        <section className="mx-auto w-[80%] flex justify-center">
+        <section className="mx-auto w-[70%] flex justify-center">
           <img
             src={road}
             alt=""

@@ -70,14 +70,14 @@ function NLP() {
         </div>
       </section>
 
-      <section className="inline-block z-10">
+      <div className="relative mb-[150px]">
         {' '}
         <img
           src={bg}
-          className="w-[10%] -mt-7 float-left"
+          className="absolute left-0 w-[10%] -mt-7"
           alt=""
         />
-      </section>
+      </div>
 
       <section className="container mx-auto">
         <h2
@@ -229,12 +229,8 @@ function NLP() {
         >
           نقشه راه{' '}
         </h2>
-        <div className="mx-auto w-[96%] flex justify-center">
-          <img
-            src={road}
-            alt=""
-            className="w-[94%] mr-8"
-          />
+        <div className="mx-auto w-[60%] flex justify-center">
+          <img src={road} alt="" />
         </div>
         <div className="mx-auto w-[96%] ">
           <img

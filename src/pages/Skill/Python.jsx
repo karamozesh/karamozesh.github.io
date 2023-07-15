@@ -75,14 +75,13 @@ function Python() {
           />
         </div>
       </section>
-      <section className="inline-block z-10">
-        {' '}
+      <div className='relative mb-[150px]'>
         <img
           src={bg}
-          className="w-[10%] -mt-7 float-left"
+          className="absolute left-0 w-[10%] -mt-7"
           alt=""
         />
-      </section>
+      </div>
 
       <section className="container mx-auto">
         <h2
@@ -327,11 +326,11 @@ function Python() {
         {' '}
         نقشه راه
       </h2>
-      <section className="mx-auto w-[96%] flex justify-center">
+      <section className="mx-auto w-[70%] mt-4 flex justify-center">
         <img
           src={pythonR}
           alt=""
-          className="w-full mr-8"
+          className="w-full"
         />
       </section>
       <section className="mx-auto w-[96%] ">

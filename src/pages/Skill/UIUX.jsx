@@ -77,14 +77,13 @@ function UIUX() {
         </div>
       </section>
 
-      <section className="inline-block z-10">
-        {' '}
+      <div className='relative mb-[150px]'>
         <img
           src={bg}
-          className="w-[10%] -mt-7 float-left"
+          className="absolute left-0 w-[10%] -mt-7"
           alt=""
         />
-      </section>
+      </div>
       <section className="container mx-auto inline-block">
         <h2
           id="6"
@@ -420,7 +419,7 @@ function UIUX() {
           {' '}
           نقشه راه
         </h2>
-        <section className="mx-auto w-[80%] flex justify-center">
+        <section className="mx-auto w-[75%] flex justify-center">
           <img
             src={road}
             alt=""
