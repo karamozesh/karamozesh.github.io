@@ -25,7 +25,7 @@ const ResultMoshavereRequest = ({ tickets }) => {
       ) : (
         <span
           style={{ color: '#000000A1' }}
-          className="flex justify-center items-center h-full w-full text-base"
+          className="flex w-full text-base"
         >
           شما درخواستی ثبت نکرده اید!
         </span>

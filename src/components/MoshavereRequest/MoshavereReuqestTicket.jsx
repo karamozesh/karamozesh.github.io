@@ -10,6 +10,9 @@ import { getDateLabelJalaali } from '../../functions/date';
 import { useNavigate } from 'react-router-dom';
 import Button from '../UI/Button';
 
+import trashIcon from '../../asset/icon/trash.svg';
+import { Tooltip } from 'antd';
+
 const MoshavereRequsetTicket = ({ request }) => {
   const { tags, status } = request;
   const [showMessages, setShowMessages] =
@@ -198,31 +201,46 @@ const MoshavereRequsetTicket = ({ request }) => {
         status !== '2' ? 'px-3 py-4' : ''
       } border-[1px] border-gray-500/30 `}
     >
-      <div className="flex  items-center">
-        <Button
-          onClick={navigateToTicketPage}
-          className="ml-4"
-        >
-          بریم به چتا
-        </Button>
-        <p className="flex">
-          موضوع:{' '}
-          <span style={{ color: '#00000080' }}>
-            {request.title}
-          </span>
-        </p>
-        <div className="max-w-full flex items-center mr-4">
-          سوال:{' '}
-          <p
-            style={{ color: '#00000080' }}
-            className={`mr-2 ${styles.elips}`}
-          >
-            {messages[0].question}
+      <div className="w-full flex items-center justify-between">
+        <div className="w-[70%] flex">
+          <p className="w-[50%] flex flex-col text-lg">
+            موضوع:{' '}
+            <span
+              style={{ color: '#00000080' }}
+              className="text-sm"
+            >
+              {request.title}
+            </span>
           </p>
-          <Button className="w-fit whitespace-nowrap mr-2 bg-red-500 text-white">
-            پاکش کن (البته میشه از آیکون سطل آشغال
-            هم استفاده کنیم)
+          <p
+            className={`w-[50%] flex flex-col text-lg`}
+          >
+            سوال:{' '}
+            <span
+              style={{ color: '#00000080' }}
+              className="text-sm"
+            >
+              {messages[0].question}
+            </span>
+          </p>
+        </div>
+        <div className="flex w-[40%] justify-end">
+          <Button
+            onClick={navigateToTicketPage}
+            className="w-fit ml-4 bg-primaryColor text-white"
+          >
+            بریم به چتا
           </Button>
+          <Tooltip title="این قابلیت به زودی اضافه خواهد شد">
+            <Button className="flex items-center w-fit whitespace-nowrap mr-2 bg-red-500 text-white cursor-not-allowed">
+              حذف تیکت
+              <img
+                src={trashIcon}
+                alt=""
+                className="mr-1"
+              />
+            </Button>
+          </Tooltip>
         </div>
       </div>
       <div

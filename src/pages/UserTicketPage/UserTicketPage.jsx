@@ -11,6 +11,7 @@ import MoshavereRequestConversation from '../../components/MoshavereRequest/Mosh
 import messageSendIcon from '../../asset/icon/send-message-icon.png';
 import { useRef } from 'react';
 import { ticketSendMessage } from '../../store/ticket-slice';
+import { getDateLabelJalaali } from '../../functions/date';
 
 const UserTicketPage = () => {
   const { tickets } = useSelector(
@@ -52,6 +53,30 @@ const UserTicketPage = () => {
 
   return (
     <div className="w-[90%] mx-auto my-10 pb-10">
+      <div className="flex flex-col gap-y-4 mb-8">
+        <p className="pr-2 border-r-[10px] border-secondaryColor">
+          تاپیک تیکت:{' '}
+          <span className="text-xs mr-2 text-gray-500">
+            {ticketSelected.messages[0].question}
+          </span>
+        </p>
+        <p className="pr-2 border-r-[10px] border-primaryColor">
+          شماره تیکت :{' '}
+          <span className="text-xs mr-2 text-gray-500">
+            {ticketId}
+          </span>
+        </p>
+        <p className="pr-2 border-r-[10px] border-greenColor">
+          ساخته شده در
+          <span className="text-xs mr-2 text-gray-500">
+            {getDateLabelJalaali(
+              new Date(
+                ticketSelected.meeting_date,
+              ),
+            )}
+          </span>
+        </p>
+      </div>
       <MoshavereRequestConversation
         messages={ticketSelected.messages}
       />

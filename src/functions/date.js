@@ -79,3 +79,9 @@ export const dateToMessageTime = (date) => {
 
   return timeString;
 };
+
+export const isAnotherDay = (date1, date2) => {
+  if (date1.getDay() !== date2.getDay())
+    return true;
+  return false;
+};

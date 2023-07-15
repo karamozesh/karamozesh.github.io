@@ -72,12 +72,6 @@ export const ticketSendMessage = createAsyncThunk(
           created_time: created_time.toString(),
         }),
       );
-      dispatch(
-        notificationActions.changeSuccess({
-          exist: true,
-          message: SUCCESS_MESSAGE.SEND_MESSAGE,
-        }),
-      );
     } catch (error) {
       dispatch(
         notificationActions.changeError({
