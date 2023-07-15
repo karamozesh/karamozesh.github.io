@@ -70,6 +70,9 @@ export const API_LOGIN =
 export const API_REGISTER =
   baseUrl + '/api/user/register/';
 
+export const API_FORGOT_PASSWORD =
+  baseUrl + '/api/user/forget-password/';
+
 // --- very funny API
 
 // export const API_GET_CV_ID =

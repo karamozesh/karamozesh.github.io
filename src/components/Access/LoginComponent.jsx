@@ -3,6 +3,7 @@ import InputLabel from '../UI/InputLabel';
 import { useDispatch } from 'react-redux';
 import { loginByEmailPass } from '../../api/authAPI';
 import {
+  Link,
   Navigate,
   useNavigate,
 } from 'react-router-dom';
@@ -84,13 +85,13 @@ const LoginComponent = () => {
             autoComplete="off"
             role="password"
           />
-          <a
-            href=""
+          <Link
+            to="/access/forgot"
             className="font-bold text-primaryColor text-[11px]"
             // onClick={toggleModeHandler}
           >
             رمز عبور خود را فراموش کرده اید؟
-          </a>
+          </Link>
 
           <div className="flex flex-col gap-3  justify-between">
             <button
@@ -101,20 +102,16 @@ const LoginComponent = () => {
             >
               ورود به سایت
             </button>
-            <span className="flex">
-              <p className=" text-[13px]">
+            <span className="flex items-center">
+              <p className="text-[13px]">
                 حساب کاربری ندارید؟
               </p>
-              <p
-                className="mr-2 text-[13px] font-bold cursor-pointer"
-                onClick={() => {
-                  gotoRegister();
-                  setStatus(false);
-                }}
+              <Link
+                className="mr-2 text-primaryColor font-bold cursor-pointer text-[13px]"
+                to="/register"
               >
-                بر روی عضویت بالا کلیک کنید
-                {/* عضویت در اموزشیار . */}
-              </p>
+                ورود به حساب کاربری
+              </Link>
             </span>
           </div>
           {error && (

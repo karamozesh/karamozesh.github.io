@@ -4,6 +4,7 @@ import {
 } from '@reduxjs/toolkit';
 import Cookies from 'universal-cookie';
 import {
+  API_FORGOT_PASSWORD,
   API_LOGIN,
   API_REGISTER,
 } from '../api/configAPI';
@@ -93,7 +94,7 @@ export const loginUser = createAsyncThunk(
         API_LOGIN,
         JSON.stringify(data),
         {
-          method: 'GET',
+          method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
@@ -103,6 +104,40 @@ export const loginUser = createAsyncThunk(
       const result = await response.data;
 
       dispatch(authActions.loginHandler(result));
+
+      dispatch(
+        notificationActions.changeSuccess({
+          exist: true,
+          message: 'خوش آمدی دوست من.',
+        }),
+      );
+      cb();
+    } catch (error) {
+      dispatch(
+        notificationActions.changeError({
+          exist: true,
+          message:
+            'ایمیل با پسورد سازگار نیست دوست من.',
+        }),
+      );
+    }
+  },
+);
+
+export const forgetPassword = createAsyncThunk(
+  'auth/forgetPassword',
+  async ({ email, cb }, { dispatch }) => {
+    try {
+      const response = await axios.post(
+        API_FORGOT_PASSWORD,
+        JSON.stringify(email),
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        },
+      );
 
       dispatch(
         notificationActions.changeSuccess({

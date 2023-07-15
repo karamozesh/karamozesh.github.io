@@ -123,17 +123,12 @@ const RegisterComponent = () => {
               <p className="text-[13px]">
                 حساب کاربری دارید؟
               </p>
-
-              <p className="text-[13px]">
-                بر روی لینک بالا کلیک کنید
-              </p>
-              {/* <Link
-              className="mr-2 text-primaryColor font-bold cursor-pointer text-[13px]"
-              onClick={() => setStatus(true)}
-              to="/access/login"
-            >
-              ورود به حساب کاربری
-            </Link> */}
+              <Link
+                className="mr-2 text-primaryColor font-bold cursor-pointer text-[13px]"
+                to="/login"
+              >
+                ورود به حساب کاربری
+              </Link>
             </span>
           </div>
         </div>
