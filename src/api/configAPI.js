@@ -149,7 +149,11 @@ export const API_GET_MOSHAVER_OWN_TICKETS =
 
 // --- Talent API
 
-export const API_TALENT_TESTS =
+export const API_TALENT_TESTS = (user_id) =>
+  baseUrl +
+  `/user/user-talent-surveys/${user_id}`;
+
+export const API_SEND_TALENT_TESTS =
   baseUrl + '/api/talent-survey/';
 
 // Talent API ---

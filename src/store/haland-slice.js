@@ -4,28 +4,44 @@ import {
 } from '@reduxjs/toolkit';
 import axios from 'axios';
 import {
-  API_TALENT_TESTS,
+  API_SEND_TALENT_TESTS,
   POST_CONFIG,
 } from '../api/configAPI';
+import { mbtiActions } from './mbti-slice';
+import { notificationActions } from './notification-slice';
 
 export const sendTestResult = createAsyncThunk(
   'haland/sendTestResult',
-  async ({ user_token, result, name }) => {
+  async (
+    { user_token, result, name, cb, type },
+    { dispatch },
+  ) => {
     const objData = { name, result };
-
-    console.log('here');
 
     try {
       const response = await axios.post(
-        API_TALENT_TESTS,
+        API_SEND_TALENT_TESTS,
         JSON.stringify(objData),
         POST_CONFIG(user_token),
       );
 
-      const data = await response.data;
+      dispatch(mbtiActions.setType(type));
+      dispatch(
+        notificationActions.changeSuccess({
+          exist: true,
+          message: 'تست با موفقیت انجام شد',
+        }),
+      );
 
-      console.log(data);
-    } catch (error) {}
+      cb();
+    } catch (error) {
+      dispatch(
+        notificationActions.changeError({
+          exist: true,
+          message: 'مشکلی در ارسال تست وجود دارد',
+        }),
+      );
+    }
   },
 );
 

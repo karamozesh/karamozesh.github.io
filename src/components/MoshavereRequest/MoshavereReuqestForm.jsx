@@ -230,11 +230,15 @@ const FreeMoshavereRequestContent = () => {
     e.preventDefault();
 
     dispatch(
-      addTicketFree({ data, user_token }),
-    ).then(() => {
-      navigate('/profile');
-      window.scrollTo(0, 0);
-    });
+      addTicketFree({
+        data,
+        user_token,
+        cb: () => {
+          navigate('/profile');
+          window.scrollTo(0, 0);
+        },
+      }),
+    );
   };
 
   return (

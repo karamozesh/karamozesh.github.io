@@ -1,7 +1,4 @@
-import React, {
-  
-  useState,
-} from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import ENTJ from '../../pages/MbtiTypes/ENTJ';
 import INTJ from '../../pages/MbtiTypes/INTJ';
@@ -20,108 +17,41 @@ import ESTP from '../../pages/MbtiTypes/ESTP';
 import ESFP from '../../pages/MbtiTypes/ESFP';
 
 function Result() {
-  const { ansArray } = useSelector(
+  const { ansArray, type } = useSelector(
     (state) => state.mbti,
   );
-  const [type, setType] = useState({
-    name: '',
-    value: '',
-  });
 
-  console.log(ansArray);
-
-  const calculateResult = () => {
-    const answer = [...ansArray];
-    const result = answer.reduce(
-      (previewValue, currentValue) => {
-        const key = currentValue.value;
-        previewValue[key] = previewValue[key] + 1;
-
-        console.log(key, previewValue);
-        return previewValue;
-      },
-      {
-        I: 0,
-        E: 0,
-        S: 0,
-        F: 0,
-        J: 0,
-        P: 0,
-        S: 0,
-        N: 0,
-        T:0
-      },
-    );
-    console.log('myresult ', result);
-    let personality = '';
-
-    if (result.E > result.I) personality += 'E';
-    else personality += 'I';
-
-    if (result.S > result.N) personality += 'S';
-    else personality += 'N';
-
-    if (result.T > result.F) personality += 'T';
-    else personality += 'F';
-
-    if (result.J > result.P) personality += 'J';
-    else personality += 'P';
-    console.log(result.E, result.T);
-    return personality;
-  };
-
-  const myResult = calculateResult();
-
-
-  if (myResult == 'ENTJ') {
+  if (type == 'ENTJ') {
     return <ENTJ />;
-  }else if(myResult == 'INTJ'){
+  } else if (type == 'INTJ') {
     return <INTJ />;
-  }
-  else if(myResult == 'INTP'){
+  } else if (type == 'INTP') {
     return <INTP />;
-  }
-  else if(myResult == 'INFP'){
+  } else if (type == 'INFP') {
     return <INFP />;
-  }
-  else if(myResult == 'ENFJ'){
+  } else if (type == 'ENFJ') {
     return <ENFJ />;
-  }
-  else if(myResult == 'INFJ'){
+  } else if (type == 'INFJ') {
     return <INFJ />;
-  }
-  else if(myResult == 'ENFP'){
+  } else if (type == 'ENFP') {
     return <ENFP />;
-  }
-  else if(myResult == 'ISTJ'){
+  } else if (type == 'ISTJ') {
     return <ISTJ />;
-  }
-  else if(myResult == 'ISFJ'){
+  } else if (type == 'ISFJ') {
     return <ISFJ />;
-  }
-  else if(myResult == 'ESTJ'){
+  } else if (type == 'ESTJ') {
     return <ESTJ />;
-  }
-  else if(myResult == 'ESFJ'){
+  } else if (type == 'ESFJ') {
     return <ESFJ />;
-  }
-
-  else if(myResult == 'ISTP'){
+  } else if (type == 'ISTP') {
     return <ISTP />;
-  }
-
-  else if(myResult == 'ISFP'){
+  } else if (type == 'ISFP') {
     return <ISFP />;
-  }
-  else if(myResult == 'ESTP'){
+  } else if (type == 'ESTP') {
     return <ESTP />;
-  }
-  else if(myResult == 'ESFP'){
+  } else if (type == 'ESFP') {
     return <ESFP />;
-  }
-
-
-
-  return <></>;
+  } else
+    throw new Error('Invalid Type Personality');
 }
 export default Result;

@@ -35,6 +35,12 @@ export default function UserInfo() {
     talent_result: talentTestsArray,
   } = useSelector((state) => state.profile);
 
+  const { type } = useSelector(
+    (state) => state.mbti,
+  );
+
+  console.log(type);
+
   const filedChangeHandler = (e, prop) => {
     const value = e.target.value;
 
@@ -110,10 +116,6 @@ export default function UserInfo() {
 
   const navigate = useNavigate();
 
-  // const navigateToTalentSurveyHandler = () => {
-  //   navigate('/');
-  // }
-
   const scrollToTop = () => {
     window.scrollTo(0, 0);
   };
@@ -181,12 +183,12 @@ export default function UserInfo() {
             }}
           >
             <p>رزومه من</p>
-            <Progress
+            {/* <Progress
               className="w-[40%] mt-2"
               percent={50}
               style={{ direction: 'ltr' }}
               strokeColor={'#24AD29'}
-            />
+            /> */}
             <div className="flex gap-x-2">
               <Button
                 type="button"
@@ -219,6 +221,7 @@ export default function UserInfo() {
             <p>نتیجه خودشناسی</p>
             <div className="flex gap-x-2">
               {talentTestsArray.length > 0 ? (
+                /*               (
                 talentTestsArray.map(
                   (talentTest) => (
                     <TalentResultBtn
@@ -227,6 +230,16 @@ export default function UserInfo() {
                     />
                   ),
                 )
+              )  */
+                type ? (
+                  <TalentResultBtn
+                    talent={{
+                      label: 'نتیجه تست MBTI',
+                      name: 'mbti',
+                      value: 'result/mbti',
+                    }}
+                  />
+                ) : null
               ) : (
                 <div className="flex items-center gap-x-2">
                   <p>

@@ -97,43 +97,51 @@ export default function ResumeCreatingPage() {
   }
 
   const saveClickHandler = () => {
+    const callbackFunction = (path) => {
+      navigate(path);
+      window.scrollTo(0, 0);
+    };
+
     let destinationStep;
+    let destinationPath = baseURL;
     if (slug === 'base-information') {
+      destinationStep = 'education';
+      destinationPath += destinationStep;
       dispatch(
         createResume({
           ...baseInformation,
           user_id,
           user_token,
+          cb: () =>
+            callbackFunction(destinationPath),
         }),
       );
-      destinationStep = 'education';
     } else if (slug === 'education') {
+      destinationStep = 'work-experience';
+      destinationPath += destinationStep;
       dispatch(
         sendEducationInfo({
           ...education,
           cv_id,
           user_token,
+          cb: () =>
+            callbackFunction(destinationPath),
         }),
       );
-      destinationStep = 'work-experience';
     } else if (slug === 'work-experience') {
+      destinationStep = 'skills';
+      destinationPath += destinationStep;
       dispatch(
         sendWorkExperienceInfo({
           ...workExperience,
           cv_id,
           user_token,
+          cb: () =>
+            callbackFunction(destinationPath),
         }),
       );
-      destinationStep = 'skills';
     } else if (slug === 'skills') {
-      // dispatch(
-      //   sendEducationInfo({
-      //     user_token,
-      //     ...skill,
-      //   }),
-      // );
-      // destinationStep = 'further-information';
-      navigate('/profile');
+      callbackFunction('/profile');
       return;
     }
     //  else if (slug === 'further-information') {
@@ -145,10 +153,6 @@ export default function ResumeCreatingPage() {
         'Invalid Step in Resume Creating App!',
       );
     }
-    const destinationPath =
-      baseURL + destinationStep;
-
-    navigate(destinationPath);
   };
 
   return (
@@ -194,7 +198,9 @@ export default function ResumeCreatingPage() {
           className="max-w-[200px] px-8 py-2 mt-6 rounded-xl shadow-xl bg-secondaryColor"
           onClick={saveClickHandler}
         >
-          ذخیره و ادامه
+          {slug !== 'skills'
+            ? 'ذخیره و ادامه'
+            : 'اتمام'}
         </button>
       </div>
     </div>

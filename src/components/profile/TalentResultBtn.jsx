@@ -1,19 +1,38 @@
+import {
+  Link,
+  useNavigate,
+} from 'react-router-dom';
 import Button from '../UI/Button';
 
 const TalentResultBtn = ({ talent }) => {
+  const navigate = useNavigate();
+
+  const customNavigator = (path) => {
+    navigate(path);
+    window.scrollTo(0, 0);
+  };
+
   return (
-    <div className="flex bg-gray-600 rounded-r-md">
-      <Button
+    <div className="flex bg-primaryColor rounded-xl">
+      <button
         type="button"
-        className="flex justify-center items-center shadow-profile-talent-btn text-xs rounded-md bg-white"
+        className="flex justify-center px-2 items-center shadow-profile-talent-btn text-xs bg-white rounded-xl"
+        onClick={() =>
+          customNavigator(
+            `/talent-survey/${talent.value}`,
+          )
+        }
       >
-        <Link
-          to={`/talent-survey/${talent.value}`}
-        >
-          {talent.name}
-        </Link>
-      </Button>
-      <button className="px-4 text-xs text-gray-800">
+        {talent.label}
+      </button>
+      <button
+        className="px-4 text-xs bg-primaryColor text-white rounded-xl overflow-hidden"
+        onClick={() =>
+          customNavigator(
+            `/talent-survey/${talent.name}`,
+          )
+        }
+      >
         اعمال تغیرات
       </button>
     </div>

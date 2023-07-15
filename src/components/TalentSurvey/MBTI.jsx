@@ -6,20 +6,21 @@ import {
   useDispatch,
   useSelector,
 } from 'react-redux';
-import { Link } from 'react-router-dom';
+import {
+  Link,
+  useNavigate,
+} from 'react-router-dom';
 import { mbtiActions } from '../../store/mbti-slice';
+import { sendTestResult } from '../../store/haland-slice';
 
 function MBTI() {
-  const { user_token, isLoggedIn } = useSelector(
+  const { user_token } = useSelector(
     (state) => state.auth,
   );
   const dispatch = useDispatch();
 
- 
-
   const { totalQuestions, ansArray } =
     useSelector((state) => state.mbti);
-  console.log();
 
   const [currentPage, setCurrentPage] =
     useState(1);
@@ -44,12 +45,72 @@ function MBTI() {
 
   const isLastPage =
     currentPage === Math.ceil(totalQuestions / 6);
+
+  const navigate = useNavigate();
+
   const seeTheResultHandler = () => {
-    const result_string =
-      JSON.stringify(ansArray);
- 
+    let resultPath = '/talent-survey/result/mbti';
+
+    const callbackFunction = () => {
+      navigate(resultPath);
+      window.scrollTo(0, 0);
+    };
+
+    const calculateResult = () => {
+      const answer = [...ansArray];
+      const result = answer.reduce(
+        (previewValue, currentValue) => {
+          const key = currentValue.value;
+          previewValue[key] =
+            previewValue[key] + 1;
+
+          return previewValue;
+        },
+        {
+          I: 0,
+          E: 0,
+          F: 0,
+          J: 0,
+          P: 0,
+          S: 0,
+          N: 0,
+          T: 0,
+        },
+      );
+
+      let personality = '';
+
+      if (result.E > result.I) personality += 'E';
+      else personality += 'I';
+
+      if (result.S > result.N) personality += 'S';
+      else personality += 'N';
+
+      if (result.T > result.F) personality += 'T';
+      else personality += 'F';
+
+      if (result.J > result.P) personality += 'J';
+      else personality += 'P';
+
+      return personality;
+    };
+
+    const resultPersonality = calculateResult();
+
+    const testDataObj = {
+      name: 'mbti',
+      result: `https://${resultPersonality}.ir`,
+    };
+    dispatch(
+      sendTestResult({
+        user_token,
+        ...testDataObj,
+        cb: callbackFunction,
+        type: resultPersonality,
+      }),
+    );
   };
-  console.log(ansArray);
+
   return ansArray.length === totalQuestions ? (
     <div>
       <h2>شما قبلا این آزمون را داده اید</h2>
@@ -98,15 +159,10 @@ function MBTI() {
           )}
           {isLastPage && (
             <button
-              className="text-white bg-primaryColor rounded-3xl"
+              className="text-white bg-primaryColor rounded-3xl p-2 px-3"
               onClick={seeTheResultHandler}
             >
-              <Link
-                to="/talent-survey/result/mbti"
-                className="py-3 px-6"
-              >
-                دیدن نتیجه تست
-              </Link>
+              دیدن نتیجه تست
             </button>
           )}
         </section>

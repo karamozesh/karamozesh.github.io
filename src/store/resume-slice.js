@@ -69,6 +69,7 @@ export const createResume = createAsyncThunk(
       birthdayDate: data_of_birth,
       address: address,
       user_id,
+      cb,
     } = data;
 
     const valid_obj = {
@@ -104,6 +105,7 @@ export const createResume = createAsyncThunk(
           message: SUCCESS_MESSAGE,
         }),
       );
+      cb();
     } catch (error) {
       dispatch(
         notificationActions.changeError({
@@ -126,6 +128,7 @@ export const sendEducationInfo = createAsyncThunk(
       nameUniversity: university,
       cv_id,
       user_token,
+      cb,
     } = data;
 
     const valid_obj = {
@@ -154,6 +157,7 @@ export const sendEducationInfo = createAsyncThunk(
           message: SUCCESS_MESSAGE,
         }),
       );
+      cb();
     } catch (error) {
       dispatch(
         notificationActions.changeError({
@@ -177,6 +181,7 @@ export const sendWorkExperienceInfo =
         endDate: end_date, // Date
         cv_id,
         user_token,
+        cb,
       } = data;
 
       const valid_obj = {
@@ -205,6 +210,7 @@ export const sendWorkExperienceInfo =
             message: SUCCESS_MESSAGE,
           }),
         );
+        cb();
       } catch (error) {
         dispatch(
           notificationActions.changeError({
@@ -231,7 +237,6 @@ export const sendSkills = createAsyncThunk(
         },
       );
       const skillObj = response.data;
-      console.log(skillObj);
       dispatch(
         resumeActions.addSkill({
           lvl: 1,

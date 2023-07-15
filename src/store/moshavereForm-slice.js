@@ -9,7 +9,10 @@ import { ticketActions } from './ticket-slice';
 
 export const addTicketFree = createAsyncThunk(
   'moshavereForm/addTicketFree',
-  async ({ user_token, data }, { dispatch }) => {
+  async (
+    { user_token, data, cb },
+    { dispatch },
+  ) => {
     const {
       zamine,
       lvlOfInofrmation,
@@ -68,7 +71,7 @@ export const addTicketFree = createAsyncThunk(
           exist: true,
         }),
       );
-      return response.data;
+      cb();
     } catch (error) {
       dispatch(
         notificationActions.changeError({

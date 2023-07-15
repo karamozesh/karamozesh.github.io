@@ -31,10 +31,13 @@ const ERROR_MESSAGE =
 
 export const getTalents = createAsyncThunk(
   'profile/getTalents',
-  async ({ user_token }, { dispatch }) => {
+  async (
+    { user_token, user_id },
+    { dispatch },
+  ) => {
     try {
       const response = await axios.get(
-        API_TALENT_TESTS,
+        API_TALENT_TESTS(user_id),
         GET_CONFIG(user_token),
       );
 

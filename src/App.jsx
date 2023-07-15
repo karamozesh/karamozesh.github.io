@@ -60,12 +60,20 @@ import {
   getUserImageProfile,
 } from './store/profile-slice';
 import { getResume } from './store/resume-slice';
+import { mbtiActions } from './store/mbti-slice';
 
 function App() {
   const { isLoggedIn, isMoshaver, user_token } =
     useSelector((state) => state.auth);
   const { user_id } = useSelector(
     (state) => state.profile,
+  );
+  const { talent_result } = useSelector(
+    (state) => state.profile,
+  );
+
+  const { type } = useSelector(
+    (state) => state.mbti,
   );
 
   const navigate = useNavigate();
@@ -155,7 +163,9 @@ function App() {
             cv_id: 'cv_id',
           }),
         );
-        dispatch(getTalents({ user_token }));
+        dispatch(
+          getTalents({ user_token, user_id }),
+        );
       }
     }
   }, [
@@ -164,6 +174,20 @@ function App() {
     user_token,
     user_id,
   ]);
+
+  useEffect(() => {
+    if (talent_result.length > 0) {
+      for (const talentTest of talent_result) {
+        if (talentTest.name === 'mbti') {
+          const type = talentTest.result
+            .split('//', 2)[1]
+            .split('.', 2)[0];
+
+          dispatch(mbtiActions.setType(type));
+        }
+      }
+    }
+  }, [talent_result]);
 
   const userRoutes = (
     <Routes>
