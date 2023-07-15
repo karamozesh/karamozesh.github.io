@@ -110,7 +110,7 @@ const LoginComponent = () => {
                 className="mr-2 text-primaryColor font-bold cursor-pointer text-[13px]"
                 to="/register"
               >
-                ورود به حساب کاربری
+                ورود به عضویت
               </Link>
             </span>
           </div>
