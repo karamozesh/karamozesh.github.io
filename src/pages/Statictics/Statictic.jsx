@@ -2,9 +2,9 @@ import React from 'react';
 import { Col, Row, Statistic } from 'antd';
 import CountUp from 'react-countup';
 
-
-const formatter = (value) => <CountUp end={value} separator="," />;
-
+const formatter = (value) => (
+  <CountUp end={value} separator="," />
+);
 
 function Statictic() {
   return (
@@ -14,25 +14,59 @@ function Statictic() {
         <p>Lorem ipsum dolor sit.</p>
       </div>
 
-      <div className='  '>
-
-            <Row gutter={13} >
-
-                <Col span={8} className=' flex justify-center items-center  text-2xl '>
-                  <Statistic title="رزومه ساخته شده" value={65} formatter={formatter} className='text-red flex
-                  flex-col-reverse items-center justify-center bg-primaryColor shadow-lg text-center p-2 h-full rounded '/>
-                </Col>
-                <Col span={8}  className=' flex justify-center items-center '>
-                  <Statistic title="  مشاوره دریافت شده" value={132} precision={2} formatter={formatter}  className='text-white flex
-                  flex-col-reverse items-center justify-center bg-primaryColor shadow-lg text-center p-2 h-full rounded' />
-                </Col>
-                <Col span={8}  className=' flex justify-center items-center '>
-                  <Statistic title="  مشاوره دریافت شده" value={132} precision={2} formatter={formatter}  className='text-white flex
-                  flex-col-reverse items-center justify-center bg-primaryColor  shadow-lg text-center p-2 h-full rounded' />
-                </Col>
-              
-            
-            </Row>
+      <div className="  ">
+        <Row gutter={13}>
+          <Col
+            span={8}
+            className=" flex justify-center items-center  text-2xl "
+          >
+            <Statistic
+              title="رزومه ساخته شده"
+              value={65}
+              valueStyle={{
+                color: 'white',
+                fontSize: '2rem',
+              }}
+              formatter={formatter}
+              className="text-red flex
+                  flex-col-reverse items-center justify-center bg-primaryColor shadow-lg text-center p-2 h-full rounded "
+            />
+          </Col>
+          <Col
+            span={8}
+            className=" flex justify-center items-center text-white"
+          >
+            <Statistic
+              title="  مشاوره دریافت شده"
+              value={132}
+              valueStyle={{
+                color: 'white',
+                fontSize: '2rem',
+              }}
+              precision={2}
+              formatter={formatter}
+              className="text-white flex
+                  flex-col-reverse items-center justify-center bg-primaryColor shadow-lg text-center p-2 h-full rounded"
+            />
+          </Col>
+          <Col
+            span={8}
+            className=" flex justify-center items-center "
+          >
+            <Statistic
+              title="   رزومه ساخته شده "
+              value={14}
+              valueStyle={{
+                color: 'white',
+                fontSize: '2rem',
+              }}
+              precision={2}
+              formatter={formatter}
+              className="!text-white flex
+                  flex-col-reverse items-center justify-center bg-primaryColor  shadow-lg text-center p-2 h-full rounded"
+            />
+          </Col>
+        </Row>
       </div>
     </div>
   );
