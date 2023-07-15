@@ -136,7 +136,7 @@ export default function HomePage() {
         <Statictics />
       </div>
       <div>
-        <Comment/>
+        <Comment />
       </div>
     </div>
   );
