@@ -44,7 +44,7 @@ function ENFP() {
         </div>
 
         <div className=" p-5 text-[#545C6D] mt-5">
-          <h2 className="text-4xl text-[#51596A] pb-5">
+          <h2 className="text-lg text-[#51596A] pb-5">
             می‌توانید جهان را با فقط یک ایده تغییر
             دهید
           </h2>

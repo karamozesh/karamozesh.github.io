@@ -17,6 +17,7 @@ function ESFP() {
         typeName={' سرگرم‌کننده'}
         type={'ESFP-A / ESFP-T'}
         typeImg={esfp}
+        color=""
       />
 
       <section className="container mx-auto  mt-10 p-20 font-medium   ">

@@ -6,6 +6,36 @@ export default function Type({
   color,
   typeImg,
 }) {
+  let colorType;
+  if (
+    type === 'ESFP-A / ESFP-T' ||
+    type === 'ESTP-A / ESTP-T' ||
+    type === 'ISFP-A / ISFP-T' ||
+    type === 'ISTP-A / ISTP-T'
+  ) {
+    colorType = '#D8A537';
+  } else if (
+    type === 'ESFJ-A / ESFJ-T' ||
+    type === 'ESTJ-A / ESTJ-T' ||
+    type === 'ISFJ-A / ISFJ-T' ||
+    type === 'ISTJ-A / ISTJ-T'
+  ) {
+    colorType = '#4298B4';
+  } else if (
+    type === 'ENFP-A / ENFP-T' ||
+    type === 'ENFJ-A / ENFJ-T' ||
+    type === 'INFP-A / INFP-T' ||
+    type === 'INFJ-A / INFJ-T'
+  ) {
+    colorType = '#33A474';
+  } else if (
+    type === 'ENTP-A / ENTP-T' ||
+    type === 'ENTJ-A / ENTJ-T' ||
+    type === 'INTP-A / INTP-T' ||
+    type === 'INTJ-A / INTJ-T'
+  ) {
+    colorType = '#88619a';
+  }
   return (
     <header className="relative h-80">
       <div className="absolute -top-[1.5px] z-20 right-0 bg-black-900 h-1 w-[44.3%]"></div>
@@ -20,7 +50,7 @@ export default function Type({
         ></path>
         <path
           d="M923.4 546.3l996.6-97.4V1.5h-851z"
-          class={`st1 fill-[${color}]`}
+          class={`st1 fill-[${colorType}]`}
         ></path>
       </svg>
       <img
@@ -33,7 +63,10 @@ export default function Type({
         <h1 className="text-5xl p-3 font-extrabold mb-2">
           {typeName}
         </h1>
-        <div className="text-secondaryColor">
+        <div
+          className={`text-[${color}]`}
+          style={{ color: colorType }}
+        >
           {type}
         </div>
       </div>
