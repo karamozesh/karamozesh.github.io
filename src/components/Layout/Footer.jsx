@@ -4,16 +4,11 @@ import ContactUsModal from '../ContactUsModal/ContactUsModal';
 import { Modal } from 'antd';
 import { Link } from 'react-router-dom';
 
+import logo from '../../asset/icon/logo.png';
+
 export default function Footer() {
   const [contactUsModal, setContactUsModal] =
     useState(false);
-
-  const [aboutUsModal, setAboutUsModal] =
-    useState(false);
-
-  const contactUsCloseHandler = () => {
-    setContactUsModal(false);
-  };
 
   return (
     <footer
@@ -21,7 +16,7 @@ export default function Footer() {
       style={{ direction: 'ltr' }}
     >
       <img
-        src={logoSite}
+        src={logo}
         alt=""
         className="w-[75px] h-[75px] mr-4 bg-white rounded-full"
       />
@@ -40,7 +35,6 @@ export default function Footer() {
               onClose={setContactUsModal}
             />
           )}
-          {aboutUsModal && <ContactUsModal />}
 
           <Link to="/about-us" className="mr-4">
             درباره ما

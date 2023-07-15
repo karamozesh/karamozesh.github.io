@@ -5,7 +5,10 @@ import {
 } from 'react-redux';
 import { questions_holland } from '../../../Data/HalandData';
 import QuestionCard from '../../../components/TalentSurvey/QuestionCard';
-import { Link } from 'react-router-dom';
+import {
+  Link,
+  useNavigate,
+} from 'react-router-dom';
 import {
   halandActions,
   sendTestResult,
@@ -17,6 +20,10 @@ export default function TalentSurveyTestPage() {
   );
 
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(halandActions.setAns([]));
+  }, []);
 
   const { totalQuestions, ansArray } =
     useSelector((state) => state.haland);
@@ -44,6 +51,13 @@ export default function TalentSurveyTestPage() {
     currentPage ===
     Math.floor(totalQuestions / 6);
 
+  const navigate = useNavigate();
+
+  const callbackHandler = () => {
+    navigate('/talent-survey/result/haland');
+    window.scrollTo(0, 0);
+  };
+
   const seeTheResultHandler = () => {
     if (+ansArray.length !== totalQuestions)
       return;
@@ -51,19 +65,13 @@ export default function TalentSurveyTestPage() {
       sendTestResult({
         user_token,
         name: 'haland',
-        result: ansArray,
+        result: 'https://haland.ir',
+        cb: callbackHandler,
       }),
     );
   };
 
-  return ansArray.length === totalQuestions ? (
-    <div>
-      <h2>شما قبلا این آزمون را داده اید</h2>
-      <Link to="/talent-survey/result/haland">
-        نتیجه را نمایش بده
-      </Link>
-    </div>
-  ) : (
+  return (
     <section className="container mx-auto p-7 mt-7">
       <section className="flex flex-col items-center justify-center gap-5">
         <section className="border shadow-lg shadow-blue-500/50 grid  grid-rows-3 grid-cols-2 gap-10 justify-items-center p-10 content-center rounded-3xl">
@@ -106,15 +114,10 @@ export default function TalentSurveyTestPage() {
           )}
           {isLastPage && (
             <button
-              className="text-white bg-primaryColor rounded-3xl text-base"
+              className="text-white bg-primaryColor rounded-3xl text-base py-3 px-6"
               onClick={seeTheResultHandler}
             >
-              <Link
-                to="/talent-survey/result/haland"
-                className="py-3 px-6"
-              >
-                دیدن نتیجه تست
-              </Link>
+              دیدن نتیجه تست
             </button>
           )}
         </section>

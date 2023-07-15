@@ -58,6 +58,7 @@ import {
 import { getResume } from './store/resume-slice';
 import { mbtiActions } from './store/mbti-slice';
 import AboutPage from './pages/AboutusPage/AboutPage';
+import { halandActions } from './store/haland-slice';
 
 function App() {
   const { isLoggedIn, isMoshaver, user_token } =
@@ -181,6 +182,9 @@ function App() {
             .split('.', 2)[0];
 
           dispatch(mbtiActions.setType(type));
+        }
+        if (talentTest.name === 'haland') {
+          dispatch(halandActions.setIsDone(true));
         }
       }
     }

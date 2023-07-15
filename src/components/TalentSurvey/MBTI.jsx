@@ -19,6 +19,10 @@ function MBTI() {
   );
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(mbtiActions.setAns([]));
+  }, []);
+
   const { totalQuestions, ansArray } =
     useSelector((state) => state.mbti);
 

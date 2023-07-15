@@ -9,6 +9,7 @@ import {
 } from '../api/configAPI';
 import { mbtiActions } from './mbti-slice';
 import { notificationActions } from './notification-slice';
+import { profileActions } from './profile-slice';
 
 export const sendTestResult = createAsyncThunk(
   'haland/sendTestResult',
@@ -25,7 +26,16 @@ export const sendTestResult = createAsyncThunk(
         POST_CONFIG(user_token),
       );
 
-      dispatch(mbtiActions.setType(type));
+      const data = await response.data;
+
+      dispatch(
+        profileActions.addTestInTalentTest(data),
+      );
+
+      dispatch(halandActions.setIsDone(true));
+
+      if (type)
+        dispatch(mbtiActions.setType(type));
       dispatch(
         notificationActions.changeSuccess({
           exist: true,
@@ -48,6 +58,7 @@ export const sendTestResult = createAsyncThunk(
 const initialState = {
   totalQuestions: 48,
   ansArray: [], // {id: number, point: number}[]
+  isDone: false,
 };
 
 const halandSlice = createSlice({
@@ -71,6 +82,9 @@ const halandSlice = createSlice({
       } else {
         state.ansArray.push(ans);
       }
+    },
+    setIsDone(state, action) {
+      state.isDone = action.payload;
     },
   },
 });

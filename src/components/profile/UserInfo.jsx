@@ -24,6 +24,10 @@ export default function UserInfo() {
     (state) => state.auth,
   );
 
+  const { isDone } = useSelector(
+    (state) => state.haland,
+  );
+
   const [error, setError] = useState(null);
 
   const {
@@ -165,7 +169,7 @@ export default function UserInfo() {
           ) : null}
           <Button
             type="submit"
-            className="mt-8 hover:bg-amber-300 bg-[#FFC359] rounded-md shadow-profile-talent-btn"
+            className="mt-8 hover:bg-amber-300 bg-[#FFC359] rounded-md shadow-profile-talent-btn text-base"
           >
             ذخیره
           </Button>
@@ -229,15 +233,26 @@ export default function UserInfo() {
                   ),
                 )
               )  */
-                type ? (
-                  <TalentResultBtn
-                    talent={{
-                      label: 'نتیجه تست MBTI',
-                      name: 'mbti',
-                      value: 'result/mbti',
-                    }}
-                  />
-                ) : null
+                <>
+                  {type ? (
+                    <TalentResultBtn
+                      talent={{
+                        label: 'نتیجه تست MBTI',
+                        name: 'mbti',
+                        value: 'result/mbti',
+                      }}
+                    />
+                  ) : null}
+                  {isDone ? (
+                    <TalentResultBtn
+                      talent={{
+                        label: 'نتیجه تست Haland',
+                        name: 'Haland',
+                        value: 'result/haland',
+                      }}
+                    />
+                  ) : null}
+                </>
               ) : (
                 <div className="flex items-center gap-x-2">
                   <p>

@@ -303,6 +303,9 @@ const profileSlice = createSlice({
     saveResumeArray(state, action) {
       state.resume = action.payload;
     },
+    addTestInTalentTest(state, action) {
+      state.talent_result.push(action.payload);
+    },
   },
 });
 
