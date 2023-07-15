@@ -127,14 +127,15 @@ export const loginUser = createAsyncThunk(
 export const forgetPassword = createAsyncThunk(
   'auth/forgetPassword',
   async ({ email, cb }, { dispatch }) => {
+    console.log(email);
     try {
       const response = await axios.post(
         API_FORGOT_PASSWORD,
-        JSON.stringify(email),
+        { email },
         {
           method: 'POST',
           headers: {
-            'Content-Type': 'application/json',
+            'Content-Type': 'multipart/form-data',
           },
         },
       );
@@ -142,18 +143,29 @@ export const forgetPassword = createAsyncThunk(
       dispatch(
         notificationActions.changeSuccess({
           exist: true,
-          message: 'خوش آمدی دوست من.',
+          message: 'ایمیل فراموشی رمز فرستاده شد',
         }),
       );
       cb();
     } catch (error) {
-      dispatch(
-        notificationActions.changeError({
-          exist: true,
-          message:
-            'ایمیل با پسورد سازگار نیست دوست من.',
-        }),
-      );
+      const statusCode = error.response.status;
+
+      if (statusCode === 400) {
+        dispatch(
+          notificationActions.changeError({
+            exist: true,
+            message:
+              'کاربری با همچین ایمیلی وجود ندارد',
+          }),
+        );
+      } else {
+        dispatch(
+          notificationActions.changeError({
+            exist: true,
+            message: 'مشکلی در ارسال ایمیل است',
+          }),
+        );
+      }
     }
   },
 );

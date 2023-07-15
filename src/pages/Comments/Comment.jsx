@@ -11,15 +11,44 @@ import './style.css';
 import imageProfile from '../../asset/images/people-media-profile.svg';
 import SliderSlide from './UI/SliderSlide';
 
+import man1 from '../../asset/personImage/man1.jpg';
+import man2 from '../../asset/personImage/man2.jpg';
+import man3 from '../../asset/personImage/man3.jpg';
+import woman1 from '../../asset/personImage/woman1.jpg';
+import woman2 from '../../asset/personImage/woman2.jpg';
+
 function Comment() {
   const comments = [
     {
-      text: ' لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با ,هدف بهبود ابزارهای کاربردی می باشد',
-      image: imageProfile,
+      text: 'ظاهر زیبا و خلاقانه سایت سریع منو جذب خودش کرد. همینطور رابط کاربری سایت به راحتی برای هرکسی قابل استفاده می باشد',
+      name: 'ساینا',
+      image: woman1,
+      feature: 'طرح سایت',
     },
-    { text: '', image: imageProfile },
-    { text: '', image: imageProfile },
-    { text: '', image: imageProfile },
+    {
+      text: 'من تست شخصیت شناسی mbti رو انجام دادم .با توجه به شناختی که از خودم دارم خیلی دقیق و نزدیک به شخصیتم، به من تایپم رو معرفی کرد',
+      name: 'پوریا',
+      image: man2,
+      feature: 'خودشناسی',
+    },
+    {
+      text: 'نسبت به سایت های دیگه ای که تست رو با اونا انجام دادم خیلی سریعتر میتونستم انتخاب کنم.  گزینه ها خیلی واضح طراحی شده بودن که این کار من رو راحت تر میکرد',
+      name: 'داداش پوریا',
+      image: man3,
+      feature: 'خودشناسی',
+    },
+    {
+      text: 'سایت از لحاظ رنگ بندی خیلی زیبا و دلنشین طراحی شده و همچين برای استفاده کاربران خیلی ساده و کاربردی است',
+      name: 'ماری',
+      image: woman2,
+      feature: 'طرح سایت',
+    },
+    {
+      text: 'من تست شخصیت شناسی هالند رو در راستای پیدا کردن مسیر شغلیم انجام دادم.با توجه به شناختی که از خودم دارم کاملا درست عمل کرده بود و با کمک بخش مهارت های معرفی شده خیلی ساده کارهایی که باید انجام بدم تا این مسیرو طی کنم دستم اومد و از سردرگمی بیرون اومدم.',
+      name: 'امید',
+      image: man1,
+      feature: 'خودشناسی',
+    },
   ];
 
   return (
@@ -38,6 +67,8 @@ function Comment() {
               <SliderSlide
                 comment={comment.text}
                 img={comment.image}
+                name={comment.name}
+                feature={comment.feature}
               />
             </SwiperSlide>
           ))}

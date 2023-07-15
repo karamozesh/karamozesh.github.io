@@ -21,7 +21,10 @@ const ForgotPassword = ({
     if (email_value.trim().length < 4) {
       setError('ایمیل خیلی کوتاه است!');
       return;
-    } else if (!email_value.includes('@')) {
+    } else if (
+      !email_value.includes('@') ||
+      !email_value.includes('.')
+    ) {
       setError('این که اصلا ایمیل نیست!');
       return;
     }
@@ -35,7 +38,7 @@ const ForgotPassword = ({
   };
 
   return (
-    <section className=" fixed top-0 bottom-0 left-0 right-0">
+    <section className="fixed top-0 bottom-0 left-0 right-0">
       <div
         className="overlay fixed top-0 bottom-0 left-0 right-0 bg-black-700 opacity-50"
         onClick={toggleModeHandler}
@@ -49,8 +52,7 @@ const ForgotPassword = ({
           <input
             type="text"
             className="p-2 rounded-full  placeholder-gray-800 bg-slate-200"
-            placeholder="پست الکترونیک "
-            dir='ltr'
+            placeholder="پست الکترونیک"
             ref={emailRef}
           />
           <button
