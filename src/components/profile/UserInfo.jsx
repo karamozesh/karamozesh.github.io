@@ -1,5 +1,8 @@
 import Button from '../UI/Button';
-import { Link } from 'react-router-dom';
+import {
+  Link,
+  useNavigate,
+} from 'react-router-dom';
 import TalentResultBtn from './TalentResultBtn';
 import {
   useDispatch,
@@ -105,6 +108,16 @@ export default function UserInfo() {
     setError(null);
   };
 
+  const navigate = useNavigate();
+
+  // const navigateToTalentSurveyHandler = () => {
+  //   navigate('/');
+  // }
+
+  const scrollToTop = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
     <div className="flex flex-col rounded-md mt-4">
       <h1 className="text-3xl font-normal mt-3">
@@ -182,6 +195,7 @@ export default function UserInfo() {
                 <Link
                   to="/resume-creating-app/base-information"
                   className="inline-block h-full w-full px-4 py-2"
+                  onClick={scrollToTop}
                 >
                   اعمال تغییرات
                 </Link>
@@ -223,6 +237,7 @@ export default function UserInfo() {
                     <Link
                       to="/talent-survey/"
                       className="inline-block h-full w-full px-4 py-2"
+                      onClick={scrollToTop}
                     >
                       منو ببر تست بدم
                     </Link>

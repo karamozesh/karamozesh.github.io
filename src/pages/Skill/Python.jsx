@@ -258,13 +258,6 @@ function Python() {
             فیلم آموزشی stendex در Youtube
           </a>
           <br />
-          <a
-            className=" text-emerald-400"
-            href="https://www.youtube.com/watch?v=YYXdXT2l-Gg&list=PL-osiE80TeTskrapNbzXhwoFUiLCjGgY7"
-          >
-            فیلم آموزشی stendex در Youtube
-          </a>
-          <br />
           <br />
         </p>
         <h2

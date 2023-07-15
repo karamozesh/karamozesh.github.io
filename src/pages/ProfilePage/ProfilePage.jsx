@@ -96,8 +96,6 @@ export default function ProfilePage() {
       contentProfile = <TicketsInfo />;
   }
 
-  console.log(imageInfo.progress);
-
   return (
     <div className="flex mx-8 mt-8">
       <div className="flex flex-col items-center w-[150px] mt-6">
