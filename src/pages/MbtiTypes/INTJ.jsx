@@ -20,11 +20,11 @@ function INTJ() {
       />
 
       <section className="container mx-auto  mt-10 p-20 font-medium   ">
-        <h1 className="text-5xl text-[#51596A] pb-5">
+        <h1 className="text-4xl text-[#51596A] pb-5">
           شخصیت معمار
         </h1>
         <div className=" p-5 text-[#545C6D] border-4 border-t-0 border-b-0 border-l-[#33A474] border-r-[#33A474] border-5">
-          <p className="text-xl">
+          <p className="text-lg">
             شما حقی نسبت به دیدگاه خودتان ندارد.
             شما فقط در مورد دیدگاه آگاهانه خود محق
             هستید. هیچ کس حق ندارد نادان باشد.
@@ -35,7 +35,7 @@ function INTJ() {
         </div>
 
         <div className=" p-5 text-[#545C6D] ">
-          <p className="text-xl">
+          <p className="text-lg">
             معماران به‌تنهایی در نوک قله قرار
             گرفته‌اند و یکی از کمیاب‌ترین و
             توانمندترین گونه‌های شخصیتی از حیث
@@ -56,11 +56,11 @@ function INTJ() {
         </div>
 
         <div className=" p-5 text-[#545C6D] mt-5">
-          <h2 className="text-5xl text-[#51596A] pb-5">
+          <h2 className="text-4xl text-[#51596A] pb-5">
             هیچ چیز نمی‌تواند منش و رویکرد صحیح را
             از دستیابی به اهدافش بازدارد
           </h2>
-          <p className="text-xl">
+          <p className="text-lg">
             معماران به دلیل تشنگی ذاتی‌شان برای
             کسب دانش که خود را در اوایل زندگی نشان
             می‌دهد، اغلب کودکانی "خرخوان" لقب داده
@@ -83,7 +83,7 @@ function INTJ() {
           <img src={intjSvg} alt="" />
         </figure>
         <div className=" p-5 text-[#545C6D]">
-          <p className="text-xl">
+          <p className="text-lg">
             پارادوکس آنها از دید اکثر ناظران این
             است که معماران می‌توانند با تناقض‌هایی
             آشکار به زندگی بپردازند - حداقل از
@@ -117,7 +117,7 @@ function INTJ() {
         </div>
 
         <div className=" p-5 text-[#545C6D]">
-          <p className="text-xl">
+          <p className="text-lg">
             معماران اعتماد به نفس و هاله‌ای از رمز
             و راز از خود می‌پراکنند و مشاهدات
             روشنگر، ایده‌های اصیل و منطق

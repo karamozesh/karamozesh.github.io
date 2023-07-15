@@ -28,7 +28,7 @@ export default function Type({
         alt=""
         className=" absolute border-5 border-red-400 h-80 left-0 top-0 bottom-0"
       />
-      <div className="absolute  top-[40px] right-32  text-4xl  text-white z-20  text-center">
+      <div className="absolute  top-[40px] right-32  text-3xl  text-white z-20  text-center">
         <span>تایپ شخصیت شما :</span>
         <h1 className="text-5xl p-3 font-extrabold">
           {typeName}

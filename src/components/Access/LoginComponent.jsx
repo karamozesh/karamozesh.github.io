@@ -46,7 +46,7 @@ const LoginComponent = () => {
         ورود به حساب کاربری
       </p>
       <form onSubmit={loginHandler}>
-        <div className="flex flex-col gap-5 p-6 px-8">
+        <div className="flex flex-col gap-4 p-6 px-8">
           <InputLabel
             text="پست الکترونیک"
             type="email"
@@ -65,13 +65,13 @@ const LoginComponent = () => {
             autoComplete="off"
             role="password"
           />
-          {/* <p
-          href=""
-          className="font-bold text-gray-600 text-[13px] cursor-not-allowed"
-          // onClick={toggleModeHandler}
-        >
-          رمز عبور خود را فراموش کرده اید؟
-        </p> */}
+          <a
+            href=""
+            className="font-bold text-primaryColor text-[11px]"
+            // onClick={toggleModeHandler}
+          >
+            رمز عبور خود را فراموش کرده اید؟
+          </a>
 
           <div className="flex flex-col gap-3  justify-between">
             <button
@@ -105,4 +105,3 @@ const LoginComponent = () => {
 };
 
 export default LoginComponent;
-// export const validateInput = (str="")=>str.includes("@")

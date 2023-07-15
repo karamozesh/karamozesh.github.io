@@ -28,11 +28,13 @@
     "react": "^18.2.0",
     "react-animations": "^1.0.0",
     "react-cookie": "^4.1.1",
+    "react-countup": "^6.4.2",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.6.1",
     "recharts": "^2.4.1",
     "sinon": "^15.2.0",
+    "swiper": "^10.0.4",
     "vite-plugin-svgr": "^2.4.0",
     "wave-ui": "^3.3.0",
     "yup": "^1.2.0"
