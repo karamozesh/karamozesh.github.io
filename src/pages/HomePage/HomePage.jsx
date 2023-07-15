@@ -6,6 +6,7 @@ import roadDashed from '../../asset/images/road-dashed.svg';
 import roadCircleImage from '../../asset/images/road-circle_image.svg';
 import roadSite from '../../asset/images/Group 386.png';
 import Statictics from '../Statictics/Statictic.jsx';
+import Comment from '../Comments/Comment';
 
 const road = {
   resume: {
@@ -133,6 +134,9 @@ export default function HomePage() {
 
       <div>
         <Statictics />
+      </div>
+      <div>
+        <Comment/>
       </div>
     </div>
   );
