@@ -7,6 +7,7 @@ import roadCircleImage from '../../asset/images/road-circle_image.svg';
 import roadSite from '../../asset/images/Group 386.png';
 import Statictics from '../Statictics/Statictic.jsx';
 import Comment from '../Comments/Comment';
+import { Collapse } from 'antd';
 
 const road = {
   resume: {
@@ -30,7 +31,28 @@ const road = {
     right: ' 80%',
   },
 };
+
 export default function HomePage() {
+  const items = [
+    {
+      key: '1',
+      label:
+        'در چه حوزه هایی امکان مشاوره وجود دارد؟',
+      text: 'در حال حاضر تنها در حوزه های بک اند (پایتون و جنگو) - فرانت اند و هوش مصنوعی (پردازش زبان طبیعی و تصویر) امکان مشاوره وجود دارد',
+    },
+    {
+      key: '2',
+      label: 'مشاوران چه کسانی هستند؟',
+      text: 'مشاوران از دانشجویان موفق دانشگاه های برتر هستند که چندین سال در حوزه مربوطه تجربه دارند و مسیر را با موفقیت سپری کرده اند.',
+    },
+    {
+      key: '3',
+      label:
+        'آیا مهارت های مربوطه در بخش کسب مهارت آموزش داده میشوند؟',
+      text: 'آموزش هر مهارت نیازمند برنامه ای طولانی مدت، منظم و طبقه بندی شده است. ما در این بخش سعی میکنیم شما را با مسیرهای یادگیری آشنا کنیم و همچنین بهترین و باکیفیت ترین منابع موجود طبق نظر و تجربه اکثریت را به شما معرفی کنیم تا از بهترین روش ها بهره مند شوید.',
+    },
+  ];
+
   return (
     <div className="mt-8">
       <div className="relative flex flex-col items-center min-h-[60vh] p-4 shadow-lg md:flex-row z-30">
@@ -138,10 +160,29 @@ export default function HomePage() {
         <div className="absolute w-full h-[100px] -bottom-[10%] bg-secondaryColor skew-y-2 -z-10" />
         <Statictics />
       </div>
-      <div className="relative my-[400px]">
+      <div className="relative mt-[400px]">
         <div className="absolute w-full h-[100px] -top-[10%] bg-[#DEEAFF] -skew-y-2 -z-10" />
         <div className="absolute w-full h-[100px] -bottom-[10%] bg-[#DEEAFF] -skew-y-2 -z-10" />
         <Comment />
+      </div>
+
+      <div className="w-[80%] mx-auto my-[150px]">
+        <h2 className="text-2xl mb-6">
+          پرسش های پر تکرار
+        </h2>
+        <Collapse>
+          {items.map((item) => (
+            <Collapse.Panel
+              header={item.label}
+              key={item.key}
+              className="text-base"
+            >
+              <span className="text-sm text-gray-500">
+                {item.text}
+              </span>
+            </Collapse.Panel>
+          ))}
+        </Collapse>
       </div>
     </div>
   );

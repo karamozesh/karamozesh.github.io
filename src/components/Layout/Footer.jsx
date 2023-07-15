@@ -2,6 +2,7 @@ import { useState } from 'react';
 import logoSite from '../../asset/images/logo-site.png';
 import ContactUsModal from '../ContactUsModal/ContactUsModal';
 import { Modal } from 'antd';
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
   const [contactUsModal, setContactUsModal] =
@@ -32,7 +33,7 @@ export default function Footer() {
               setContactUsModal(true)
             }
           >
-            تماس ما
+            تماس با ما
           </button>
           {contactUsModal && (
             <ContactUsModal
@@ -41,9 +42,9 @@ export default function Footer() {
           )}
           {aboutUsModal && <ContactUsModal />}
 
-          <button className="mr-4">
+          <Link to="/about-us" className="mr-4">
             درباره ما
-          </button>
+          </Link>
         </div>
         <div className="w-[90%] h-[0.5px] my-2 bg-black-900"></div>
         <p>

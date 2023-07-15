@@ -57,6 +57,7 @@ import {
 } from './store/profile-slice';
 import { getResume } from './store/resume-slice';
 import { mbtiActions } from './store/mbti-slice';
+import AboutPage from './pages/AboutusPage/AboutPage';
 
 function App() {
   const { isLoggedIn, isMoshaver, user_token } =
@@ -274,6 +275,10 @@ function App() {
         element={<UIUX />}
       />
       <Route
+        path="/about-us"
+        element={<AboutPage />}
+      />
+      <Route
         path="*"
         element={<NotFoundPage />}
       />
@@ -332,6 +337,10 @@ function App() {
         element={<UIUX />}
       />
       <Route
+        path="/about-us"
+        element={<AboutPage />}
+      />
+      <Route
         path="*"
         element={<NotFoundPage />}
       />
@@ -348,6 +357,10 @@ function App() {
       <Route
         path="/my-tickets"
         element={<MyTicketsPage />}
+      />
+      <Route
+        path="/about-us"
+        element={<AboutPage />}
       />
     </Routes>
   );
