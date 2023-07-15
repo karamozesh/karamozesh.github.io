@@ -114,7 +114,7 @@ function Haland() {
           {currentPage > 1 && (
             <button
               onClick={backHandler}
-              className="bg-[#F5AF2B] rounded-xl p-2 px-3"
+              className="bg-[#F5AF2B] rounded-xl p-2 px-3 text-base"
             >
               قبل
             </button>
@@ -123,14 +123,14 @@ function Haland() {
           {!isLastPage && (
             <button
               onClick={prevHandler}
-              className="bg-[#F5AF2B] rounded-xl p-2 px-3"
+              className="bg-[#F5AF2B] rounded-xl p-2 px-3 text-base"
             >
               سوالات بعدی
             </button>
           )}
           {isLastPage && (
             <button
-              className="text-white bg-primaryColor rounded-3xl"
+              className="text-white bg-primaryColor rounded-3xl text-base"
               onClick={seeTheResultHandler}
             >
               <Link

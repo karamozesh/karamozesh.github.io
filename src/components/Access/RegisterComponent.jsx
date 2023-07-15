@@ -60,7 +60,7 @@ const RegisterComponent = () => {
   return (
     <div className="shadow-lg lg:w-1/2 w-full flex flex-col h-full ">
       <p className="bg-primaryColor text-white p-5 text-center text-lg  font-bold">
-        عضویت در کارآموزش
+        عضویت در آموزشیار
       </p>
       <form
         action=""

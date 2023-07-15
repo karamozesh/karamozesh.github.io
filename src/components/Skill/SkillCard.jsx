@@ -27,7 +27,12 @@ const SkillCard = ({
       style={style}
       className="rounded-md inline h-30 border border-black-300"
     >
-      <Link to={link}>
+      <Link
+        to={link}
+        className={
+          isDevMode && 'cursor-not-allowed'
+        }
+      >
         <img
           style={style}
           src={image}

@@ -14,6 +14,12 @@ const LoginComponent = () => {
 
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
+  const [error, setError] = useState(null);
+
+  const callbackFunction = () => {
+    navigate('/');
+    window.scrollTo(0, 0);
+  };
 
   const loginHandler = (e) => {
     e.preventDefault();
@@ -23,17 +29,30 @@ const LoginComponent = () => {
 
     // simple validation
     if (
-      email_value.trim().length < 1 ||
-      password_value.trim().length < 1
-    )
+      email_value.trim().length < 5 ||
+      password_value.trim().length < 5
+    ) {
+      setError(
+        'ایمیل و پسورد باید حداقل ۵ کاراکتر داشته باشد',
+      );
       return;
+    } else if (
+      !email_value.includes('@') ||
+      !email_value.includes('.')
+    ) {
+      setError('اینکه اصلا ایمیل نیست!');
+      return;
+    }
+    setError(null);
 
     const data = {
       email: email_value,
       password: password_value,
     };
-    dispatch(loginUser(data));
-    navigate('/');
+
+    dispatch(
+      loginUser({ data, cb: callbackFunction }),
+    );
   };
 
   const gotoRegister = () => {
@@ -98,6 +117,14 @@ const LoginComponent = () => {
               </p>
             </span>
           </div>
+          {error && (
+            <p className="flex items-center">
+              خطا:{' '}
+              <span className="text-red-500 text-xs mr-2">
+                {error}
+              </span>
+            </p>
+          )}
         </div>
       </form>
     </div>

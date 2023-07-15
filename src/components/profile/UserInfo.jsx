@@ -39,8 +39,6 @@ export default function UserInfo() {
     (state) => state.mbti,
   );
 
-  console.log(type);
-
   const filedChangeHandler = (e, prop) => {
     const value = e.target.value;
 

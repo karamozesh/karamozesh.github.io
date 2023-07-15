@@ -257,7 +257,7 @@ const FreeMoshavereRequestContent = () => {
       >
         <div>
           <div className="flex flex-col mb-6">
-            <label className="inline-block mb-1">
+            <label className="inline-block mb-1 text-base">
               عنوان مشاوره:{' '}
               <span className="text-redColor">
                 *
@@ -272,7 +272,7 @@ const FreeMoshavereRequestContent = () => {
         </div>
         <div>
           <div className="flex flex-col mb-6">
-            <label className="inline-block mb-1">
+            <label className="inline-block mb-1 text-base">
               سوال مشاوره:{' '}
               <span className="text-redColor">
                 *
@@ -287,7 +287,7 @@ const FreeMoshavereRequestContent = () => {
         </div>
         <div className="grid grid-cols-2 gap-x-4 mb-6">
           <div>
-            <label className="inline-block mb-1">
+            <label className="inline-block mb-1 text-base">
               زمینه مشاوره{' '}
               <span className="text-redColor">
                 *
@@ -309,7 +309,7 @@ const FreeMoshavereRequestContent = () => {
             />
           </div>
           <div>
-            <label className="inline-block mb-1">
+            <label className="inline-block mb-1 text-base">
               میزان اطلاعات شما{' '}
               <span className="text-redColor">
                 *
@@ -365,7 +365,7 @@ const FreeMoshavereRequestContent = () => {
         </div>
         <div className="grid grid-cols-2 gap-x-4 mb-7">
           <div>
-            <label className="inline-block mb-1">
+            <label className="inline-block mb-1 text-base">
               راه ارتباطی{' '}
               <span className="text-redColor">
                 *
@@ -385,7 +385,7 @@ const FreeMoshavereRequestContent = () => {
             />
           </div>
           <div>
-            <label className="inline-block mb-1">
+            <label className="inline-block mb-1 text-base">
               زمان مشاوره{' '}
               <span className="text-redColor">
                 *
@@ -408,7 +408,7 @@ const FreeMoshavereRequestContent = () => {
           </div>
         </div>
         <button
-          className="w-full h-[54px] rounded-md bg-greenColor text-white"
+          className="w-full h-[54px] rounded-md bg-greenColor text-white text-base"
           onClick={addTicketHandler}
           type="submit"
         >
@@ -697,10 +697,10 @@ const MoshavereRequestForm = ({
           {tabItems.map((item, index) => (
             <Tab
               key={item.label}
-              className={`shadow-mahdis rounded-t-xl overflow-hidden ${
+              className={`shadow-mahdis rounded-t-xl overflow-hidden text-base ${
                 activeTab === index
-                  ? `w-[44%] h-12 bg-${item.bgColor} text-${item.textColor}`
-                  : 'w-[56%] h-10 bg-white text-black-900'
+                  ? `w-[56%] h-12 bg-${item.bgColor} text-${item.textColor}`
+                  : 'w-[44%] h-10 bg-white text-black-900'
               }`}
             >
               {item.label}

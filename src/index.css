@@ -136,6 +136,10 @@ img {
   border-radius: 1.5rem !important;
 }
 
+.ant-statistic-title {
+  color: white !important;
+}
+
 .ant-select-selector:focus {
   outline: none !important;
   outline-color: #f2f2f2 !important;

@@ -13,7 +13,7 @@ const MoshavereRequestRules = ({ activeTab }) => {
           boxShadow: '0px 0px 4px 0px #00000040',
         }}
       >
-        <h4 className="font-bold">
+        <h4 className="text-lg font-bold">
           فرم درخواست مشاوره تخصصی
         </h4>
         <p>

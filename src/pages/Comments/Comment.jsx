@@ -12,55 +12,35 @@ import imageProfile from '../../asset/images/people-media-profile.svg';
 import SliderSlide from './UI/SliderSlide';
 
 function Comment() {
+  const comments = [
+    {
+      text: ' لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با ,هدف بهبود ابزارهای کاربردی می باشد',
+      image: imageProfile,
+    },
+    { text: '', image: imageProfile },
+    { text: '', image: imageProfile },
+    { text: '', image: imageProfile },
+  ];
+
   return (
-    <div className="bg-[#DEEAFF] p-10 ">
-      <h2>نظرات کاربران اموزشیاری</h2>
-      <div className="flex items-center justify-center lg:p-0 p-10">
+    <div className="bg-[#DEEAFF] p-4 md:p-10">
+      <h2 className="mb-10 text-center md:text-right md:mb-0">
+        نظرات کاربران اموزشیاری
+      </h2>
+      <div className="flex items-center justify-center lg:p-0">
         <Swiper
           navigation={true}
           modules={[Navigation]}
           className="mySwiper"
         >
-          <SwiperSlide>
-            <SliderSlide
-              comment={
-                ' لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد'
-              }
-              img={imageProfile}
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <SliderSlide
-              comment={
-                ' لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد'
-              }
-              img={imageProfile}
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <SliderSlide
-              comment={
-                ' لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد'
-              }
-              img={imageProfile}
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <SliderSlide
-              comment={
-                ' لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد'
-              }
-              img={imageProfile}
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <SliderSlide
-              comment={
-                ' لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد'
-              }
-              img={imageProfile}
-            />
-          </SwiperSlide>
+          {comments.map((comment) => (
+            <SwiperSlide>
+              <SliderSlide
+                comment={comment.text}
+                img={comment.image}
+              />
+            </SwiperSlide>
+          ))}
         </Swiper>
         <img
           src={pana1}

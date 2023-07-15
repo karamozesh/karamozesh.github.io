@@ -8,54 +8,70 @@ const formatter = (value) => (
 
 function Statictic() {
   return (
-    <div className="bg-secondaryColor h-54 flex mx-auto px-12 py-5 items-center justify-between ">
-      <div>
-        <h2>امار خدمات سایت</h2>
-        <p>Lorem ipsum dolor sit.</p>
+    <div className="bg-secondaryColor flex flex-col mx-auto px-12 py-20 items-center justify-between md:flex-row ">
+      <div className="relative -top-10 md:top-0">
+        <h2>آمار آموزشکار در یک نگاه</h2>
       </div>
 
-      <div className="  ">
+      <div className="w-full md:w-[70%]">
         <Row gutter={13}>
           <Col
-            span={8}
-            className=" flex justify-center items-center  text-2xl "
+            span={6}
+            className="flex justify-center items-center  text-2xl"
           >
             <Statistic
               title="رزومه ساخته شده"
-              value={65}
+              value={212}
               valueStyle={{
                 color: 'white',
                 fontSize: '2rem',
               }}
               formatter={formatter}
               className="text-red flex
-                  flex-col-reverse items-center justify-center bg-primaryColor shadow-lg text-center p-2 h-full rounded "
+                  flex-col-reverse items-center justify-center bg-primaryColor shadow-ticketConversation text-center p-2 h-full rounded text-white"
             />
           </Col>
           <Col
-            span={8}
+            span={6}
             className=" flex justify-center items-center text-white"
           >
             <Statistic
-              title="  مشاوره دریافت شده"
-              value={132}
+              title="مشاوره های انجام شده"
+              value={5}
               valueStyle={{
                 color: 'white',
                 fontSize: '2rem',
               }}
-              precision={2}
+              precision={7}
               formatter={formatter}
               className="text-white flex
-                  flex-col-reverse items-center justify-center bg-primaryColor shadow-lg text-center p-2 h-full rounded"
+                  flex-col-reverse items-center justify-center bg-primaryColor shadow-ticketConversation text-center p-2 h-full rounded"
             />
           </Col>
           <Col
-            span={8}
+            span={6}
+            className=" flex justify-center items-center text-white"
+          >
+            <Statistic
+              title="تیکت های ایجاد شده"
+              value={300}
+              valueStyle={{
+                color: 'white',
+                fontSize: '2rem',
+              }}
+              precision={234}
+              formatter={formatter}
+              className="text-white flex
+                  flex-col-reverse items-center justify-center bg-primaryColor shadow-ticketConversation text-center p-2 h-full rounded"
+            />
+          </Col>
+          <Col
+            span={6}
             className=" flex justify-center items-center "
           >
             <Statistic
-              title="   رزومه ساخته شده "
-              value={14}
+              title="خودشناسی های انجام شده"
+              value={536}
               valueStyle={{
                 color: 'white',
                 fontSize: '2rem',
@@ -63,7 +79,7 @@ function Statictic() {
               precision={2}
               formatter={formatter}
               className="!text-white flex
-                  flex-col-reverse items-center justify-center bg-primaryColor  shadow-lg text-center p-2 h-full rounded"
+                  flex-col-reverse items-center justify-center bg-primaryColor text-center p-2 h-full rounded shadow-ticketConversation"
             />
           </Col>
         </Row>

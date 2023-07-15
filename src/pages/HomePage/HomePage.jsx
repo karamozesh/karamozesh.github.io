@@ -33,7 +33,7 @@ const road = {
 export default function HomePage() {
   return (
     <div className="mt-8">
-      <div className="flex flex-col items-center min-h-[60vh] p-4 shadow-lg md:flex-row z-10">
+      <div className="relative flex flex-col items-center min-h-[60vh] p-4 shadow-lg md:flex-row z-30">
         <div className="w-[100%] h-1/2 md:h-full md:w-1/2">
           <img
             src={heroImage}
@@ -49,8 +49,11 @@ export default function HomePage() {
             و به اشتراک گذاشتن رزومه و تجربیاتتون
             با دیگران :)
           </p>
-          <Button className="inline w-fit px-8 shadow-lg">
-            <Link to="/talent-survey">
+          <Button className="inline w-fit shadow-lg text-base px-0 py-0">
+            <Link
+              to="/talent-survey"
+              className="inline-block px-8 py-2"
+            >
               خودشناسی
             </Link>
           </Button>
@@ -58,14 +61,12 @@ export default function HomePage() {
         <div className="w-[5%]"></div>
       </div>
       <div>
-        <div className="flex justify-between ">
-          <div className="w-[30%] md:-translate-y-24 -z-20">
-            <img
-              src={roadDashed}
-              alt=""
-              className="w-full"
-            />
-          </div>
+        <div className="-z-30 relative flex justify-end mb-20">
+          <img
+            src={roadDashed}
+            alt=""
+            className="absolute right-0 -top-28 w-[30%] bg-top h-[450px] -z-30"
+          />
           <div
             className="w-fit h-fit p-2 ml-2 bg-[#CFDFFF]"
             style={{
@@ -132,10 +133,14 @@ export default function HomePage() {
         </div>
       </div>
 
-      <div>
+      <div className="relative my-[200px]">
+        <div className="absolute w-full h-[100px] -top-[10%] bg-secondaryColor skew-y-2 -z-10" />
+        <div className="absolute w-full h-[100px] -bottom-[10%] bg-secondaryColor skew-y-2 -z-10" />
         <Statictics />
       </div>
-      <div>
+      <div className="relative my-[400px]">
+        <div className="absolute w-full h-[100px] -top-[10%] bg-[#DEEAFF] -skew-y-2 -z-10" />
+        <div className="absolute w-full h-[100px] -bottom-[10%] bg-[#DEEAFF] -skew-y-2 -z-10" />
         <Comment />
       </div>
     </div>

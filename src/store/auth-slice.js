@@ -87,7 +87,7 @@ export const registerUser = createAsyncThunk(
 
 export const loginUser = createAsyncThunk(
   'auth/login',
-  async (data, { dispatch }) => {
+  async ({ data, cb }, { dispatch }) => {
     try {
       const response = await axios.post(
         API_LOGIN,
@@ -110,6 +110,7 @@ export const loginUser = createAsyncThunk(
           message: 'خوش آمدی دوست من.',
         }),
       );
+      cb();
     } catch (error) {
       dispatch(
         notificationActions.changeError({

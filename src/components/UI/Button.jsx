@@ -11,7 +11,7 @@ export default function Button({
       type={type}
       ref={innerRef}
       onClick={onClick}
-      className={`py-2 px-4 bg-secondaryColor text-black rounded-3xl cursor-pointer ${className}`}
+      className={`py-2 px-4 bg-secondaryColor text-base text-black rounded-3xl cursor-pointer ${className}`}
       {...props}
     >
       {children}
