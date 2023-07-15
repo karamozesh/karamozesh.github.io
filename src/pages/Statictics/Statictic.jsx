@@ -36,7 +36,7 @@ function Statictic() {
             className=" flex justify-center items-center text-white"
           >
             <Statistic
-              title="مشاوره های انجام شده"
+              title="مشاوره انجام شده"
               value={5}
               valueStyle={{
                 color: 'white',
@@ -53,7 +53,7 @@ function Statictic() {
             className=" flex justify-center items-center text-white"
           >
             <Statistic
-              title="تیکت های ایجاد شده"
+              title="تیکت ایجاد شده"
               value={300}
               valueStyle={{
                 color: 'white',
@@ -70,7 +70,7 @@ function Statictic() {
             className=" flex justify-center items-center "
           >
             <Statistic
-              title="خودشناسی های انجام شده"
+              title="خودشناسی انجام شده"
               value={536}
               valueStyle={{
                 color: 'white',
