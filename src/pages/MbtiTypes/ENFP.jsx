@@ -8,6 +8,7 @@ import joon from '../../images/joon.svg';
 import tarantino from '../../images/tarantino.svg';
 import downey from '../../images/downey.svg';
 import williams from '../../images/williams.svg';
+import GreatTalk from './GreatTalk/GreatTalk';
 
 function ENFP() {
   return (
@@ -20,29 +21,16 @@ function ENFP() {
       />
 
       <section className="container mx-auto  mt-10 p-20 font-medium   ">
-        <h1 className="text-4xl text-[#51596A] pb-5">
+        <h1 className="text-3xl text-[#51596A] pb-5">
           شخصیت پیکارگر
         </h1>
-        <div className=" p-5 text-[#545C6D] border-4 border-t-0 border-b-0 border-l-[#33A474] border-r-[#33A474] border-5">
-          <p className="text-lg">
-            برایم مهم نیست برای گذران زندگی چه
-            کاری انجام می‌دهید. می‌خواهم بدانم چه
-            چیزی را با تمام وجود می‌خواهید - و آیا
-            جرأت آن را دارید که رؤیای برآورده کردن
-            اشتیاق قلبی خود را در سر بپرورانید.
-            برایم مهم نیست چند ساله هستید.
-            می‌خواهم بدانم آیا این خطر را
-            می‌پذیرید که مثل یک احمق به نظر برسید
-            - برای عشقتان - برای رؤیاهایتان - برای
-            ماجراجویی زنده بودن.
-          </p>
-          <span className="p-3 text-[#B5B5B5]">
-            ORIAH MOUNTAIN DREAMER
-          </span>
-        </div>
+        <GreatTalk
+          text="            برایم مهم نیست برای گذران زندگی چه کاری انجام می‌دهید. می‌خواهم بدانم چه چیزی را با تمام وجود می‌خواهید - و آیا جرأت آن را دارید که رؤیای برآورده کردن اشتیاق قلبی خود را در سر بپرورانید. برایم مهم نیست چند ساله هستید. می‌خواهم بدانم آیا این خطر را می‌پذیرید که مثل یک احمق به نظر برسید - برای عشقتان - برای رؤیاهایتان - برای ماجراجویی زنده بودن."
+          author="ORIAH MOUNTAIN DREAMER"
+        />
 
         <div className=" p-5 text-[#545C6D] ">
-          <p className="text-lg">
+          <p className="text-md">
             شخصیت پیکارگر یک روح به‌راستی آزاد
             است. آن‌ها اغلب به مهمانی‌ها جان
             می‌بخشند، اما کمتر به هیجان محض و لذت
@@ -60,7 +48,7 @@ function ENFP() {
             می‌توانید جهان را با فقط یک ایده تغییر
             دهید
           </h2>
-          <p className="text-lg">
+          <p className="text-md">
             پیکارگران تنها افرادی خوش مشرب نیستند
             که به دنبال خشنود کردن مردم باشند،
             بلکه ماهیت رؤیاپردازشان آنها را شکل
@@ -81,7 +69,7 @@ function ENFP() {
           <img src={enfpSvg} alt="" />
         </figure>
         <div className=" p-5 text-[#545C6D]">
-          <p className="text-lg">
+          <p className="text-md">
             بسیاری از گونه ‌های شخصیتی دیگر به
             احتمال زیاد قادر به مقاومت در برای
             چنین ویژگی‌هایی نیستند، و اگر
@@ -110,7 +98,7 @@ function ENFP() {
         </div>
 
         <div className=" p-5 text-[#545C6D]">
-          <p className="text-lg">
+          <p className="text-md">
             خوشبختانه افراد گونه شخصیتی پیکارگر
             می‌دانند چگونه به آرامش برسند و کاملاً
             قادر به تبدیل کردن خود از آرمانگرایی

@@ -6,13 +6,13 @@ export default function Type({
   color,
   typeImg,
 }) {
-  console.log(color);
   return (
-    <header className="relative  h-80">
+    <header className="relative h-80">
+      <div className="absolute -top-[1.5px] z-20 right-0 bg-black-900 h-1 w-[44.3%]"></div>
       <svg
         viewBox="0 0 1920 600"
         preserveAspectRatio="none"
-        class="background h-80 absolute right-0 w-full z-10 "
+        class="background h-80 absolute right-0 w-full z-10"
       >
         <path
           d="M400 598.9l1520-152.8v164.4H0v-288z"
@@ -30,10 +30,10 @@ export default function Type({
       />
       <div className="absolute  top-[40px] right-32  text-3xl  text-white z-20  text-center">
         <span>تایپ شخصیت شما :</span>
-        <h1 className="text-5xl p-3 font-extrabold">
+        <h1 className="text-5xl p-3 font-extrabold mb-2">
           {typeName}
         </h1>
-        <div className="text-[#3A2942]">
+        <div className="text-secondaryColor">
           {type}
         </div>
       </div>

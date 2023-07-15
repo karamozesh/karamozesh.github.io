@@ -8,6 +8,7 @@ import baker from '../../images/baker.svg';
 import judy from '../../images/judy.svg';
 import rockefeller from '../../images/rockefeller.svg';
 import sotomayor from '../../images/sotomayor.svg';
+import GreatTalk from './GreatTalk/GreatTalk';
 
 function ESTJ() {
   return (
@@ -20,20 +21,16 @@ function ESTJ() {
       />
 
       <section className="container mx-auto  mt-10 p-20 font-medium   ">
-        <h1 className="text-4xl text-[#51596A] pb-5">
+        <h1 className="text-3xl text-[#51596A] pb-5">
           شخصیت مجری
         </h1>
-        <div className=" p-5 text-[#545C6D] border-4 border-t-0 border-b-0 border-l-[#33A474] border-r-[#33A474] border-5">
-          <p className="text-lg">
-            نظم خوب پایه و اساس همه چیز است.
-          </p>
-          <span className="p-3 text-[#B5B5B5]">
-            EDMUND BURKE
-          </span>
-        </div>
+        <GreatTalk
+          text="نظم خوب پایه و اساس همه چیز است."
+          author="EDMUND BURKE"
+        />
 
         <div className=" p-5 text-[#545C6D] ">
-          <p className="text-lg">
+          <p className="text-md">
             مجریان نمایندگان سنت و نظم هستند و از
             درک خود در مورد امور درست، نادرست و
             قابل قبول اجتماع برای گردهم آوردن
@@ -56,12 +53,12 @@ function ESTJ() {
         </div>
 
         <div className=" p-5 text-[#545C6D] mt-5">
-          <h2 className="text-4xl text-[#51596A] pb-5">
+          <h2 className="text-lg text-[#51596A] pb-5">
             هر کسی که ارزشش را دارد باید در دفاع
             از آنچه که به باورش صحیح است به پا
             خیزد ...
           </h2>
-          <p className="text-lg">
+          <p className="text-md">
             تقاضا برای این نوع رهبری در جوامع
             دموکراتیک بالا است و حدود 11% جمعیت را
             تشکیل می‌دهد، جای تعجب نیست که بسیاری
@@ -82,7 +79,7 @@ function ESTJ() {
           <img src={estjSvg} alt="" />
         </figure>
         <div className=" p-5 text-[#545C6D]">
-          <p className="text-lg">
+          <p className="text-md">
             پارادوکس آنها از دید اکثر ناظران این
             است که معماران می‌توانند با تناقض‌هایی
             آشکار به زندگی بپردازند - حداقل از
@@ -113,7 +110,7 @@ function ESTJ() {
         </div>
 
         <div className=" p-5 text-[#545C6D]">
-          <p className="text-lg">
+          <p className="text-md">
             چالش اصلی پیش روی افراد دارای این گونه
             شخصیتی مجری این است که بدانند همه
             افراد از یک مسیر پیروی نمی‌کنند یا به

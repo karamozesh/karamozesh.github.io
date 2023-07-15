@@ -7,6 +7,7 @@ import barack from '../../images/barack.svg';
 import oprah from '../../images/oprah.svg';
 import ben from '../../images/oprah.svg';
 import john from '../../images/john.svg';
+import GreatTalk from './GreatTalk/GreatTalk';
 
 function ENFJ() {
   return (
@@ -19,29 +20,16 @@ function ENFJ() {
       />
 
       <section className="container mx-auto  mt-10 p-20 font-medium ">
-        <h1 className="text-4xl text-[#51596A] pb-5">
+        <h1 className="text-3xl text-[#51596A] pb-5">
           شخصیت قهرمان
         </h1>
-        <div className=" p-5 text-[#545C6D] border-4 border-t-0 border-b-0 border-l-[#33A474] border-r-[#33A474] border-5">
-          <p className="text-lg">
-            هر کاری که هم اکنون انجام می‌دهید
-            همچون موج به بیرون گسترش می‌یابد و همه
-            را تحت تأثیر قرار می‌دهد. وضعیت شما
-            می‌توانید موجب درخشش قلبتان شود یا
-            اضطراب را منتقل نماید. نفس شما
-            می‌توانید عشق بتاباند یا اتاق را در
-            افسردگی فرو ببرد. نگاهتان می‌تواند
-            شادی را بیدار کند. کلماتتان می‌تواند
-            الهام‌بخش آزادی باشد. تک‌تک اعمال شما
-            می‌تواند قلب‌ها و ذهن‌ها را باز کند.
-          </p>
-          <span className="p-3 text-[#B5B5B5]">
-            DAVID DEIDA
-          </span>
-        </div>
+        <GreatTalk
+          text="هر کاری که هم اکنون انجام می‌دهید همچون موج به بیرون گسترش می‌یابد و همه را تحت تأثیر قرار می‌دهد. وضعیت شما می‌توانید موجب درخشش قلبتان شود یا اضطراب را منتقل نماید. نفس شما می‌توانید عشق بتاباند یا اتاق را در افسردگی فرو ببرد. نگاهتان می‌تواند شادی را بیدار کند. کلماتتان می‌تواند الهام‌بخش آزادی باشد. تک‌تک اعمال شما می‌تواند قلب‌ها و ذهن‌ها را باز کند."
+          author="DAVID DEIDA"
+        />
 
-        <div className=" p-5 text-[#545C6D] ">
-          <p className="text-lg">
+        <div className="p-5 text-[#545C6D] ">
+          <p className="text-md">
             قهرمانان رهبرانی بالفطره و سرشار از
             عشق و شور و جذبه هستند. این شخصیت‌ها
             که حدود دو درصد از جمعیت را تشکیل
@@ -58,7 +46,7 @@ function ENFJ() {
         </div>
 
         <div className=" p-5 text-[#545C6D] mt-5">
-          <h2 className="text-4xl text-[#51596A] pb-5">
+          <h2 className="text-lg text-[#51596A] pb-5">
             اعتقاد راسخ به مردم
           </h2>
           <p className="text-xl">
@@ -83,7 +71,7 @@ function ENFJ() {
         </div>
 
         <div className=" p-5 text-[#545C6D]">
-          <p className="text-lg">
+          <p className="text-md">
             افراد دارای گونه شخصیتی قهرمان
             نوع‌دوستانی پرشور هستند، گاهی اوقات
             حتی تا مرز نقض، و بعید است وقتی در
@@ -107,7 +95,7 @@ function ENFJ() {
           را خوشحال نمی‌کند.
         </div>
         <div className=" p-5 text-[#545C6D]">
-          <p className="text-lg">
+          <p className="text-md">
             افراد دارای گونه شخصیتی قهرمان
             نوع‌دوستانی پرشور هستند، گاهی اوقات
             حتی تا مرز نقض، و بعید است وقتی در
@@ -122,8 +110,6 @@ function ENFJ() {
             شدن در مبارزه‌ای دشوار.
           </p>
         </div>
-
-        <div></div>
       </section>
       <PersonTypes
         img1={barack}

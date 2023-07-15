@@ -8,6 +8,7 @@ import Margaret from '../../images/margaret.svg';
 import steve from '../../images/steve.svg';
 import whoopi from '../../images/whoopi.svg';
 import franklin from '../../images/franklin.svg';
+import GreatTalk from './GreatTalk/GreatTalk';
 
 function ENTP() {
   return (
@@ -20,26 +21,16 @@ function ENTP() {
       />
 
       <section className="container mx-auto  mt-10 p-20 font-medium   ">
-        <h1 className="text-4xl text-[#51596A] pb-5">
+        <h1 className="text-3xl text-[#51596A] pb-5">
           شخصیت مجادله گر
         </h1>
-        <div className=" p-5 text-[#545C6D] border-4 border-t-0 border-b-0 border-l-[#33A474] border-r-[#33A474] border-5">
-          <p className="text-lg">
-            مسیر ناامن متفکری مستقل را دنبال کنید.
-            ایده‌های خود را در معرض خطر اختلاف نظر
-            قرار دهید. نظرات خود را بیان کنید و از
-            برچسب "احمق بودن" کمتر بترسید تا از
-            ننگ همرنگ شدن با جماعت. و در خصوص
-            مسائلی که برایتان مهم است، به هر قیمتی
-            که شده از آنها دفاع کنید.
-          </p>
-          <span className="p-3 text-[#B5B5B5]">
-            THOMAS J. WATSON
-          </span>
-        </div>
+        <GreatTalk
+          text='مسیر ناامن متفکری مستقل را دنبال کنید. ایده‌های خود را در معرض خطر اختلاف نظر قرار دهید. نظرات خود را بیان کنید و از برچسب "احمق بودن" کمتر بترسید تا از ننگ همرنگ شدن با جماعت. و در خصوص مسائلی که برایتان مهم است، به هر قیمتی که شده از آنها دفاع کنید.'
+          author="THOMAS J. WATSON"
+        />
 
         <div className=" p-5 text-[#545C6D] ">
-          <p className="text-lg">
+          <p className="text-md">
             گونه شخصیتی مجادله‌گر به‌راستی وکیل
             مدافع شیطان است، یعنی نابود کردن
             استدلال‌ها و اعتقادات و در معرض دید
@@ -60,12 +51,12 @@ function ENTP() {
         </div>
 
         <div className=" p-5 text-[#545C6D] mt-5">
-          <h2 className="text-4xl text-[#51596A] pb-5">
+          <h2 className="text-lg text-[#51596A] pb-5">
             در اینجا هیچ قانونی وجود ندارد - ما
             داریم تلاش می‌کنیم کاری را به انجام
             برسانیم.
           </h2>
-          <p className="text-lg">
+          <p className="text-md">
             مجادله‌گران که تا حدودی از اینکه طرف
             شکست‌خورده بحث باشند لذت می‌برند، عاشق
             تمرین ذهنی به پرسش کشیدن نظام غالب
@@ -91,7 +82,7 @@ function ENTP() {
           <img src={entjSvg} alt="" />
         </figure>
         <div className=" p-5 text-[#545C6D]">
-          <p className="text-lg">
+          <p className="text-md">
             مجادله‌گران برای مهار توانایی‌های
             طبیعی خود نسبت به دیگران راه درازتری
             در پیش دارند - استقلال فکری و
@@ -131,7 +122,7 @@ function ENTP() {
         </div>
 
         <div className=" p-5 text-[#545C6D]">
-          <p className="text-lg">
+          <p className="text-md">
             ایفای نقش وکیل مدافع شیطان به افراد
             دارای گونه شخصیتی مجادله‌گر کمک می‌کند
             تا نه تنها درک بهتری از استدلال دیگران

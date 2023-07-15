@@ -8,6 +8,7 @@ import teresa from '../../images/teresa.svg';
 import kondo from '../../images/kondo.svg';
 import luther from '../../images/luther.svg';
 import mandela from '../../images/mandela.svg';
+import GreatTalk from './GreatTalk/GreatTalk';
 
 function INFJ() {
   return (
@@ -20,22 +21,16 @@ function INFJ() {
       />
 
       <section className="container mx-auto  mt-10 p-20 font-medium   ">
-        <h1 className="text-4xl text-[#51596A] pb-5">
+        <h1 className="text-3xl text-[#51596A] pb-5">
           شخصیت حامی
         </h1>
-        <div className=" p-5 text-[#545C6D] border-4 border-t-0 border-b-0 border-l-[#33A474] border-r-[#33A474] border-5">
-          <p className="text-lg">
-            هر کسی باید تصمیم بگیرد که آیا
-            می‌خواهد در روشنایی نوع‌دوستی خلاقانه
-            گام بردارد یا در تاریکی خودخواهی مخرب.
-          </p>
-          <span className="p-3 text-[#B5B5B5]">
-            MARTIN LUTHER KING
-          </span>
-        </div>
+        <GreatTalk
+          text="هر کسی باید تصمیم بگیرد که آیا می‌خواهد در روشنایی نوع‌دوستی خلاقانه گام بردارد یا در تاریکی خودخواهی مخرب."
+          author="MARTIN LUTHER KING"
+        />
 
         <div className=" p-5 text-[#545C6D] ">
-          <p className="text-lg">
+          <p className="text-md">
             گونه شخصیتی حامی بسیار نادر است و کمتر
             از یک درصد از جمعیت را تشکیل می‌دهد،
             با وجود این، آنها جای پای خود را در
@@ -52,10 +47,10 @@ function INFJ() {
         </div>
 
         <div className=" p-5 text-[#545C6D] mt-5">
-          <h2 className="text-4xl text-[#51596A] pb-5">
+          <h2 className="text-lg text-[#51596A] pb-5">
             به من کمک کن و من به تو کمک می‌کنم
           </h2>
-          <p className="text-lg">
+          <p className="text-md">
             در واقع حامیان ترکیب بسیار منحصر به
             فردی از صفات را دارند: آنها هرچند نرم
             و ملایم سخن می‌گویند اما عقاید بسیار
@@ -79,7 +74,7 @@ function INFJ() {
           <img src={infjSvg} alt="" />
         </figure>
         <div className=" p-5 text-[#545C6D]">
-          <p className="text-lg">
+          <p className="text-md">
             حامیان به‌راحتی می‌توانند با دیگران
             ارتباط برقرار کنند و استعداد زیادی
             برای سخن گفتن با زبانی گرم و حساس با
@@ -110,7 +105,7 @@ function INFJ() {
         </div>
 
         <div className=" p-5 text-[#545C6D]">
-          <p className="text-lg">
+          <p className="text-md">
             هر چند واقعاً مهم است که شخصیت‌های
             حامی به یاد داشته باشند که باید از
             خودشان مراقبت کنند. شور و شوق ناشی از

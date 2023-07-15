@@ -8,6 +8,7 @@ import tolkien from '../../images/tolkien.svg';
 import shakespeare from '../../images/shakespeare.svg';
 import bjork from '../../images/bjork.svg';
 import alicia from '../../images/alicia.svg';
+import GreatTalk from './GreatTalk/GreatTalk';
 
 function INTP() {
   return (
@@ -23,21 +24,13 @@ function INTP() {
         <h1 className="text-4xl text-[#51596A] pb-5">
           شخصیت میانجی
         </h1>
-        <div className=" p-5 text-[#545C6D] border-4 border-t-0 border-b-0 border-l-[#33A474] border-r-[#33A474] border-5">
-          <p className="text-lg ">
-            هر چیزی که طلا باشد برق نمی‌زند؛ همه
-            کسانی که سرگردان هستند گم نشده‌اند؛
-            چیزهای قدیمی که نیرومند باشند از ریخت
-            نمی‌افتند؛ یخبندان به ریشه‌های عمیق
-            نمی‌رسد.
-          </p>
-          <span className="p-3 text-[#B5B5B5]">
-            J. R. R. TOLKIEN
-          </span>
-        </div>
+        <GreatTalk
+          text="هر چیزی که طلا باشد برق نمی‌زند؛ همه کسانی که سرگردان هستند گم نشده‌اند؛ چیزهای قدیمی که نیرومند باشند از ریخت نمی‌افتند؛ یخبندان به ریشه‌های عمیق نمی‌رسد."
+          author="J. R. R. TOLKIEN"
+        />
 
         <div className=" p-5 text-[#545C6D] ">
-          <p className="text-lg">
+          <p className="text-md">
             شخصیت‌های میانجی آرمانگرایانی واقعی
             هستند، همیشه به دنبال نشانه‌هایی از
             خوبی در حتی بدترین افراد و حوادث
@@ -57,11 +50,11 @@ function INTP() {
         </div>
 
         <div className=" p-5 text-[#545C6D] mt-5">
-          <h2 className="text-4xl text-[#51596A] pb-5">
+          <h2 className="text-lg text-[#51596A] pb-5">
             ما می‌دانیم چه کسانی هستیم، اما
             نمی‌دانیم ممکن است چه کسانی باشیم
           </h2>
-          <p className="text-lg">
+          <p className="text-md">
             میانجی‌گران براساس اصول خود عمل
             می‌کنند تا منطق، هیجان، یا عملی بودن
             مسائل. آنها در هنگام تصمیم‌گیری برای
@@ -79,7 +72,7 @@ function INTP() {
           <img src={infpSvg} alt="" />
         </figure>
         <div className=" p-5 text-[#545C6D]">
-          <p className="text-lg">
+          <p className="text-md">
             این ویژگی‌ها در بهترین حالت خود افراد
             دارای گونه شخصیتی میانجی را قادر به
             برقراری ارتباط عمیق با دیگران، صحبت
@@ -101,7 +94,7 @@ function INTP() {
           استعاره‌ها و شخصیت‌های داستانی دارند.
         </div>
         <div className=" p-5 text-[#545C6D]">
-          <p className="text-lg">
+          <p className="text-md">
             توانایی زبانی میانجی‌گران در حد زبان
             مادری‌شان متوقف نمی‌ماند - آنها در
             هنگام آموختن زبان دوم (یا سوم!) نیز

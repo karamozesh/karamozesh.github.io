@@ -8,6 +8,7 @@ import harvey from '../../images/harvey.svg';
 import clinton from '../../images/clinton.svg';
 import garner from '../../images/garner.svg';
 import swift from '../../images/swift.svg';
+import GreatTalk from './GreatTalk/GreatTalk';
 
 function ESFJ() {
   return (
@@ -20,23 +21,16 @@ function ESFJ() {
       />
 
       <section className="container mx-auto  mt-10 p-20 font-medium   ">
-        <h1 className="text-4xl text-[#51596A] pb-5">
+        <h1 className="text-3xl text-[#51596A] pb-5">
           شخصیت سفیر
         </h1>
-        <div className=" p-5 text-[#545C6D] border-4 border-t-0 border-b-0 border-l-[#33A474] border-r-[#33A474] border-5">
-          <p className="text-lg">
-            یکدیگر را تشویق کنید، بالا ببرید و
-            تقویت کنید. چرا که وقتی یک نفر انرژی
-            مثبت را دریافت کند همه ما آن را احساس
-            می‌کنیم.
-          </p>
-          <span className="p-3 text-[#B5B5B5]">
-            DEBORAH DAY
-          </span>
-        </div>
+        <GreatTalk
+          text="یکدیگر را تشویق کنید، بالا ببرید و تقویت کنید. چرا که وقتی یک نفر انرژی مثبت را دریافت کند همه ما آن را احساس می‌کنیم."
+          author="DEBORAH DAY"
+        />
 
         <div className=" p-5 text-[#545C6D] ">
-          <p className="text-lg">
+          <p className="text-md">
             باید گفت افراد دارای شخصیت مشاور
             پرطرفدار هستند - البته به این دلیل که
             کلمه بهتری نداریم - که از این بابت هم
@@ -56,10 +50,10 @@ function ESFJ() {
         </div>
 
         <div className=" p-5 text-[#545C6D] mt-5">
-          <h2 className="text-4xl text-[#51596A] pb-5">
+          <h2 className="text-lg text-[#51596A] pb-5">
             احترام گذاشتن به خرد رهبری
           </h2>
-          <p className="text-lg">
+          <p className="text-md">
             مشاوران افراد نوع‌دوستی هستند و
             مسئولیت خود را برای کمک کردن و انجام
             کار درست جدی می‌گیرند. با این حال
@@ -78,8 +72,8 @@ function ESFJ() {
         <figure className="m-10">
           <img src={esfjSvg} alt="" />
         </figure>
-        <div className=" p-5 text-[#545C6D]">
-          <p className="text-lg">
+        <div className="p-5 text-[#545C6D]">
+          <p className="text-md">
             احتمالاً بحث در مورد نظریه‌های علمی یا
             سیاست بین‌المللی برای مدت زمان طولانی
             علاقه مشاوران را برنمی‌انگیزد. مشاوران
@@ -99,7 +93,7 @@ function ESFJ() {
         </div>
 
         <div className=" p-5 text-[#545C6D]">
-          <p className="text-lg">
+          <p className="text-md">
             بزرگترین چالش مشاوران کنار آمدن با
             حساسیتشان است - سایر افراد مخالف هستند
             و انتقاد می‌کنند، درست است که چنین

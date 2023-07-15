@@ -8,6 +8,7 @@ import ernest from '../../images/ernest.svg';
 import madona from '../../images/madonna.svg';
 import jack from '../../images/jack.svg';
 import murphy from '../../images/murphy.svg';
+import GreatTalk from './GreatTalk/GreatTalk';
 
 function ESTP() {
   return (
@@ -19,21 +20,16 @@ function ESTP() {
       />
 
       <section className="container mx-auto  mt-10 p-20 font-medium   ">
-        <h1 className="text-4xl text-[#51596A] pb-5">
+        <h1 className="text-3xl text-[#51596A] pb-5">
           شخصیت کارآفرین
         </h1>
-        <div className=" p-5 text-[#545C6D] border-4 border-t-0 border-b-0 border-l-[#33A474] border-r-[#33A474] border-5">
-          <p className="text-lg">
-            زندگی یا ماجراجویی جسورانه است یا
-            اساساً هیچ.
-          </p>
-          <span className="p-3 text-[#B5B5B5]">
-            HELEN KELLER
-          </span>
-        </div>
+        <GreatTalk
+          text="زندگی یا ماجراجویی جسورانه است یا اساساً هیچ."
+          author="HELEN KELLER"
+        />
 
         <div className=" p-5 text-[#545C6D] ">
-          <p className="text-lg">
+          <p className="text-md">
             گونه شخصیت کارآفرین همواره بر محیط
             بلافصل اطراف خود تأثیر دارد - بهترین
             راه برای تشخیص آنها در یک مهمانی است
@@ -49,10 +45,10 @@ function ESTP() {
         </div>
 
         <div className=" p-5 text-[#545C6D] mt-5">
-          <h2 className="text-4xl text-[#51596A] pb-5">
+          <h2 className="text-lg text-[#51596A] pb-5">
             هرگز حرکت را با عمل اشتباه نگیر
           </h2>
-          <p className="text-lg">
+          <p className="text-md">
             کارآفرینان محتمل‌ترین گونه شخصیتی
             هستند که ممکن است شیوه زندگی رفتار
             مخاطره‌آمیز را در پیش بگیرند. آن‌ها در
@@ -72,7 +68,7 @@ function ESTP() {
           <img src={estpSvg} alt="" />
         </figure>
         <div className=" p-5 text-[#545C6D]">
-          <p className="text-lg">
+          <p className="text-md">
             همچنین مسئله دیگر که برای افراد دارای
             گونه شخصیتی کارآفرین چالش‌برانگیز است
             این است که آنها ترجیح می‌دهند از
@@ -98,7 +94,7 @@ function ESTP() {
         </div>
 
         <div className=" p-5 text-[#545C6D]">
-          <p className="text-lg">
+          <p className="text-md">
             کارآفرینان پر از شور و انرژی هستند و
             ذهنی منطقی، هرچند گاهی اوقات پریشان
             دارند. افراد با این گونه شخصیتی به

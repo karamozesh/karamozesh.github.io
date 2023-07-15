@@ -46,11 +46,7 @@ import { notificationActions } from './store/notification-slice';
 import 'react-toastify/dist/ReactToastify.css';
 import TicketsPage from './pages/MoshaverPages/TicketsPage/TickestPage';
 import MyTicketsPage from './pages/MoshaverPages/MyTicketsPage/MyTicketsPage';
-import axios from 'axios';
-import {
-  API_GET_USER_ID,
-  API_GET_USER_TICKETS,
-} from './api/configAPI';
+
 import { getUserTickets } from './store/ticket-slice';
 import {
   // getCVId,

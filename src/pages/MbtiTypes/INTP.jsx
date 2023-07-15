@@ -9,6 +9,7 @@ import Bill from '../../images/bill.svg';
 import kristen from '../../images/kristen.svg';
 import einstein from '../../images/einstein.svg';
 import avicii from '../../images/avicii.svg';
+import GreatTalk from './GreatTalk/GreatTalk';
 
 function INTP() {
   return (
@@ -24,19 +25,13 @@ function INTP() {
         <h1 className="text-4xl text-[#51596A] pb-5">
           شخصیت منطق دان
         </h1>
-        <div className=" p-5 text-[#545C6D] border-4 border-t-0 border-b-0 border-l-[#33A474] border-r-[#33A474] border-5">
-          <p className="text-lg">
-            از دیروز بیاموز، برای امروز زندگی کن،
-            به فردا امیدوار باش. مسئله مهم این است
-            که دست از سؤال پرسیدن بر ندارید.
-          </p>
-          <span className="p-3 text-[#B5B5B5]">
-            ALBERT EINSTEIN
-          </span>
-        </div>
+        <GreatTalk
+          text="از دیروز بیاموز، برای امروز زندگی کن، به فردا امیدوار باش. مسئله مهم این است که دست از سؤال پرسیدن بر ندارید."
+          author="ALBERT EINSTEIN"
+        />
 
         <div className=" p-5 text-[#545C6D] ">
-          <p className="text-lg">
+          <p className="text-md">
             گونه شخصیتی منطق‌دان نسبتاً نادر است و
             تنها سه درصد از جمعیت را شامل می‌شود
             که قطعاً خبر خوبی برای آنها است چرا که
@@ -52,11 +47,11 @@ function INTP() {
         </div>
 
         <div className=" p-5 text-[#545C6D] mt-5">
-          <h2 className="text-4xl text-[#51596A] pb-5">
+          <h2 className="text-lg text-[#51596A] pb-5">
             {' '}
             زندگی آزموده نشده ارزش زیستن ندارد
           </h2>
-          <p className="text-lg">
+          <p className="text-md">
             افراد دارای گونه شخصیتی منطق‌دان عاشق
             الگوها هستند و تعیین اختلافات بین
             عبارات تقریباً نوعی سرگرمی برایشان به
@@ -78,7 +73,7 @@ function INTP() {
           <img src={entjSvg} alt="" />
         </figure>
         <div className=" p-5 text-[#545C6D]">
-          <p className="text-lg">
+          <p className="text-md">
             ممکن است این مسئله باعث شود این گونه
             شخصیتی غیرقابل اعتماد به نظر برسد، اما
             در واقع هیچ کس به اندازه منطق‌دانان
@@ -105,7 +100,7 @@ function INTP() {
           گونه‌های شخصیتی در نظر گرفته می‌شوند.
         </div>
         <div className=" p-5 text-[#545C6D]">
-          <p className="text-lg">
+          <p className="text-md">
             علاوه بر این، بعید است منطق‌دانان
             اساساً شکایت‌های عاطفی را درک کنند، و
             دوستانشان حمایت عاطفی چندانی از آنها

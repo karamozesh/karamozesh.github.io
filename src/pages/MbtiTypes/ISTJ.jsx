@@ -8,6 +8,7 @@ import merkel from '../../images/merkel.svg';
 import sting from '../../images/sting.svg';
 import portman from '../../images/portman.svg';
 import washington from '../../images/washington.svg';
+import GreatTalk from './GreatTalk/GreatTalk';
 
 function ISTJ() {
   return (
@@ -20,22 +21,15 @@ function ISTJ() {
       />
 
       <section className="container mx-auto  mt-10 p-20 font-medium   ">
-        شخصیت تدارکاتچی
-        <h1 className="text-4xl text-[#51596A] pb-5"></h1>
-        <div className=" p-5 text-[#545C6D] border-4 border-t-0 border-b-0 border-l-[#33A474] border-r-[#33A474] border-5">
-          <p className="text-lg">
-            به نظر من هر وقت مشخص شود یک نفر برای
-            انجام یک وظیفه کفایت می‌کند ... آن کار
-            توسط دو نفر بدتر انجام می‌شود، و اگر
-            سه نفر یا بیشتر به کار گرفته شوند،
-            اساساً انجام نخواهد شد.
-          </p>
-          <span className="p-3 text-[#B5B5B5]">
-            GEORGE WASHINGTON
-          </span>
-        </div>
+        <h1 className="text-4xl text-[#51596A] pb-5">
+          شخصیت تدارکاتچی
+        </h1>
+        <GreatTalk
+          text="به نظر من هر وقت مشخص شود یک نفر برای انجام یک وظیفه کفایت می‌کند ... آن کار توسط دو نفر بدتر انجام می‌شود، و اگر سه نفر یا بیشتر به کار گرفته شوند، اساساً انجام نخواهد شد."
+          author="GEORGE WASHINGTON"
+        />
         <div className=" p-5 text-[#545C6D] ">
-          <p className="text-lg">
+          <p className="text-md">
             تصور می‌شود که گونه شخصیتی تدارکچی
             فراوان‌ترین گونه بوده و حدود 13% از
             جمعیت را تشکیل دهد. ویژگی‌های معرف
@@ -56,7 +50,7 @@ function ISTJ() {
           </p>
         </div>
         <div className=" p-5 text-[#545C6D] ">
-          <p className="text-lg">
+          <p className="text-md">
             تدارکچیان فرضیات زیادی ندارند و ترجیح
             می‌دهند بجای تجزیه و تحلیل محیط اطراف
             خود، حقایق را بررسی کرده و به کارهای
@@ -78,11 +72,11 @@ function ISTJ() {
           </p>
         </div>
         <div className=" p-5 text-[#545C6D] mt-5">
-          <h2 className="text-4xl text-[#51596A] pb-5">
+          <h2 className="text-lg text-[#51596A] pb-5">
             اگر برای شهرت خود ارزش قائل هستی با
             افراد خوب همنشین باش...
           </h2>
-          <p className="text-lg">
+          <p className="text-md">
             هنگامی که تدارکچیان می‌گویند قصد دارند
             کاری را به انجام برسانند، این کار را
             انجام می‌دهند و تعهدات خود را بدون
@@ -112,7 +106,7 @@ function ISTJ() {
           <img src={istjSvg} alt="" />
         </figure>
         <div className=" p-5 text-[#545C6D]">
-          <p className="text-lg">
+          <p className="text-md">
             پارادوکس آنها از دید اکثر ناظران این
             است که معماران می‌توانند با تناقض‌هایی
             آشکار به زندگی بپردازند - حداقل از
@@ -145,7 +139,7 @@ function ISTJ() {
           می‌گذارند.
         </div>
         <div className=" p-5 text-[#545C6D]">
-          <p className="text-lg">
+          <p className="text-md">
             تدارکچیان باید به یاد داشته باشند که
             از خود مراقبت کنند - تعهد سرسختانه
             آنها به ثبات و کارآمدی می‌تواند در

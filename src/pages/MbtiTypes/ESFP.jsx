@@ -8,6 +8,7 @@ import adele from '../../images/adele.svg';
 import john1 from '../../images/john1.svg';
 import monroe from '../../images/monroe.svg';
 import oliver from '../../images/oliver.svg';
+import GreatTalk from './GreatTalk/GreatTalk';
 
 function ESFP() {
   return (
@@ -19,26 +20,22 @@ function ESFP() {
       />
 
       <section className="container mx-auto  mt-10 p-20 font-medium   ">
-        <h1 className="text-4xl text-[#51596A] pb-5">
+        <h1 className="text-3xl text-[#51596A] pb-5">
           شخصیت سرگرم‌کننده
         </h1>
-        <div className=" p-5 text-[#545C6D] border-4 border-t-0 border-b-0 border-l-[#33A474] border-r-[#33A474] border-5">
-          <p className="text-lg">
-            من خودخواه، بی‌حوصله و کمی متزلزل
+        <GreatTalk
+          text="خودخواه، بی‌حوصله و کمی متزلزل
             هستم. من مرتکب اشتباه می‌شوم، کنترل
             خود را از دست می‌دهم و گاهی اوقات
             نمی‌شود تحملم کرد. اما اگر نتوانید
             وقتی در بدترین حالت هستم مرا تحمل
             کنید، قطعاً شایستگی وقتی در بهترین
-            حالت خود هستم را ندارید.
-          </p>
-          <span className="p-3 text-[#B5B5B5]">
-            MARILYN MONROE
-          </span>
-        </div>
+            حالت خود هستم را ندارید."
+          author="MARILYN MONROE"
+        />
 
         <div className=" p-5 text-[#545C6D] ">
-          <p className="text-lg">
+          <p className="text-md">
             اگر کسی را بتوان یافت که خود به خود به
             رقص و آواز بپردازد، گونه شخصیتی وی
             سرگرم‌کننده است. سرگرم‌کنندگان در
@@ -53,10 +50,10 @@ function ESFP() {
         </div>
 
         <div className=" p-5 text-[#545C6D] mt-5">
-          <h2 className="text-4xl text-[#51596A] pb-5">
+          <h2 className="text-lg text-[#51596A] pb-5">
             ما همگی ستاره هستیم ...
           </h2>
-          <p className="text-lg">
+          <p className="text-md">
             سرگرم‌کنندگان که ذاتاً سرگرم‌کننده به
             دنیا آمده‌اند عاشق این هستند که در
             کانون توجه باشند، اما جهان به تمامی
@@ -77,7 +74,7 @@ function ESFP() {
           <img src={esfpSvg} alt="" />
         </figure>
         <div className=" p-5 text-[#545C6D]">
-          <p className="text-lg">
+          <p className="text-md">
             سرگرم‌کنندگان می‌دانند که احساسات
             دیگران همیشه نسبت به آنها مثبت نیست و
             ممکن است از این امر خوششان نیاید - اما
@@ -104,7 +101,7 @@ function ESFP() {
         </div>
 
         <div className=" p-5 text-[#545C6D]">
-          <p className="text-lg">
+          <p className="text-md">
             هر جا که نیاز به خنده، بازیگوشی و فرد
             داوطلب امتحان کردن چیزی تازه و
             سرگرم‌کننده وجود داشته باشد از

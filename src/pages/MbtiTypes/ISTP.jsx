@@ -8,6 +8,7 @@ import eastwood from '../../images/eastwood.svg';
 import jordan from '../../images/jordan.svg';
 import bear from '../../images/bear.svg';
 import wilde from '../../images/wilde.svg';
+import GreatTalk from './GreatTalk/GreatTalk';
 
 function ISTP() {
   return (
@@ -19,24 +20,16 @@ function ISTP() {
       />
 
       <section className="container mx-auto  mt-10 p-20 font-medium   ">
-        <h1 className="text-4xl text-[#51596A] pb-5">
+        <h1 className="text-3xl text-[#51596A] pb-5">
           شخصیت چیره دست
         </h1>
-        <div className=" p-5 text-[#545C6D] border-4 border-t-0 border-b-0 border-l-[#33A474] border-r-[#33A474] border-5">
-          <p className="text-lg">
-            می‌خواستم زندگی کنم، یک زندگی متفاوت.
-            نمی‌خواستم هر روز به همان محل قبلی
-            بروم، همان آدمهای قبلی را ببینم و همان
-            کارهای قبلی را انجام بدهم. می‌خواستم
-            چالش‌های جالبی داشته باشم.
-          </p>
-          <span className="p-3 text-[#B5B5B5]">
-            HARRISON FORD
-          </span>
-        </div>
+        <GreatTalk
+          text="می‌خواستم زندگی کنم، یک زندگی متفاوت. نمی‌خواستم هر روز به همان محل قبلی بروم، همان آدمهای قبلی را ببینم و همان کارهای قبلی را انجام بدهم. می‌خواستم چالش‌های جالبی داشته باشم."
+          author="HARRISON FORD"
+        />
 
         <div className=" p-5 text-[#545C6D] ">
-          <p className="text-lg">
+          <p className="text-md">
             چیره‌دستان عاشق اکتشاف با دست و چشم
             خود، لمس کردن و بررسی کردن جهان اطراف
             با عقل محض و روحیه کنجکاوی هستند.
@@ -54,10 +47,10 @@ function ISTP() {
         </div>
 
         <div className=" p-5 text-[#545C6D] mt-5">
-          <h2 className="text-4xl text-[#51596A] pb-5">
+          <h2 className="text-lg text-[#51596A] pb-5">
             جرأت متفاوت بودن
           </h2>
-          <p className="text-lg">
+          <p className="text-md">
             در حالی که طبیعت کم‌حرف و تمرکز
             چیره‌دستان بر مسائل عملی باعث می‌شود
             این شخصیت‌ها در نگاه اول ساده به نظر
@@ -80,7 +73,7 @@ function ISTP() {
           <img src={istpSvg} alt="" />
         </figure>
         <div className=" p-5 text-[#545C6D]">
-          <p className="text-lg">
+          <p className="text-md">
             تصمیمات چیره‌دستان از حس واقع گرایی
             عملی آنها ناشی می‌شود و در قلبشان حس
             نیرومند انصاف وجود دارد، نگرش "چیزی را
@@ -103,7 +96,7 @@ function ISTP() {
           علایق می‌پردازند.
         </div>
         <div className=" p-5 text-[#545C6D]">
-          <p className="text-lg">
+          <p className="text-md">
             پیدا کردن محیطی که بتوانند با دوستان
             خوبشان همکاری کنند، کسانی که سبک و
             غیرقابل پیش‌بینی بودن آنها را درک

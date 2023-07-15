@@ -8,6 +8,7 @@ import queen from '../../images/queen.svg';
 import disel from '../../images/diesel.svg';
 import beyonce from '../../images/beyonce.svg';
 import franklin2 from '../../images/franklin2.svg';
+import GreatTalk from './GreatTalk/GreatTalk';
 
 function ISFJ() {
   return (
@@ -23,20 +24,13 @@ function ISFJ() {
         <h1 className="text-4xl text-[#51596A] pb-5">
           شخصیت مدافع
         </h1>
-        <div className=" p-5 text-[#545C6D] border-4 border-t-0 border-b-0 border-l-[#33A474] border-r-[#33A474] border-5">
-          <p className="text-lg">
-            عشق تنها وقتی قسمت شود رشد می‌کند.
-            تنها با بخشیدن آن به دیگران است که
-            می‌توانید از آن بیشتر بهره داشته
-            باشید.
-          </p>
-          <span className="p-3 text-[#B5B5B5]">
-            BRIAN TRACY
-          </span>
-        </div>
+        <GreatTalk
+          text="عشق تنها وقتی قسمت شود رشد می‌کند. تنها با بخشیدن آن به دیگران است که می‌توانید از آن بیشتر بهره داشته باشید."
+          author="BRIAN TRACY"
+        />
 
         <div className=" p-5 text-[#545C6D] ">
-          <p className="text-lg">
+          <p className="text-md">
             گونه شخصیتی مدافع کاملاً منحصر به فرد
             است، زیرا بسیاری از کیفیت‌های آن از
             تعریف صفات فردی‌اش سرپیچی می‌کند.
@@ -59,10 +53,10 @@ function ISFJ() {
         </div>
 
         <div className=" p-5 text-[#545C6D] mt-5">
-          <h2 className="text-4xl text-[#51596A] pb-5">
+          <h2 className="text-lg text-[#51596A] pb-5">
             ما باید دیده شویم تا باور شویم
           </h2>
-          <p className="text-lg">
+          <p className="text-md">
             چالش پیش روی افراد دارای گونه شخصیتی
             مدافع این است که مطمئن شوند آنچه که
             انجام می‌دهند مورد توجه قرار گیرد.
@@ -98,7 +92,7 @@ function ISFJ() {
           <img src={intjSvg} alt="" />
         </figure> */}
         <div className=" p-5 text-[#545C6D]">
-          <p className="text-lg">
+          <p className="text-md">
             شخصیت‌های مدافع، به ویژه محتاط، اغلب
             تا سرحد کمال دقیق هستند، و اگرچه گاهی
             تعلل می‌کنند، همیشه می‌توان برای انجام
@@ -120,7 +114,7 @@ function ISFJ() {
         </div>
 
         <div className=" p-5 text-[#545C6D]">
-          <p className="text-lg">
+          <p className="text-md">
             شخصیت‌های مدافع گروه فوق‌العاده‌ای
             هستند و تا زمانی که کار مهمی ناتمام
             مانده باشد، به‌ندرت بیکار می‌نشینند.
