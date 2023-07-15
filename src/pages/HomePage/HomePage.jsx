@@ -137,6 +137,12 @@ export default function HomePage() {
             >
               مشاوره{' '}
             </p>
+            <p
+              className=" relative  text-xs font-light"
+              style={road.moshavere}
+            >
+              از حرفه ای ها یاد بگیر و تو مسیر بهتری قدم بگذار
+            </p>
           </div>
           <div className="">
             <p

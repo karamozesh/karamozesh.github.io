@@ -4,6 +4,7 @@ import {
 } from '@reduxjs/toolkit';
 import Cookies from 'universal-cookie';
 import {
+  API_CHANGE_PASSWORD,
   API_FORGOT_PASSWORD,
   API_LOGIN,
   API_REGISTER,
@@ -44,6 +45,8 @@ if (roleData.role) {
 let initialState = {
   user_token: initialToken,
   isLoggedIn: !!initialToken,
+  email: '',
+  number: '',
   isMoshaver: initialRole
     ? initialRole === 2
     : null,
@@ -140,6 +143,13 @@ export const forgetPassword = createAsyncThunk(
         },
       );
 
+      const { random_number } =
+        await response.data;
+
+      let number = random_number.split('');
+
+      dispatch(authActions.setNumber(number));
+
       dispatch(
         notificationActions.changeSuccess({
           exist: true,
@@ -170,10 +180,61 @@ export const forgetPassword = createAsyncThunk(
   },
 );
 
+export const changePassword = createAsyncThunk(
+  'auth/changePassword',
+  async (
+    { email, cb, password, password2 },
+    { dispatch },
+  ) => {
+    try {
+      const response = await axios.patch(
+        API_CHANGE_PASSWORD,
+        { email, password, password2 },
+        {
+          method: 'PATCH',
+        },
+      );
+
+      dispatch(
+        notificationActions.changeSuccess({
+          exist: true,
+          message: 'گذرواژه با موفقیت تغییر کرد.',
+        }),
+      );
+      cb();
+    } catch (error) {
+      const statusCode = error.response.status;
+
+      if (statusCode === 400) {
+        dispatch(
+          notificationActions.changeError({
+            exist: true,
+            message: 'عدد نادرست است، دوست من',
+          }),
+        );
+      } else {
+        dispatch(
+          notificationActions.changeError({
+            exist: true,
+            message:
+              'مشکلی در تغییر گذرواژه پیش آمده است',
+          }),
+        );
+      }
+    }
+  },
+);
+
 const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
+    setEmail(state, action) {
+      state.email = action.payload;
+    },
+    setNumber(state, action) {
+      state.number = action.payload;
+    },
     logoutHandler(state) {
       state.isLoggedIn = false;
       state.user_token = null;

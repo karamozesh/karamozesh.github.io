@@ -60,6 +60,7 @@ import { mbtiActions } from './store/mbti-slice';
 import AboutPage from './pages/AboutusPage/AboutPage';
 import { halandActions } from './store/haland-slice';
 import ForgotPassword from './components/Access/ForgotPassword';
+import ChangePasswordPage from './components/Access/ChangePasswordPage';
 
 function App() {
   const { isLoggedIn, isMoshaver, user_token } =
@@ -207,6 +208,10 @@ function App() {
         element={<ForgotPassword />}
       />
       <Route
+        path="/access/reset-password"
+        element={<ChangePasswordPage />}
+      />
+      <Route
         path="/resume-training"
         element={<ResumeTrainingPage />}
       />
@@ -308,6 +313,10 @@ function App() {
       <Route
         path="/access/forgot"
         element={<ForgotPassword />}
+      />
+      <Route
+        path="/access/reset-password"
+        element={<ChangePasswordPage />}
       />
       <Route
         path="/profile"

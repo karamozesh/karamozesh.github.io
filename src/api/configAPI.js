@@ -73,6 +73,9 @@ export const API_REGISTER =
 export const API_FORGOT_PASSWORD =
   baseUrl + '/api/user/forget-password/';
 
+export const API_CHANGE_PASSWORD =
+  baseUrl + '/api/user/password-reset/';
+
 // --- very funny API
 
 // export const API_GET_CV_ID =
